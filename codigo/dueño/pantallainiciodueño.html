@@ -4,10 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pantallainicio.css">
     <title>Document</title>
 </head>
 <body>
-<h1>PrintMe</h1>
-<a href=" iniciarsesion.html">Iniciar Secion</a>
+    <nav>
+        <button  id="menu-icon">
+            &#9776; <!-- Este es el icono de hamburguesa -->
+        </button>
+        <div class="contenedor-opciones">
+            <div>
+                <h1><a href="pantallainiciodueño.html"></a>Inicio</h1>
+            </div>
+            <div>
+                <h1><a href="codigo/dueño/cotizador.html"> Cotizador</a> </h1>
+            </div>
+            <div>
+                <h1><a href="codigo/general/index.html"> Cerrar Sesion</a></h1>
+            </div>
+            <div>
+                <h1>4</h1>
+            </div>
+            <div>
+                <h1>5</h1>
+            </div>
+        </div>
+        
+    </nav>
+
+    <script>
+        const btn = document.getElementById('menu-icon'); 
+        const menu = document.querySelector('.contenedor-opciones')
+        let n = 0; 
+        function saludo () {
+            if (n == 0){
+                menu.style.opacity = '1';
+                n = 1; 
+            }
+            else if (n == 1){
+                menu.style.opacity = '0';
+                n = 0; 
+            }
+        }
+        btn.addEventListener("click", saludo)
+    </script>
 </body>
 </html>
