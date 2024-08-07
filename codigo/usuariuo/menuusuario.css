@@ -1,0 +1,15 @@
+.nav-list {
+    background-color: #ffffff; /* Color de fondo del botón */
+    color: black; /* Color del texto */
+    padding: 0; /* Espaciado interno del botón */
+    margin: 0;
+    text-decoration-color: none;
+    font-size: 16px; /* Tamaño de la fuente del texto */
+    border: none; /* Sin borde alrededor del botón */
+    cursor: pointer; /* Cambia el cursor a puntero al pasar sobre el botón */
+    display: flex; /* Usa Flexbox para alinear el contenido dentro del botón */
+    align-items: center; /* Alinea verticalmente el ícono y el texto */
+}
+.contenedor-opciones{
+    opacity: 0;
+}
