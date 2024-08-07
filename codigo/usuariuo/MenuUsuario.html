@@ -7,16 +7,47 @@
     <title>Document</title>
 </head>
 <body>
-  <!--logo-->  
-  <img src="" alt="logo">
+
   <!--menu-->
-    <label for="opciones">Menu</label>
-<select name="opciones" id="opciones">
-  <option value="Inicio">Inicio</option>
-  <option value="Perfil">Mi Perfil</option>
-  <option value="Impresion">Servicio Impresion 3D</option>
-  <option value="Quienes Somos">Quienes Somos</option>
-  <option value="Cerrar Sesion">Cerrar Sesion</option>
-</select>
+<nav>
+  <button  id="menu-icon">
+      &#9776; <!-- Este es el icono de hamburguesa -->
+  </button>
+  <div class="contenedor-opciones">
+      <div>
+          <h1><a href="../general/index.html">Inicio</a></h1>
+      </div>
+      <div>
+          <h1><a href="./miperfil.html"> Mi perfil</a> </h1>
+      </div>
+      <div>
+          <h1><a href="./servicioimpresion.html"> Servicio Impresion 3D </a></h1>
+      </div>
+      <div>
+          <h1> <a href="../general/quienessomos.html"> Quienes Somos</a></a></h1>
+      </div>
+      <div>
+          <h1><a href="../general/index.html">Cerrar Sesion</a></h1>
+      </div>
+  </div>
+  
+</nav>
+
+<script>
+  const btn = document.getElementById('menu-icon'); 
+  const menu = document.querySelector('.contenedor-opciones')
+  let n = 0; 
+  function saludo () {
+      if (n == 0){
+          menu.style.opacity = '1';
+          n = 1; 
+      }
+      else if (n == 1){
+          menu.style.opacity = '0';
+          n = 0; 
+      }
+  }
+  btn.addEventListener("click", saludo)
+</script>
 </body>
 </html>
