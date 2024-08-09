@@ -8,48 +8,8 @@
 </head>
 
         <body>
-         
-           <!-- boton de menu-icon -->
-           <nav>
-            <button  id="menu-icon">
-                &#9776;
-            </button>
-            <div class="contenedor-opciones">
-                <div>
-                    <h1><a href="./pantallainiciodueño.html">Inicio</a></h1>
-                </div>
-                <div>
-                    <h1><a href="./miperfil.html"> Mi perfil</a> </h1>
-                </div>
-                <div>
-                    <h1><a href="./cotizador.html"> Cotizador </a></h1>
-                </div>
-                <div>
-                    <h1> <a href="../dueño/quienesdueño.html"> Quienes Somos</a></a></h1>
-                </div>
-                <div>
-                    <h1><a href="../general/index.html">Cerrar Sesion</a></h1>
-                </div>
-            </div>
-            
-        </nav>
+
         
-        <script>
-            const btn = document.getElementById('menu-icon'); 
-            const menu = document.querySelector('.contenedor-opciones')
-            let n = 0; 
-            function saludo () {
-                if (n == 0){
-                    menu.style.opacity = '1';
-                    n = 1; 
-                }
-                else if (n == 1){
-                    menu.style.opacity = '0';
-                    n = 0; 
-                }
-            }
-            btn.addEventListener("click", saludo)
-        </script>
       </body>  
    
 </html>
