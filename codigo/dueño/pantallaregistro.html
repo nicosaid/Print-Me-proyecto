@@ -38,11 +38,11 @@
     let n = 0; 
     function saludo () {
         if (n == 0){
-            menu.style.opacity = '1';
+            menu.style.opacity = '0';
             n = 1; 
         }
         else if (n == 1){
-            menu.style.opacity = '0';
+            menu.style.opacity = '1';
             n = 0; 
         }
     }
@@ -51,7 +51,6 @@
 </body>
 </html>
 
-    <!--boton regresar-->
     <a href="../general/elegiRol.html" class="boton">Regresar</a>
 
 <body>
@@ -60,45 +59,37 @@
     <form action="/ruta/del/servidor" method="post">   <!-- Define un formulario que envía datos al servidor especificado en el atributo action usando el método POST -->
         <form action="pantallainiciodueño.html" method="get">
 
-         <!-- Campo para el nombre -->
-         <label for="nombre">Nombre:</label> <!-- Etiqueta para el campo de entrada de nombre -->
-         <input type="text" id="nombre" name="nombre" required> <!-- Campo de entrada para el nombre -->
-         <br><br> <!-- Inserta dos saltos de línea -->
+         <label for="nombre">Nombre:</label> 
+         <input type="text" id="nombre" name="nombre" required> 
+         <br><br> 
  
-         <!-- Campo para el apellido -->
-         <label for="apellido">Apellido:</label> <!-- Etiqueta para el campo de entrada de apellido -->
-         <input type="text" id="apellido" name="apellido" required> <!-- Campo de entrada para el apellido -->
-         <br><br> <!-- Inserta dos saltos de línea -->
+         <label for="apellido">Apellido:</label>
+         <input type="text" id="apellido" name="apellido" required> 
+         <br><br> 
  
-         <!-- Campo para el correo electrónico -->
-         <label for="correo">Correo Electrónico:</label> <!-- Etiqueta para el campo de entrada de correo electrónico -->
-         <input type="email" id="correo" name="correo" required> <!-- Campo de entrada para el correo electrónico -->
-         <br><br> <!-- Inserta dos saltos de línea -->
+         <label for="correo">Correo Electrónico:</label>
+         <input type="email" id="correo" name="correo" required> 
+         <br><br> 
  
-         <!-- Campo para la contraseña -->
-         <label for="contrasena">Contraseña:</label> <!-- Etiqueta para el campo de entrada de contraseña -->
-         <input type="password" id="contrasena" name="contrasena" required> <!-- Campo de entrada para la contraseña -->
-         <br><br> <!-- Inserta dos saltos de línea -->
+         <label for="contrasena">Contraseña:</label>
+         <input type="password" id="contrasena" name="contrasena" required> 
+         <br><br> 
 
-         <!-- Campo para la zona -->
-         <label for="zona">Zona:</label> <!-- Etiqueta para el campo de entrada de zona -->
-         <input type="lable" id="zona" name="zona" required> <!-- Campo de entrada para la zona -->
-         <br><br> <!-- Inserta dos saltos de línea -->
+         <label for="zona">Zona:</label> 
+         <input type="lable" id="zona" name="zona" required> 
+         <br><br> 
+
+          <label for="impresora">Impresora:</label> 
+          <input type="text" id="impresora" name="impresora" required> 
+         <br><br> 
  
-         <!-- Campo para la impresora -->
-          <label for="impresora">Impresora:</label> <!-- Etiqueta para el campo de entrada de impresora -->
-          <input type="text" id="impresora" name="impresora" required> <!-- Campo de entrada para el impr -->
-         <br><br> <!-- Inserta dos saltos de línea -->
- 
-         <!-- Campo para la opción de post impresión -->
          <label>¿Estás dispuesto a hacer post-impresión?</label>
          <input type="radio" id="si" name="postimpresion" value="Sí">
          <label for="si">Sí</label>
          <input type="radio" id="no" name="postimpresion" value="No">
          <label for="no">No</label>
-         <br><br> <!-- Inserta dos saltos de línea -->
+         <br><br> 
 
-         <!-- Botón para enviar el formulario -->
         <button type="submit">Ir a la siguiente página</button>
         </form>
     </form>

@@ -1,18 +1,50 @@
-/* Estilo básico del botón del menú */
-.nav-list {
-    background-color: #ffffff; /* Color de fondo del botón */
-    color: black; /* Color del texto */
-    padding: 0; /* Espaciado interno del botón */
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
-    text-decoration-color: none;
-    font-size: 16px; /* Tamaño de la fuente del texto */
-    border: none; /* Sin borde alrededor del botón */
-    cursor: pointer; /* Cambia el cursor a puntero al pasar sobre el botón */
-    display: flex; /* Usa Flexbox para alinear el contenido dentro del botón */
-    align-items: center; /* Alinea verticalmente el ícono y el texto */
-}
-.contenedor-opciones{
-    opacity: 0;
+    padding: 0;
 }
 
-.contenedor-opci
+.menu-button {
+    font-size: 24px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #333;
+    color: #fff;
+    width: 200px;
+    height: 100%;
+    overflow: auto;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu ul li {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+}
+
+.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu.hidden {
+    transform: translateX(-100%);
+}
+
+.menu.visible {
+    transform: translateX(0);
+}
