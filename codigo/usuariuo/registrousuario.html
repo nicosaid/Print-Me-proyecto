@@ -7,8 +7,14 @@
     <link rel="stylesheet" href="../dueño/general.css">
     <title>Document</title>
     <link rel="stylesheet" href="registrousuario.css">
-    <!--boton regresar-->
-    <a href="../general/elegiRol.html" class="boton">Regresar</a>
+    <button id="Regresar"></button>
+
+    <script>
+        document.getElementById('Regresar').addEventListener('click', function() {
+            window.history.back(); // Regresa a la página anterior en el historial del navegador
+        });
+    </script>
+
 </head>
 <body>
     <h1>Registrarte como usuario</h1>

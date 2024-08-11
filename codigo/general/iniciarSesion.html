@@ -7,9 +7,17 @@
     <link rel="stylesheet" href="../dueño/general.css">
 
     <title>Document</title>
-    <a href="index.html" class="boton">Regresar</a>
 </head>
 <body>
+
+    <button id="Regresar">&#8592;</button>
+
+    <script>
+        document.getElementById('Regresar').addEventListener('click', function() {
+            window.history.back(); // Regresa a la página anterior en el historial del navegador
+        });
+    </script>
+
     <h1>Iniciar Sesión</h1>
     <form action="/ruta/del/servidor" method="post">   <!-- Define un formulario que envía datos al servidor especificado en el atributo action usando el método POST -->
         <label for="correo">Ingresa tu correo electrónico:</label>

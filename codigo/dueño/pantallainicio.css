@@ -94,3 +94,46 @@ body {
 .menu a:hover {
     background-color: #f0f4f8; /* Color de fondo al pasar el ratón */
 }
+
+
+.menu-icon::before {
+    content: ''; /* Necesario para el pseudo-elemento */
+    display: block;
+    width: 20px; /* Ancho de la flecha */
+    height: 20px; /* Alto de la flecha */
+    border: solid white; /* Color y estilo del borde */
+    border-width: 0 3px 3px 0; /* Grosor del borde */
+    transform: rotate(-135deg); /* Rotación para crear la flecha */
+}
+
+.Regresar {
+    width: 50px; /* Ajusta el tamaño según sea necesario */
+    height: 50px; /* Ajusta el tamaño según sea necesario */
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px; /* Bordes redondeados opcional */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+}
+
+.Regresar::before {
+    content: ''; /* Necesario para el pseudo-elemento */
+    display: block;
+    width: 20px; /* Ancho de la flecha */
+    height: 20px; /* Alto de la flecha */
+    border: solid black; /* Color negro para la flecha */
+    border-width: 0 3px 3px 0; /* Grosor del borde */
+    transform: rotate(-135deg); /* Rotación para crear la flecha */
+}
+
+.Regresar:hover {
+    background-color: #eee; /* Color de fondo al pasar el mouse, opcional */
+    transform: scale(1.1); /* Escala al pasar el mouse, opcional */
+}
+
+.Regresar:focus {
+    outline: none; /* Elimina el borde de enfoque */
+}

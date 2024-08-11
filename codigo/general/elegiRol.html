@@ -6,10 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../dueño/general.css">
 
+
     <title>Document</title>
-    <a href="../general/index.html" class="boton">Regresar</a>
+    
+
 </head>
 <body>
+    <button id="Regresar">&#8592;</button>
+
+    <script>
+        document.getElementById('Regresar').addEventListener('click', function() {
+            window.history.back(); // Regresa a la página anterior en el historial del navegador
+        });
+    </script>
+    </script>
+
     <h1>Print Me</h1>
     <h2>Como queres registrarte?</h2>
     <!--botones-->

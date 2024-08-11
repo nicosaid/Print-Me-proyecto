@@ -27,6 +27,7 @@ h1 a {
     color: inherit;
     display: block;
     padding: 10px;
+
 }
 
 /* Estilo al pasar el ratón sobre los enlaces del encabezado */
@@ -35,7 +36,13 @@ h1 a:hover {
     color: #357ABD;
 }
 
+h2 a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 10px;
 
+}
 /* Estilo de los enlaces dentro del contenedor de opciones */
 .contenedor-opciones a {
     display: block;
@@ -75,7 +82,7 @@ h1 a:hover {
     width: 250px; /* Ancho del menú */
     z-index: 1000; /* Asegura que esté sobre otros contenidos */
 }
-/* general.css */
+
 #menu-icon {
     background-color: #6995e3; /* Color de fondo */
     border: none;           /* Sin borde */
@@ -95,4 +102,25 @@ h1 a:hover {
 #menu-icon:focus {
     outline: none; /* Elimina el borde de enfoque */
 }
+
+#Regresar::before {
+    background-color: #6995e3; /* Color de fondo */
+    border: none;           /* Sin borde */
+    color: white;           /* Color del texto */
+    font-size: 24px;        /* Tamaño del texto */
+    padding: 10px 15px;     /* Espaciado interno */
+    cursor: pointer;        /* Cursor de mano al pasar sobre el botón */
+    border-radius: 5px;     /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+}
+
+#Regresar:hover {
+    background-color: #555; /* Color de fondo al pasar el ratón */
+    transform: scale(1.1);  /* Aumento del tamaño al pasar el ratón */
+}
+
+#Regresar:focus {
+    outline: none; /* Elimina el borde de enfoque */
+}
+
 
