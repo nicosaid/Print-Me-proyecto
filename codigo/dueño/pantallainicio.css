@@ -1,50 +1,58 @@
-/* styles.css */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
 
-.menu-button {
-    font-size: 24px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    padding: 10px;
-}
-
-.menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: #333;
-    color: #fff;
-    width: 200px;
-    height: 100%;
-    overflow: auto;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-}
-
-.menu ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.menu ul li {
-    padding: 15px;
-    border-bottom: 1px solid #444;
-}
-
-.menu ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.menu.hidden {
-    transform: translateX(-100%);
-}
-
-.menu.visible {
-    transform: translateX(0);
-}
+            .modal {
+                display: none; 
+                position: fixed; 
+                z-index: 1; 
+                left: 0;
+                top: 0;
+                width: 100%; 
+                height: 100%; 
+                background-color: rgba(0,0,0,0.4); 
+            }
+        
+            .modal-content {
+                background-color: #fefefe;
+                margin: 15% auto; 
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%; 
+            }
+        
+            /* Estilos para el botón de cerrar */
+            .close {
+                float: right;
+                font-size: 28px;
+                cursor: pointer;
+            }
+        
+            /* Estilos para los botones de confirmación y cancelación */
+            .btn {
+                padding: 10px 20px;
+                margin: 5px;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+        
+            .btn-confirm {
+                background-color: #4CAF50; 
+                color: white;
+            }
+        
+            .btn-cancel {
+                background-color: #f44336; 
+                color: white;
+            }
+        </style>
+        
+        <body>
+            <h1><a id="cerrarSesion" href="../general/index.html">Cerrar Sesión</a></h1>
+        
+            <div id="VentanaConfirmar" class="modal">
+                <div class="modal-content">
+                    <p>¿Seguro que quieres cerrar sesión?</p>
+                    <button id="confirmarBtn" class="btn btn-confirm">Sí, confirmar</button>
+                    <button id="cancelarBtn" class="btn btn-cancel">No, volver atrás</button>
+                </div>
+            </div>
+        
