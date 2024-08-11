@@ -43,16 +43,54 @@
                 background-color: #f44336; 
                 color: white;
             }
-        </style>
-        
-        <body>
-            <h1><a id="cerrarSesion" href="../general/index.html">Cerrar Sesión</a></h1>
-        
-            <div id="VentanaConfirmar" class="modal">
-                <div class="modal-content">
-                    <p>¿Seguro que quieres cerrar sesión?</p>
-                    <button id="confirmarBtn" class="btn btn-confirm">Sí, confirmar</button>
-                    <button id="cancelarBtn" class="btn btn-cancel">No, volver atrás</button>
-                </div>
-            </div>
-        
+       /* Estilo general del cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor del menú */
+.menu-container {
+    position: relative; /* Necesario para posicionar el menú */
+}
+
+/* Botón del menú */
+.menu-btn {
+    background-color: #4a90e2; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute; /* Posición fija */
+    top: 10px; /* Ajuste desde el top */
+    left: 10px; /* Ajuste desde el left */
+}
+
+/* Estilo del menú */
+.menu {
+    display: none; /* Oculto por defecto */
+    position: absolute; /* Posición absoluta para alinear a la izquierda del botón */
+    top: 50px; /* Ajuste desde el top del contenedor */
+    left: 0; /* Alinea al costado del botón */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 200px; /* Ancho del menú */
+    z-index: 1000; /* Asegura que esté sobre otros contenidos */
+}
+
+/* Estilo de los enlaces dentro del menú */
+.menu a {
+    display: block; /* Hace que los enlaces ocupen toda la línea */
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.menu a:hover {
+    background-color: #f0f4f8; /* Color de fondo al pasar el ratón */
+}

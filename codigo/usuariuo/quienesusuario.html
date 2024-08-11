@@ -29,20 +29,22 @@
       
       <script>
         const btn = document.getElementById('menu-icon'); 
-        const menu = document.querySelector('.contenedor-opciones')
+        const menu = document.querySelector('.contenedor-opciones');
         let n = 0; 
+    
         function saludo () {
             if (n == 0){
-                menu.style.opacity = '1';
+                menu.style.display = 'none';
                 n = 1; 
-            }
-            else if (n == 1){
-                menu.style.opacity = '0';
+            } else if (n == 1){
+                menu.style.display = 'block';
                 n = 0; 
             }
         }
-        btn.addEventListener("click", saludo)
-      </script>
+    
+        btn.addEventListener("click", saludo);
+    </script>
+    
 </head>
 <body>
   <h1>¿Quienes Somos?</h1>

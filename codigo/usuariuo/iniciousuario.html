@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../dueño/general.css">
     <title>Document</title>
     
     <nav>
@@ -64,20 +65,22 @@
 
 <script>
     const btn = document.getElementById('menu-icon'); 
-    const menu = document.querySelector('.contenedor-opciones')
+    const menu = document.querySelector('.contenedor-opciones');
     let n = 0; 
+
     function saludo () {
         if (n == 0){
-            menu.style.opacity = '0';
+            menu.style.display = 'none';
             n = 1; 
-        }
-        else if (n == 1){
-            menu.style.opacity = '1';
+        } else if (n == 1){
+            menu.style.display = 'block';
             n = 0; 
         }
     }
-    btn.addEventListener("click", saludo)
+
+    btn.addEventListener("click", saludo);
 </script>
+
 </html>
 
       </script>
