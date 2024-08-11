@@ -7,31 +7,28 @@
     <title>Document</title>
     <link rel="stylesheet" href="general.css">
     <link rel="stylesheet" href="pantallainicio.css">
-
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   
 </head>
 <body>
- <nav>
-    <button  id="menu-icon">
-        &#9776;
-    </button>
-    <div class="contenedor-opciones">
-        <div>
-            <h1><a href="./pantallainiciodueño.html">Inicio</a></h1>
-        </div>
-        <div>
-            <h1><a href="./miperfil.html"> Mi perfil</a> </h1>
-        </div>
-        <div>
-            <h1><a href="./cotizador.html"> Cotizador </a></h1>
-        </div>
-        <div>
-            <h1> <a href="quienessomosduenio.html"> Quienes Somos</a></a></h1>
-        
-     
-
+    <nav>
+        <button id="menu-icon">
+            &#9776;
+        </button>
+        <div class="contenedor-opciones">
+            <div>
+                <h1><a href="./pantallainiciodueño.html">Inicio</a></h1>
+            </div>
+            <div>
+                <h1><a href="./miperfil.html"> Mi perfil</a></h1>
+            </div>
+            <div>
+                <h1><a href="./cotizador.html"> Cotizador </a></h1>
+            </div>
+            <div>
+                <h1><a href="quienessomosduenio.html"> Quienes Somos</a></h1>
+            </div>
             <h1><a id="cerrarSesion" href="../general/index.html">Cerrar Sesión</a></h1>
-        
             <div id="VentanaConfirmar" class="modal">
                 <div class="modal-content">
                     <p>¿Seguro que quieres cerrar sesión?</p>
@@ -40,108 +37,129 @@
                 </div>
             </div>
         </div>
-        
-            <script>
-                const enlace = document.getElementById('cerrarSesion');
-                const modal = document.getElementById('VentanaConfirmar');
-                const confirmarBtn = document.getElementById('confirmarBtn');
-                const cancelarBtn = document.getElementById('cancelarBtn');
-        
-                // Mostrar el modal al hacer clic en el enlace
-                enlace.addEventListener('click', function(event) {
-                    event.preventDefault(); // Evitar la navegación
-                    modal.style.display = 'block'; // Mostrar el modal
-                });
-        
-                // Confirmar y proceder a la navegación
-                confirmarBtn.onclick = function() {
-                    window.location.href = enlace.href; // Navegar a la URL
-                }
-        
-                // Cancelar y cerrar el modal
-                cancelarBtn.onclick = function() {
-                    modal.style.display = 'none';
-                }
-        
-            </script>
-     
-        <div>
+    </nav>
 
-            
-</nav>
-<script>
-    
-    // JavaScript para el menú
-const btn = document.getElementById('menu-icon');
-const menu = document.querySelector('.contenedor-opciones');
-let isMenuOpen = false;
+    <script>
+        const enlace = document.getElementById('cerrarSesion');
+        const modal = document.getElementById('VentanaConfirmar');
+        const confirmarBtn = document.getElementById('confirmarBtn');
+        const cancelarBtn = document.getElementById('cancelarBtn');
 
-// Función para alternar el estado del menú
-function toggleMenu() {
-    if (isMenuOpen) {
-        menu.style.display = 'none';
-    } else {
-        menu.style.display = 'block';
-    }
-    isMenuOpen = !isMenuOpen;
-}
+        // Mostrar el modal al hacer clic en el enlace
+        enlace.addEventListener('click', function(event) {
+            event.preventDefault(); // Evitar la navegación
+            modal.style.display = 'block'; // Mostrar el modal
+        });
 
-// Función para cerrar el menú al hacer clic fuera
-function closeMenu(event) {
-    // Verificar si el clic está fuera del menú y del botón
-    if (isMenuOpen && !menu.contains(event.target) && !btn.contains(event.target)) {
-        menu.style.display = 'none';
-        isMenuOpen = false;
-    }
-}
+        // Confirmar y proceder a la navegación
+        confirmarBtn.onclick = function() {
+            window.location.href = enlace.href; // Navegar a la URL
+        }
 
-// Agregar el manejador de eventos al botón de menú
-btn.addEventListener('click', toggleMenu);
+        // Cancelar y cerrar el modal
+        cancelarBtn.onclick = function() {
+            modal.style.display = 'none';
+        }
+    </script>
 
-// Agregar el manejador de eventos al documento para cerrar el menú
-document.addEventListener('click', closeMenu);
+    <script>
+        // JavaScript para el menú
+        const btn = document.getElementById('menu-icon');
+        const menu = document.querySelector('.contenedor-opciones');
+        let isMenuOpen = false;
 
+        // Función para alternar el estado del menú
+        function toggleMenu() {
+            menu.style.display = isMenuOpen ? 'none' : 'block';
+            isMenuOpen = !isMenuOpen;
+        }
 
+        // Función para cerrar el menú al hacer clic fuera
+        function closeMenu(event) {
+            if (isMenuOpen && !menu.contains(event.target) && !btn.contains(event.target)) {
+                menu.style.display = 'none';
+                isMenuOpen = false;
+            }
+        }
 
+        // Agregar el manejador de eventos al botón de menú
+        btn.addEventListener('click', toggleMenu);
 
-</script>
+        // Agregar el manejador de eventos al documento para cerrar el menú
+        document.addEventListener('click', closeMenu);
+    </script>
 
-</html>
+    <h1>Mi perfil</h1>
 
-<h1>Mi perfil</h1>
+    <form action="/ruta/del/servidor" method="get">
+        <label for="Descripcion">Descripcion:</label>
+        <input type="text" id="Descripcion" name="Descripcion" value="Valor desde la base de datos" class="disabled" disabled>
+        <button type="button" class="edit-button" onclick="editField('Descripcion')">
+            <i class="fas fa-pencil-alt"></i>
+        </button>
+        <br><br>
 
-     <form action="/ruta/del/servidor" method="get">
-
-        <label for="Descripcion" >Descripcion:</label> 
-        <input type="text" id= "Descripcion" name= "Descripcion" value="Valor desde la base de datos"> 
-        <br><br> 
-    
         <label for="Nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" value="Valor desde la base de datos"> 
-        <br><br> 
-    
-        <label for="Apellido"> Apellido:</label>
-        <input type="text" id="apellido" name="apellido" value="Valor desde la base de datos"> 
-        <br><br> 
-    
+        <input type="text" id="nombre" name="nombre" value="Valor desde la base de datos" class="disabled" disabled>
+        <button type="button" class="edit-button" onclick="editField('nombre')">
+            <i class="fas fa-pencil-alt"></i>
+        </button>
+        <br><br>
+
+        <label for="Apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" value="Valor desde la base de datos" class="disabled" disabled>
+        <button type="button" class="edit-button" onclick="editField('apellido')">
+            <i class="fas fa-pencil-alt"></i>
+        </button>
+        <br><br>
+
         <label for="Email">Email:</label>
-        <input type="email" id="email" name="email" value="Valor desde la base de datos"> 
-        <br><br> 
-    
-        <label for="tuimpresora">Tu Impresora:</label> 
-        <input type="text" id="tuimpresora" name="tuimpresora" value="Valor desde la base de datos"> 
-        <br><br> 
-    
-        <label for="contraseña">Contraseña:</label> 
-        <input type="password" id="contraseña" name="contraseña" value="Valor desde la base de datos"> 
-        <br><br> 
-    
+        <input type="email" id="email" name="email" value="Valor desde la base de datos" class="disabled" disabled>
+        <button type="button" class="edit-button" onclick="editField('email')">
+            <i class="fas fa-pencil-alt"></i>
+        </button>
+        <br><br>
 
+        <label for="tuimpresora">Tu Impresora:</label>
+        <input type="text" id="tuimpresora" name="tuimpresora" value="Valor desde la base de datos" class="disabled" disabled>
+        <button type="button" class="edit-button" onclick="editField('tuimpresora')">
+            <i class="fas fa-pencil-alt"></i>
+        </button>
+        <br><br>
+
+        <label for="contraseña">Contraseña:</label>
+        <input type="password" id="contraseña" name="contraseña" value="Valor desde la base de datos" class="disabled" disabled>
+        <button type="button" class="edit-button" onclick="editField('contraseña')">
+            <i class="fas fa-pencil-alt"></i>
+        </button>
+        <br><br>
     </form>
-    
-     <br><br> 
 
-</form>        
-      </body>  
-   
+    <script>
+        function editField(id) {
+            var field = document.getElementById(id);
+            field.disabled = false; // Habilita el campo para edición
+            field.classList.remove('disabled'); // Elimina la clase de estilo deshabilitado
+
+            // Cambiar el botón a un botón de guardar
+            var button = field.nextElementSibling;
+            button.innerHTML = '<i class="fas fa-save"></i>';
+            button.setAttribute('onclick', 'saveField("' + id + '")');
+        }
+
+        function saveField(id) {
+            var field = document.getElementById(id);
+            field.disabled = true; // Deshabilita el campo nuevamente
+            field.classList.add('disabled'); // Agrega la clase de estilo deshabilitado
+
+            // Cambiar el botón a un botón de edición
+            var button = field.nextElementSibling;
+            button.innerHTML = '<i class="fas fa-pencil-alt"></i>';
+            button.setAttribute('onclick', 'editField("' + id + '")');
+
+            // Aquí puedes agregar código para guardar los cambios en el servidor
+            alert('Cambios guardados para el campo: ' + id);
+        }
+    </script>
+</body>
 </html>

@@ -123,4 +123,24 @@ h2 a {
     outline: none; /* Elimina el borde de enfoque */
 }
 
+#edit-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+}
 
+#edit-button i {
+    color: black; /* Cambia el color del ícono aquí */
+}
+
+#edit-button:hover i {
+    color: gray; /* Color al pasar el mouse */
+}
+
+/* Estilo para campos deshabilitados */
+#disabled {
+    background-color: #f0f0f0; /* Color de fondo para campos deshabilitados */
+    color: #a0a0a0; /* Color de texto para campos deshabilitados */
+}
