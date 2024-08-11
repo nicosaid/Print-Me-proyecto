@@ -3,61 +3,70 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-/* Estilo general del cuerpo */
-body {
+ }
+ 
+ 
+ /* Estilo general del cuerpo */
+ body {
     font-family: Arial, sans-serif;
     background-color: #f0f4f8;
     color: #333;
     line-height: 1.6;
     padding: 20px;
-}
-
-/* Estilo del encabezado */
-h1 {
+ }
+ 
+ 
+ /* Estilo del encabezado */
+ h1 {
     text-align: center;
     margin-bottom: 20px;
     color: #4a90e2;
-}
-
-/* Estilo de los enlaces dentro del encabezado */
-h1 a {
+ }
+ 
+ 
+ /* Estilo de los enlaces dentro del encabezado */
+ h1 a {
     text-decoration: none;
     color: inherit;
     display: block;
     padding: 10px;
-
-}
-
-/* Estilo al pasar el ratón sobre los enlaces del encabezado */
-h1 a:hover {
+ 
+ 
+ }
+ 
+ 
+ /* Estilo al pasar el ratón sobre los enlaces del encabezado */
+ h1 a:hover {
     background-color: #eaf0f6;
     color: #357ABD;
-}
-
-h2 a {
+ }
+ 
+ 
+ h2 a {
     text-decoration: none;
     color: inherit;
     display: block;
     padding: 10px;
-
-}
-/* Estilo de los enlaces dentro del contenedor de opciones */
-.contenedor-opciones a {
+ 
+ 
+ }
+ /* Estilo de los enlaces dentro del contenedor de opciones */
+ .contenedor-opciones a {
     display: block;
     padding: 10px;
     text-decoration: none;
     color: #333;
-}
-
-/* Estilo al pasar el ratón sobre los enlaces del contenedor de opciones */
-.contenedor-opciones a:hover {
+ }
+ 
+ 
+ /* Estilo al pasar el ratón sobre los enlaces del contenedor de opciones */
+ .contenedor-opciones a:hover {
     background-color: #f0f4f8; /* Color de fondo al pasar el ratón */
     color: #4a90e2; /* Color del texto al pasar el ratón */
-}
-
-.contenedor-opciones {
+ }
+ 
+ 
+ .contenedor-opciones {
     display: none; /* Oculto por defecto */
     position: absolute;
     top: 50px;
@@ -68,9 +77,9 @@ h2 a {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 250px;
     z-index: 1000;
-}
-/* Estilo del contenedor de opciones del menú */
-.contenedor-opciones {
+ }
+ /* Estilo del contenedor de opciones del menú */
+ .contenedor-opciones {
     display: none; /* Oculto por defecto */
     position: fixed; /* Fijo en la pantalla */
     top: 0; /* Alinea el contenedor con la parte superior de la página */
@@ -81,9 +90,10 @@ h2 a {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 250px; /* Ancho del menú */
     z-index: 1000; /* Asegura que esté sobre otros contenidos */
-}
-
-#menu-icon {
+ }
+ 
+ 
+ #menu-icon {
     background-color: #6995e3; /* Color de fondo */
     border: none;           /* Sin borde */
     color: white;           /* Color del texto */
@@ -92,18 +102,21 @@ h2 a {
     cursor: pointer;        /* Cursor de mano al pasar sobre el botón */
     border-radius: 5px;     /* Bordes redondeados */
     transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
-}
-
-#menu-icon:hover {
+ }
+ 
+ 
+ #menu-icon:hover {
     background-color: #555; /* Color de fondo al pasar el ratón */
     transform: scale(1.1);  /* Aumento del tamaño al pasar el ratón */
-}
-
-#menu-icon:focus {
+ }
+ 
+ 
+ #menu-icon:focus {
     outline: none; /* Elimina el borde de enfoque */
-}
-
-#Regresar::before {
+ }
+ 
+ 
+ #Regresar::before {
     background-color: #6995e3; /* Color de fondo */
     border: none;           /* Sin borde */
     color: white;           /* Color del texto */
@@ -112,35 +125,42 @@ h2 a {
     cursor: pointer;        /* Cursor de mano al pasar sobre el botón */
     border-radius: 5px;     /* Bordes redondeados */
     transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
-}
-
-#Regresar:hover {
+ }
+ 
+ 
+ #Regresar:hover {
     background-color: #555; /* Color de fondo al pasar el ratón */
     transform: scale(1.1);  /* Aumento del tamaño al pasar el ratón */
-}
-
-#Regresar:focus {
+ }
+ 
+ 
+ #Regresar:focus {
     outline: none; /* Elimina el borde de enfoque */
-}
-
-#edit-button {
+ }
+ 
+ 
+ #edit-button {
     background-color: transparent;
     border: none;
     cursor: pointer;
     font-size: 16px;
     margin-left: 10px;
-}
-
-#edit-button i {
+ }
+ 
+ 
+ #edit-button i {
     color: black; /* Cambia el color del ícono aquí */
-}
-
-#edit-button:hover i {
+ }
+ 
+ 
+ #edit-button:hover i {
     color: gray; /* Color al pasar el mouse */
-}
-
-/* Estilo para campos deshabilitados */
-#disabled {
+ }
+ 
+ 
+ /* Estilo para campos deshabilitados */
+ #disabled {
     background-color: #f0f0f0; /* Color de fondo para campos deshabilitados */
     color: #a0a0a0; /* Color de texto para campos deshabilitados */
-}
+ }
+ 
