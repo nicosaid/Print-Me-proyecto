@@ -1,0 +1,24 @@
+header{
+    display:flex;
+    justify content: space-between;
+    background-color: #111;
+    color: #white;
+}
+navbar ul {
+display: flex;
+align-items: center;
+list-style:none;
+gap: 10px;
+height: 100%;
+}
+navbar ul li a:hover{
+    background: #bbb;
+}
+main{
+    display:flex;
+}
+section{
+    flex-grow: 1;
+    padding:20px;
+    display:flex;
+}
