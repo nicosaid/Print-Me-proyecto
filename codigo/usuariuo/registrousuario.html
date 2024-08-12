@@ -5,19 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../dueño/general.css">
-    <title>Document</title>
+    <title>Print Me</title>
     <link rel="stylesheet" href="registrousuario.css">
-    <button id="Regresar"></button>
-
     <script>
         document.getElementById('Regresar').addEventListener('click', function() {
             window.history.back(); // Regresa a la página anterior en el historial del navegador
         });
     </script>
-
 </head>
 <body>
+   <header>
     <h1>Registrarte como usuario</h1>
+   </header>
+   <main>
+    <button id="Regresar"></button>
     <form action="/ruta/del/servidor" method="post">   <!-- Define un formulario que envía datos al servidor especificado en el atributo action usando el método POST -->
         <form action="pantallainiciousuario.html" method="get">
 
@@ -43,12 +44,12 @@
          <!-- Campo para la contraseña -->
          <label for="contrasena">Contraseña:</label> <!-- Etiqueta para el campo de entrada de contraseña -->
          <br>
-         <input type="password" id="contrasena" name="contrasena" required> <!-- Campo de entrada para la contraseña -->
+         <input type="password" id="contraseña" name="contraseña" required> <!-- Campo de entrada para la contraseña -->
          <br><br> <!-- Inserta dos saltos de línea -->
-         
          <!-- Botón para enviar el formulario -->
         <button type="submit">Ir a la siguiente página</button>
         </form>
     </form>
+   </main>
 </body>
 </html>
