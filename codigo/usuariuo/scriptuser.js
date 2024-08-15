@@ -38,6 +38,7 @@ const enlace = document.getElementById('cerrarSesion');
 const modal = document.getElementById('VentanaConfirmar');
 const confirmarBtn = document.getElementById('confirmarBtn');
 const cancelarBtn = document.getElementById('cancelarBtn');
+//getElementByID o QuerySelector
 
 // Mostrar el modal al hacer clic en el enlace
 enlace.addEventListener('click', function(event) {

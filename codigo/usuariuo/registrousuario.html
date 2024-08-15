@@ -6,23 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../dueño/general.css">
     <title>Print Me</title>
-    <link rel="stylesheet" href="registrousuario.css">
-    <script>
-        document.getElementById('Regresar').addEventListener('click', function() {
-            window.history.back(); // Regresa a la página anterior en el historial del navegador
-        });
-    </script>
+    <link rel="stylesheet" href="">
 </head>
 <body>
    <header>
     <h1>Registrarte como usuario</h1>
+    <button id="Regresar"></button>
    </header>
    <main>
-    <button id="Regresar"></button>
     <form action="/ruta/del/servidor" method="post">   <!-- Define un formulario que envía datos al servidor especificado en el atributo action usando el método POST -->
         <form action="pantallainiciousuario.html" method="get">
-
-        <!-- Campo para el nombre -->
          <!-- Campo para el nombre -->
          <label for="nombre">Nombre:</label> <!-- Etiqueta para el campo de entrada de nombre -->
          <br>
