@@ -1,0 +1,61 @@
+<!--cambiar scriptback por el script-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Me</title>
+    <link rel="stylesheet" href="harryestilos.css">
+</head>
+<body>
+    <header>
+        <h1>Registrarte como usuario</h1>
+        <!--boton regresar-->
+        <a id="Regresar">&#8592;</a>
+        <script>
+            document.getElementById('Regresar').addEventListener('click', function() {
+                window.history.back(); // Regresa a la página anterior en el historial del navegador
+            });
+        </script>
+    </header>
+    <main>
+        <form action="" method="post" id="FormRegistro" class="needs-validation" novalidate>
+            <fieldset>
+                <legend>Registrarte</legend>
+                    <label for="nombre">Nombre:</label><br>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre y apellido..." autofocus><br><br>
+
+                    <label for="email">Correo electrónico:</label><br>
+                    <input type="email" id="email" name="email" placeholder="Ejemplo@gmail.com"><br><br>
+
+                    <label for="contra">Contraseña:</label><br>
+                    <input type="password" id="contra" name="contra" placeholder="Contraseña..." minlength="8"><br><br>
+
+                    <label for="confirmarContra">Confirmar contraseña:</label><br>
+                    <input type="password" id="confirmarContra" name="confirmarContra" placeholder="Contraseña..."><br><br>
+            </fieldset>
+           <input type="submit" value="Registrarme "> 
+        </form>
+    </main>
+</body>
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (() => {
+        'use strict'
+      
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+      
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+          form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+      
+            form.classList.add('was-validated')
+          }, false)
+        })
+      })()</script>
+</html>
