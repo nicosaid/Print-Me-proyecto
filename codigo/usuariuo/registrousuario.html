@@ -1,53 +1,50 @@
+<!--cambiar el form action por el script del back-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../dueño/general.css">
     <title>Print Me</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="registrousuario.css">
+    <script defer src="registrousuario.js"></script>
 </head>
 <body>
-   <header>
-    <h1>Registrarte como usuario</h1>
-    <a href="../general/elegiRol.html">&#8592;</a>
-    <script>
-        document.getElementById('Regresar').addEventListener('click', function() {
-            window.history.back(); // Regresa a la página anterior en el historial del navegador
-        });
-    </script>
-   </header>
-   <main>
-    <form action="/ruta/del/servidor" method="post">   <!-- Define un formulario que envía datos al servidor especificado en el atributo action usando el método POST -->
-        <form action="pantallainiciousuario.html" method="get">
-         <!-- Campo para el nombre -->
-         <label for="nombre">Nombre:</label> <!-- Etiqueta para el campo de entrada de nombre -->
-         <br>
-         <input type="text" id="nombre" name="nombre" required> <!-- Campo de entrada para el nombre -->
-         <br><br> <!-- Inserta dos saltos de línea -->
- 
-         <!-- Campo para el apellido -->
-         <label for="apellido">Apellido:</label> <!-- Etiqueta para el campo de entrada de apellido -->
-         <br>
-         <input type="text" id="apellido" name="apellido" required> <!-- Campo de entrada para el apellido -->
-         <br><br> <!-- Inserta dos saltos de línea -->
- 
-         <!-- Campo para el correo electrónico -->
-         <label for="correo">Correo Electrónico:</label> <!-- Etiqueta para el campo de entrada de correo electrónico -->
-         <br>
-         <input type="email" id="correo" name="correo" required> <!-- Campo de entrada para el correo electrónico -->
-         <br><br> <!-- Inserta dos saltos de línea --->
- 
-         <!-- Campo para la contraseña -->
-         <label for="contrasena">Contraseña:</label> <!-- Etiqueta para el campo de entrada de contraseña -->
-         <br>
-         <input type="password" id="contraseña" name="contraseña" required> <!-- Campo de entrada para la contraseña -->
-         <br><br> <!-- Inserta dos saltos de línea -->
-         <!-- Botón para enviar el formulario -->
-        <button type="submit">Ir a la siguiente página</button>
+    <header>
+        <!--boton regresar-->
+        <a id="Regresar">&#8592;</a>
+        <script>
+            document.getElementById('Regresar').addEventListener('click', function() {
+                window.history.back(); // Regresa a la página anterior en el historial del navegador
+            });
+        </script>
+    </header>
+    <main>
+        <div class="container">
+        <form action="" method="post" id="FormRegistro" class="needs-validation" novalidate>
+          <h1>Registrarte como usuario</h1>
+                  <div class="input-control">
+                    <label for="Usuario">Usuario:</label><br>
+                    <input type="text" id="usuario" name="usuario" placeholder="Usuario..." autofocus><br><br>
+                    <div class="error"></div>
+                  </div>
+                  <div class="input-control">
+                    <label for="email">Correo electrónico:</label><br>
+                    <input type="email" id="email" name="email" placeholder="Ejemplo@gmail.com"><br><br>
+                    <div class="error"></div>
+                  </div>
+                  <div class="input-control">
+                    <label for="contra">Contraseña:</label><br>
+                    <input type="password" id="contra" name="contra" placeholder="Contraseña..." minlength="8"><br><br>
+                    <div class="error"></div>
+                  </div>
+                  <div class="input-control">
+                    <label for="contra2">Confirmar contraseña:</label><br>
+                    <input type="password" id="contra2" name="contra2" placeholder="Confirmar contraseña..."><br><br>
+                    <div class="error"></div>
+                  </div>
+           <button type="submit">Registrarme</button>
         </form>
-    </form>
-   </main>
+      </div>
+    </main>
 </body>
 </html>
