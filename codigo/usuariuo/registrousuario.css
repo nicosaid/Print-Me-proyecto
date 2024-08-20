@@ -1,13 +1,13 @@
 body
 {
-  background: linear-gradient(#0f2027);  
+  background: rgb(168, 168, 168);  
 }
 
 #FormRegistro{
 width: 300px;
 margin: 20vh auto 0 auto;
 padding: 20px;
-background-color: whitesmoke;
+background-color: white;
 border-radius: 4px;
 font-size: 12px;
 }
@@ -28,8 +28,9 @@ border-radius: 4px;
 }
 
 .input-control{
-  display:flex;
+  display: flex;
   flex-direction: column;
+  
 }
 
 .input-control input{
@@ -39,6 +40,7 @@ border-radius: 4px;
   font-size: 12px;
   padding: 10px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .input-control input:focus{
@@ -51,6 +53,11 @@ border-radius: 4px;
 
 .input-control.error input{
 border-color: #ff3860;
-font-size: 9px;
-height: 13px; 
+font-size: 13px;
 }
+
+.input-control .error {
+  border-color: #ff3860;
+  font-size: 9px;
+  height: 13px; 
+  }
