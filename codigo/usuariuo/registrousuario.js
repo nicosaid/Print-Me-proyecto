@@ -67,10 +67,4 @@ const validateInputs = () => {
     } else {
         setSuccess(contra2);
     }
-//boton regresar
-<script>
-    document.getElementById('Regresar').addEventListener('click', function() {
-        window.history.back(); // Regresa a la página anterior en el historial del navegador
-    });
-</script>
-};
+}
