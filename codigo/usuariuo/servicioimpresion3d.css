@@ -1,0 +1,3 @@
+.search-form ::-webkit-search-cancel-button{
+    appearance: none;
+}
