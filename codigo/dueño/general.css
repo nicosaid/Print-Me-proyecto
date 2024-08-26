@@ -20,6 +20,19 @@ background-image: url(../general/fondo.png);
    background-size: cover;
    }
 
+form
+{
+
+   background-color: white;
+  
+      }
+
+      div {
+
+         
+
+         
+      }
 
 .logo-container {
    display: flex;
@@ -55,15 +68,13 @@ background-image: url(../general/fondo.png);
 
 .h1  {
    font: url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+   color: white;
 }
 
 .label 
 {
    font:('https://fonts.googleapis.com/css2?family=Koulen&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 }
-
-
-
 
 @media screen and (max-width: 768px) { 
    #menu-icon {
@@ -103,7 +114,3 @@ background-image: url(../general/fondo.png);
       background-color: white; 
    }
 }
-
-
-
-

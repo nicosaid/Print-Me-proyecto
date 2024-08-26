@@ -87,13 +87,20 @@
     </script>
     <h1>Mi perfil</h1>
 
+
     <form action="/ruta/del/servidor" method="get">
+       <div>
+
         <label for="Descripcion">Descripcion:</label>
         <input type="text" id="Descripcion" name="Descripcion" value="Valor desde la base de datos" class="disabled" disabled>
         <button type="button" class="edit-button" onclick="editField('Descripcion')">
             <i class="fas fa-pencil-alt"></i>
         </button>
         <br><br>
+
+       </div> 
+
+       <div>
 
         <label for="Nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" value="Valor desde la base de datos" class="disabled" disabled>
@@ -102,22 +109,31 @@
         </button>
         <br><br>
 
-        <label for="Apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido" value="Valor desde la base de datos" class="disabled" disabled>
-        <button type="button" class="edit-button" onclick="editField('apellido')">
-            <i class="fas fa-pencil-alt"></i>
-        </button>
-        <br><br>
+       </div>
+        
+<div>
+
+    <label for="Apellido">Apellido:</label>
+    <input type="text" id="apellido" name="apellido" value="Valor desde la base de datos" class="disabled" disabled>
+    <button type="button" class="edit-button" onclick="editField('apellido')">
+        <i class="fas fa-pencil-alt"></i>
+    </button>
+    <br><br>
+
+</div>
+      
+<div>
+
+    <label for="Email">Email:</label>
+    <input type="email" id="email" name="email" value="Valor desde la base de datos" class="disabled" disabled>
+    <button type="button" class="edit-button" onclick="editField('email')">
+        <i class="fas fa-pencil-alt"></i>
+    </button>
+    <br><br>
 
 
-
-        <label for="Email">Email:</label>
-        <input type="email" id="email" name="email" value="Valor desde la base de datos" class="disabled" disabled>
-        <button type="button" class="edit-button" onclick="editField('email')">
-            <i class="fas fa-pencil-alt"></i>
-        </button>
-        <br><br>
- 
+</div>
+        
         <div class="dropdown">  
             <h3>Elige tu impresora <span class="arrow">▼</span></h3>
             <ul class="dropdown-content">
@@ -151,6 +167,8 @@
     
     </body>
 
+    <div>
+
         <label for="tuimpresora">Tu Impresora:</label>
         <input type="text" id="tuimpresora" name="tuimpresora" value="Valor desde la base de datos" class="disabled" disabled>
         <button type="button" class="edit-button" onclick="editField('tuimpresora')">
@@ -158,12 +176,18 @@
         </button>
         <br><br>
 
-        <label for="contraseña">Contraseña:</label>
-        <input type="password" id="contraseña" name="contraseña" value="Valor desde la base de datos" class="disabled" disabled>
-        <button type="button" class="edit-button" onclick="editField('contraseña')">
-            <i class="fas fa-pencil-alt"></i>
-        </button>
-        <br><br>
+    </div>
+        
+<div>
+    <label for="contraseña">Contraseña:</label>
+    <input type="password" id="contraseña" name="contraseña" value="Valor desde la base de datos" class="disabled" disabled>
+    <button type="button" class="edit-button" onclick="editField('contraseña')">
+        <i class="fas fa-pencil-alt"></i>
+    </button>
+    <br><br>
+
+</div>
+        
     </form>
 
     <script>
