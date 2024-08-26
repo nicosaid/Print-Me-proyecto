@@ -1,15 +1,14 @@
+
 * {
    margin: 0;
    padding: 0;
-   box-sizing: border-box;
-   font-family: Arial, sans-serif;
-}
+   box-sizing: border-box;}
 
 header {
    display: flex;
    align-items: center;
    justify-content: space-between;
-   padding: 4% 4%;
+   padding: 1%;
    background-color: #F2F2F2;
 }
 
@@ -19,7 +18,7 @@ header {
 }
 
 .logo {
-   max-width: 10%; 
+   max-width: 40%; 
 }
 
 #menu-icon {
@@ -29,6 +28,7 @@ header {
 .contenedor-opciones {
    display: flex;
    align-items: center;
+   white-space: nowrap; 
    gap: 2%; 
 }
 
@@ -44,39 +44,49 @@ header {
    color: #1c1c1c;
 }
 
+.h1  {
+   font: url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+}
 
-@media screen and (max-width: 500px) {
+label 
+{
+   font:('https://fonts.googleapis.com/css2?family=Koulen&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+}
+
+
+@media screen and (max-width: 768px) { 
    #menu-icon {
        display: block;
        border: 0;
-       font-size: %; 
+       font-size: 24px; 
        background-color: transparent;
        cursor: pointer;
    }
 
    .contenedor-opciones {
-       opacity: 0;
-       visibility: hidden;
-       display: flex;
-       flex-direction: column;
-       align-items: end;
-       gap: 4%; 
+       flex-direction: column; 
+       align-items: flex-start; 
+       gap: 4%;
        position: absolute;
        top: 0;
        right: 0;
        bottom: 0;
        background-color: #1c1c1c;
-       padding: 4%;
+       padding: 16px; 
        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+       transition: opacity 0.3s ease, visibility 0.3s ease; /* CAMBIO */
+       opacity: 0;
+       visibility: hidden;
    }
 
    .contenedor-opciones.show-menu {
        opacity: 1;
        visibility: visible;
    }
-   
+
    .contenedor-opciones li a {
        color: #ececec;
    }
 }
+
 
