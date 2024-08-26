@@ -1,166 +1,82 @@
-/* Reset de márgenes y relleno */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
- }
- 
- 
- /* Estilo general del cuerpo */
- body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f4f8;
-    color: #333;
-    line-height: 1.6;
-    padding: 20px;
- }
- 
- 
- /* Estilo del encabezado */
- h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #4a90e2;
- }
- 
- 
- /* Estilo de los enlaces dentro del encabezado */
- h1 a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    padding: 10px;
- 
- 
- }
- 
- 
- /* Estilo al pasar el ratón sobre los enlaces del encabezado */
- h1 a:hover {
-    background-color: #eaf0f6;
-    color: #357ABD;
- }
- 
- 
- h2 a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    padding: 10px;
- 
- 
- }
- /* Estilo de los enlaces dentro del contenedor de opciones */
- .contenedor-opciones a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #333;
- }
- 
- 
- /* Estilo al pasar el ratón sobre los enlaces del contenedor de opciones */
- .contenedor-opciones a:hover {
-    background-color: #f0f4f8; /* Color de fondo al pasar el ratón */
-    color: #4a90e2; /* Color del texto al pasar el ratón */
- }
- 
- 
- .contenedor-opciones {
-    display: none; /* Oculto por defecto */
-    position: absolute;
-    top: 50px;
-    left: 0;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 250px;
-    z-index: 1000;
- }
- /* Estilo del contenedor de opciones del menú */
- .contenedor-opciones {
-    display: none; /* Oculto por defecto */
-    position: fixed; /* Fijo en la pantalla */
-    top: 0; /* Alinea el contenedor con la parte superior de la página */
-    left: 0; /* Ajusta la posición al lado del botón de menú */
-    height: 100vh; /* Ocupa toda la altura de la página */
-    background-color: #fff;
-    border-left: 2px solid #ddd; /* Línea separadora */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 250px; /* Ancho del menú */
-    z-index: 1000; /* Asegura que esté sobre otros contenidos */
- }
- 
- 
- #menu-icon {
-    background-color: #6995e3; /* Color de fondo */
-    border: none;           /* Sin borde */
-    color: white;           /* Color del texto */
-    font-size: 24px;        /* Tamaño del texto */
-    padding: 10px 15px;     /* Espaciado interno */
-    cursor: pointer;        /* Cursor de mano al pasar sobre el botón */
-    border-radius: 5px;     /* Bordes redondeados */
-    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
- }
- 
- 
- #menu-icon:hover {
-    background-color: #555; /* Color de fondo al pasar el ratón */
-    transform: scale(1.1);  /* Aumento del tamaño al pasar el ratón */
- }
- 
- 
- #menu-icon:focus {
-    outline: none; /* Elimina el borde de enfoque */
- }
- 
- 
- #Regresar::before {
-    background-color: #6995e3; /* Color de fondo */
-    border: none;           /* Sin borde */
-    color: white;           /* Color del texto */
-    font-size: 24px;        /* Tamaño del texto */
-    padding: 10px 15px;     /* Espaciado interno */
-    cursor: pointer;        /* Cursor de mano al pasar sobre el botón */
-    border-radius: 5px;     /* Bordes redondeados */
-    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
- }
- 
- 
- #Regresar:hover {
-    background-color: #555; /* Color de fondo al pasar el ratón */
-    transform: scale(1.1);  /* Aumento del tamaño al pasar el ratón */
- }
- 
- 
- #Regresar:focus {
-    outline: none; /* Elimina el borde de enfoque */
- }
- 
- 
- #edit-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    margin-left: 10px;
- }
- 
- 
- #edit-button i {
-    color: black; /* Cambia el color del ícono aquí */
- }
- 
- 
- #edit-button:hover i {
-    color: gray; /* Color al pasar el mouse */
- }
- 
- 
- /* Estilo para campos deshabilitados */
- #disabled {
-    background-color: #f0f0f0; /* Color de fondo para campos deshabilitados */
-    color: #a0a0a0; /* Color de texto para campos deshabilitados */
- }
- 
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: Arial, sans-serif;
+}
+
+header {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 4% 4%;
+   background-color: #F2F2F2;
+}
+
+.logo-container {
+   display: flex;
+   align-items: center;
+}
+
+.logo {
+   max-width: 10%; 
+}
+
+#menu-icon {
+   display: none;
+}
+
+.contenedor-opciones {
+   display: flex;
+   align-items: center;
+   gap: 2%; 
+}
+
+
+.contenedor-opciones {
+   list-style-type: none;
+   display: flex;
+   gap: 1rem;
+}
+
+.contenedor-opciones a {
+   text-decoration: none;
+   color: #1c1c1c;
+}
+
+
+@media screen and (max-width: 500px) {
+   #menu-icon {
+       display: block;
+       border: 0;
+       font-size: %; 
+       background-color: transparent;
+       cursor: pointer;
+   }
+
+   .contenedor-opciones {
+       opacity: 0;
+       visibility: hidden;
+       display: flex;
+       flex-direction: column;
+       align-items: end;
+       gap: 4%; 
+       position: absolute;
+       top: 0;
+       right: 0;
+       bottom: 0;
+       background-color: #1c1c1c;
+       padding: 4%;
+       box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+   }
+
+   .contenedor-opciones.show-menu {
+       opacity: 1;
+       visibility: visible;
+   }
+   
+   .contenedor-opciones li a {
+       color: #ececec;
+   }
+}
+
