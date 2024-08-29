@@ -1,45 +1,161 @@
 
-            .modal {
-                display: none; 
-                position: fixed; 
-                z-index: 1; 
-                left: 0;
-                top: 0;
-                width: 100%; 
-                height: 100%; 
-                background-color: rgba(0,0,0,0.4); 
-            }
-        
-            .modal-content {
-                background-color: #fefefe;
-                margin: 15% auto; 
-                padding: 20px;
-                border: 1px solid #888;
-                width: 80%; 
-            }
-        
-            /* Estilos para el botón de cerrar */
-            .close {
-                float: right;
-                font-size: 28px;
-                cursor: pointer;
-            }
-        
-            /* Estilos para los botones de confirmación y cancelación */
-            .btn {
-                padding: 10px 20px;
-                margin: 5px;
-                border: none;
-                cursor: pointer;
-                border-radius: 5px;
-            }
-        
-            .btn-confirm {
-                background-color: #4CAF50; 
-                color: white;
-            }
-        
-            .btn-cancel {
-                background-color: #f44336;
-                     color: white;
-  }
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}  
+
+header {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 1%;
+   background-color: #F2F2F2;
+}
+
+body
+{
+background-image: url(../general/fondo.png);
+   background-position: center;
+   background-size: cover;
+   }
+   
+
+   form{
+
+      width:50%;
+      padding: 5%;
+      align-items: center;
+      border-radius:10px;
+      margin:auto;
+      background-color:#ccc;
+   }
+   
+   form label{
+      width:72px;
+      font-weight:bold;
+      display:inline-block;
+   }
+   
+   form input[type="text"],
+   form input[type="email"]{
+      width:180px;
+      padding:3px 10px;
+      border:1px solid #f6f6f6;
+      border-radius:3px;
+      background-color:#f6f6f6;
+      margin:8px 0;
+      display:inline-block;
+   }
+   
+   form input[type="submit"]{
+      width:100%;
+      padding:8px 16px;
+      margin-top:32px;
+      border: 10px;
+      border-radius:5px;
+      display:block;
+      color:#fff;
+      background-color:#000;
+   } 
+   
+   form input[type="submit"]:hover{
+      cursor:pointer;
+   }
+   
+   textarea{
+      width:100%;
+      height:100px;
+      border:1px solid #f6f6f6;
+      border-radius:3px;
+      background-color:#f6f6f6;			
+      margin:8px 0;
+      /*resize: vertical | horizontal | none | both*/
+      resize:none;
+      display:block;
+   
+   }
+
+
+
+.logo-container {
+   display: flex;
+   align-items: center;
+}
+
+.logo {
+   max-width: 40%; 
+}
+
+#menu-icon {
+   display: none;
+}
+
+.contenedor-opciones {
+   display: flex;
+   align-items: center;
+   white-space: nowrap; 
+   gap: 2%; 
+}
+
+
+.contenedor-opciones {
+   list-style-type: none;
+   display: flex;
+   gap: 1rem;
+}
+
+.contenedor-opciones a {
+   text-decoration: none;
+   color: #1c1c1c;
+}
+
+.h1  {
+   font: url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+   color: white;
+}
+
+.label 
+{
+   font:('https://fonts.googleapis.com/css2?family=Koulen&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+}
+
+@media screen and (max-width: 768px) { 
+   #menu-icon {
+       display: block;
+       border: 0;
+       font-size: 24px; 
+       background-color: transparent;
+       cursor: pointer;
+   }
+
+   .contenedor-opciones {
+       flex-direction: column; 
+       align-items: flex-start; 
+       gap: 4%;
+       position: absolute;
+       top: 0;
+       right: 0;
+       bottom: 0;
+       background-color: #1c1c1c;
+       padding: 16px; 
+       box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+       transition: opacity 0.3s ease, visibility 0.3s ease; /* CAMBIO */
+       opacity: 0;
+       visibility: hidden;
+   }
+
+   .contenedor-opciones.show-menu {
+       opacity: 1;
+       visibility: visible;
+   }
+
+   .contenedor-opciones li a {
+       color: #ececec;
+   }
+
+   .form {
+      background-color: white; 
+   }
+   
+}
