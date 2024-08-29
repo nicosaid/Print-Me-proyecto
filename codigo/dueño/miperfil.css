@@ -14,26 +14,24 @@
  
  body
  {
- background-image: url(../general/fondo.png);
+ background-image: 
     background-position: center;
     background-size: cover;
-
-
     }
 
     h1  {
 
-        display: flex;
+        text-align: center;
         font: url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
-        color: beige;
+        color: rgb(0, 0, 0);
 
 
      }
-    
+
  
     form{
  
-       width: 70%;
+       width: 90%;
        padding: 5%;
        align-items: center;
        border-radius:10px;
@@ -45,7 +43,11 @@
        width:72px;
        font-weight:bold;
        display:inline-block;
+        padding: 5px;
+        border-radius: 8px; 
+        background-color: #f0f0f0; 
     }
+    
     
     form input[type="text"],
     form input[type="email"]{
@@ -80,24 +82,22 @@
        border-radius:3px;
        background-color:#f6f6f6;			
        margin:8px 0;
-       /*resize: vertical | horizontal | none | both*/
        resize:none;
        display:block;
     
     }
  
     .formdiv {
+        text-align: center;
             width:100%;
             padding:8px 16px;
             margin-top:32px;
             border: 10px;
             border-radius:5px;
             display:block;
-            color:rgb(12, 7, 7);
             background-color:beige;
 
     }
- 
  
  .logo-container {
     display: flex;

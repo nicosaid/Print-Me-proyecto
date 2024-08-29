@@ -88,14 +88,14 @@
     <br><br>
 
 
-    <h1>Mi perfil</h1>
-    <br><br>
-    <br><br>
-
     <form action="/ruta/del/servidor" method="get">
+
+     <h1>Mi perfil</h1>
+
         <div class="formdiv">
 
-        <label for="Descripcion">Descripcion:</label>
+        <label for="Descripcion"> Descripcion:</label>
+        <br><br>
         <input type="text" id="Descripcion" name="Descripcion" value="Valor desde la base de datos" class="disabled" disabled>
         <button type="button" class="edit-button" onclick="editField('Descripcion')">
             <i class="fas fa-pencil-alt"></i>
@@ -107,6 +107,7 @@
        <div class="formdiv">
 
         <label for="Nombre">Nombre:</label>
+        <br><br>
         <input type="text" id="nombre" name="nombre" value="Valor desde la base de datos" class="disabled" disabled>
         <button type="button" class="edit-button" onclick="editField('nombre')">
             <i class="fas fa-pencil-alt"></i>
@@ -118,6 +119,7 @@
        <div class="formdiv">
 
     <label for="Apellido">Apellido:</label>
+    <br><br>
     <input type="text" id="apellido" name="apellido" value="Valor desde la base de datos" class="disabled" disabled>
     <button type="button" class="edit-button" onclick="editField('apellido')">
         <i class="fas fa-pencil-alt"></i>
@@ -129,6 +131,7 @@
 <div class="formdiv">
 
     <label for="Email">Email:</label>
+    <br><br>
     <input type="email" id="email" name="email" value="Valor desde la base de datos" class="disabled" disabled>
     <button type="button" class="edit-button" onclick="editField('email')">
         <i class="fas fa-pencil-alt"></i>
@@ -138,12 +141,11 @@
 
 
 </div>
-
-<body>
-    
+   
 <div class="formdiv">
         <div class="dropdown">  
             <h3>Elige tu impresora <span class="arrow">▼</span></h3>
+            <br><br>
             <ul class="dropdown-content">
                 <li>Impresora1</li>
                 <li>Impresora2</li>
@@ -151,7 +153,7 @@
             </ul>
         </div>
             <br><br>
-
+</div>
     
         <script>
             document.querySelector('.arrow').addEventListener('click', function() {
@@ -215,14 +217,11 @@
             field.disabled = true; // Deshabilita el campo nuevamente
             field.classList.add('disabled'); // Agrega la clase de estilo deshabilitado
 
-            // Cambiar el botón a un botón de edición
             var button = field.nextElementSibling;
             button.innerHTML = '<i class="fas fa-pencil-alt"></i>';
             button.setAttribute('onclick', 'editField("' + id + '")');
 
-            // Aquí puedes agregar código para guardar los cambios en el servidor
             alert('Cambios guardados para el campo: ' + id);
         }
     </script>
-</body>
 </html>
