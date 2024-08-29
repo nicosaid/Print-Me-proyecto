@@ -10,20 +10,23 @@
     justify-content: space-between;
     padding: 1%;
     background-color: #F2F2F2;
+    font-size: 120%;
+
  }
  
  body
  {
- background-image: 
-    background-position: center;
-    background-size: cover;
+ background-color: #000030;
+
+
     }
 
     h1  {
 
         text-align: center;
         font: url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
-        color: rgb(0, 0, 0);
+        font-size: 300%;
+        color:black;
 
 
      }
@@ -48,6 +51,7 @@
         background-color: #f0f0f0; 
     }
     
+    }
     
     form input[type="text"],
     form input[type="email"]{

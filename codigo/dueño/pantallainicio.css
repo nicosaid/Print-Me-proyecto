@@ -5,21 +5,38 @@
    box-sizing: border-box;
 }  
 
-header {
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   padding: 1%;
-   background-color: #F2F2F2;
-}
 
 body
 {
-background-image: url(../general/fondo.png);
+
+   background-color: #000030;
    background-position: center;
    background-size: cover;
    }
    
+
+
+
+   header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1%;
+      background-color: #F2F2F2;
+      font-size: 120%;
+  
+   }
+
+  
+      h1  {
+  
+          text-align: center;
+          font: url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+          font-size: 300%;
+          color:black;
+  
+  
+       }
 
    form{
 
@@ -109,12 +126,6 @@ background-image: url(../general/fondo.png);
    text-decoration: none;
    color: #1c1c1c;
 }
-
-.h1  {
-   font: url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
-   color: white;
-}
-
 .label 
 {
    font:('https://fonts.googleapis.com/css2?family=Koulen&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
@@ -157,5 +168,8 @@ background-image: url(../general/fondo.png);
    .form {
       background-color: white; 
    }
-   
+
+
+  
+
 }
