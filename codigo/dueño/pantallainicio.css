@@ -131,6 +131,95 @@ body
    font:('https://fonts.googleapis.com/css2?family=Koulen&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 }
 
+body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+   background: #f0f0f0;
+}
+
+.dropdown {
+   position: relative;
+   width: 300px;
+}
+
+.select {
+   background-color: #e0e0e0;
+   color: #333;
+   border-radius: 8px;
+   padding: 16px 24px;
+   cursor: pointer;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   border: 1px solid #ccc;
+   font-size: 16px;
+   position: relative;
+   transition: box-shadow 0.3s ease;
+}
+
+.select:hover {
+   background-color: #d0d0d0;
+}
+
+.select .fa {
+   font-size: 20px;
+   transition: transform 0.3s ease;
+}
+
+.select.open .fa {
+   transform: rotate(180deg); /* Flecha hacia arriba cuando abierto */
+}
+
+.menu-sect {
+   list-style: none;
+   background-color: #e0e0e0;
+   border-radius: 8px;
+   border: 1px solid #ccc;
+   padding: 0;
+   margin: 0;
+   position: absolute;
+   top: 100%;
+   left: 0;
+   width: 100%;
+   max-height: 0;
+   overflow: hidden;
+   transition: max-height 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+   opacity: 0;
+   display: none;
+}
+
+.menu-sect.open {
+   max-height: 300px; /* Ajusta según el contenido */
+   opacity: 1;
+   display: block;
+}
+
+.menu-sect li {
+   padding: 16px 24px;
+   margin: 0;
+   border-radius: 8px;
+   cursor: pointer;
+   font-size: 16px;
+   color: #333;
+   transition: background-color 0.3s ease;
+}
+
+.menu-sect li:hover {
+   background-color: #ccc;
+}
+
+.menu-sect li.active {
+   background-color: #b0b0b0;
+   color: #000;
+}
+
+
 @media screen and (max-width: 768px) { 
    #menu-icon {
        display: block;

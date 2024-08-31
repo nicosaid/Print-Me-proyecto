@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 1.5em;
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    height: 130px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #fff;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+form {
+    max-width: 600px;
+    margin: 2em auto;
+    padding: 2em;
+    padding-top: 4rem;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form textarea {
+    width: calc(100% - 2em);
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+form input[type="submit"] {
+    width: 100%;
+    padding: 0.5em;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #555;
+}
+
+.dropdown {
+    position: relative;
+    margin-bottom: 1em;
+}
+
+.select {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0.5em;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.select:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.menu-sect {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-sect.open {
+    display: block;
+    max-height: 200px;
+    opacity: 1;
+}
+
+.menu-sect li {
+    padding: 0.5em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu-sect li:hover {
+    background-color: #f0f0f0;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 1em;
+    border: none;
+    border-radius: 8px;
+    background-color: #003366; /* Color de fondo del botón */
+    color: #fff; /* Color del texto */
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center; /* Centra el texto */
+}
+
+button[type="submit"]:hover {
+    background-color: #002244; /* Color de fondo cuando se pasa el cursor sobre el botón */
+    transform: scale(1.05); /* Efecto de aumento ligero al pasar el cursor */
+}
+
+button[type="submit"]:focus {
+    outline: none; /* Elimina el contorno del botón al enfocar */
+}
+
+button[type="submit"]:active {
+    background-color: #001233; /* Color de fondo al hacer clic */
+    transform: scale(1); /* Restablece el tamaño al hacer clic */
+}
+
+.group {
+    position: relative;
+    margin-bottom: 2em; /* Espacio con el borde del form */
+}
+
+.custom-input {
+    font-size: 16px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%; /* Ajustar el ancho al 100% del contenedor */
+    border: none;
+    border-bottom: 1px solid #515151; /* Solo la línea inferior */
+    background: transparent;
+}
+
+.custom-input:focus {
+    outline: none;
+}
+
+.custom-input ~ label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+}
+
+.custom-input:focus ~ label, 
+.custom-input:valid ~ label {
+    top: -20px; /* Sube el label hacia arriba */
+    font-size: 17px; /* Aumenta el tamaño del texto */
+    color: #000; /* Cambia el color a negro */
+}
+
+.bar,
+.highlight {
+    display: none; /* Esconder la línea azul y el highlight */
+}
+
+.radio-group {
+    display: flex;
+    gap: 1em; /* Espacio entre los botones de radio */
+    margin-top: 1em; /* Espacio entre la pregunta y los botones */
+}
+
+.radio-group input[type="radio"] {
+    display: none; /* Ocultar los botones de radio por defecto */
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.radio-group input[type="radio"] + label {
+    position: relative;
+    padding-left: 2em; /* Espacio para el pseudo-elemento */
+}
+
+.radio-group input[type="radio"] + label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1em;
+    height: 1em;
+    border: 2px solid #003366;
+    border-radius: 0.2em;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.radio-group input[type="radio"]:checked + label::before {
+    background-color: #003366;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dropdown {
+        margin: 1em 0;
+    }
+}
