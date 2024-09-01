@@ -1,9 +1,11 @@
+/* Reseteo de márgenes y padding */
 * {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
-}  
+}
 
+/* Estilos del header */
 header {
    display: flex;
    align-items: center;
@@ -11,247 +13,144 @@ header {
    padding: 1%;
    background-color: #F2F2F2;
    font-size: 120%;
-
+   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-body
-{
-background-color: #000030;
-
-
-   }
-
-   h1  {
-
-       text-align: center;
-       font: url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
-       font-size: 300%;
-       color:black;
-
-
-    }
-
-
+/* Estilo del contenedor de la logo */
 .logo-container {
    display: flex;
    align-items: center;
 }
 
+/* Estilo de la logo */
 .logo {
-   max-width: 40%; 
+   max-width: 40%;
 }
 
+/* Estilo del ícono del menú, oculto por defecto */
 #menu-icon {
    display: none;
 }
 
-.contenedor-opciones {
-   display: flex;
-   align-items: center;
-   white-space: nowrap; 
-   gap: 2%; 
-}
-
-
+/* Estilos del contenedor de opciones en pantalla grande */
 .contenedor-opciones {
    list-style-type: none;
    display: flex;
    gap: 1rem;
+   align-items: center;
+}
+
+/* Estilos de los enlaces dentro del contenedor de opciones */
+.contenedor-opciones li {
+   position: relative;
 }
 
 .contenedor-opciones a {
-   text-decoration: none;
-   color: #1c1c1c;
-}
-
-
-
-.label 
-{
-   font:('https://fonts.googleapis.com/css2?family=Koulen&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
-}
-
-@media screen and (max-width: 768px) { 
-   #menu-icon {
-       display: block;
-       border: 0;
-       font-size: 24px; 
-       background-color: transparent;
-       cursor: pointer;
-   }
-
-   .contenedor-opciones {
-       flex-direction: column; 
-       align-items: flex-start; 
-       gap: 4%;
-       position: absolute;
-       top: 0;
-       right: 0;
-       bottom: 0;
-       background-color: #1c1c1c;
-       padding: 16px; 
-       box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
-       transition: opacity 0.3s ease, visibility 0.3s ease; /* CAMBIO */
-       opacity: 0;
-       visibility: hidden;
-   }
-
-   .contenedor-opciones.show-menu {
-       opacity: 1;
-       visibility: visible;
-   }
-
-   .contenedor-opciones li a {
-       color: #ececec;
-   }
-
-
-   
-}
-.button-container {
+   position: relative;
    display: flex;
-   background-color: black;
-   width: 250px;
-   height: 40px;
    align-items: center;
-   justify-content: space-around;
-   border-radius: 10px;
- }
- 
- .button {
-   outline: 0 !important;
-   border: 0 !important;
-   width: 40px;
    height: 40px;
-   border-radius: 50%;
-   background-color: transparent;
+   width: 150px;
+   cursor: pointer;
+   text-decoration: none;
+   color: #323232;
+   border: 2px solid #323232;
+   border-radius: 10px;
+   background-color: #eee;
+   overflow: hidden;
+   padding: 0 10px;
+   transition: background-color 0.3s ease;
+}
+
+/* Estilo del texto y el icono */
+.button__text {
+   font-weight: 600;
+   transition: all 0.3s;
+   margin-left: 10px;
+}
+
+.button__icon {
+   position: absolute;
+   right: 0;
+   height: 100%;
+   width: 40px;
    display: flex;
    align-items: center;
    justify-content: center;
-   color: #fff;
-   transition: all ease-in-out 0.3s;
+   background-color: #dedede;
+   transition: all 0.3s ease;
+}
+
+/* Ocultar el texto y centrar el icono al pasar el cursor sobre el enlace */
+.contenedor-opciones a:hover .button__text {
+   color: transparent;
+   transform: translateX(-100%);
+}
+
+.contenedor-opciones a:hover .button__icon {
+   width: 100%;
+   background-color: #2d8cf0; /* Azul de hover */
+   transform: translateX(0);
+}
+
+/* Estilo del botón del menú desplegable */
+#menu-icon {
+   display: block;
+   border: 0;
+   font-size: 24px;
+   background-color: transparent;
    cursor: pointer;
- }
- 
- .button:hover {
-   transform: translateY(-3px);
- }
- 
- .icon {
-   font-size: 20px;
- }
- 
- header {
+   position: absolute;
+   top: 16px;
+   right: 16px;
+}
+
+/* Estilos del contenedor de opciones en el menú desplegable */
+.contenedor-opciones {
+   flex-direction: column;
+   align-items: flex-start;
+   gap: 4%;
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   background-color: #1c1c1c;
+   padding: 16px;
+   box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+   transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+   transform: translateX(100%);
+   opacity: 0;
+   visibility: hidden;
+}
+
+/* Mostrar el menú cuando se activa */
+.contenedor-opciones.show-menu {
+   transform: translateX(0);
+   opacity: 1;
+   visibility: visible;
+}
+
+/* Estilos de los enlaces en el menú desplegable */
+.contenedor-opciones li {
+   width: 100%;
+   border-bottom: 1px solid #333; /* Línea separadora entre los elementos del menú */
+}
+
+.contenedor-opciones li:last-child {
+   border-bottom: none; /* Elimina la línea en el último elemento */
+}
+
+.contenedor-opciones li a {
+   color: #ececec;
+   background-color: transparent;
+   border: none;
+   border-radius: 10px;
+   width: 100%;
+   justify-content: center;
+   position: relative;
    display: flex;
    align-items: center;
-   justify-content: space-between;
-   padding: 1%;
-   background-color: #F2F2F2;
-   font-size: 120%;
-   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
- }
- 
- body {
-   background-color: #000030;
- }
- 
- h1 {
-   text-align: center;
-   font-family: 'Koulen', sans-serif;
-   font-size: 300%;
-   color: black;
- }
- 
- .logo-container {
-   display: flex;
-   align-items: center;
- }
- 
- .logo {
-   max-width: 40%; 
- }
- 
- #menu-icon {
-   display: none;
- }
- 
- .contenedor-opciones {
-   list-style-type: none;
-   display: flex;
-   gap: 1rem;
-   align-items: center;
- }
- 
- .contenedor-opciones a {
+   height: 40px;
+   padding: 0 10px;
    text-decoration: none;
-   color: #1c1c1c;
- }
- 
- .label {
-   font-family: 'Tajawal', sans-serif;
- }
- 
- @media screen and (max-width: 768px) { 
-   #menu-icon {
-     display: block;
-     border: 0;
-     font-size: 24px;
-     background-color: transparent;
-     cursor: pointer;
-     position: absolute;
-     top: 16px;
-     right: 16px;
-   }
- 
-   .contenedor-opciones {
-     flex-direction: column;
-     align-items: flex-start;
-     gap: 4%;
-     position: absolute;
-     top: 0;
-     right: 0;
-     bottom: 0;
-     background-color: #1c1c1c;
-     padding: 16px;
-     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
-     transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
-     transform: translateX(100%);
-     opacity: 0;
-     visibility: hidden;
-   }
- 
-   .contenedor-opciones.show-menu {
-     transform: translateX(0);
-     opacity: 1;
-     visibility: visible;
-   }
- 
-   .contenedor-opciones li a {
-     color: #ececec;
-   }
- 
-   .button-container {
-     flex-direction: column;
-     position: absolute;
-     top: 0;
-     right: 0;
-     height: auto;
-     width: 100%;
-     background-color: #000;
-     align-items: flex-start;
-     justify-content: flex-start;
-     padding: 16px;
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-     border-radius: 0;
-     display: none; /* Inicialmente oculto en pantallas pequeñas */
-   }
- 
-   .button-container.show-menu {
-     display: flex;
-   }
- 
-   .button {
-     margin-bottom: 8px;
-   }
- }
- 
+}

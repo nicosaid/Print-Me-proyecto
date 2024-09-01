@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,86 +7,95 @@
     <title>Registro</title>
     <link rel="stylesheet" href="../dueño/pantallaregistro.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../pruebas personales/registro.js">
 </head>
 <body>
     <header>
-        <h1>Registrarte como dueño</h1>
+        <div class="logo-container">
+            <img class="logo" src="../general/print me logo1.png" alt="logo">
+            <h1>Registrarte como dueño</h1>
+            <div class="register-link">
+            </div>
+        </div>
     </header>
-    <form action="/ruta/del/servidor" method="post">
 
-        <div class="group">
-            <input required="" type="text" class="custom-input" id="nombre" name="nombre" required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label for="nombre">Nombre</label>
-        </div>
+    <div class="wrapper">
+        <form action="/ruta/del/servidor" method="post">
+            <div class="input-box">
+                <input required type="text" id="nombre" name="nombre" placeholder=" ">
+                <label for="nombre">Nombre</label>
+                <i class="fa fa-user"></i>
+            </div>
 
-        <div class="group">
-            <input required="" type="text" class="custom-input" id="apellido" name="apellido" required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label for="apellido">Apellido</label>
-        </div>
+            <div class="input-box">
+                <input required type="text" id="apellido" name="apellido" placeholder=" ">
+                <label for="apellido">Apellido</label>
+                <i class="fa fa-user"></i>
+            </div>
 
-        <div class="group">
-            <input type="email" class="custom-input" id="correo" name="correo" required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label for="correo">Correo Electrónico</label>
-        </div>
+            <div class="input-box">
+                <input required type="email" id="correo" name="correo" placeholder=" ">
+                <label for="correo">Correo Electrónico</label>
+                <i class="fa fa-envelope"></i>
+            </div>
 
-        <div class="group">
-            <input type="password" class="custom-input" id="contrasena" name="contrasena" required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label for="contrasena">Contraseña</label>
-        </div>
+            <div class="input-box">
+                <input required type="password" id="contrasena" name="contrasena" placeholder=" ">
+                <label for="contrasena">Contraseña</label>
+                <i class="fa fa-lock"></i>
+            </div>
 
-        <div class="group">
-            <div class="dropdown">
-                <div class="select">
-                    <span class="choosed">Seleccionar Zona</span>
-                    <i class="fa fa-chevron-down"></i>
+            <div class="input-box">
+                <div class="dropdown">
+                    <div class="select">
+                        <span class="choosed">Seleccionar Zona</span>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="menu-sect">
+                        <li>Zona 1</li>
+                        <li>Zona 2</li>
+                        <li>Zona 3</li>
+                        <li>Zona 4</li>
+                    </ul>
                 </div>
-                <ul class="menu-sect">
-                    <li>Zona 1</li>
-                    <li>Zona 2</li>
-                    <li>Zona 3</li>
-                    <li>Zona 4</li>
-                </ul>
             </div>
-        </div>
 
-        <div class="group">
-            <div class="dropdown">
-                <div class="select">
-                    <span class="choosed">Seleccionar Impresora</span>
-                    <i class="fa fa-chevron-down"></i>
+            <div class="input-box">
+                <div class="dropdown">
+                    <div class="select">
+                        <span class="choosed">Seleccionar Impresora</span>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="menu-sect">
+                        <li>Impresora 1</li>
+                        <li>Impresora 2</li>
+                        <li>Impresora 3</li>
+                        <li>Impresora 4</li>
+                    </ul>
                 </div>
-                <ul class="menu-sect">
-                    <li>Impresora 1</li>
-                    <li>Impresora 2</li>
-                    <li>Impresora 3</li>
-                    <li>Impresora 4</li>
-                </ul>
             </div>
-        </div>
 
-        <div class="group">
-            <label>¿Estás dispuesto a hacer post-impresión?</label>
-            <div class="radio-group">
-                <input type="radio" id="si" name="postimpresion" value="Sí">
-                <label for="si">Sí</label>
-                <input type="radio" id="no" name="postimpresion" value="No">
-                <label for="no">No</label>
+            <div class="input-box">
+                <p>¿Estás dispuesto a hacer post-impresión?</p>
+                <div class="radio-group">
+                    <input type="radio" id="si" name="postimpresion" value="Sí">
+                    <label for="si">Sí</label>
+                    <input type="radio" id="no" name="postimpresion" value="No">
+                    <label for="no">No</label>
+                </div>
             </div>
+
+            <button type="submit">Ir a la siguiente página</button>
+
+        </form>
+        <div class="volver">
+            <a href="pagina-anterior.html">
+                <i class="fa fa-arrow-left"></i> Volver
+            </a>
         </div>
+    
+    </div>
 
-        <button type="submit">Ir a la siguiente página</button>
-    </form>
 
-    <button id="Regresar">&#8592;</button>
     <script src="registro.js"></script>
 </body>
 </html>
