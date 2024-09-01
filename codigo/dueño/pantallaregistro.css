@@ -2,32 +2,36 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
+ }
+ 
+ 
+ body {
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
-}
-
-header {
+ }
+ 
+ 
+ header {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     padding: 1.5em;
     background-color: #003366;
     color: white;
     text-align: center;
     height: 130px;
-}
-
-h1 {
+ }
+ 
+ 
+ h1 {
     font-size: 2.5em;
     color: #fff;
     margin: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-form {
+ }
+ 
+ 
+ form {
     max-width: 600px;
     margin: 2em auto;
     padding: 2em;
@@ -35,27 +39,30 @@ form {
     border-radius: 12px;
     background-color: #fff;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-form label {
+ }
+ 
+ 
+ form label {
     display: block;
     margin-bottom: 0.5em;
     font-weight: bold;
-}
-
-form input[type="text"],
-form input[type="email"],
-form input[type="password"],
-form textarea {
+ }
+ 
+ 
+ form input[type="text"],
+ form input[type="email"],
+ form input[type="password"],
+ form textarea {
     width: calc(100% - 2em);
     padding: 0.5em;
     margin-bottom: 1em;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 1em;
-}
-
-form input[type="submit"] {
+ }
+ 
+ 
+ form input[type="submit"] {
     width: 100%;
     padding: 0.5em;
     border: none;
@@ -65,18 +72,21 @@ form input[type="submit"] {
     font-size: 1em;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-form input[type="submit"]:hover {
+ }
+ 
+ 
+ form input[type="submit"]:hover {
     background-color: #555;
-}
-
-.dropdown {
+ }
+ 
+ 
+ .dropdown {
     position: relative;
     margin-bottom: 1em;
-}
-
-.select {
+ }
+ 
+ 
+ .select {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -86,13 +96,15 @@ form input[type="submit"]:hover {
     justify-content: space-between;
     align-items: center;
     transition: box-shadow 0.3s ease;
-}
-
-.select:hover {
+ }
+ 
+ 
+ .select:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.menu-sect {
+ }
+ 
+ 
+ .menu-sect {
     position: absolute;
     top: 100%;
     left: 0;
@@ -105,25 +117,29 @@ form input[type="submit"]:hover {
     overflow-y: auto;
     z-index: 10;
     transition: max-height 0.3s ease, opacity 0.3s ease;
-}
-
-.menu-sect.open {
+ }
+ 
+ 
+ .menu-sect.open {
     display: block;
     max-height: 200px;
     opacity: 1;
-}
-
-.menu-sect li {
+ }
+ 
+ 
+ .menu-sect li {
     padding: 0.5em;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-.menu-sect li:hover {
+ }
+ 
+ 
+ .menu-sect li:hover {
     background-color: #f0f0f0;
-}
-
-button[type="submit"] {
+ }
+ 
+ 
+ button[type="submit"] {
     width: 100%;
     padding: 1em;
     border: none;
@@ -135,28 +151,33 @@ button[type="submit"] {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     text-align: center; /* Centra el texto */
-}
-
-button[type="submit"]:hover {
+ }
+ 
+ 
+ button[type="submit"]:hover {
     background-color: #002244; /* Color de fondo cuando se pasa el cursor sobre el botón */
     transform: scale(1.05); /* Efecto de aumento ligero al pasar el cursor */
-}
-
-button[type="submit"]:focus {
+ }
+ 
+ 
+ button[type="submit"]:focus {
     outline: none; /* Elimina el contorno del botón al enfocar */
-}
-
-button[type="submit"]:active {
+ }
+ 
+ 
+ button[type="submit"]:active {
     background-color: #001233; /* Color de fondo al hacer clic */
     transform: scale(1); /* Restablece el tamaño al hacer clic */
-}
-
-.group {
+ }
+ 
+ 
+ .group {
     position: relative;
     margin-bottom: 2em; /* Espacio con el borde del form */
-}
-
-.custom-input {
+ }
+ 
+ 
+ .custom-input {
     font-size: 16px;
     padding: 10px 10px 10px 5px;
     display: block;
@@ -164,13 +185,15 @@ button[type="submit"]:active {
     border: none;
     border-bottom: 1px solid #515151; /* Solo la línea inferior */
     background: transparent;
-}
-
-.custom-input:focus {
+ }
+ 
+ 
+ .custom-input:focus {
     outline: none;
-}
-
-.custom-input ~ label {
+ }
+ 
+ 
+ .custom-input ~ label {
     color: #999;
     font-size: 18px;
     font-weight: normal;
@@ -179,43 +202,50 @@ button[type="submit"]:active {
     left: 5px;
     top: 10px;
     transition: 0.2s ease all;
-}
-
-.custom-input:focus ~ label, 
-.custom-input:valid ~ label {
+ }
+ 
+ 
+ .custom-input:focus ~ label,
+ .custom-input:valid ~ label {
     top: -20px; /* Sube el label hacia arriba */
     font-size: 17px; /* Aumenta el tamaño del texto */
     color: #000; /* Cambia el color a negro */
-}
-
-.bar,
-.highlight {
+ }
+ 
+ 
+ .bar,
+ .highlight {
     display: none; /* Esconder la línea azul y el highlight */
-}
-
-.radio-group {
+ }
+ 
+ 
+ .radio-group {
     display: flex;
     gap: 1em; /* Espacio entre los botones de radio */
     margin-top: 1em; /* Espacio entre la pregunta y los botones */
-}
-
-.radio-group input[type="radio"] {
+ }
+ 
+ 
+ .radio-group input[type="radio"] {
     display: none; /* Ocultar los botones de radio por defecto */
-}
-
-.radio-group label {
+ }
+ 
+ 
+ .radio-group label {
     display: flex;
     align-items: center;
     cursor: pointer;
     font-size: 0.9em;
-}
-
-.radio-group input[type="radio"] + label {
+ }
+ 
+ 
+ .radio-group input[type="radio"] + label {
     position: relative;
     padding-left: 2em; /* Espacio para el pseudo-elemento */
-}
-
-.radio-group input[type="radio"] + label::before {
+ }
+ 
+ 
+ .radio-group input[type="radio"] + label::before {
     content: '';
     position: absolute;
     left: 0;
@@ -227,19 +257,24 @@ button[type="submit"]:active {
     border-radius: 0.2em;
     background-color: #fff;
     transition: background-color 0.3s ease;
-}
-
-.radio-group input[type="radio"]:checked + label::before {
+ }
+ 
+ 
+ .radio-group input[type="radio"]:checked + label::before {
     background-color: #003366;
-}
-
-@media screen and (max-width: 768px) {
+ }
+ 
+ 
+ @media screen and (max-width: 768px) {
     header {
         flex-direction: column;
         align-items: center;
     }
-
+ 
+ 
     .dropdown {
         margin: 1em 0;
     }
-}
+ }
+ 
+ 
