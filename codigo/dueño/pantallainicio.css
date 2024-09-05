@@ -1,45 +1,252 @@
+/* Reseteo de márgenes y padding */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
 
-            .modal {
-                display: none; 
-                position: fixed; 
-                z-index: 1; 
-                left: 0;
-                top: 0;
-                width: 100%; 
-                height: 100%; 
-                background-color: rgba(0,0,0,0.4); 
-            }
-        
-            .modal-content {
-                background-color: #fefefe;
-                margin: 15% auto; 
-                padding: 20px;
-                border: 1px solid #888;
-                width: 80%; 
-            }
-        
-            /* Estilos para el botón de cerrar */
-            .close {
-                float: right;
-                font-size: 28px;
-                cursor: pointer;
-            }
-        
-            /* Estilos para los botones de confirmación y cancelación */
-            .btn {
-                padding: 10px 20px;
-                margin: 5px;
-                border: none;
-                cursor: pointer;
-                border-radius: 5px;
-            }
-        
-            .btn-confirm {
-                background-color: #4CAF50; 
-                color: white;
-            }
-        
-            .btn-cancel {
-                background-color: #f44336;
-                     color: white;
-  }
+/* Estilos del header */
+header {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 1%;
+   background-color: #F2F2F2;
+   font-size: 120%;
+   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.button__icon {
+
+   opacity: 0 ;
+
+}
+
+
+/* Estilo del contenedor de la logo */
+.logo-container {
+   display: flex;
+   align-items: center;
+}
+
+/* Estilo de la logo */
+.logo {
+   max-width: 40%;
+}
+
+/* Estilo del ícono del menú, oculto por defecto */
+#menu-icon {
+   display: none;
+}
+
+article {
+    position: relative;
+    width: 250px;
+    transition: transform 0.3s ease;
+}
+
+article img:first-child {
+    box-shadow: 0 60px 60px -60px rgba(0, 30, 255, 0.5);
+    border-radius: 4px;
+    object-fit: cover;
+    width: 100%;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+article img:last-child {
+    position: absolute;
+    width: 200px; /* Tamaño de la segunda imagen */
+    bottom: 20px; /* Baja la segunda foto */
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateY(25%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+}
+
+article:hover {
+    transform: perspective(500px) translateZ(-50px) rotate(0deg) translateY(-5%);
+}
+
+article::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to bottom, transparent 10%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0) 95%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+article:hover::before {
+    opacity: 1;
+}
+
+article:hover img:first-child {
+    filter: brightness(0.7); /* Oscurecer la primera imagen */
+    transform: scale(1.3); /* Escala mayor para la primera imagen */
+}
+
+article:hover img:last-child {
+    opacity: 1;
+    transform: translateY(0%) scale(1.1); /* Aumentar el tamaño de la segunda imagen */
+}
+
+.contenedor-opciones {
+   display: flex;
+   align-items: center;
+   white-space: nowrap; 
+   gap: 2%; 
+}
+
+.contenedor-opciones {
+   list-style-type: none;
+   display: flex;
+   gap: 1rem;
+}
+
+.contenedor-opciones a {
+   text-decoration: none;
+   color: #1c1c1c;
+}
+
+.label {
+   font:('https://fonts.googleapis.com/css2?family=Koulen&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+}
+
+@media screen and (max-width: 768px) { 
+
+.contenedor-opciones {
+   list-style-type: none;
+   display: flex;
+   gap: 1rem;
+   align-items: center;
+}
+
+/* Estilos de los enlaces dentro del contenedor de opciones */
+.contenedor-opciones li {
+   position: relative;
+}
+
+.contenedor-opciones a {
+   position: relative;
+   display: flex;
+   align-items: center;
+   height: 40px;
+   width: 150px;
+   cursor: pointer;
+   text-decoration: none;
+   color: #323232;
+   border: 2px solid #323232;
+   border-radius: 10px;
+   background-color: #eee;
+   overflow: hidden;
+   padding: 0 10px;
+   transition: background-color 0.3s ease;
+}
+
+/* Estilo del texto y el icono */
+.button__text {
+   font-weight: 600;
+   transition: all 0.3s;
+   margin-left: 10px;
+}
+
+.button__icon {
+   position: absolute;
+   right: 0;
+   height: 100%;
+   width: 40px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: none;
+   transition: all 0.3s ease;
+   opacity: 1 ;
+
+
+}
+
+/* Ocultar el texto y centrar el icono al pasar el cursor sobre el enlace */
+.contenedor-opciones a:hover .button__text {
+   color: transparent;
+   transform: translateX(-100%);
+}
+
+.contenedor-opciones a:hover .button__icon {
+   width: 100%;
+   background-color: #2d8cf0; /* Azul de hover */
+   transform: translateX(0);
+}
+
+/* Estilo del botón del menú desplegable */
+#menu-icon {
+   display: block;
+   border: 0;
+   font-size: 24px;
+   background-color: transparent;
+   cursor: pointer;
+   position: absolute;
+   top: 16px;
+   right: 16px;
+   
+}
+
+/* Estilos del contenedor de opciones en el menú desplegable */
+.contenedor-opciones {
+   flex-direction: column;
+   align-items: flex-start;
+   gap: 4%;
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   background-color: #1c1c1c;
+   padding: 16px;
+   box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+   transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+   transform: translateX(100%);
+   opacity: 0;
+   visibility: hidden;
+}
+
+/* Mostrar el menú cuando se activa */
+.contenedor-opciones.show-menu {
+   transform: translateX(0);
+   opacity: 1;
+   visibility: visible;
+}
+
+/* Oscurecer el artículo cuando el menú está abierto en pantallas pequeñas */
+.contenedor-opciones.show-menu ~ article {
+   filter: brightness(0.5); /* Oscurecer el artículo */
+}
+
+/* Estilos de los enlaces en el menú desplegable */
+.contenedor-opciones li {
+   width: 100%;
+   border-bottom: 1px solid #333; /* Línea separadora entre los elementos del menú */
+}
+
+.contenedor-opciones li:last-child {
+   border-bottom: none; /* Elimina la línea en el último elemento */
+}
+
+.contenedor-opciones li a {
+   color: #ececec;
+   background-color: transparent;
+   border: none;
+   border-radius: 10px;
+   width: 100%;
+   justify-content: center;
+   position: relative;
+   display: flex;
+   align-items: center;
+   height: 40px;
+   padding: 0 10px;
+   text-decoration: none;
+}
+
+}

@@ -1,60 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="general.css">
-
-    <button id="Regresar">&#8592;</button>
-
-    <script>
-        document.getElementById('Regresar').addEventListener('click', function() {
-            window.history.back(); // Regresa a la página anterior en el historial del navegador
-        });
-    </script>
+    <title>Registro</title>
+    <link rel="stylesheet" href="../dueño/pantallaregistro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
 <body>
+    <div class="logo-container">
+        <img class="logo" src="../general/print me logo1.png" alt="logo">
+        </div>
 
-    <h1>Registrarte como dueño</h1>
-    <form action="/ruta/del/servidor" method="post">   <!-- Define un formulario que envía datos al servidor especificado en el atributo action usando el método POST -->
-        <form action="pantallainiciodueño.html" method="get">
+    <div class="wrapper">
+        <form action="/ruta/del/servidor" method="post">
+            <div class="input-box">
+                <h1>Registrarte como dueño</h1>
 
-         <label for="nombre">Nombre:</label> 
-         <input type="text" id="nombre" name="nombre" required> 
-         <br><br> 
- 
-         <label for="apellido">Apellido:</label>
-         <input type="text" id="apellido" name="apellido" required> 
-         <br><br> 
- 
-         <label for="correo">Correo Electrónico:</label>
-         <input type="email" id="correo" name="correo" required> 
-         <br><br> 
- 
-         <label for="contrasena">Contraseña:</label>
-         <input type="password" id="contrasena" name="contrasena" required> 
-         <br><br> 
+                <input required type="text" id="nombre" name="nombre" placeholder=" ">
+                <label for="nombre">Nombre</label>
+                <i class="fa fa-user"></i>
+            </div>
 
-         <label for="zona">Zona:</label> 
-         <input type="lable" id="zona" name="zona" required> 
-         <br><br> 
+            <div class="input-box">
+                <input required type="text" id="apellido" name="apellido" placeholder=" ">
+                <label for="apellido">Apellido</label>
+                <i class="fa fa-user"></i>
+            </div>
 
-          <label for="impresora">Impresora:</label> 
-          <input type="text" id="impresora" name="impresora" required> 
-         <br><br> 
- 
-         <label>¿Estás dispuesto a hacer post-impresión?</label>
-         <input type="radio" id="si" name="postimpresion" value="Sí">
-         <label for="si">Sí</label>
-         <input type="radio" id="no" name="postimpresion" value="No">
-         <label for="no">No</label>
-         <br><br> 
+            <div class="input-box">
+                <input required type="email" id="correo" name="correo" placeholder=" ">
+                <label for="correo">Correo Electrónico</label>
+                <i class="fa fa-envelope"></i>
+            </div>
 
-        <button type="submit">Ir a la siguiente página</button>
+            <div class="input-box">
+                <input required type="password" id="contrasena" name="contrasena" placeholder=" ">
+                <label for="contrasena">Contraseña</label>
+                <i class="fa fa-lock"></i>
+            </div>
+
+            <div class="input-box">
+                <div class="dropdown">
+                    <div class="select">
+                        <span class="choosed">Seleccionar Zona</span>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="menu-sect">
+                        <li>Zona 1</li>
+                        <li>Zona 2</li>
+                        <li>Zona 3</li>
+                        <li>Zona 4</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <div class="dropdown">
+                    <div class="select">
+                        <span class="choosed">Seleccionar Impresora</span>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="menu-sect">
+                        <li>Impresora 1</li>
+                        <li>Impresora 2</li>
+                        <li>Impresora 3</li>
+                        <li>Impresora 4</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <p>¿Estás dispuesto a hacer post-impresión?</p>
+                <div class="radio-group">
+                    <input type="radio" id="si" name="postimpresion" value="Sí">
+                    <label for="si">Sí</label>
+                    <input type="radio" id="no" name="postimpresion" value="No">
+                    <label for="no">No</label>
+                </div>
+            </div>
+
+            <button type="submit">Ir a la siguiente página</button>
+
         </form>
-    </form>
-
+        <div class="volver">
+            <a href="pagina-anterior.html">
+                <i class="fa fa-arrow-left"></i> Volver
+            </a>
+        </div>
     
+    </div>
+
+
+    <script src="registro.js"></script>
 </body>
 </html>

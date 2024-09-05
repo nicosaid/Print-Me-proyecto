@@ -5,27 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="general.css">
-    <link rel="stylesheet" href="pantallainicio.css">
+    <link rel="stylesheet" href="../dueño/pantallainicio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../dueño/cerrarcesion.css">
+    <link rel="stylesheet" href="../dueño/pantallainicio.js">
+
 </head>
 <body>
-       
     <header>
         <div class="logo-container">
             <img class="logo" src="../general/print me logo1.png" alt="logo">
-            
         </div>
         <nav>
             <button id="menu-icon">
-            
                 &#9776;
             </button>
             <div class="contenedor-opciones">
-                <li><a href="./pantallainiciodueño.html">Inicio</a></li>
-                <li><a href="./miperfil.html">Mi perfil</a></li>
-                <li><a href="./cotizador.html">Cotizador</a></li>
-                <li><a href="./quienessomosduenio.html">Quienes Somos</a></li>
-                <li><a id="cerrarSesion" href="../general/index.html">Cerrar Sesión</a></li>
+                <li><a href="./pantallainiciodueño.html"><span class="button__text">Inicio</span><span class="button__icon"><i class="fas fa-home"></i></span></a></li>
+                <li><a href="./miperfil.html"><span class="button__text">Mi perfil</span><span class="button__icon"><i class="fas fa-user"></i></span></a></li>
+                <li><a href="./cotizador.html"><span class="button__text">Cotizador</span><span class="button__icon"><i class="fas fa-calculator"></i></span></a></li>
+                <li><a href="./quienessomosduenio.html"><span class="button__text">Quienes Somos</span><span class="button__icon"><i class="fas fa-info-circle"></i></span></a></li>
+                <li><a id="cerrarSesion" href="../general/index.html"><span class="button__text">Cerrar Sesión</span><span class="button__icon"><i class="fas fa-sign-out-alt"></i></span></a></li>
             </div>
         </nav>
     </header>
@@ -85,6 +85,41 @@
 
         // Agregar el manejador de eventos al documento para cerrar el menú
         document.addEventListener('click', closeMenu);
-    </script>
+          // Agregar el manejador de eventos al documento para cerrar el menú
+  </script>
+<div>
+
+        <!-- 
+
+  <article>
+        <img src="https://cdnx.jumpseller.com/3d-wid-online-store/image/39291488/resize/540/540?1703891814" >
+        <img src="../dueño/animacion.gif" >
+            </article>
+
+            -->
+
+            <div>
+                <div>
+                    <div class="filter-buttons">
+                        <button onclick="filterItems('Todos')">Todos</button>
+                        <button onclick="filterItems('Pedidos_Anteriores')">Pedidos Anteriores</button>
+                        <button onclick="filterItems('Pedidos_en_proceso')">Pedidos en proceso</button>
+                        <button onclick="filterItems('Pedidos_a_aceptar')">Pedidos a aceptar</button>
+                    </div>
+                
+                    <div class="items">
+                        <div class="item Pedidos_en_proceso">Pedido 12</div>
+                        <div class="item Pedidos_Anteriores">Pedido 24</div>
+                        <div class="item Pedidos_a_aceptar">Pedido 20</div>
+                    </div>
+                
+                    <script src="script.js"></script>
+                </div>
+                
+</div>
+  
+         
+
+            
 </body>
 </html>

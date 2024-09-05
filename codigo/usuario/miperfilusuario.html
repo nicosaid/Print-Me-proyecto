@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="miperfiluser.css">
+    <script src="miperfiluser.js"></script>
+    <script>
+        function editField(id) {
+            // Obtén el elemento de entrada de texto
+            const input = document.getElementById(id);
+            
+            // Elimina la clase "disabled" para habilitar la edición
+            input.classList.remove('disabled');
+            
+            // Agrega un botón de guardar
+            const saveButton = document.createElement('button');
+            saveButton.textContent = 'Guardar';
+            saveButton.onclick = () => saveField(id);
+            input.parentNode.appendChild(saveButton);
+        }
+
+        function saveField(id) {
+            // Obtén el elemento de entrada de texto
+            const input = document.getElementById(id);
+            
+            // Obtiene el valor actual del campo
+            const valor = input.value;
+            
+            // Envía el valor al servidor para actualizar la base de datos
+            // ...
+            
+            // Vuelve a agregar la clase "disabled" para deshabilitar la edición
+            input.classList.add('disabled');
+            
+            // Elimina el botón de guardar
+            const saveButton = input.parentNode.querySelector('button');
+            saveButton.parentNode.removeChild(saveButton);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        
+    </header>
+    <main>
+        <form action="/ruta/del/servidor" method="post">
+            <h1>Mi perfil</h1>
+
+            <div class="formdiv">
+                <label for="Descripcion"> Descripcion:</label>
+                <br><br>
+                <input type="text" id="Descripcion" name="Descripcion" value="Valor desde la base de datos" class="form-control disabled" disabled>
+                <button type="button" class="edit-button" onclick="editField('Descripcion')">
+                    <i class="fas fa-pencil-alt"></i>
+                </button>
+                <br><br>
+            </div> 
+   
+            <div class="formdiv">
+                <label for="Nombre">Nombre:</label>
+                <br><br>
+                <input type="text" id="nombre" name="nombre" value="Valor desde la base de datos" class="form-control disabled" disabled>
+                <button type="button" class="edit-button" onclick="editField('nombre')">
+                    <i class="fas fa-pencil-alt"></i>
+                </button>
+                <br><br>
+            </div>
+           
+            <div class="formdiv">
+                <label for="Apellido">Apellido:</label>
+                <br><br>
+                <input type="text" id="apellido" name="apellido" value="Valor desde la base de datos" class="form-control disabled" disabled>
+                <button type="button" class="edit-button" onclick="editField('apellido')">
+                    <i class="fas fa-pencil-alt"></i>
+                </button>
+                <br><br>
+            </div>
+         
+            <div class="formdiv">
+                <label for="Email">Email:</label>
+                <br><br>
+                <input type="email" id="email" name="email" value="Valor desde la base de datos" class="form-control disabled" disabled>
+                <button type="button" class="edit-button" onclick="editField('email')">
+                    <i class="fas fa-pencil-alt"></i>
+                </button>
+                <br><br>
+            </div>
+
+            <div class="formdiv">
+                <label for="contraseña">Contraseña:</label>
+                <br><br>
+                <input type="password" id="contraseña" name="contraseña" value="Valor desde la base de datos" class="form-control disabled" disabled>
+                <button type="button" class="edit-button" onclick="editField('contraseña')">
+                    <i class="fas fa-pencil-alt"></i>
+                </button>
+            </div>
+            <br><br>
+        </form>
+    </main>
+</body>
+</html>
