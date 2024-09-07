@@ -116,6 +116,7 @@ article:hover img:last-child {
    font:('https://fonts.googleapis.com/css2?family=Koulen&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 }
 
+
 @media screen and (max-width: 768px) { 
 
 .contenedor-opciones {
@@ -129,6 +130,8 @@ article:hover img:last-child {
 .contenedor-opciones li {
    position: relative;
 }
+
+
 
 .contenedor-opciones a {
    position: relative;
@@ -248,5 +251,6 @@ article:hover img:last-child {
    padding: 0 10px;
    text-decoration: none;
 }
+
 
 }

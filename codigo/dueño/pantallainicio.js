@@ -15,23 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
   });
 
-  // Función para filtrar elementos por categoría
-  function filterItems(category) {
-      var items = document.querySelectorAll('.items .item');
-      
-      items.forEach(function(item) {
-          if (category === 'Todos') {
-              item.style.display = 'block';
-          } else {
-              if (item.classList.contains(category)) {
-                  item.style.display = 'block';
-              } else {
-                  item.style.display = 'none';
-              }
-          }
-      });
-  }
 
-  // Mostrar todos los elementos al cargar la página
-  filterItems('Todos');
 });
+ 
