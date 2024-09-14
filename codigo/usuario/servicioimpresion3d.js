@@ -1,34 +1,21 @@
-// Get the product card container
-const cardContainer = document.querySelector('.card');
+//entrar a productos
+  const cardProducts = document.querySelectorAll('.card-product');
+const detalleProducto = document.querySelector('#detalle-producto');
 
-// Update the product card content
-function updateProductCard(data) {
-  // Update the image
-  cardContainer.querySelector('img').src = data.image;
+cardProducts.forEach((cardProduct) => {
+    const btnDetalle = cardProduct.querySelector('.btn-detalle');
+    btnDetalle.addEventListener('click', () => {
+        // Obtener los datos del producto seleccionado
+        const titulo = cardProduct.querySelector('h3').textContent;
+        const descripcion = 'Descripción del producto...'; // Agrega la descripción del producto aquí
+        const imagen = cardProduct.querySelector('img').src;
 
-  // Update the title
-  cardContainer.querySelector('h1').textContent = data.title;
+        // Mostrar la pantalla de detalles
+        detalleProducto.style.display = 'block';
 
-  // Update the price
-  cardContainer.querySelector('.price').textContent = data.price;
-
-  // Update the description
-  cardContainer.querySelector('p').textContent = data.description;
-}
-
-// Call the update function with new data
-updateProductCard({
-  image: 'new-image.jpg',
-  title: 'New Product Title',
-  price: '$29.99',
-  description: 'New product description'
+        // Actualizar los datos en la pantalla de detalles
+        document.querySelector('#titulo-detalle').textContent = titulo;
+        document.querySelector('#descripcion-detalle').textContent = descripcion;
+        document.querySelector('#imagen-detalle').src = imagen;
+    });
 });
-
-//fetchea data de la api
-$.ajax({
-    url: '/api/products',
-    method: 'GET',
-    success: function(data) {
-      updateProductCard(data);
-    }
-  });
