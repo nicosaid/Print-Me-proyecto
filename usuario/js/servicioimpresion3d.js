@@ -1,21 +1,34 @@
-//entrar a productos
-  const cardProducts = document.querySelectorAll('.card-product');
-const detalleProducto = document.querySelector('#detalle-producto');
+const perfilesDueños = document.querySelectorAll('.perfilesdueños');
+const detalledueño = document.querySelector('#detalle-dueños');
 
-cardProducts.forEach((cardProduct) => {
-    const btnDetalle = cardProduct.querySelector('.btn-detalle');
-    btnDetalle.addEventListener('click', () => {
-        // Obtener los datos del producto seleccionado
-        const titulo = cardProduct.querySelector('h3').textContent;
-        const descripcion = 'Descripción del producto...'; // Agrega la descripción del producto aquí
-        const imagen = cardProduct.querySelector('img').src;
+perfilesDueños.forEach((cardProduct) => {
+    perfilDueño.addEventListener('click', () => {
+        // Get the product details from the card
+        const titulo = perfilDueño.querySelector('h3').textContent;
+        const descripcion = 'Descripción del producto...'; // Add the product description
+        const imagen = perfilDueño.querySelector('img').src;
 
-        // Mostrar la pantalla de detalles
-        detalleProducto.style.display = 'block';
-
-        // Actualizar los datos en la pantalla de detalles
+        // Display the product details
+        detalleDueño.style.display = 'block';
         document.querySelector('#titulo-detalle').textContent = titulo;
         document.querySelector('#descripcion-detalle').textContent = descripcion;
         document.querySelector('#imagen-detalle').src = imagen;
+    });
+});
+const perfilDueños = document.querySelectorAll('.perfilDueño');
+const detalleProducto = document.querySelector('#detalle-producto');
+
+perfilDueños.forEach((perfilDueño) => {
+    perfilDueño.addEventListener('click', () => {
+        // Get the profile details from the card
+        const nombre = perfilDueño.querySelector('h3').textContent;
+        const imagen = perfilDueño.querySelector('img').src;
+        const rating = perfilDueño.querySelector('.stars').innerHTML;
+
+        // Display the profile details
+        detalleProducto.style.display = 'block';
+        document.querySelector('#titulo-detalle').textContent = nombre;
+        document.querySelector('#imagen-detalle').src = imagen;
+        document.querySelector('#rating-detalle').innerHTML = rating;
     });
 });

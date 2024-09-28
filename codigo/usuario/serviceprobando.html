@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Product Cards</title>
+        <style>
+            body {
+                background-color: #000000;
+                color: #ffffff;
+                font-family: sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+    
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 80%;
+                max-width: 800px;
+                margin: 20px auto;
+                padding: 20px;
+                border: 1px solid #ffffff;
+                border-radius: 5px;
+            }
+    
+            h1 {
+                margin-bottom: 20px;
+            }
+    
+            .product-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 20px;
+                padding: 15px;
+                border: 1px solid #ffffff;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.2s ease;
+            }
+    
+            .product-card:hover {
+                background-color: #111111;
+            }
+    
+            .product-image {
+                width: 100%;
+                max-width: 300px;
+                height: auto;
+                margin-bottom: 10px;
+            }
+    
+            .product-info {
+                text-align: center;
+            }
+    
+            .product-name {
+                font-size: 1.2em;
+                margin-bottom: 5px;
+            }
+    
+            .product-price {
+                font-size: 1.1em;
+                margin-bottom: 10px;
+            }
+    
+            .product-details {
+                display: none;
+                width: 100%;
+                padding: 20px;
+                border: 1px solid #ffffff;
+                border-radius: 5px;
+                margin-top: 20px;
+            }
+    
+            .product-details h2 {
+                margin-bottom: 10px;
+            }
+    
+            .product-details p {
+                margin-bottom: 10px;
+            }
+    
+            .product-details .button {
+                padding: 10px 20px;
+                background-color: #4CAF50;
+                color: #ffffff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.2s ease;
+            }
+    
+            .product-details .button:hover {
+                background-color: #45a049;
+            }
+        </style>
+    </head>
+</head>
+<body>
+    <div class="container">
+        <h1>Featured Products</h1>
+        <a href="product-details.html"></a>
+        <div class="product-card" data-product-id="1">
+            <img src="images/product1.jpg" alt="Product 1" class="product-image">
+            <div class="product-info">
+                <h2 class="product-name">Product 1</h2>
+                <p class="product-price">$19.99</p>
+            </div>
+            <div class="perfildueño">
+                <h2>Product 1 Details</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+                <button class="button">Add to Cart</button>
+            </div>
+             </a>
+        </div>
+        <div class="product-card" data-product-id="2">
+            <img src="images/product2.jpg" alt="Product 2" class="product-image">
+            <div class="product-info">
+                <h2 class="product-name">Product 2</h2>
+                <p class="product-price">$29.99</p>
+            </div>
+            <div class="product-details">
+                <h2>Product 2 Details</h2>
+                <p>Nulla vitae elit libero, a pharetra augue. Donec sed odio dui. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+                <button class="button">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card" data-product-id="3">
+            <img src="images/product3.jpg" alt="Product 3" class="product-image">
+            <div class="product-info">
+                <h2 class="product-name">Product 3</h2>
+                <p class="product-price">$39.99</p>
+            </div>
+            <div class="product-details">
+                <h2>Product 3 Details</h2>
+                <p>Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+                <button class="button">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const productCards = document.querySelectorAll('.product-card');
+    productCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const productId = card.dataset.productId;
+        window.open(`product-details-${productId}.html`, '_blank');
+    });
+    });
+    </script>
+</body>
+</html>
