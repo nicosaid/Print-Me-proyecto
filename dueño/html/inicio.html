@@ -3,70 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filtrar Pacientes</title>
+    <title>Filtrar Pedidos</title>
     <link rel="stylesheet" href="../css/inicio.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'> <!-- Importación de Boxicons -->
 </head>
 <body>
-    <nav class="sidebar locked">
-        <div class="logo_items flex">
-            <span class="nav_image">
-                <img src="images/logo.png" alt="logo_img" />
-            </span>
-            <span class="logo_name"></span>
-            <i class="bx bx-x" id="sidebar-close"></i>
-        </div>
+   
 
-        <div class="menu_container">
-            <div class="menu_items">
-                <ul class="menu_item">
-                    <li class="item">
-                        <a href="#" class="link flex">
-                            <i class="bx bx-home-alt"></i> <!-- Icono de Inicio -->
-                            <span>Inicio</span>
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="#" class="link flex">
-                            <i class="bx bx-user"></i> <!-- Icono de Mi Perfil -->
-                            <span>Mi Perfil</span>
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="#" class="link flex">
-                            <i class="bx bx-calculator"></i> <!-- Icono de Cotizador -->
-                            <span>Cotizador</span>
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="#" class="link flex">
-                            <i class="bx bx-group"></i> <!-- Icono de Quienes Somos -->
-                            <span>Quiénes Somos</span>
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="#" class="link flex">
-                            <i class="bx bx-power-off"></i> <!-- Icono de Cerrar Sesión -->
-                            <span>Cerrar Sesión</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <header>
+            <img class="logo" src="../general/print me logo1.png" alt="logo">
+            <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+           <nav id="nav" class="nav">
+            <button id="cerrar" class="cerrar-menu"><i class="bi bi-x"></i></button>
+            <ul class="nav-list">
+                <li><a href="">Mi perfil</a></li>
+                <li><a href=""> Cotizador</a></li>
+                <li><a href="">Cerrar sesion</a></li>
+            </ul>
+           </nav>
+        </header>
         
 
-            <!-- Perfil del usuario -->
-            <div class="sidebar_profile flex">
-                <span class="nav_image">
-                    <img src="images/profile.jpg" alt="profile_img" />
-                </span>
-                <div class="data_text">
-                    <span class="name">David Oliva</span>
-                    <span class="email">david@gmail.com</span>
-                </div>
-            </div>
-        </div>
-    </nav>
+    
 
     <script src="filtros.js"></script>
 </body>

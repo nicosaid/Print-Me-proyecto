@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-	--primary-color: #0000ff ;
+	--primary-color: #1f1f80 ;
 	--background-color: #f9f5f0;
 	--dark-color: #151515;
 }
@@ -45,7 +45,6 @@ html {
 /* ********************************** */
 
 .search-form {
-	position: relative;
 	display: flex;
 	align-items: center;
 	border: 2px solid #fff;
