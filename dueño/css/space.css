@@ -1,0 +1,72 @@
+.text-container {
+    display: inline-block; /* Permite que el contenedor ajuste su tamaño al contenido */
+    position: relative; /* Para el posicionamiento relativo de las estrellas */
+}
+
+.container {
+    position: relative;
+    font-size: 5rem; /* Tamaño de la letra */
+    color: transparent; /* Hacemos las letras transparentes */
+    overflow: hidden; /* Esconde cualquier contenido que se salga del contenedor */
+    border: 2px solid #003366; /* Borde azul oscuro */
+    background-color: rgba(0, 51, 102, 0.2); /* Fondo azul oscuro sutil */
+    border-radius: 10px; /* Esquinas redondeadas */
+}
+
+.text {
+    position: relative; /* Necesario para el contenido de estrellas */
+    -webkit-mask-image: linear-gradient(#000 0 0);
+    mask-image: linear-gradient(#000 0 0);
+}
+
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.stars::after {
+    content: "";
+    position: absolute;
+    top: -10rem;
+    left: -100rem;
+    width: 100%;
+    height: 100%;
+    animation: animStarRotate 90s linear infinite;
+    background-image: radial-gradient(#ffffff 1px, transparent 1%);
+    background-size: 50px 50px;
+}
+
+.stars::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 170%;
+    height: 500%;
+    animation: animStar 60s linear infinite;
+    background-image: radial-gradient(#ffffff 1px, transparent 1%);
+    background-size: 50px 50px;
+    opacity: 0.5;
+}
+
+@keyframes animStar {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-135rem);
+    }
+}
+
+@keyframes animStarRotate {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0);
+    }
+}

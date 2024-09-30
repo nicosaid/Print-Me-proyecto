@@ -8,6 +8,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+body {
+ background-color: rgb(27, 27, 100);
+  } 
+
 /* Pre css */
 .flex {
   display: flex;
@@ -110,28 +114,51 @@
 .item {
   list-style: none;
 }
+
+
+
+
+  
+
+  
+  /* Estilos para la opción activa */
+  .link.active {
+    color: #003366; /* El texto de la opción activa será azul oscuro */
+    border: 1px solid #003366; /* Mantiene un borde azul oscuro */
+    background-color: transparent; /* No tiene fondo */
+  }
+
+  
 .link {
-  text-decoration: none;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  color: #707070;
-}
-.link:hover {
-  color: #fff;
-  background-color: #4070f4;
-}
-.link span {
-  white-space: nowrap;
-}
-.link i {
-  height: 50px;
-  min-width: 55px;
-  display: flex;
-  font-size: 22px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-}
+    text-decoration: none;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    color: #707070; /* Color inicial de las letras */
+    transition: color 0.3s ease, border 0.3s ease; /* Suaviza el cambio de color y el borde */
+    border: 1px solid transparent; /* Inicialmente sin borde visible */
+  }
+  
+  .link:hover {
+    color: #003366; /* Cambia el color del texto a azul oscuro al pasar el cursor */
+    border: 1px solid #003366; /* Añade un borde sutil de azul oscuro */
+  }
+  
+  .link i {
+    height: 50px;
+    min-width: 55px;
+    display: flex;
+    font-size: 22px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+  
+  /* Eliminar el cambio de fondo al hacer hover */
+  .link:hover {
+    background-color: transparent; /* Mantiene el fondo transparente al hacer hover */
+  }
+  
+
 
 .sidebar_profile {
   padding-top: 15px;
@@ -213,6 +240,13 @@
   #sidebar-open {
     display: block;
   }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
 
