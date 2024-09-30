@@ -6,17 +6,6 @@
 	--dark-color: #151515;
 }
 
-html {
-	font-size: 62.5%;
-	font-family: 'Poppins', sans-serif;
-
-}
-
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
 
 /* ********************************** */
 /*             UTILIDADES             */
@@ -32,97 +21,35 @@ html {
 	font-size: 3rem;
 }
 
+.principaldiv {
+	width: 80%;
+	height: 500px;
+	max-width: 1200px; /* Establecer un ancho máximo para pantallas grandes */
+	margin: 50px auto; /* Centrar el div y separarlo de los costados */
+	padding: 40px; /* Espacio interno más amplio */
+	background-color: #ececec; /* Color de fondo azul oscuro */
+	border-radius: 15px; /* Bordes redondeados */
+	backdrop-filter: blur(100px); /* Aplicar desenfoque al fondo */
+	border-radius: 15px; /* Bordes redondeados */
+	box-shadow: 0 100px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+	border: 1px solid #e0e0e0; /* Borde sutil */
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+	border: 1px solid #e0e0e0; /* Borde sutil */
+	text-align: center; /* Centrar contenido */
+  }
+  
+  .principaldiv h2 {
+	font-size: 2rem; /* Aumentar tamaño del título */
+	color: black; /* Texto blanco para el título */
+	margin-bottom: 20px;
+  }
+  
+  .principaldiv p {
+	font-size: 1.2rem; /* Aumentar tamaño del texto del párrafo */
+	color: black; /* Texto gris claro */
+  }
+  
 
-/* ********************************** */
-/*            MAIN CONTENT            */
-/* ********************************** */
-.main-content {
-	background-color: var(--background-color);
-}
-
-/* ********************************** */
-/*              FEATURES              */
-/* ********************************** */
-
-.search-form {
-	display: flex;
-	align-items: center;
-	border: 2px solid #fff;
-	border-radius: 2rem;
-	background-color: #fff;
-	height: 4.4rem;
-	overflow: hidden;
-}
-
-.search-form input {
-	outline: none;
-	font-family: inherit;
-	border: none;
-	width: 25rem;
-	font-size: 1.4rem;
-	padding: 0 2rem;
-	color: #777;
-	cursor: pointer;
-}
-
-.search-form input::-webkit-search-cancel-button {
-	appearance: none;
-}
-
-.search-form .btn-search {
-	border: none;
-	background-color: var(--primary-color);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
-	padding: 1rem;
-}
-
-.btn-search i {
-	font-size: 2rem;
-	color: #fff;
-}
-
-.container-features {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 3rem;
-	padding: 3rem 0;
-}
-
-.card-feature {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 1.5rem;
-
-	background-color: #fff;
-	border-radius: 1rem;
-	padding: 1.5rem 0;
-}
-
-.card-feature i {
-	font-size: 2.7rem;
-	color: var(--primary-color);
-}
-
-.feature-content {
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
-}
-
-.feature-content span {
-	font-weight: 700;
-	font-size: 1.2rem;
-	color: var(--dark-color);
-}
-
-.feature-content p {
-	color: #777;
-	font-weight: 500;
-}
 /* ********************************** */
 /*            TOP PRODUCTS            */
 /* ********************************** */
@@ -144,16 +71,13 @@ html {
 	color: #777;
 	background-color: #fff;
 	padding: 0.7rem 3rem;
-	font-size: 1.4rem;
+	font-size: 13px;
 	text-transform: capitalize;
 	border-radius: 2rem;
 	cursor: pointer;
 }
 
-.container-options span:hover {
-	background-color: var(--primary-color);
-	color: #fff;
-}
+
 
 .container-options span.active {
 	background-color: var(--primary-color);
@@ -311,4 +235,77 @@ html {
 	text-decoration: line-through;
 	color: #777;
 	margin-left: 0.5rem;
+}
+
+.products-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px; /* Espacio entre productos */
+    padding: 20px;
+}
+.card-product {
+    --bg: #f7f7f8;
+    --hover-bg: #FFE5F4; /* Color de fondo al hacer hover */
+    --hover-text: #E50087; /* Color del texto al hacer hover */
+    max-width: 23ch;
+    text-align: center;
+    background: var(--bg);
+    padding: 1.5em;
+    padding-block: 1.8em;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s cubic-bezier(.6, .4, 0, 1), transform 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.card-product:hover {
+    background: var(--hover-bg); /* Cambia el color de fondo */
+}
+
+.card-product span {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--hover-text); /* Cambia el color del texto */
+    border-radius: 5px;
+    font-weight: bold;
+    top: 100%;
+    transition: all 0.3s cubic-bezier(.6, .4, 0, 1);
+}
+
+.card-product:hover span {
+    top: 0;
+    font-size: 1.2em;
+}
+
+.card-product:hover .card__body {
+    opacity: 0; /* Oculta el contenido de la tarjeta al hacer hover */
+}
+
+.card-product:hover svg {
+    opacity: 1; /* Muestra el icono en el hover */
+}
+
+.card__body {
+    opacity: 1; /* Asegura que el contenido sea visible por defecto */
+    transition: opacity 0.3s ease; /* Añade una transición suave */
+}
+
+/* Estilo para el SVG para que esté centrado */
+.card-product svg {
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.3s ease; /* Transición suave para la aparición */
+}
+
+.card-product:hover svg {
+    opacity: 1; /* Muestra el icono al hacer hover */
 }
