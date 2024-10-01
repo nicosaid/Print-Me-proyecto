@@ -18,7 +18,8 @@
 .heading-1 {
 	text-align: center;
 	font-weight: 500;
-	font-size: 3rem;
+	font-size: 2rem;
+	padding: 3%
 }
 
 .principaldiv {
@@ -26,6 +27,7 @@
 	height: 500px;
 	max-width: 1200px; /* Establecer un ancho máximo para pantallas grandes */
 	margin: 50px auto; /* Centrar el div y separarlo de los costados */
+	margin-top: -13px;
 	padding: 40px; /* Espacio interno más amplio */
 	background-color: #ececec; /* Color de fondo azul oscuro */
 	border-radius: 15px; /* Bordes redondeados */
@@ -78,25 +80,9 @@
 }
 
 
-
-.container-options span.active {
+.container-options :hover {
 	background-color: var(--primary-color);
 	color: #fff;
-}
-
-/* Products */
-.container-products {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-	gap: 3rem;
-}
-
-.card-product {
-	background-color: #fff;
-	padding: 2rem 3rem;
-	border-radius: 0.5rem;
-	cursor: pointer;
-	box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
 .container-img {
@@ -121,42 +107,7 @@
 	background-color: #000;
 }
 
-.button-group {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
 
-	position: absolute;
-	top: 0;
-	right: -3rem;
-	z-index: -1;
-	transition: all 0.4s ease;
-}
-
-.button-group span {
-	border: 1px solid var(--primary-color);
-	padding: 0.8rem;
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 50%;
-	cursor: pointer;
-	transition: all 0.4s ease;
-}
-
-.button-group span:hover {
-	background-color: var(--primary-color);
-}
-
-.button-group span i {
-	font-size: 1.5rem;
-	color: var(--primary-color);
-}
-
-.button-group span:hover i {
-	color: #fff;
-}
 
 .card-product:hover .button-group {
 	z-index: 0;
@@ -246,7 +197,7 @@
 .card-product {
     --bg: #f7f7f8;
     --hover-bg: #FFE5F4; /* Color de fondo al hacer hover */
-    --hover-text: #E50087; /* Color del texto al hacer hover */
+    --hover-text: #fff; /* Color del texto al hacer hover */
     max-width: 23ch;
     text-align: center;
     background: var(--bg);
@@ -254,32 +205,18 @@
     padding-block: 1.8em;
     border-radius: 5px;
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* Asegúrate de que el contenido no se desborde */
     transition: background 0.3s cubic-bezier(.6, .4, 0, 1), transform 0.15s ease;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Cambiar a flex-start para alinear el contenido arriba */
     align-items: center;
     gap: 1em;
+
 }
 
 .card-product:hover {
     background: var(--hover-bg); /* Cambia el color de fondo */
-}
-
-.card-product span {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--hover-text); /* Cambia el color del texto */
-    border-radius: 5px;
-    font-weight: bold;
-    top: 100%;
-    transition: all 0.3s cubic-bezier(.6, .4, 0, 1);
 }
 
 .card-product:hover span {
@@ -308,4 +245,64 @@
 
 .card-product:hover svg {
     opacity: 1; /* Muestra el icono al hacer hover */
+}
+
+
+/* Article PAra pedidos */
+article {
+    position: relative;
+    width: 100%; /* Asegúrate de que ocupe el 100% del contenedor */
+    height: 100%; /* Ocupar toda la altura disponible */
+    transition: transform 0.3s ease;
+    margin: 0; /* Elimina cualquier margen para que no haya espacio arriba */
+    padding: 0; /* Elimina cualquier padding */
+}
+
+article img:first-child {
+    box-shadow: 0 60px 60px -60px rgba(0, 30, 255, 0.5);
+    border-radius: 4px;
+    object-fit: cover;
+    width: 100%;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+article img:last-child {
+    position: absolute;
+    width: 200px; /* Tamaño de la segunda imagen */
+    bottom: 20px; /* Baja la segunda foto */
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateY(25%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+}
+
+article:hover {
+    transform: perspective(500px) translateZ(-50px) rotate(0deg) translateY(-5%);
+}
+
+article::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to bottom, transparent 10%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0) 95%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+article:hover::before {
+    opacity: 1;
+}
+
+article:hover img:first-child {
+    filter: brightness(0.7); /* Oscurecer la primera imagen */
+    transform: scale(1.3); /* Escala mayor para la primera imagen */
+}
+
+article:hover img:last-child {
+    opacity: 1;
+    transform: translateY(0%) scale(1.1); /* Aumentar el tamaño de la segunda imagen */
 }
