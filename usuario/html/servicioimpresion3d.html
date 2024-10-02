@@ -26,8 +26,6 @@
     <main class="main-content">
             
 
-        <!--publicaciones-->
-
         <section class="container top-products">
         <h1 class="heading-1">Elegi un perfil para contratar tu servicio impresion 3d</h1>
 
@@ -38,30 +36,66 @@
         <input class="input" placeholder="text">
 
         <div class="container-options">
-            <span class="active">Destacados</span>
-            <span>Más recientes</span>
+            <span class="active">Todos</span>
 
-            
-            <div class="input-box">
-                <div class="dropdown">
-                    <div class="select">
-                        <span class="choosed">Seleccionar Zona</span>
-                        <i class="fa fa-chevron-down"></i>
-                    </div>
-                    <ul class="menu-sect">
-                        <li>Zona 1</li>
-                        <li>Zona 2</li>
-                        <li>Zona 3</li>
-                        <li>Zona 4</li>
-                    </ul>
-                </div>
-            </div>
+            <span class="active"> Favoritos</span>
 
 
 
 
-            
-            <span>Favoritos</span>
+<!-- Texto para abrir la ventana emergente -->
+<span style="cursor: pointer; color: blue;" onclick="openPopup()">Filtrar por necesidad</span>
+
+<!-- Fondo oscuro -->
+<div id="overlay" class="overlay"></div>
+
+<!-- Pantalla emergente -->
+<div id="popup" class="wrapper">
+    <div class="popup-header">Configuración</div>
+
+    <!-- Dropdown para seleccionar impresora -->
+    <div class="input-box">
+        <label for="impresora">Seleccionar Impresora:</label>
+        <select id="impresora">
+            <option value="impresora1">Impresora 1</option>
+            <option value="impresora2">Impresora 2</option>
+            <option value="impresora3">Impresora 3</option>
+        </select>
+    </div>
+
+    <!-- Dropdown para seleccionar zona -->
+    <div class="input-box">
+        <label for="zona">Seleccionar Zona:</label>
+        <select id="zona">
+            <option value="zona1">Zona 1</option>
+            <option value="zona2">Zona 2</option>
+            <option value="zona3">Zona 3</option>
+        </select>
+    </div>
+
+    <!-- Dropdown para seleccionar materiales -->
+    <div class="input-box">
+        <label for="materiales">Seleccionar Materiales:</label>
+        <select id="materiales">
+            <option value="papel">Papel</option>
+            <option value="plastico">Plástico</option>
+            <option value="carton">Cartón</option>
+        </select>
+    </div>
+
+    <!-- Radiobutton para post impresión -->
+    <div class="input-box">
+        <label>Post Impresión:</label><br>
+        <input type="radio" id="post-impresion-si" name="post-impresion" value="si">
+        <label for="post-impresion-si">Sí</label>
+        <input type="radio" id="post-impresion-no" name="post-impresion" value="no">
+        <label for="post-impresion-no">No</label>
+    </div>
+
+    <!-- Botón de cerrar -->
+    <button class="btn" onclick="closePopup()">Aceptar</button>
+</div>
+
         </div>
 
         <div class="perfilesDueños">

@@ -383,3 +383,104 @@ article:hover img:last-child {
     transition: background-color 0.3s ease;
     border-bottom: 1px solid rgba(255, 255, 255, .3); /* Línea de separación entre opciones */
 }
+
+
+
+/* ********************************** */
+/*             eMERGENRE             */
+/* ********************************** */
+
+
+/* Estilos para la pantalla emergente */
+.wrapper {
+	width: 420px;
+	background: rgb(2, 0, 36);
+	backdrop-filter: blur(9px);
+	color: #fff;
+	border-radius: 12px;
+	padding: 30px 40px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: none;
+	z-index: 1000;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup-header {
+	font-size: 36px;
+	text-align: center;
+}
+
+.input-box {
+	position: relative;
+	width: 100%;
+	height: 50px;
+	margin: 30px 0;
+}
+
+.input-box input {
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	border: none;
+	outline: none;
+	border: 2px solid rgba(255, 255, 255, 0.2);
+	border-radius: 40px;
+	font-size: 16px;
+	color: #fff;
+	padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+	color: #fff;
+}
+
+.input-box select {
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	border: 2px solid rgba(255, 255, 255, 0.2);
+	border-radius: 40px;
+	font-size: 16px;
+	color: #fff;
+	padding: 20px;
+	appearance: none;
+}
+
+.input-box label {
+	color: #fff;
+}
+
+.input-box input[type="radio"] {
+	margin-right: 10px;
+}
+
+/* Fondo oscuro detrás de la ventana emergente */
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 999;
+	display: none;
+}
+
+/* Botón para cerrar */
+.wrapper .btn {
+	width: 100%;
+	padding: 15px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 40px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.wrapper .btn:hover {
+	background-color: #45a049;
+}
