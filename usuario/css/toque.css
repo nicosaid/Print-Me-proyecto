@@ -314,3 +314,72 @@ article:hover img:last-child {
 /* ********************************** */
 
 
+.input {
+	position: center;
+	border: 2px solid transparent;
+	width: 60%;
+	padding: 1%;
+	height: 2.5em;
+	padding-left: 0.8em;
+	outline: none;
+	overflow: hidden;
+	background-color: #F3F3F3;
+	border-radius: 10px;
+	transition: all 0.5s;
+  }
+  
+
+/* ********************************** */
+/*             filtros             */
+/* ********************************** */
+
+/* Íconos */
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    font-size: 20px;
+    color: rgb(0, 0, 0); /* Color del ícono */
+}
+
+.select {
+    background-color: transparent; /* Fondo transparente */
+    border: 2px solid rgba(255, 255, 255, .2); /* Borde igual que los campos de entrada */
+    border-radius: 40px; 
+    padding: 0 20px; /* Ajustar el padding para que coincida con los campos de entrada */
+    height: 100%; /* Igualar la altura con los campos de entrada */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+
+.menu-sect {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border-radius: 20px; /* Bordes redondeados */
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, .2); /* Línea de separación entre opciones */
+}
+
+.menu-sect.open {
+    display: block;
+    max-height: 200px;
+    opacity: 1;
+}
+
+.menu-sect li {
+    padding: 0.5em;
+    cursor: pointer;
+    color: #fff; /* Color del texto */
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, .3); /* Línea de separación entre opciones */
+}
