@@ -32,3 +32,6 @@ perfilDueños.forEach((perfilDueño) => {
         document.querySelector('#rating-detalle').innerHTML = rating;
     });
 });
+
+
+ 

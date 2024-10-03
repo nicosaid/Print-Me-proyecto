@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+
+
+/* ********************************** */
+/*             colores             */
+/* ********************************** */
 :root {
 	--primary-color: #1f1f80 ;
 	--background-color: #f9f5f0;
@@ -22,6 +27,11 @@
 	padding: 3%
 }
 
+
+/* ********************************** */
+/*             div principal             */
+/* ********************************** */
+
 .principaldiv {
 	width: 80%;
 	height: 500px;
@@ -40,6 +50,10 @@
 	text-align: center; /* Centrar contenido */
   }
   
+
+
+
+  
   .principaldiv h2 {
 	font-size: 2rem; /* Aumentar tamaño del título */
 	color: black; /* Texto blanco para el título */
@@ -53,7 +67,7 @@
   
 
 /* ********************************** */
-/*            TOP PRODUCTS            */
+/*            opciones de filtros            */
 /* ********************************** */
 .top-products {
 	display: flex;
@@ -80,172 +94,138 @@
 }
 
 
-.container-options :hover {
-	background-color: var(--primary-color);
-	color: #fff;
+/* Aplica hover solo a los elementos con la clase "active" */
+span.active:hover {
+    background-color: var(--primary-color);
+    color: #fff;
 }
 
-.container-img {
-	position: relative;
-}
+/* ********************************** */
+/*             imprrsoras             */
+/* ********************************** */
 
-.container-img img {
-	width: 100%;
-}
-
-.container-img .discount {
-	position: absolute;
-	left: 0;
-	background-color: var(--primary-color);
-	color: #fff;
-	padding: 2px 1.2rem;
-	border-radius: 1rem;
-	font-size: 1.2rem;
-}
-
-.card-product:hover .discount {
-	background-color: #000;
-}
-
-
-
-.card-product:hover .button-group {
-	z-index: 0;
-	right: -1rem;
-}
-
-.content-card-product {
-	display: grid;
-	justify-items: center;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: repeat(4, min-content);
-	row-gap: 1rem;
-}
-
-.stars {
-	grid-row: 1/2;
-	grid-column: 1/-1;
-}
-
-.stars i {
-	font-size: 1.3rem;
-	color: var(--primary-color);
-}
-
-.content-card-product h3 {
-	grid-row: 2/3;
-	grid-column: 1/-1;
-
-	font-weight: 400;
-	font-size: 1.6rem;
-	margin-bottom: 1rem;
-	cursor: pointer;
-}
-
-.content-card-product h3:hover {
-	color: var(--primary-color);
-}
-
-.add-cart {
-	justify-self: start;
-	border: 2px solid var(--primary-color);
-	padding: 1rem;
-	border-radius: 50%;
-	cursor: pointer;
-	transition: all 0.4s ease;
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.add-cart:hover {
-	background-color: var(--primary-color);
-}
-
-.add-cart i {
-	font-size: 1.5rem;
-	color: var(--primary-color);
-}
-
-.add-cart:hover i {
-	color: #fff;
-}
-
-.content-card-product .price {
-	justify-self: end;
-	align-self: center;
-
-	font-size: 1.7rem;
-	font-weight: 600;
-}
-
-.content-card-product .price span {
-	font-size: 1.5rem;
-	font-weight: 400;
-	text-decoration: line-through;
-	color: #777;
-	margin-left: 0.5rem;
-}
-
-.products-container {
+.perfilesDueños {
     display: flex;
-    justify-content: space-around;
-    gap: 20px; /* Espacio entre productos */
-    padding: 20px;
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten a nuevas líneas si no caben en una fila */
+    justify-content: center; /* Centra las tarjetas en el contenedor */
+    gap: 20px; /* Espacio entre las tarjetas */
+    margin: 20px; /* Margen alrededor del contenedor */
 }
-.card-product {
-    --bg: #f7f7f8;
-    --hover-bg: #FFE5F4; /* Color de fondo al hacer hover */
-    --hover-text: #fff; /* Color del texto al hacer hover */
-    max-width: 23ch;
-    text-align: center;
-    background: var(--bg);
-    padding: 1.5em;
-    padding-block: 1.8em;
-    border-radius: 5px;
+
+
+.flip-card {
+    background-color: transparent;
+    width: 245px;
+    height: 270px;
+    perspective: 1000px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.flip-card-inner {
     position: relative;
-    overflow: hidden; /* Asegúrate de que el contenido no se desborde */
-    transition: background 0.3s cubic-bezier(.6, .4, 0, 1), transform 0.15s ease;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border-radius: 2em;
+    animation: borderAnimation 4s infinite;
+}
+
+@keyframes borderAnimation {
+    0% {
+        border: 4px solid #002b53;
+    }
+    50% {
+        border: 4px solid #004080;
+    }
+    100% {
+        border: 4px solid #002b53;
+    }
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    border-radius: 2em;
+    backface-visibility: hidden;
+    background-color: #d3d3d3; /* Fondo gris claro */
+}
+
+.flip-card-front {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Cambiar a flex-start para alinear el contenido arriba */
+    justify-content: center;
     align-items: center;
-    gap: 1em;
-
 }
 
-.card-product:hover {
-    background: var(--hover-bg); /* Cambia el color de fondo */
+.profile-image {
+    background-color: transparent;
+    border: none;
+    margin-top: 15px;
+    border-radius: 5em;
+    width: 120px;
+    height: 120px;
 }
 
-.card-product:hover span {
-    top: 0;
-    font-size: 1.2em;
+.pfp {
+    border-radius: 35em;
+    width: 80px;
+    height: 80px;
+    margin-top: 10px;
 }
 
-.card-product:hover .card__body {
-    opacity: 0; /* Oculta el contenido de la tarjeta al hacer hover */
+.name {
+    margin-top: 15px;
+    font-size: 27px;
+    color: black; /* Nombre en negro */
+    font-weight: bold;
 }
 
-.card-product:hover svg {
-    opacity: 1; /* Muestra el icono en el hover */
+
+.flip-card-back {
+    background-color: #d3d3d3;
+    transform: rotateY(180deg);
+    padding: 20px;
 }
 
-.card__body {
-    opacity: 1; /* Asegura que el contenido sea visible por defecto */
-    transition: opacity 0.3s ease; /* Añade una transición suave */
+.flip-card-back h4, .flip-card-back p {
+    color: black;
+    margin-bottom: 10px;
+    font-size: 16px; /* Mismo estilo para todos los textos */
 }
 
-/* Estilo para el SVG para que esté centrado */
-.card-product svg {
-    opacity: 0; /* Inicialmente oculto */
-    transition: opacity 0.3s ease; /* Transición suave para la aparición */
+.printer-model {
+    padding-top: 20px; /* Mayor separación con el borde */
 }
 
-.card-product:hover svg {
-    opacity: 1; /* Muestra el icono al hacer hover */
+.profile-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 40px; /* Botón más abajo */
 }
+
+.profile-button:hover {
+    background-color: #001f40; /* Azul oscuro más profundo al pasar el mouse */
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+
+
+
+/* ********************************** */
+/*             article             */
+/* ********************************** */
 
 
 /* Article PAra pedidos */
@@ -308,6 +288,37 @@ article:hover img:last-child {
 }
 
 
+/* Evitar que el flip funcione al tocar el article */
+article {
+    pointer-events: none;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Evitar que la tarjeta se dé vuelta cuando el cursor pase por encima del article */
+.flip-card:hover article {
+    pointer-events: all;
+    /* No se activa el efecto de rotación */
+}
+
+.flip-card:hover:not(:hover article) .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+
+/* ********************************** */
+/*             imagen             */
+/* ********************************** */
+
+
+img {
+    width: 90%; /* Las imágenes ocuparán el 100% del ancho de su contenedor */
+    height: auto; /* Mantiene la proporción original de las imágenes */
+    border-radius: 15px; /* Bordes redondeados */
+}
+
 
 /* ********************************** */
 /*             Buscador             */
@@ -326,86 +337,28 @@ article:hover img:last-child {
 	background-color: #F3F3F3;
 	border-radius: 10px;
 	transition: all 0.5s;
+margin-bottom: 30px;
   }
-  
-
-/* ********************************** */
-/*             filtros             */
+ /* ********************************** */
+/*             emergente             */
 /* ********************************** */
 
-/* Íconos */
-.input-box i {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    font-size: 20px;
-    color: rgb(0, 0, 0); /* Color del ícono */
-}
-
-.select {
-    background-color: transparent; /* Fondo transparente */
-    border: 2px solid rgba(255, 255, 255, .2); /* Borde igual que los campos de entrada */
-    border-radius: 40px; 
-    padding: 0 20px; /* Ajustar el padding para que coincida con los campos de entrada */
-    height: 100%; /* Igualar la altura con los campos de entrada */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-
-.menu-sect {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    border-radius: 20px; /* Bordes redondeados */
-    display: none;
-    max-height: 200px;
-    overflow-y: auto;
-    z-index: 10;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, .2); /* Línea de separación entre opciones */
-}
-
-.menu-sect.open {
-    display: block;
-    max-height: 200px;
-    opacity: 1;
-}
-
-.menu-sect li {
-    padding: 0.5em;
-    cursor: pointer;
-    color: #fff; /* Color del texto */
-    transition: background-color 0.3s ease;
-    border-bottom: 1px solid rgba(255, 255, 255, .3); /* Línea de separación entre opciones */
-}
-
-
-
-/* ********************************** */
-/*             eMERGENRE             */
-/* ********************************** */
-
-
-/* Estilos para la pantalla emergente */
 .wrapper {
-	width: 420px;
+	width: 600px;
 	background: rgb(2, 0, 36);
 	backdrop-filter: blur(9px);
 	color: #fff;
 	border-radius: 12px;
-	padding: 30px 40px;
+	padding: 40px 50px;
 	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	display: none;
 	z-index: 1000;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+	max-height: 90%;
+	overflow-y: auto;
 }
 
 .popup-header {
@@ -413,49 +366,57 @@ article:hover img:last-child {
 	text-align: center;
 }
 
+
+
+
+
+
+
+
+
 .input-box {
 	position: relative;
 	width: 100%;
-	height: 50px;
+	height: 40px; /* Reducido */
 	margin: 30px 0;
+	color: beige;
 }
 
-.input-box input {
+.input-box input, .input-box select {
 	width: 100%;
-	height: 100%;
+	height: 40px; /* Reducido */
 	background: transparent;
 	border: none;
 	outline: none;
 	border: 2px solid rgba(255, 255, 255, 0.2);
 	border-radius: 40px;
-	font-size: 16px;
+	font-size: 14px; /* Reducido */
 	color: #fff;
-	padding: 20px 45px 20px 20px;
+	padding: 10px 20px; /* Reducido */
+	transition: border 0.3s ease, color 0.3s ease;
 }
 
-.input-box input::placeholder {
-	color: #fff;
+.input-box input::placeholder, .input-box select {
+	color: #fff; /* Texto en blanco */
 }
 
-.input-box select {
-	width: 100%;
-	height: 100%;
-	background: transparent;
-	border: 2px solid rgba(255, 255, 255, 0.2);
-	border-radius: 40px;
-	font-size: 16px;
-	color: #fff;
-	padding: 20px;
-	appearance: none;
+.input-box select option {
+	background-color: rgb(2, 0, 36);
+	color: #fff; /* Texto de opciones en blanco */
 }
 
 .input-box label {
-	color: #fff;
+    position: absolute;
+    left: 10px; /* Alinea el label al inicio del input */
+    top: -30px; /* Coloca el label por encima del input */;
+
+
 }
 
-.input-box input[type="radio"] {
-	margin-right: 10px;
-}
+
+
+
+
 
 /* Fondo oscuro detrás de la ventana emergente */
 .overlay {
@@ -464,23 +425,25 @@ article:hover img:last-child {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.7); /* Más oscuro */
 	z-index: 999;
 	display: none;
 }
 
-/* Botón para cerrar */
 .wrapper .btn {
 	width: 100%;
 	padding: 15px;
-	background-color: #4CAF50;
+	background-color: rgba(255, 255, 255, 0.2);
+	margin-top: 20px;
+	margin-bottom: 10px;
 	color: white;
 	border: none;
 	border-radius: 40px;
 	cursor: pointer;
 	font-size: 16px;
+	transition: background-color 0.3s ease;
 }
 
 .wrapper .btn:hover {
-	background-color: #45a049;
+	background-color: #6e6e6e; /* Cambiar el color en hover a un tono más oscuro de gris */
 }

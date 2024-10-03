@@ -11,10 +11,9 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url('./fondo.avif');
-    padding: 40px; /* Más espacio alrededor del formulario */
-    background-size: cover;
-    background-position: center;
+    background-color: rgb(18, 18, 54)
+
+
 }
 
 h1 {
