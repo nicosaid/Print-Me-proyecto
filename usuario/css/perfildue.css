@@ -1,0 +1,167 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+
+
+
+/* ********************************** */
+/*             div principal             */
+/* ********************************** */
+
+.principaldiv {
+	width: 80%;
+	height: 500px;
+	max-width: 1200px; /* Establecer un ancho máximo para pantallas grandes */
+	margin: auto; /* Centrar el div y separarlo de los costados */
+	margin-top: 60px;
+	padding: 40px; /* Espacio interno más amplio */
+	background-color: #ececec; /* Color de fondo azul oscuro */
+	border-radius: 15px; /* Bordes redondeados */
+	backdrop-filter: blur(100px); /* Aplicar desenfoque al fondo */
+	border-radius: 15px; /* Bordes redondeados */
+	box-shadow: 0 100px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+	border: 1px solid #e0e0e0; /* Borde sutil */
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+	border: 1px solid #e0e0e0; /* Borde sutil */
+	text-align: center; /* Centrar contenido */
+  }
+  
+
+  .principaldiv h2 {
+	font-size: 2rem; /* Aumentar tamaño del título */
+	color: black; /* Texto blanco para el título */
+	margin-bottom: 20px;
+  }
+  
+  .principaldiv p {
+	font-size: 1.2rem; /* Aumentar tamaño del texto del párrafo */
+	color: black; /* Texto gris claro */
+  }
+  
+
+
+
+/* ********************************** */
+/*                       */
+/* ********************************** */
+
+
+
+  
+  .nombre-usuario {
+    color: #000;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .imagen-impresora {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+  }
+
+/* Descripción */
+.descripcion {
+    font-size: 16px; /* Tamaño de la fuente */
+    color: #7f8c8d; /* Color gris sutil */
+    margin-bottom: 20px; /* Espaciado debajo de la descripción */
+}
+
+/* Contenedor de las opciones */
+.opciones {
+    display: flex; /* Flexbox para organizar las opciones */
+    justify-content: space-around; /* Distribuir uniformemente */
+    margin-bottom: 20px; /* Espaciado debajo de las opciones */
+}
+
+/* Estilos individuales para impresoras y filamentos */
+.impresoras, .filamentos {
+    font-size: 14px; /* Tamaño de la fuente */
+    color: #34495e; /* Color gris oscuro */
+}
+
+.impresoras label, .filamentos label {
+    display: block; /* Mostrar los labels en bloque */
+    margin-bottom: 5px; /* Espaciado debajo del label */
+    font-weight: bold; /* Negrita */
+}
+
+/* Botón iniciar pedido */
+.iniciar-pedido {
+    background-color: #2980b9; /* Color azul para el botón */
+    color: white; /* Texto blanco */
+    padding: 12px 25px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 25px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita */
+    cursor: pointer; /* Mostrar cursor de mano */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.iniciar-pedido:hover {
+    background-color: #1c6691; /* Color azul más oscuro al pasar el mouse */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .principaldiv {
+        max-width: 100%; /* El contenedor ocupará todo el ancho en pantallas pequeñas */
+        padding: 15px; /* Ajustar el padding */
+    }
+
+    .opciones {
+        flex-direction: column; /* Columnas en lugar de filas */
+        align-items: center; /* Centrar las opciones */
+    }
+
+    .iniciar-pedido {
+        width: 100%; /* Botón a lo ancho del contenedor */
+    }
+}
+
+
+
+/* ********************************** */
+/*             article             */
+/* ********************************** */
+
+
+/* Article para pedidos */
+article {
+    position: relative;
+    width: 100%; /* Asegúrate de que ocupe el 100% del contenedor */
+    height: 100%; /* Ocupar toda la altura disponible */
+    transition: transform 0.3s ease;
+    margin: 0; /* Elimina cualquier margen para que no haya espacio arriba */
+    padding: 0; /* Elimina cualquier padding */
+}
+
+article img:first-child {
+    box-shadow: 0 40px 40px -40px rgba(0, 30, 255, 0.5); /* Reducí la sombra */
+    border-radius: 12px; /* Redondear más los bordes */
+    object-fit: cover;
+    width: 50%; /* Ocupa el 100% del ancho del contenedor */
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+article img:last-child {
+    position: absolute;
+    width: 50%; /* Tamaño de la segunda imagen (puedes ajustarlo) */
+    top: 50%; /* Centrar la segunda imagen verticalmente */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translate(-50%, -50%) scale(1); /* Centrar y mantener su tamaño original */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0; /* Inicialmente invisible */
+    border-radius: 12px; /* Redondear los bordes de la segunda imagen */
+}
+
+article:hover img:first-child {
+    filter: brightness(0.5); /* Oscurecer la primera imagen en hover */
+}
+
+article:hover img:last-child {
+    opacity: 1; /* Hacer visible la segunda imagen en hover */
+    transform: translate(-50%, -50%) scale(1.05); /* Aumentar levemente el tamaño de la segunda imagen */
+}
