@@ -24,7 +24,8 @@
 	text-align: center;
 	font-weight: 500;
 	font-size: 2rem;
-	padding: 3%
+	padding: 3%;
+
 }
 
 
@@ -273,18 +274,15 @@ margin-bottom: 30px;
 	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
 	max-height: 90%;
 	overflow-y: auto;
+	background-image: url('https://s3-alpha-sig.figma.com/img/1cae/e18e/49a09a8244f195fadb359b38317401e6?Expires=1729468800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=TcUsauWJw8m0oqQ6duKeaDx0n1IPmWFA7Y0rMW2crbYiPZ~79JNPsCcL58AiiohUcrPzpTAVYWEckPw8KoB8PcccOTz1MhXFy9yWKsJPelC9JxK-8~43lxV65J~TN0C-8jMdqObuMK3kHSHjRVxdthrDocUFfmaNG-fcu1TrAiPvaLHGiye2TP-WcmNVzj-VN7IvQjx9taIpyQGcxwYsD8Fu7UFASASkmtkRIFfsdpL8F-7J8fwgtdU2pJtf38I6TL6gSfWjAvpgcrgNRoeRs17RsDak9nOz02bO~cmD2wPxivKaYQjnlluqukx3uWnSORkLxdJtUa1wO0zJfvq4gw__');
+
 }
 
 .popup-header {
 	font-size: 36px;
 	text-align: center;
+	
 }
-
-
-
-
-
-
 
 
 

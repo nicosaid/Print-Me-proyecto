@@ -1,325 +1,134 @@
-/* Reseteo de márgenes y padding */
-* {
+/* General Styling */
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: rgb(18, 18, 54)
-
-
-}
-
-h1 {
-    color: white;
-    margin-top: 60px;
-    margin-left: 40px; 
-
-}
-
-/* Estilos del header */
-header {
-    padding: 1em;
-    top: 0;
-    position: relative; /* Posicionar el header en relación con otros elementos */
-}
-
-/* Estilo del contenedor de la logo */
-.logo-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centrar el contenido del logo verticalmente */
-    margin-right: 20px; /* Espacio a la derecha del logo para separarlo del formulario */
-    margin-left: -50px; 
-    margin-top: -250px;
-}
-
-/* Estilo de la logo */
-.logo {
-    max-width: 300px; /* Aumentar el tamaño del logo */
-    height: auto; /* Mantener la proporción de la logo */
-}
-
-/* Estilo del enlace de volver con ícono */
-.volver {
-    font-size: 14.5px;
-    color: #fff;
-    display: flex;
-    align-items: center; /* Centrar verticalmente el ícono y el texto */
-    gap: 8px; /* Espacio entre el ícono y el texto */
-    text-decoration: none;
-    margin-bottom: 20px; /* Espacio debajo del enlace de volver */
-    position: absolute;
-    top: 20px; /* Ubicar el enlace en la parte superior del contenedor */
-    left: 20px; /* Espacio desde el borde izquierdo del contenedor */
-}
-
-.volver a {
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.3s ease; /* Transición suave para el color del texto */
-}
-
-.volver a:hover {
-    color: #ffd700; /* Cambiar el color del texto al pasar el mouse */
-}
-
-.volver i {
-    font-size: 20px; /* Tamaño del ícono */
-    transition: color 0.3s ease; /* Transición suave para el color del ícono */
-}
-
-.volver a:hover i {
-    color: #ffd700; /* Cambiar el color del ícono al pasar el mouse */
-}
-
-.container {
-    display: flex; /* Usar flexbox para alinear el encabezado y el formulario */
-    justify-content: center;
-    align-items: center; /* Centrar verticalmente */
-    gap: 20px; /* Espacio entre el formulario y el encabezado */
-    width: 100%;
-    height: 100vh; /* Asegurar que la altura del contenedor ocupe toda la pantalla */
-    position: relative; /* Añadir posición relativa para manejar el posicionamiento de los elementos hijos */
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://s3-alpha-sig.figma.com/img/1cae/e18e/49a09a8244f195fadb359b38317401e6?Expires=1729468800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=TcUsauWJw8m0oqQ6duKeaDx0n1IPmWFA7Y0rMW2crbYiPZ~79JNPsCcL58AiiohUcrPzpTAVYWEckPw8KoB8PcccOTz1MhXFy9yWKsJPelC9JxK-8~43lxV65J~TN0C-8jMdqObuMK3kHSHjRVxdthrDocUFfmaNG-fcu1TrAiPvaLHGiye2TP-WcmNVzj-VN7IvQjx9taIpyQGcxwYsD8Fu7UFASASkmtkRIFfsdpL8F-7J8fwgtdU2pJtf38I6TL6gSfWjAvpgcrgNRoeRs17RsDak9nOz02bO~cmD2wPxivKaYQjnlluqukx3uWnSORkLxdJtUa1wO0zJfvq4gw__');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .wrapper {
-    width: 60%; /* Hacer el formulario más grande en pantallas grandes */
-    max-width: 800px; /* Máximo ancho para pantallas grandes */
-    background: transparent; /* Mantener el fondo del formulario transparente */
-    border: 2px solid rgba(255, 255, 255, .2);
-    backdrop-filter: blur(10px);
-    color: #fff; /* Color del texto dentro del formulario */
-    border-radius: 12px;
-    padding: 30px 40px;
-    margin: 0; /* Quitar el margen para centrar en el contenedor */
-}
-
-/* Ajustar el título del formulario */
-.wrapper h1 {
-    font-size: 36px;
-    color: #fff; /* Asegurar que el texto del título sea blanco */
+    width: 350px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    margin: 100px auto;
     text-align: center;
-    margin-bottom: 20px;
 }
 
-/* Estilos del input con etiqueta flotante */
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
 .input-box {
     position: relative;
-    width: 100%;
-    height: 50px;
-    background: transparent;
     margin: 30px 0;
 }
 
 .input-box input {
     width: 100%;
-    height: 50px; /* Igualar altura con los menús desplegables */
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
-    border-radius: 40px;
-    font-size: 16px;
-    color: #fff;
-    padding: 20px;
-    padding-top: 20px; /* Reduce el padding superior para más espacio para el label */
+    padding: 10px;
+    font-size: 18px;
+    color: #333;
+    background: none;
+    border: 1px solid #333;
     outline: none;
-    transition: padding-top 0.3s ease, font-size 0.3s ease;
-}
-
-.input-box input::placeholder {
-    color: white; /* Mostrar el texto del placeholder */
-}
-
-.input-box input:focus ~ label,
-.input-box input:not(:placeholder-shown) ~ label {
-    top: -10px; /* Subir la etiqueta encima del campo */
-    left: 20px;
-    font-size: 12px;
-    color: #fff;
-    padding: 0 5px;
-    transform: translateY(0); /* Asegurar que la etiqueta esté arriba */
+    border-radius: 5px;
 }
 
 .input-box label {
     position: absolute;
-    left: 20px;
     top: 50%;
+    left: 10px;
     transform: translateY(-50%);
-    transition: all 0.3s ease;
+    font-size: 18px;
+    color: #333;
     pointer-events: none;
-    font-size: 16px;
-    color: #fff; /* Asegurar que el texto del label sea blanco */
+    transition: 0.5s;
 }
 
-/* Íconos */
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+    top: -5px;
+    left: 10px;
+    color: #666;
+    font-size: 12px;
+}
+
 .input-box i {
     position: absolute;
-    right: 20px;
     top: 50%;
+    right: 10px;
     transform: translateY(-50%);
-    font-size: 20px;
-    color: #fff; /* Color del ícono */
+    font-size: 18px;
+    color: #333;
+}
+
+button[type="submit"] {
+    background-color: #0044cc;
+    color: white;
+    padding: 10px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #002a80;
+}
+
+.volver a {
+    display: block;
+    margin-top: 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .dropdown {
     position: relative;
-    margin: 30px 0;
-    width: 100%; 
-    height: 50px; 
+    width: 100%;
 }
 
 .select {
-    background-color: transparent; /* Fondo transparente */
-    border: 2px solid rgba(255, 255, 255, .2); /* Borde igual que los campos de entrada */
-    border-radius: 40px; 
-    padding: 0 20px; /* Ajustar el padding para que coincida con los campos de entrada */
-    height: 100%; /* Igualar la altura con los campos de entrada */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
     cursor: pointer;
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.select:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-color: #002244; /* Cambiar el borde al pasar el mouse */
 }
 
 .menu-sect {
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: #003366; /* Fondo azul para la lista */
-    border-radius: 20px; /* Bordes redondeados */
-    display: none;
-    max-height: 200px;
-    overflow-y: auto;
-    z-index: 10;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, .2); /* Línea de separación entre opciones */
-}
-
-.menu-sect.open {
-    display: block;
-    max-height: 200px;
-    opacity: 1;
+    background-color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
 
 .menu-sect li {
-    padding: 0.5em;
+    padding: 10px;
     cursor: pointer;
-    color: #fff; /* Color del texto */
-    transition: background-color 0.3s ease;
-    border-bottom: 1px solid rgba(255, 255, 255, .3); /* Línea de separación entre opciones */
 }
 
 .menu-sect li:hover {
-    background-color: #002244; /* Color de fondo al pasar el mouse */
+    background-color: #f0f0f0;
 }
 
-button[type="submit"] {
-    width: 100%;
-    height: 45px;
-    background: #003366;
-    border-radius: 40px;
-    border: none;
-    outline: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-    cursor: pointer;
-    font-size: 16px;
-    color: #fff;
-    font-weight: 600;
-    text-align: center;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-button[type="submit"]:hover {
-    background-color: #002244;
-    transform: scale(1.05);
-}
-
-button[type="submit"]:focus {
-    outline: none;
-}
-
-button[type="submit"]:active {
-    background-color: #001233;
-    transform: scale(1);
-}
-/* Estilos para radio buttons */
-.radio-group input[type="radio"] {
-    position: relative;
-    width: 15px; /* Reducir el tamaño de los radio buttons */
-    height: 15px;
-    margin: 0; /* Eliminar margen */
-    cursor: pointer;
-    appearance: none; /* Eliminar estilos predeterminados del navegador */
-}
-
-.radio-group input[type="radio"]:checked::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 8px;
-    height: 8px;
-    background: #003366;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.radio-group input[type="radio"]:hover {
-    background-color: #003366; /* Cambiar el color de fondo al pasar el mouse */
-}
-
-.radio-group label[for="radio"] {
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    color: #fff; /* Color del texto del label */
-}
-
-/* Alinear los botones de radio con las opciones "Sí" y "No" */
-.radio-container {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Espacio entre los botones de radio y el texto */
-}
-
-.radio-container div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.radio-container label {
-    margin-top: 0; /* Ajustar margen para alineación vertical */
-}
-
-
-/* Media Queries */
-@media screen and (max-width: 768px) {
-header {
-    padding: 1em;
-}
-
-.wrapper {
-    width: 90%; /* Ajustar el ancho del formulario en pantallas más pequeñas */
-}
-
-.container {
-    flex-direction: column; /* Apilar el formulario y el encabezado en pantallas más pequeñas */
-    gap: 10px;
-}
+/* Show dropdown on click */
+.select.active + .menu-sect {
+    display: block;
 }

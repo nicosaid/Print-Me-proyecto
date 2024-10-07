@@ -1,0 +1,135 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: url('../general/fondo-estrellas.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+/* Contenedor del logo */
+.logo-container {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    transform: translateY(-50%);
+}
+
+.logo {
+    width: 200px;
+}
+
+/* Contenedor del formulario */
+.wrapper {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+    width: 400px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    width: 100%;
+}
+
+/* Título */
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+}
+
+/* Estilos de los campos de entrada */
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+}
+
+.input-box label {
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0 5px;
+    color: white;
+}
+
+.input-box i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+}
+
+/* Botón de inicio de sesión */
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1a2f87;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #162569;
+}
+
+/* Opción de olvidé mi contraseña */
+.forgot {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.forgot a {
+    color: white;
+    text-decoration: underline;
+}
+
+.forgot a:hover {
+    text-decoration: none;
+}
+
+/* Opción para registrarse */
+.register {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.register p {
+    color: white;
+}
+
+.register a {
+    color: #1a2f87;
+    text-decoration: none;
+}
+
+.register a:hover {
+    text-decoration: underline;
+}
