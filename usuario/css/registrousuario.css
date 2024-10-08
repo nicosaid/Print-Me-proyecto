@@ -23,7 +23,7 @@ body {
 .registro-form {
   background-color: white;
   border-radius: 20px;
-  padding: 30px 40px; /* Reducido */
+  padding: 30px 40px; 
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 100%;
@@ -48,8 +48,9 @@ p {
   color: #666;
 }
 
+
 .input-box {
-  margin-bottom: 0px;
+  margin: -8px; /* Elimina cualquier margen adicional */
   width: 100%;
 }
 
@@ -63,6 +64,7 @@ p {
   color: #333;
   position: center;
   box-sizing: border-box;
+
 }
 
 .input-box input::placeholder {
