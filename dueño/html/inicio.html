@@ -1,49 +1,104 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filtrar Pedidos</title>
-    <link rel="stylesheet" href="../css/inicio.css">
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'> <!-- Importación de Boxicons -->
+    <title>Print Me</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/topbar.css">
+    <link rel="stylesheet" href="../css/pantallainicio.css">
 </head>
 <body>
-   
-        <header>
-            <img class="logo" src="../general/print me logo1.png" alt="logo">
-            <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+    <header>
+        <div clas s="card">
+            <div class="loader">
+              <p>PrintMe</p>
+              <div class="words">
+                <span class="word">1 Entras</span>
+                <span class="word">2 Elegis</span>
+                <span class="word">3 Mandas</span>
+                <span class="word">4 Te imprimen</span>
+                <span class="word">5 Recibis</span>
+              </div>
+            </div>
+          </div>     
+          
+          <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
            <nav id="nav" class="nav">
             <button id="cerrar" class="cerrar-menu"><i class="bi bi-x"></i></button>
             <ul class="nav-list">
-                <li><a href="">Mi perfil</a></li>
-                <li><a href=""> Cotizador</a></li>
+                <li><a href="../html/miperfilusuario.html">Mi perfil</a></li>
+                <li><a href="">Cotizador</a></li>
                 <li><a href="">Cerrar sesion</a></li>
             </ul>
            </nav>
-        </header>
+    </header>
+   
+    <main class="main-content">
+            
 
-        <div class="tab-container">
-          <input type="radio" name="tab" id="tab1" class="tab tab--1" />
-          <label class="tab_label" for="tab1">Profile</label>
-        
-          <input type="radio" name="tab" id="tab2" class="tab tab--2" />
-          <label class="tab_label" for="tab2">Settings</label>
-        
-          <input type="radio" name="tab" id="tab3" class="tab tab--3" />
-          <label class="tab_label" for="tab3">Notifications</label>
-        
-          <div class="indicator"></div>
-        </div>
-        
-        
+        <section class="container top-products">
+        <h1 class="heading-1"> Tus Pedidos</h1>
+
         <div class="principaldiv">
-            <h2>Título Principal</h2>
-            <p>Este es un ejemplo de contenido dentro del div.</p>
+
+               <!--buscador-->
+ 
+          
+        <input class="input" placeholder="text">
+
+        <div class="container-options">
+            <span class="active">Todos</span>
+
+            <span class="active"> Favoritos</span>
         </div>
+
+            <div class="card">
+                <img src="../html/impresora 3d copy.png" alt="3D Printer" class="printer-image">
+                <div class="info">
+                    <h2>Fernando R (Especializado en impresiones grandes y detalladas)</h2>
+                    <a href="#" class="info-link">Info dueño</a>
+                    <div class="stats">
+                    </div>
+                </div>
+                <div class="favorite">
+                    <button class="favorite-btn">❤️ Add to Favourite</button>
+                </div>
+            </div>
+            
+
+
+        </div>
+        <div class="perfilesDueños">
+         
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        </div>
+
         
 
+  
+        
+        </div>
+</main>
 
 
-    <script src="filtros.js"></script>
-</body>
+		<script
+			src="https://kit.fontawesome.com/81581fb069.js"
+			crossorigin="anonymous"
+			src=".."
+		></script>
+	</body>
 </html>

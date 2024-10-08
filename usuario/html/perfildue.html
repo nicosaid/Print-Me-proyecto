@@ -71,18 +71,6 @@
     </script>
   </main>
 </body>
-// Get all dropdown elements
-const dropdowns = document.querySelectorAll('.dropdown');
 
-// Add an event listener to each dropdown
-dropdowns.forEach((dropdown) => {
-  const arrow = dropdown.querySelector('.arrow');
-  const dropdownContent = dropdown.querySelector('.dropdown-content');
-
-  arrow.addEventListener('click', () => {
-    // Toggle the visibility of the dropdown content
-    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-  });
-}); 
 </html>
 
