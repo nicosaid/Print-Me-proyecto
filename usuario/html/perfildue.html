@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +8,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/topbar.css">
     <link rel="stylesheet" href="../css/perfildue.css">
-
-
-
 </head>
 <body>
-    <header>
+  <header>
         <div class="card">
             <div class="loader">
               <p>PrintMe</p>
@@ -36,25 +32,57 @@
                 <li><a href="">Cerrar sesion</a></li>
             </ul>
            </nav>
-    </header>
-
+  </header>
+  <main>
     <div class="principaldiv">
-        <h2 class="nombre-usuario">FERNANDO.R3D</h2>
-        <img src="../css/impresora 3d.png" alt="Imagen de impresora" class="imagen-impresora">
-        <p class="descripcion">Descripción...</p>
-        
-        <div class="opciones">
-          <div class="impresoras">
-            <label for="impresoras">IMPRESORA:</label>
-            <label id="impresoramodelo">        
-          </div>
-      
-          <div class="filamentos">
-            <label for="filamentos">FILAMENTOS:</label>
-            <label id="filamento">        
-          </div>
-        </div>
-      
-        <button class="iniciar-pedido">Iniciar pedido</button>
+      <h2 class="nombre-usuario">FERNANDO.R3D</h2>
+      <img src="../css/impresora 3d.png" alt="Imagen de impresora" class="imagen-impresora">
+      <div>
+            <h3>Descripción</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum vitae deleniti corporis officia voluptate iste perspiciatis eligendi dicta sed quis. Quo adipisci, dicta ipsam officiis accusantium quasi praesentium inventore ea.</p>
       </div>
-      
+      <div class="opciones">
+            <div class="dropdown">  
+              <h3>Impresoras<span class="arrow">▼</span></h3>
+              <ul class="dropdown-content">
+                  <li>Impresora1</li>
+                  <li>Impresora2</li>
+                  <li>Impresora3</li>
+              </ul>
+            </div>
+            <div class="dropdown">  
+              <h3>Filamentos<span class="arrow">▼</span></h3>
+              <ul class="dropdown-content">
+                  <li>Filamento1</li>
+                  <li>Filamento2</li>
+                  <li>Filamento3</li>
+              </ul>
+            </div> 
+        </div>
+        <button onclick="abrirWhatsApp()">Iniciar pedido</button> 
+    </div>
+    <script> 
+      function abrirWhatsApp()
+      { 
+      const numero = "1234567890"; // Reemplaza con el número de teléfono al que quieres enviar el mensaje 
+      const mensaje = "Hola!"; // Reemplaza con tu mensaje 
+      const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`; window.open(url, '_blank'); 
+      } 
+    </script>
+  </main>
+</body>
+// Get all dropdown elements
+const dropdowns = document.querySelectorAll('.dropdown');
+
+// Add an event listener to each dropdown
+dropdowns.forEach((dropdown) => {
+  const arrow = dropdown.querySelector('.arrow');
+  const dropdownContent = dropdown.querySelector('.dropdown-content');
+
+  arrow.addEventListener('click', () => {
+    // Toggle the visibility of the dropdown content
+    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+  });
+}); 
+</html>
+
