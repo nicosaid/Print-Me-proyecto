@@ -1,45 +1,50 @@
-<!--cambiar el form action por el script del back-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Print Me</title>
+    <title> Registro Usuario</title>
     <link rel="stylesheet" href="../css/registrousuario.css">
-    <script defer src="registrousuario.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <!--boton regresar-->
-        <a id="Regresar">&#8592;</a>
-    </header>
-    <main>
-<div class="container">
-    <form action="" method="post" id="FormRegistro" class="needs-validation" novalidate>
-      <h1>Registrarte como usuario</h1>
-              <div class="input-control">
-                <label for="Usuario">Usuario:</label><br>
-                <input type="text" id="usuario" name="usuario" placeholder="Usuario..." autofocus><br><br>
-                <div class="error"></div>
-              </div>
-              <div class="input-control">
-                <label for="email">Correo electrónico:</label><br>
-                <input type="email" id="email" name="email" placeholder="Ejemplo@gmail.com"><br><br>
-                <div class="error"></div>
-              </div>
-              <div class="input-control">
-                <label for="contra">Contraseña:</label><br>
-                <input type="password" id="contra" name="contra" placeholder="Contraseña..." minlength="8"><br><br>
-                <div class="error"></div>
-              </div>
-              <div class="input-control">
-                <label for="contra2">Confirmar contraseña:</label><br>
-                <input type="password" id="contra2" name="contra2" placeholder="Confirmar contraseña..."><br><br>
-                <div class="error"></div>
-              </div>
-       <button type="submit">Registrarme</button>
-    </form>
-  </div>
-</main>
+    <video class="video-background" src="https://st4.depositphotos.com/3950183/27804/v/600/depositphotos_278044678-stock-video-sparkling-dark-blue-night-sky.mp4" autoplay muted loop></video>
+
+
+    <!-- Contenedor del Logo -->
+    <div class="logo-container">
+        
+        <img class="logo" src="../print me logo1.png" alt="logo">
+    </div>
+    
+        <div class="registro-container">
+            <form class="login-form">
+                <h1>LOG IN</h1>
+                <p>Welcome Back!</p>
+                
+                <!-- Campo del correo electrónico -->
+                <div class="input-box">
+                    <input type="email" placeholder="example@mail.com" required>
+                </div>
+    
+                <!-- Campo de la contraseña -->
+                <div class="input-box">
+                    <input type="password" placeholder="Contraseña..." required>
+                </div>
+    
+                <!-- Botón de inicio de sesión -->
+                <button type="submit">LOG-IN</button>
+    
+                <!-- Opción para registrarse -->
+                <p>¿Aún no tienes cuenta? <a href="#">Haz Click Aquí</a></p>
+            </form>
+        </div>
+    
+    </body>
+    </html>
+    
+    </div>
+
 </body>
 </html>
