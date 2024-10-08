@@ -115,8 +115,8 @@ p a:hover {
 
 .content {
     position: relative;
-    z-index: 1; /* Asegura que el contenido esté sobre el video */
-    color: white; /* Cambia el color del texto si es necesario */
+    z-index: 1; 
+    color: white; 
     text-align: center;
     padding: 20px;
 }

@@ -12,28 +12,27 @@ body {
   padding-right: 100px; 
 }
 
-.register-container {
+.registro-container {
   display: flex;
   justify-content: right;
   align-items: center;
-  width: 100%;
+  width: 500px;
   height: 100%;
 }
 
-.register-form {
+.registro-form {
   background-color: white;
   border-radius: 20px;
-  padding: 40px 50px;
+  padding: 30px 40px; /* Reducido */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   text-align: center;
-  max-width: 400px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  justify-content: center; 
-
+  align-items: center;
+  justify-content: center;
 }
+
 
 h1 {
   font-size: 28px;
@@ -50,7 +49,7 @@ p {
 }
 
 .input-box {
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   width: 100%;
 }
 
@@ -81,7 +80,7 @@ button {
   color: white;
   font-size: 18px;
   cursor: pointer;
-  margin-bottom: 20px;
+  margin: 0px;
 }
 
 button:hover {
