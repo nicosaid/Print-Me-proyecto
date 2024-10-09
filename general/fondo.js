@@ -31,7 +31,6 @@ class Particle {
     }
   
     draw() {
-      // Cambia el tamaño de las estrellas aquí
       const size = Math.random() * 3 + 2; // Aumentar el rango de tamaño
       ctx.fillStyle = `rgba(${255 - (Math.random() * 127.5)}, 255, 255, ${this.opacity})`;
       ctx.fillRect(this.x, this.y, size, size); // Cambia el tamaño

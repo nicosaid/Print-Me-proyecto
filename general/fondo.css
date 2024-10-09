@@ -1,8 +1,6 @@
-
 body {
   background: #10121C;
   color: #fff;
-
 }
 
 #particleCanvas {
@@ -13,28 +11,62 @@ body {
   left: 0;
 }
 
+span {
+  background: radial-gradient(3em 3em at 50% 50%, transparent calc(var(--p) - 3em), #fff calc(var(--p) - 1.5em), #fff calc(var(--p) - 0.6em), transparent var(--p)), linear-gradient(0deg, #bad1f1 30%, #9dc3f7 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 16px rgba(174, 207, 242, .24), 0 0 30px rgba(174, 207, 242, 0.5), 0 0 60px rgba(174, 207, 242, 0.3);
+  --p: 0%;
+  position: relative;
+}
 
-  span {
-    background: radial-gradient(3em 3em at 50% 50%, transparent calc(var(--p) - 3em), #fff calc(var(--p) - 1.5em), #fff calc(var(--p) - 0.6em), transparent var(--p)), linear-gradient(0deg, #bad1f1 30%, #9dc3f7 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 2px 16px rgba(174, 207, 242, .24);
-    --p: 0%;
-  }
-  
-  span:first-of-type {
-    user-select: none;
-  }
+span::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px; /* Tamaño más grande para reflejar la estrella */
+  height: 12px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 80%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 30px rgba(0, 183, 255, 0.8), 0 0 60px rgba(0, 183, 255, 0.6), 0 0 100px rgba(0, 183, 255, 0.4), 0 0 150px rgba(0, 183, 255, 0.2);
+}
 
-  span:last-of-type {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: radial-gradient(2em 2em at 50% 50%, transparent calc(var(--p) - 2em), transparent calc(var(--p) - 1em), #fff calc(var(--p) - 1em), #fff calc(var(--p) - 0.4em), transparent calc(var(--p) - 0.4em), transparent var(--p));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: blur(16px) opacity(0.4);
-  }
+span::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: 
+    0 -30px 50px rgba(255, 255, 255, 0.7), /* Línea de destello vertical */
+    0 30px 50px rgba(255, 255, 255, 0.7),
+    -30px 0px 50px rgba(255, 255, 255, 0.7), /* Línea de destello horizontal */
+    30px 0px 50px rgba(255, 255, 255, 0.7),
+    -20px -20px 50px rgba(255, 255, 255, 0.3), /* Líneas diagonales */
+    20px 20px 50px rgba(255, 255, 255, 0.3),
+    -20px 20px 50px rgba(255, 255, 255, 0.3),
+    20px -20px 50px rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  filter: blur(5px);
+}
 
+span:first-of-type {
+  user-select: none;
+}
+
+span:last-of-type {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: radial-gradient(2em 2em at 50% 50%, transparent calc(var(--p) - 2em), transparent calc(var(--p) - 1em), #fff calc(var(--p) - 1em), #fff calc(var(--p) - 0.4em), transparent calc(var(--p) - 0.4em), transparent var(--p));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: blur(16px) opacity(0.4);
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.7), 0 0 40px rgba(255, 255, 255, 0.5), 0 0 60px rgba(255, 255, 255, 0.3);
+}
