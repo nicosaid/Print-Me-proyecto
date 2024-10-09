@@ -1,0 +1,36 @@
+:root {
+  --cursor-size: 40px; /* Ajusta el tamaño del cursor aquí */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  background-color: #10121C; /* Fondo oscuro para resaltar el cursor */
+  color: #fff; /* Color de texto blanco */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Evita el desplazamiento */
+}
+
+#cursor {
+  position: fixed;
+  top: calc(var(--cursor-size) * -0.5);
+  left: calc(var(--cursor-size) * -0.5);
+  mix-blend-mode: difference; /* Mezcla el color del cursor con el fondo */
+  filter: url(#goo); /* Aplica el filtro gooey */
+  pointer-events: none; /* Evita que el cursor interfiera con otros elementos */
+}
+
+.cursor-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  border-radius: 50%; /* Hace que el cursor sea un círculo */
+  background-color: rgba(255, 255, 255, 0.5); /* Color y transparencia del cursor */
+  transition: transform 0.1s; /* Suaviza la transición del cursor */
+}

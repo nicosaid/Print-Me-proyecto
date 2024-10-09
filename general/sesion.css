@@ -2,22 +2,56 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-image: url('https://es.vecteezy.com/video/2016656-minimal-stars-motion-loop-background-for-project-overlay');
     background-size: cover;
-    display: flex;
     justify-content: flex-end; 
     align-items: center;
     height: 100vh;
-    color: white;
+    background: #10121C;
+    color: #fff;    
     padding-right: 100px; 
+}
+
+#particleCanvas {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0; /* Mantén el fondo detrás del contenido */
+}
+
+span {
+    background: radial-gradient(3em 3em at 50% 50%, transparent calc(var(--p) - 3em), #fff calc(var(--p) - 1.5em), #fff calc(var(--p) - 0.6em), transparent var(--p)), linear-gradient(0deg, #bad1f1 30%, #9dc3f7 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 16px rgba(174, 207, 242, .24);
+    --p: 0%;
+}
+
+span:first-of-type {
+    user-select: none;
+}
+
+span:last-of-type {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: radial-gradient(2em 2em at 50% 50%, transparent calc(var(--p) - 2em), transparent calc(var(--p) - 1em), #fff calc(var(--p) - 1em), #fff calc(var(--p) - 0.4em), transparent calc(var(--p) - 0.4em), transparent var(--p));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: blur(16px) opacity(0.4);
 }
 
 .login-container {
     display: flex;
     justify-content: right;
-    align-items: center;
+        align-items: center;
     width: 100%;
     height: 100%;
+    position: relative; /* Asegúrate de que el formulario esté en el contexto adecuado */
+    z-index: 1; /* Asegura que el formulario esté por encima del fondo */
 }
 
 .login-form {
@@ -32,7 +66,6 @@ body {
     flex-direction: column;
     align-items: center; 
     justify-content: center; 
-
 }
 
 h1 {
@@ -62,7 +95,6 @@ p {
     border: 1px solid #ccc;
     text-align: center;
     color: #333;
-    position: center;
     box-sizing: border-box;
 }
 
@@ -103,15 +135,6 @@ p a:hover {
     text-decoration: underline;
 }
 
-.video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Asegura que el video cubra todo el fondo */
-    z-index: -1; /* Mantiene el video detrás del contenido */
-}
 
 .content {
     position: relative;
@@ -121,10 +144,8 @@ p a:hover {
     padding: 20px;
 }
 
-
 .logo-container {
     position: fixed; /* Fija la posición respecto a la ventana del navegador */
     right: 55%; /* Posiciona la parte superior del elemento al 50% de la altura de la pantalla */
     top: 27%; 
-  }
-  
+}
