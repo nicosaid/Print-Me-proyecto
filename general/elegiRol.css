@@ -3,13 +3,24 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-color: rgb(15, 15, 78); /* Fondo azul oscuro */
-    background-size: cover;
+  background-size: cover;
+background-color: rgb(17, 17, 43);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     position: relative;
+
+}
+
+/* FONDO */
+
+canvas {
+    display: block;
+    position: absolute; /* Permite posicionar el canvas */
+    top: 0; /* Coloca el canvas en la parte superior */
+    left: 0; /* Coloca el canvas en la parte izquierda */
+    z-index: -1; /* Envía el canvas al fondo */
 }
 
 /* Contenedor del logo (esquina superior derecha) */
@@ -69,3 +80,5 @@ body {
 .option-button:hover {
     background-color: #e0e0e0; /* Color ligeramente más claro al hacer hover */
 }
+
+

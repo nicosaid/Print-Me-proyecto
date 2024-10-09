@@ -9,6 +9,7 @@ body {
   justify-content: flex-end; 
   align-items: center;
   height: 100vh;
+  background-color: rgb(17, 17, 43);
   color: white;
   padding-right: 100px; 
 }
