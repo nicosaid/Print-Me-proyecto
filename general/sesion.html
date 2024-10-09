@@ -7,10 +7,29 @@
     <title>Inicio de Sesión</title>
     <link rel="stylesheet" href="../general/sesion.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="fondo.css">
+
 </head>
 <body>
-    <video class="video-background" src="https://st4.depositphotos.com/3950183/27804/v/600/depositphotos_278044678-stock-video-sparkling-dark-blue-night-sky.mp4" autoplay muted loop></video>
 
+    <canvas id="particleCanvas"></canvas>
+    
+    <filter id='noiseFilter'>
+      <feTurbulence 
+                    type='fractalNoise' 
+                    baseFrequency='0.85' 
+                    numOctaves='6' 
+                    stitchTiles='stitch' />
+    </filter>
+
+    <rect
+          width='100%'
+          height='100%'
+          preserveAspectRatio="xMidYMid meet"
+          filter='url(#noiseFilter)' />
+  </svg>
+
+<script src="fondo.js"></script>
 
     <!-- Contenedor del Logo -->
     <div class="logo-container">
