@@ -3,114 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../usuario/cursor.css">
+    <script defer src="../usuario/cursor.js"></script>
+
     <title>Cursor Slime</title>
-    <style>
-        :root {
-            --cursor-size: 20px; /* Tamaño del cursor */
-        }
+ 
+    <canvas></canvas>
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            height: 100vh;
-            background-color: #10121C; /* Fondo oscuro */
-            color: #fff; /* Color de texto */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden; /* Evita el desplazamiento */
-        }
 
-        #cursor {
-            position: fixed;
-            top: calc(var(--cursor-size) * -0.5);
-            left: calc(var(--cursor-size) * -0.5);
-            pointer-events: none; /* Evita que el cursor interfiera con otros elementos */
-            z-index: 9999; /* Asegura que esté por encima de otros elementos */
-        }
-
-        .cursor-circle {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: var(--cursor-size);
-            height: var(--cursor-size);
-            border-radius: 50%; /* Hace que el cursor sea un círculo */
-            background-color: rgba(255, 255, 255, 0); /* Hacer el círculo completamente transparente */
-        }
-
-        .slime {
-            position: absolute;
-            width: var(--cursor-size);
-            height: var(--cursor-size);
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 50%;
-            transition: transform 0.5s ease, opacity 0.5s ease; /* Efecto de transición */
-            pointer-events: none; /* Evita que interfiera con otros elementos */
-            opacity: 1; /* Inicia visible */
-        }
-
-        .slime-effect {
-            animation: slime 0.5s forwards; /* Aplica la animación slime */
-        }
-
-        @keyframes slime {
-            0% {
-                transform: scale(1); /* Tamaño original */
-                opacity: 1; /* Opacidad completa */
-            }
-            100% {
-                transform: scale(1.2); /* Aumenta el tamaño */
-                opacity: 0; /* Desaparece */
-            }
-        }
-    </style>
-</head>
-<body>
-    <h1>Hola</h1>
-    <h1>Hola</h1>
-    <h1>Hola</h1>
-    <h1>Hola</h1>
-
-    <div id="cursor">
-        <div class="cursor-circle"></div>
-    </div>
-
-    <script>
-        const cursor = document.getElementById('cursor');
-
-        // Crear efectos de slime en la posición del cursor
-        function createSlime(x, y) {
-            const slime = document.createElement('div');
-            slime.className = 'slime slime-effect';
-            document.body.appendChild(slime);
-            
-            // Posiciona el slime en el cursor
-            slime.style.left = x + 'px';
-            slime.style.top = y + 'px';
-
-            // Genera un movimiento aleatorio
-            const angle = Math.random() * 2 * Math.PI;
-            const distance = Math.random() * 40; // Distancia aleatoria para el efecto slime
-            const offsetX = Math.cos(angle) * distance;
-            const offsetY = Math.sin(angle) * distance;
-
-            // Inicia el efecto de descomposición
-            slime.style.transform = `translate(${offsetX}px, ${offsetY}px)`; // Mueve el slime
-
-            // Elimina el slime después de la animación
-            setTimeout(() => {
-                slime.remove();
-            }, 500); // Tiempo de eliminación
-        }
-
-        // Actualiza la posición del cursor
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.pageX + 'px';
-            cursor.style.top = e.pageY + 'px';
-            createSlime(e.pageX, e.pageY); // Crea slime en la posición del cursor
-        });
-    </script>
-</body>
+	</body>
 </html>
