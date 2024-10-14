@@ -306,22 +306,6 @@ img {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ********************************** */
 /*            opciones de filtros            */
 /* ********************************** */
@@ -428,7 +412,6 @@ img {
 
 
 
-
 /* ********************************** */
 /*             Buscador             */
 /* ********************************** */
@@ -438,15 +421,17 @@ img {
 	line-height: 28px;
 	align-items: center;
 	position: relative;
-	width: 80%; /* Ocupa todo el ancho del contenedor padre */
+	width: 100%; /* Ocupa todo el ancho del contenedor padre */
 	margin-bottom: 40px;
 	margin-top: 10px;
+	justify-content: center;
+
 
 
    }
    
    .input {
-	width: 100%;
+	width:80%;
 	height: 40px;
 	line-height: 28px;
 	padding: 0 1rem;
@@ -457,7 +442,6 @@ img {
 	background-color: #f3f3f4;
 	color: #0d0c22;
 	transition: .3s ease;
-	
    }
    
    .input::placeholder {
@@ -471,29 +455,15 @@ img {
 	box-shadow: 0 0 0 4px rgba(36, 17, 84, 0.1);
    }
    
-   .icon {
-	position: absolute;
-	left: 1rem;
-	fill: #9e9ea7;
-	width: 1rem;
-	height: 1rem;
-   }
-   
-   
-   
-   
-   
+ 
    
 
 
 
 
-
-  
- /* ********************************** */
+   /* ********************************** */
 /*             emergente             */
 /* ********************************** */
-
 .wrapper {
 	width: 600px;
 	background: rgb(2, 0, 36);
@@ -510,56 +480,91 @@ img {
 	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
 	max-height: 90%;
 	overflow-y: auto;
-	background-image: url('https://s3-alpha-sig.figma.com/img/1cae/e18e/49a09a8244f195fadb359b38317401e6?Expires=1729468800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=TcUsauWJw8m0oqQ6duKeaDx0n1IPmWFA7Y0rMW2crbYiPZ~79JNPsCcL58AiiohUcrPzpTAVYWEckPw8KoB8PcccOTz1MhXFy9yWKsJPelC9JxK-8~43lxV65J~TN0C-8jMdqObuMK3kHSHjRVxdthrDocUFfmaNG-fcu1TrAiPvaLHGiye2TP-WcmNVzj-VN7IvQjx9taIpyQGcxwYsD8Fu7UFASASkmtkRIFfsdpL8F-7J8fwgtdU2pJtf38I6TL6gSfWjAvpgcrgNRoeRs17RsDak9nOz02bO~cmD2wPxivKaYQjnlluqukx3uWnSORkLxdJtUa1wO0zJfvq4gw__');
-
 }
 
+/* ********************************** */
+/*      Encabezado del Pop-up         */
+/* ********************************** */
 .popup-header {
 	font-size: 36px;
 	text-align: center;
-	
 }
 
-
-
+/* ********************************** */
+/*       Contenedor del Input         */
+/* ********************************** */
 .input-box {
 	position: relative;
 	width: 100%;
-	height: 40px; /* Reducido */
+	height: 40px;
 	margin: 30px 0;
 	color: beige;
 }
 
+/* ********************************** */
+/*       Estilos del Input y Select   */
+/* ********************************** */
 .input-box input, .input-box select {
 	width: 100%;
-	height: 40px; /* Reducido */
+	height: 40px;
 	background: transparent;
 	border: none;
 	outline: none;
 	border: 2px solid rgba(255, 255, 255, 0.2);
 	border-radius: 40px;
-	font-size: 14px; /* Reducido */
+	font-size: 14px;
 	color: #fff;
-	padding: 10px 20px; /* Reducido */
+	padding: 10px 20px;
 	transition: border 0.3s ease, color 0.3s ease;
 }
 
+/* ********************************** */
+/*   Estilo para Placeholder y Select */
+/* ********************************** */
 .input-box input::placeholder, .input-box select {
-	color: #fff; /* Texto en blanco */
+	color: #fff;
 }
 
+/* ********************************** */
+/*     Estilo de las Opciones Select  */
+/* ********************************** */
 .input-box select option {
 	background-color: rgb(2, 0, 36);
-	color: #fff; /* Texto de opciones en blanco */
+	color: #fff;
 }
 
+/* ********************************** */
+/*      Estilo del Label flotante     */
+/* ********************************** */
 .input-box label {
-    position: absolute;
-    left: 10px; /* Alinea el label al inicio del input */
-    top: -30px; /* Coloca el label por encima del input */;
-
-
+	position: absolute;
+	left: 10px;
+	top: -30px;
+	color: #fff;
 }
+
+/* ********************************** */
+/*    Barra de desplazamiento Scroll  */
+/* ********************************** */
+.wrapper::-webkit-scrollbar {
+	width: 8px;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+	background-color: var(--primary-color);
+	border-radius: 10px;
+}
+
+.wrapper::-webkit-scrollbar-track {
+	background-color: #e0e0e0;
+}
+
+   
+   
+   
+   
+
+  
 
 
 
