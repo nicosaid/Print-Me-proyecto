@@ -51,9 +51,6 @@
 	text-align: center; /* Centrar contenido */
   }
   
-
-
-
   
   .principaldiv h2 {
 	font-size: 2rem; /* Aumentar tamaño del título */
@@ -65,17 +62,19 @@
 	font-size: 1.2rem; /* Aumentar tamaño del texto del párrafo */
 	color: black; /* Texto gris claro */
   }
-  
 
-/* ********************************** */
-/*            opciones de filtros            */
-/* ********************************** */
-.top-products {
+  .top-products {
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
 	margin-bottom: 3rem;
 }
+  
+
+/* ********************************** */
+/*            opciones de filtros            */
+/* ********************************** */
+
 
 .container-options {
 	display: flex;
@@ -101,13 +100,13 @@ span.active:hover {
     color: #fff;
 }
 
-/* ********************************** */
-/*             imprrsoras             */
-/* ********************************** */
+
 
 /* ********************************** */
 /*             perfiles             */
 /* ********************************** */
+
+
 
 .card {
    display: flex;
@@ -176,21 +175,6 @@ img {
     border-radius: 15px; /* Bordes redondeados */
 }
 
-
-
-
-
-
-/* ********************************** */
-/*             imagen             */
-/* ********************************** */
-
-
-img {
-    width: 90%; /* Las imágenes ocuparán el 100% del ancho de su contenedor */
-    height: auto; /* Mantiene la proporción original de las imágenes */
-    border-radius: 15px; /* Bordes redondeados */
-}
 
 
 
@@ -325,9 +309,6 @@ img {
 
 
 }
-
-
-
 
 
 

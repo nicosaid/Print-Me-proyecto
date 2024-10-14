@@ -58,16 +58,6 @@
                <!--aca termina el buscador-->
 
 
-
-
-
-
-
-
-
-
-
-
           
 
         <div class="container-options">
@@ -75,6 +65,94 @@
 
             <span class="active"> Favoritos</span>
         </div>
+
+
+
+<!-- Texto para abrir la ventana emergente -->
+<span onclick="openPopup()">Filtrar por necesidad</span>
+
+
+<!-- Fondo oscuro -->
+<div id="overlay" class="overlay"></div>
+
+<!-- Pantalla emergente -->
+<div id="popup" class="wrapper">
+    <div class="popup-header">Configuración de Impresión</div>
+
+    <!-- Dropdown para seleccionar zona -->
+    <div class="input-box">
+        <label for="zona">Seleccionar Zona:</label>
+        <select id="zona">
+            <option value="zona1">Zona 1</option>
+            <option value="zona2">Zona 2</option>
+            <option value="zona3">Zona 3</option>
+        </select><br>
+    </div>
+
+     <!-- Dropdown para seleccionar impresora -->
+     <div class="input-box">
+        <label for="zona">Seleccionar modelo de impresora:</label>
+        <select id="zona">
+            <option value="zona1"> 1</option>
+            <option value="zona2"> 2</option>
+            <option value="zona3"> 3</option>
+        </select><br>
+    </div>
+
+    <!-- Dropdown para seleccionar materiales -->
+    <div class="input-box">
+        <label for="materiales">Seleccionar Materiales:</label>
+        <select id="materiales">
+            <option value="papel">Papel</option>
+            <option value="plastico">Plástico</option>
+            <option value="carton">Cartón</option>
+        </select><br>
+    </div>
+    <!-- Dropdown para seleccionar filamentos -->
+    <div class="input-box">
+        <label for="filamentos">Seleccionar Filamentos:</label>
+        <select id="filamentos">
+            <option value="Filamento1">Filamento1</option>
+            <option value="Filamento2">Filamento2</option>
+            <option value="Filamento3">Filamento3</option>
+        </select><br>
+    </div>
+
+
+    <!-- Radiobutton para post impresión -->
+  
+
+    <!-- Botón de cerrar -->
+    <input type="button" value="Aceptar" class="btn" onclick="closePopup()">
+</div>
+
+<script>
+ 
+
+ // Función para abrir la pantalla emergente
+function openPopup() {
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("overlay").style.display = "block";
+    
+    // Añadir la clase popup-open al span
+    document.querySelector("span.active").classList.add("popup-open");
+}
+
+// Función para cerrar la pantalla emergente
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+    
+    // Eliminar la clase popup-open del span
+    document.querySelector("span.active").classList.remove("popup-open");
+}
+
+
+
+</script>
+
+
+
 
             <div class="card">
                 <img src="../html/impresora 3d copy.png" alt="3D Printer" class="printer-image">
