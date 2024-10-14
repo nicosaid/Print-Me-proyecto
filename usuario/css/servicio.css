@@ -76,7 +76,6 @@
 	margin-bottom: 3rem;
 }
   
-
 /* ********************************** */
 /*            opciones de filtros            */
 /* ********************************** */
@@ -89,6 +88,11 @@
 	margin-bottom: 1rem;
 }
 
+.container-options span:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
 .container-options span {
 	color: #777;
 	background-color: #fff;
@@ -98,14 +102,6 @@
 	border-radius: 2rem;
 	cursor: pointer;
 }
-
-
-/* Aplica hover solo a los elementos con la clase "active" */
-span.active:hover {
-    background-color: var(--primary-color);
-    color: #fff;
-}
-
 
 /* ********************************** */
 /*             perfiles             */

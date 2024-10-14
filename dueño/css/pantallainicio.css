@@ -67,21 +67,23 @@
   }
   
 
+
+
 /* ********************************** */
 /*            opciones de filtros            */
 /* ********************************** */
-.top-products {
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
-	margin-bottom: 3rem;
-}
+
 
 .container-options {
 	display: flex;
 	justify-content: center;
 	gap: 2rem;
 	margin-bottom: 1rem;
+}
+
+.container-options span:hover {
+    background-color: var(--primary-color);
+    color: #fff;
 }
 
 .container-options span {
@@ -95,81 +97,10 @@
 }
 
 
-/* Aplica hover solo a los elementos con la clase "active" */
-span.active:hover {
-    background-color: var(--primary-color);
-    color: #fff;
-}
 
-/* ********************************** */
-/*             perfiles             */
-/* ********************************** */
 
-.card {
-   display: flex;
-   align-items: center;
-   background-color: #fff;
-   padding: 20px;
-   border-radius: 10px;
-   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-   max-width: 600px;
-   margin: 20px auto;
-   font-family: Arial, sans-serif;
-}
 
-.printer-image {
-   width: 100px;
-   height: auto;
-   margin-right: 20px;
-}
 
-.info {
-   flex-grow: 1;
-}
-
-.info h2 {
-   margin: 0;
-   font-size: 18px;
-   font-weight: bold;
-}
-
-.info-link {
-   display: inline-block;
-   margin-top: 10px;
-   color: #007bff;
-   text-decoration: none;
-   font-size: 14px;
-}
-
-.info-link:hover {
-   text-decoration: underline;
-}
-
-.stats {
-   margin-top: 10px;
-   font-size: 14px;
-   color: #555;
-}
-
-.stats span {
-   margin-right: 15px;
-}
-
-.favorite {
-   margin-left: 20px;
-}
-
-.favorite-btn {
-   background-color: #fff;
-   border: 1px solid #ddd;
-   padding: 5px 10px;
-   border-radius: 5px;
-   cursor: pointer;
-}
-
-.favorite-btn:hover {
-   background-color: #f0f0f0;
-}
 
 
 
@@ -303,37 +234,6 @@ img {
 
 
 
-
-
-
-/* ********************************** */
-/*            opciones de filtros            */
-/* ********************************** */
-
-
-.container-options {
-	display: flex;
-	justify-content: center;
-	gap: 2rem;
-	margin-bottom: 1rem;
-}
-
-.container-options span {
-	color: #777;
-	background-color: #fff;
-	padding: 0.7rem 3rem;
-	font-size: 13px;
-	text-transform: capitalize;
-	border-radius: 2rem;
-	cursor: pointer;
-}
-
-
-/* Aplica hover solo a los elementos con la clase "active" */
-span.active:hover {
-    background-color: var(--primary-color);
-    color: #fff;
-}
 
 
 
