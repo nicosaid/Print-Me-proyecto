@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/topbar.css">
     <link rel="stylesheet" href="../css/perfildue.css">
+    <script src="/usuario/js/perfildueño.js"></script>
+    <!--agrego un codigo css para probar el js-->
+    <link rel="stylesheet" href="../css/juliperfildueño.css">
 </head>
 <body>
   <header>
@@ -34,41 +37,47 @@
            </nav>
   </header>
   <main>
-    <div class="principaldiv">
-      <h2 class="nombre-usuario">FERNANDO.R3D</h2>
-      <img src="../css/impresora 3d.png" alt="Imagen de impresora" class="imagen-impresora">
+    <div>
+      <span></span>
+      <h2 class="NombreUsuario">FERNANDO.R3D</h2>
+      <div class="flotante">
+        <!--likeado--> <!--hacer q se pueda poner y sacar-->
+        <span class="flotante">
+        <i class="bi-regular bi-heart"></i>
+        </span>
+      </div>
+      <div class="flotante">
+        <!--promociones-->
+        <span>
+          <i class=promo><p>-20%</p></i>
+        </span>
+      </div>
+      <img src="../css/impresora 3d.png" alt="FotoImpresora" class="FotoImpresora">
       <div>
             <h3>Descripción</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum vitae deleniti corporis officia voluptate iste perspiciatis eligendi dicta sed quis. Quo adipisci, dicta ipsam officiis accusantium quasi praesentium inventore ea.</p>
       </div>
       <div class="opciones">
-            <div class="dropdown">  
-              <h3>Impresoras<span class="arrow">▼</span></h3>
-              <ul class="dropdown-content">
+              <div class="dropdown">
+                <h3>Impresoras <span class="arrow">▼</span></h3>
+                <ul class="dropdown-content">
                   <li>Impresora1</li>
                   <li>Impresora2</li>
                   <li>Impresora3</li>
-              </ul>
-            </div>
-            <div class="dropdown">  
+                </ul>
+              </div>
+              <div class="dropdown">  
               <h3>Filamentos<span class="arrow">▼</span></h3>
               <ul class="dropdown-content">
                   <li>Filamento1</li>
                   <li>Filamento2</li>
                   <li>Filamento3</li>
               </ul>
-            </div> 
-        </div>
-        <button onclick="abrirWhatsApp()">Iniciar pedido</button> 
+             </div> 
+             <div>
+              <button onclick="abrirWhatsApp()">Contactar</button> 
+            </div>
     </div>
-    <script> 
-      function abrirWhatsApp()
-      { 
-      const numero = "1234567890"; // Reemplaza con el número de teléfono al que quieres enviar el mensaje 
-      const mensaje = "Hola!"; // Reemplaza con tu mensaje 
-      const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`; window.open(url, '_blank'); 
-      } 
-    </script>
   </main>
 </body>
 
