@@ -105,121 +105,79 @@ span.active:hover {
 /*             imprrsoras             */
 /* ********************************** */
 
-.perfilesDueños {
-    display: flex;
-    flex-wrap: wrap; /* Permite que las tarjetas se ajusten a nuevas líneas si no caben en una fila */
-    justify-content: center; /* Centra las tarjetas en el contenedor */
-    gap: 20px; /* Espacio entre las tarjetas */
-    margin: 20px; /* Margen alrededor del contenedor */
+/* ********************************** */
+/*             perfiles             */
+/* ********************************** */
+
+.card {
+   display: flex;
+   align-items: center;
+   background-color: #fff;
+   padding: 20px;
+   border-radius: 10px;
+   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+   max-width: 600px;
+   margin: 20px auto;
+   font-family: Arial, sans-serif;
+}
+
+.printer-image {
+   width: 100px;
+   height: auto;
+   margin-right: 20px;
+}
+
+.info {
+   flex-grow: 1;
+}
+
+.info h2 {
+   margin: 0;
+   font-size: 18px;
+   font-weight: bold;
+}
+
+.info-link {
+   display: inline-block;
+   margin-top: 10px;
+   color: #007bff;
+   text-decoration: none;
+   font-size: 14px;
+}
+
+.info-link:hover {
+   text-decoration: underline;
+}
+
+/* Texto más pequeño para la información de la impresora, zona y post-impresión */
+.stats {
+    margin-top: 13px;
+    font-size: 0px; /* Cambiado a un tamaño de fuente más pequeño */
+    color: #555;
+}
+
+.stats span {
+   margin-right: 15px;
+}
+
+.favorite {
+   margin-left: 20px;
 }
 
 
-.flip-card {
-    background-color: transparent;
-    width: 245px;
-    height: 270px;
-    perspective: 1000px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    border-radius: 2em;
-    animation: borderAnimation 4s infinite;
-}
+/* ********************************** */
+/*             imagen             */
+/* ********************************** */
 
-@keyframes borderAnimation {
-    0% {
-        border: 4px solid #002b53;
-    }
-    50% {
-        border: 4px solid #004080;
-    }
-    100% {
-        border: 4px solid #002b53;
-    }
-}
-
-.flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    padding: 5px;
-    border-radius: 2em;
-    backface-visibility: hidden;
-    background-color: #d3d3d3; /* Fondo gris claro */
-}
-
-.flip-card-front {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.profile-image {
-    background-color: transparent;
-    border: none;
-    margin-top: 15px;
-    border-radius: 5em;
-    width: 120px;
-    height: 120px;
-}
-
-.pfp {
-    border-radius: 35em;
-    width: 80px;
-    height: 80px;
-    margin-top: 10px;
-}
-
-.name {
-    margin-top: 15px;
-    font-size: 27px;
-    color: black; /* Nombre en negro */
-    font-weight: bold;
+img {
+    width: 90%; /* Las imágenes ocuparán el 90% del ancho de su contenedor */
+    height: auto; /* Mantiene la proporción original de las imágenes */
+    border-radius: 15px; /* Bordes redondeados */
 }
 
 
-.flip-card-back {
-    background-color: #d3d3d3;
-    transform: rotateY(180deg);
-    padding: 20px;
-}
 
-.flip-card-back h4, .flip-card-back p {
-    color: black;
-    margin-bottom: 10px;
-    font-size: 16px; /* Mismo estilo para todos los textos */
-}
-
-.printer-model {
-    padding-top: 20px; /* Mayor separación con el borde */
-}
-
-.profile-button {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 40px; /* Botón más abajo */
-}
-
-.profile-button:hover {
-    background-color: #001f40; /* Azul oscuro más profundo al pasar el mouse */
-}
-
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-}
 
 
 
@@ -235,25 +193,68 @@ img {
 }
 
 
+
 /* ********************************** */
 /*             Buscador             */
 /* ********************************** */
 
+.group {
+	display: flex;
+	line-height: 28px;
+	align-items: center;
+	position: relative;
+	width: 80%; /* Ocupa todo el ancho del contenedor padre */
+	margin-bottom: 40px;
+	margin-top: 10px;
 
-.input {
-	position: center;
+
+   }
+   
+   .input {
+	width: 100%;
+	height: 40px;
+	line-height: 28px;
+	padding: 0 1rem;
+	padding-left: 2.5rem;
 	border: 2px solid transparent;
-	width: 60%;
-	padding: 1%;
-	height: 2.5em;
-	padding-left: 0.8em;
+	border-radius: 8px;
 	outline: none;
-	overflow: hidden;
-	background-color: #F3F3F3;
-	border-radius: 10px;
-	transition: all 0.5s;
-margin-bottom: 30px;
-  }
+	background-color: #f3f3f4;
+	color: #0d0c22;
+	transition: .3s ease;
+	
+   }
+   
+   .input::placeholder {
+	color: #9e9ea7;
+   }
+   
+   .input:focus, input:hover {
+	outline: none;
+	border-color: rgba(3, 36, 83, 0.4);
+	background-color: #fff;
+	box-shadow: 0 0 0 4px rgba(36, 17, 84, 0.1);
+   }
+   
+   .icon {
+	position: absolute;
+	left: 1rem;
+	fill: #9e9ea7;
+	width: 1rem;
+	height: 1rem;
+   }
+   
+   
+   
+   
+   
+   
+
+
+
+
+
+  
  /* ********************************** */
 /*             emergente             */
 /* ********************************** */
