@@ -69,7 +69,7 @@
 
 
 <!-- Texto para abrir la ventana emergente -->
-<span onclick="openPopup()">Filtrar por necesidad</span>
+<span onclick="openPopup()">Filtrar por Estado</span>
 
 
 <!-- Fondo oscuro -->
@@ -77,50 +77,22 @@
 
 <!-- Pantalla emergente -->
 <div id="popup" class="wrapper">
-    <div class="popup-header">Configuración de Impresión</div>
+    <div class="popup-header">Estado Del Pedido</div>
+    <br><br>
 
     <!-- Dropdown para seleccionar zona -->
     <div class="input-box">
-        <label for="zona">Seleccionar Zona:</label>
-        <select id="zona">
-            <option value="zona1">Zona 1</option>
-            <option value="zona2">Zona 2</option>
-            <option value="zona3">Zona 3</option>
-        </select><br>
-    </div>
+        <label for="estado">Seleccionar estado:</label>
+        <select id="estado">
+            <option value="EnProceso">En Proceso </option>
+            <option value="Enpaquetando">Enpaquetando</option>
+            <option value="EnCamino">En Camino</option>
+            <option value="Finalizado">Finalizado</option>
 
-     <!-- Dropdown para seleccionar impresora -->
-     <div class="input-box">
-        <label for="zona">Seleccionar modelo de impresora:</label>
-        <select id="zona">
-            <option value="zona1"> 1</option>
-            <option value="zona2"> 2</option>
-            <option value="zona3"> 3</option>
-        </select><br>
-    </div>
-
-    <!-- Dropdown para seleccionar materiales -->
-    <div class="input-box">
-        <label for="materiales">Seleccionar Materiales:</label>
-        <select id="materiales">
-            <option value="papel">Papel</option>
-            <option value="plastico">Plástico</option>
-            <option value="carton">Cartón</option>
-        </select><br>
-    </div>
-    <!-- Dropdown para seleccionar filamentos -->
-    <div class="input-box">
-        <label for="filamentos">Seleccionar Filamentos:</label>
-        <select id="filamentos">
-            <option value="Filamento1">Filamento1</option>
-            <option value="Filamento2">Filamento2</option>
-            <option value="Filamento3">Filamento3</option>
         </select><br>
     </div>
 
 
-    <!-- Radiobutton para post impresión -->
-  
 
     <!-- Botón de cerrar -->
     <input type="button" value="Aceptar" class="btn" onclick="closePopup()">
@@ -153,20 +125,27 @@ function closePopup() {
 
 
 
-
             <div class="card">
                 <img src="../html/impresora 3d copy.png" alt="3D Printer" class="printer-image">
                 <div class="info">
                     <h2>Fernando R (Especializado en impresiones grandes y detalladas)</h2>
-                    <a href="#" class="info-link">Info dueño</a>
-                    <div class="stats">
-                    </div>
-                </div>
-                <div class="favorite">
-                    <button class="favorite-btn">❤️ Add to Favourite</button>
-                </div>
+
+
+
+
+                    
+               
             </div>
+
+
+
             
+
+
+            
+
+
+         
 
 
         </div>

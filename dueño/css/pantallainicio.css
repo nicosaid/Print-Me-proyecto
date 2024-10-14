@@ -236,7 +236,367 @@ img {
    }
    
    
+
+
+  .top-products {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	margin-bottom: 3rem;
+}
+  
+
+
+
+
+
+
+
+
+
+
+/* ********************************** */
+/*             div principal             */
+/* ********************************** */
+
+.principaldiv {
+	width: 80%;
+	height: 500px;
+	max-width: 1200px; /* Establecer un ancho máximo para pantallas grandes */
+	margin: 50px auto; /* Centrar el div y separarlo de los costados */
+	margin-top: -13px;
+	padding: 40px; /* Espacio interno más amplio */
+	background-color: #ececec; /* Color de fondo */
+	border-radius: 15px; /* Bordes redondeados */
+	backdrop-filter: blur(100px); /* Aplicar desenfoque al fondo */
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+	border: 1px solid #e0e0e0; /* Borde sutil */
+	text-align: center; /* Centrar contenido */
+	overflow-y: auto; /* Barra de desplazamiento vertical */
+	max-height: 500px; /* Altura máxima para que aparezca el scrollbar si es necesario */
+}
+
+/* Personalización de la scrollbar */
+.principaldiv::-webkit-scrollbar {
+	width: 8px; /* Ancho de la barra de desplazamiento */
+}
+
+.principaldiv::-webkit-scrollbar-thumb {
+	background-color: var(--primary-color); /* Color de la barra */
+	border-radius: 10px; /* Bordes redondeados de la barra */
+}
+
+.principaldiv::-webkit-scrollbar-track {
+	background-color: #e0e0e0; /* Color de fondo del track */
+}
+
+.principaldiv h2 {
+	font-size: 2rem; /* Aumentar tamaño del título */
+	color: black; /* Texto negro para el título */
+	margin-bottom: 20px;
+}
+
+.principaldiv p {
+	font-size: 1.2rem; /* Aumentar tamaño del texto del párrafo */
+	color: black; /* Texto negro */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ********************************** */
+/*            opciones de filtros            */
+/* ********************************** */
+
+
+.container-options {
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+	margin-bottom: 1rem;
+}
+
+.container-options span {
+	color: #777;
+	background-color: #fff;
+	padding: 0.7rem 3rem;
+	font-size: 13px;
+	text-transform: capitalize;
+	border-radius: 2rem;
+	cursor: pointer;
+}
+
+
+/* Aplica hover solo a los elementos con la clase "active" */
+span.active:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+
+
+/* ********************************** */
+/*             perfiles             */
+/* ********************************** */
+
+
+
+.card {
+   display: flex;
+   align-items: center;
+   background-color: #fff;
+   padding: 20px;
+   border-radius: 10px;
+   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+   max-width: 600px;
+   margin: 20px auto;
+   font-family: Arial, sans-serif;
+}
+
+.printer-image {
+   width: 100px;
+   height: auto;
+   margin-right: 20px;
+}
+
+.info {
+   flex-grow: 1;
+}
+
+.info h2 {
+   margin: 0;
+   font-size: 18px;
+   font-weight: bold;
+}
+
+.info-link {
+   display: inline-block;
+   margin-top: 10px;
+   color: #007bff;
+   text-decoration: none;
+   font-size: 14px;
+}
+
+.info-link:hover {
+   text-decoration: underline;
+}
+
+/* Texto más pequeño para la información de la impresora, zona y post-impresión */
+.stats {
+    margin-top: 13px;
+    font-size: 0px; /* Cambiado a un tamaño de fuente más pequeño */
+    color: #555;
+}
+
+.stats span {
+   margin-right: 15px;
+}
+
+.favorite {
+   margin-left: 20px;
+}
+
+
+
+/* ********************************** */
+/*             imagen             */
+/* ********************************** */
+
+img {
+    width: 90%; /* Las imágenes ocuparán el 90% del ancho de su contenedor */
+    height: auto; /* Mantiene la proporción original de las imágenes */
+    border-radius: 15px; /* Bordes redondeados */
+}
+
+
+
+
+/* ********************************** */
+/*             Buscador             */
+/* ********************************** */
+
+.group {
+	display: flex;
+	line-height: 28px;
+	align-items: center;
+	position: relative;
+	width: 80%; /* Ocupa todo el ancho del contenedor padre */
+	margin-bottom: 40px;
+	margin-top: 10px;
+
+
+   }
+   
+   .input {
+	width: 100%;
+	height: 40px;
+	line-height: 28px;
+	padding: 0 1rem;
+	padding-left: 2.5rem;
+	border: 2px solid transparent;
+	border-radius: 8px;
+	outline: none;
+	background-color: #f3f3f4;
+	color: #0d0c22;
+	transition: .3s ease;
+	
+   }
+   
+   .input::placeholder {
+	color: #9e9ea7;
+   }
+   
+   .input:focus, input:hover {
+	outline: none;
+	border-color: rgba(3, 36, 83, 0.4);
+	background-color: #fff;
+	box-shadow: 0 0 0 4px rgba(36, 17, 84, 0.1);
+   }
+   
+   .icon {
+	position: absolute;
+	left: 1rem;
+	fill: #9e9ea7;
+	width: 1rem;
+	height: 1rem;
+   }
    
    
    
    
+   
+   
+
+
+
+
+
+  
+ /* ********************************** */
+/*             emergente             */
+/* ********************************** */
+
+.wrapper {
+	width: 600px;
+	background: rgb(2, 0, 36);
+	backdrop-filter: blur(9px);
+	color: #fff;
+	border-radius: 12px;
+	padding: 40px 50px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: none;
+	z-index: 1000;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+	max-height: 90%;
+	overflow-y: auto;
+	background-image: url('https://s3-alpha-sig.figma.com/img/1cae/e18e/49a09a8244f195fadb359b38317401e6?Expires=1729468800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=TcUsauWJw8m0oqQ6duKeaDx0n1IPmWFA7Y0rMW2crbYiPZ~79JNPsCcL58AiiohUcrPzpTAVYWEckPw8KoB8PcccOTz1MhXFy9yWKsJPelC9JxK-8~43lxV65J~TN0C-8jMdqObuMK3kHSHjRVxdthrDocUFfmaNG-fcu1TrAiPvaLHGiye2TP-WcmNVzj-VN7IvQjx9taIpyQGcxwYsD8Fu7UFASASkmtkRIFfsdpL8F-7J8fwgtdU2pJtf38I6TL6gSfWjAvpgcrgNRoeRs17RsDak9nOz02bO~cmD2wPxivKaYQjnlluqukx3uWnSORkLxdJtUa1wO0zJfvq4gw__');
+
+}
+
+.popup-header {
+	font-size: 36px;
+	text-align: center;
+	
+}
+
+
+
+.input-box {
+	position: relative;
+	width: 100%;
+	height: 40px; /* Reducido */
+	margin: 30px 0;
+	color: beige;
+}
+
+.input-box input, .input-box select {
+	width: 100%;
+	height: 40px; /* Reducido */
+	background: transparent;
+	border: none;
+	outline: none;
+	border: 2px solid rgba(255, 255, 255, 0.2);
+	border-radius: 40px;
+	font-size: 14px; /* Reducido */
+	color: #fff;
+	padding: 10px 20px; /* Reducido */
+	transition: border 0.3s ease, color 0.3s ease;
+}
+
+.input-box input::placeholder, .input-box select {
+	color: #fff; /* Texto en blanco */
+}
+
+.input-box select option {
+	background-color: rgb(2, 0, 36);
+	color: #fff; /* Texto de opciones en blanco */
+}
+
+.input-box label {
+    position: absolute;
+    left: 10px; /* Alinea el label al inicio del input */
+    top: -30px; /* Coloca el label por encima del input */;
+
+
+}
+
+
+
+/* Fondo oscuro detrás de la ventana emergente */
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7); /* Más oscuro */
+	z-index: 999;
+	display: none;
+}
+
+.wrapper .btn {
+	width: 100%;
+	padding: 15px;
+	background-color: rgba(255, 255, 255, 0.2);
+	margin-top: 20px;
+	margin-bottom: 10px;
+	color: white;
+	border: none;
+	border-radius: 40px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background-color 0.3s ease;
+}
+
+.wrapper .btn:hover {
+	background-color: #6e6e6e; /* Cambiar el color en hover a un tono más oscuro de gris */
+}
+
+   
+   
+   
+   
+
+
+
