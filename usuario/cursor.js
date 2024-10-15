@@ -1,23 +1,3 @@
-const cursor = document.getElementById('cursor');
-const cursorCircle = document.querySelector('.cursor-circle');
-
-document.addEventListener('mousemove', (e) => {
-    // Actualiza la posición del cursor según la posición del mouse
-    cursor.style.left = e.pageX + 'px';
-    cursor.style.top = e.pageY + 'px';
-
-    // Efecto gooey en el cursor
-    cursorCircle.style.transform = `scale(1.1)`;
-});
-
-document.addEventListener('mouseleave', () => {
-    // Reinicia la escala al salir del área del documento
-    cursorCircle.style.transform = `scale(1)`;
-});
-'use strict';
-
-
-
 
 const canvas = document.getElementsByTagName('canvas')[0];
 canvas.width = canvas.clientWidth;
@@ -638,56 +618,40 @@ function resizeCanvas () {
     }
 }
 
-canvas.addEventListener('mousemove', (e) => {
-    pointers[0].moved = pointers[0].down;
-    pointers[0].dx = (e.offsetX - pointers[0].x) * 10.0;
-    pointers[0].dy = (e.offsetY - pointers[0].y) * 10.0;
-    pointers[0].x = e.offsetX;
-    pointers[0].y = e.offsetY;
-});
 
-canvas.addEventListener('touchmove', (e) => {
-    e.preventDefault();
-    const touches = e.targetTouches;
-    for (let i = 0; i < touches.length; i++) {
-        let pointer = pointers[i];
-        pointer.moved = pointer.down;
-        pointer.dx = (touches[i].pageX - pointer.x) * 10.0;
-        pointer.dy = (touches[i].pageY - pointer.y) * 10.0;
-        pointer.x = touches[i].pageX;
-        pointer.y = touches[i].pageY;
+
+
+
+
+
+
+
+
+
+
+
+
+function updatePointer(pointer, x, y) {
+    pointer.moved = true;  // Siempre marcar como "movido"
+    pointer.dx = (x - pointer.x) * 10.0;
+    pointer.dy = (y - pointer.y) * 10.0;
+    pointer.x = x;
+    pointer.y = y;
+    pointer.color = [Math.random() + 0.2, Math.random() + 0.2, Math.random() + 0.2];  // Cambia el color en cada movimiento
+}
+
+// Manejador para eventos de movimiento (mouse y touch)
+function handleMove(e) {
+    if (e.type === 'mousemove') {
+        updatePointer(pointers[0], e.offsetX, e.offsetY);
+    } else if (e.type === 'touchmove') {
+        e.preventDefault();
+        const touches = e.targetTouches;
+        for (let i = 0; i < touches.length; i++) {
+            updatePointer(pointers[i], touches[i].pageX, touches[i].pageY);
+        }
     }
-}, false);
+}
 
-canvas.addEventListener('mousedown', () => {
-    pointers[0].down = true;
-    pointers[0].color = [Math.random() + 0.2, Math.random() + 0.2, Math.random() + 0.2];
-});
-
-canvas.addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    const touches = e.targetTouches;
-    for (let i = 0; i < touches.length; i++) {
-        if (i >= pointers.length)
-            pointers.push(new pointerPrototype());
-
-        pointers[i].id = touches[i].identifier;
-        pointers[i].down = true;
-        pointers[i].x = touches[i].pageX;
-        pointers[i].y = touches[i].pageY;
-        pointers[i].color = [Math.random() + 0.2, Math.random() + 0.2, Math.random() + 0.2];
-    }
-});
-
-window.addEventListener('mouseup', () => {
-    pointers[0].down = false;
-});
-
-window.addEventListener('touchend', (e) => {
-    const touches = e.changedTouches;
-    for (let i = 0; i < touches.length; i++)
-        for (let j = 0; j < pointers.length; j++)
-            if (touches[i].identifier == pointers[j].id)
-                pointers[j].down = false;
-});
-
+canvas.addEventListener('mousemove', handleMove);
+canvas.addEventListener('touchmove', handleMove, false);
