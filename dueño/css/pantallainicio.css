@@ -504,4 +504,86 @@ img {
    
 
 
+/* ********************************** */
+/*    boton aceptar  */
+/* ********************************** */
 
+
+
+/* From Uiverse.io by niat786 */
+.aceptar {
+	border: none;
+	color: #fff;
+	background-image: linear-gradient(30deg, #008000, #2e8b57); /* Verde más oscuro */
+	border-radius: 20px;
+	background-size: 100% auto;
+	font-family: inherit;
+	font-size: 14px; /* Tamaño más pequeño */
+	padding: 0.4em 1em; /* Tamaño reducido */
+	margin: 15px;
+	justify-content: center;
+}
+  
+  .aceptar:hover {
+	background-position: right center;
+	background-size: 200% auto;
+	-webkit-animation: pulse 2s infinite;
+	animation: pulse512 1.5s infinite;
+  }
+  
+  @keyframes pulse512 {
+	0% {
+	  box-shadow: 0 0 0 0 #05bada66;
+	}
+  
+	70% {
+	  box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+	}
+  
+	100% {
+	  box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+	}
+  }
+  
+
+
+/* ********************************** */
+/*    Botón rechazar  */
+/* ********************************** */
+
+
+/* From Uiverse.io by niat786 */
+.rechazar {
+	border: none;
+	color: #fff;
+	background-image: linear-gradient(30deg, #ff0000, #b22222); /* Rojo más oscuro */
+	border-radius: 20px;
+	background-size: 100% auto;
+	font-family: inherit;
+	font-size: 14px; /* Tamaño más pequeño */
+	padding: 0.4em 1em; /* Tamaño reducido */
+	margin: 15px;
+justify-content: center;
+}
+  
+  .rechazar:hover {
+	background-position: right center;
+	background-size: 200% auto;
+	-webkit-animation: pulse 2s infinite;
+	animation: pulse512 1.5s infinite;
+  }
+  
+  @keyframes pulse512 {
+	0% {
+	  box-shadow: 0 0 0 0 #b2222266;
+	}
+  
+	70% {
+	  box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+	}
+  
+	100% {
+	  box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+	}
+  }
+  
