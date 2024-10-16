@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Framer-like Web Page</title>
+    <link rel="stylesheet" href="land2.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Roboto:wght@300;400;500;900&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+        /* Estilos para el video de fondo */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1; /* Poner el video detrás del contenido */
+        }
+        
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none; /* Desactiva la interacción con el video */
+        }
+
+        /* Asegurarse de que el contenido de la hero esté encima del video */
+        .hero {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1, .hero p {
+            color: white;
+        }
+
+        .hero-buttons button {
+            background-color: #f8a53d;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header con logo y botones de autenticación -->
+    <header>
+        <div class="logo">PrinMe</div>
+        <div class="auth-buttons">
+            <button class="login">Login</button>
+            <button class="signup">Sign Up</button>
+        </div>
+    </header>
+
+    <!-- Sección del Hero con video de fondo -->
+    <section class="hero">
+        <div class="video-background">
+            <video autoplay muted loop>
+                <source src="../general/landing.mp4" type="video/mp4">
+                Tu navegador no soporta la etiqueta de video.
+            </video>
+        </div>
+        <div class="hero-text">
+            <h1>Print.</h1>
+            <p>Design and publish modern sites at any scale with Framer’s web builder.</p>
+            <div class="hero-buttons">
+                <button id="centralbtn">Comenzar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Información del Proyecto -->
+    <section class="project-info">
+        <div class="container">
+            <h2>Sobre el Proyecto</h2>
+            <p>
+                Somos un equipo de la orientación TIC en Ort, especializados en conectar personas que necesitan imprimir en 3D con dueños de impresoras 3D. Nuestro equipo está conformado por:
+            </p>
+            <ul class="team-list">
+                <li><strong>Julieta Kohan</strong> - Front-end de HTML y conexión</li>
+                <li><strong>Lucila Dayan</strong> - Front-end de HTML y diseño CSS</li>
+                <li><strong>Otros miembros del equipo</strong> - Desarrollo y soporte</li>
+            </ul>
+            <div class="project-image">
+                <img src="project-image.png" alt="Proyecto Conexión 3D">
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrusel de Integrantes del Proyecto -->
+    <main>
+        <div>
+            <span>Sobre Nosotros</span>
+            <h1>Integrantes del proyecto</h1>
+            <hr>
+            <p>Conoce a los talentosos miembros que hacen posible este proyecto.</p>
+        </div>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide swiper-slide--one">
+                    <div>
+                        <h2>Julieta Kohan</h2>
+                        <p>Front End HTML y conexión</p>
+                    </div>
+                </div>
+                <div class="swiper-slide swiper-slide--two">
+                    <div>
+                        <h2>Lucila Dayan</h2>
+                        <p>Front End HTML y CSS</p>
+                    </div>
+                </div>
+                <div class="swiper-slide swiper-slide--three">
+                    <div>
+                        <h2>Nicolás Said</h2>
+                        <p>Diseño</p>
+                    </div>
+                </div>
+                <div class="swiper-slide swiper-slide--four">
+                    <div>
+                        <h2>Benjamín Fridman</h2>
+                        <p>Back End</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-prev">&lt;</div>
+            <div class="swiper-button-next">&gt;</div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </main>
+
+    <!-- Scripts para Swiper -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    </script>
+</body>
+</html>
