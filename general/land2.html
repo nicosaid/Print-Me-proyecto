@@ -7,47 +7,20 @@
     <link rel="stylesheet" href="land2.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Roboto:wght@300;400;500;900&display=swap">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <style>
-        /* Estilos para el video de fondo */
-        .video-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1; /* Poner el video detrás del contenido */
-        }
-        
-        .video-background video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            pointer-events: none; /* Desactiva la interacción con el video */
-        }
+   
+ <script>
+        window.addEventListener('scroll', function() {
+            let sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                let sectionPosition = section.getBoundingClientRect().top;
+                let screenPosition = window.innerHeight / 1.3;
+                if (sectionPosition < screenPosition) {
+                    section.classList.add('visible');
+                }
+            });
+        });
 
-        /* Asegurarse de que el contenido de la hero esté encima del video */
-        .hero {
-            position: relative;
-            z-index: 1;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-        }
-
-        .hero h1, .hero p {
-            color: white;
-        }
-
-        .hero-buttons button {
-            background-color: #f8a53d;
-            border: none;
-            padding: 10px 20px;
-            font-size: 18px;
-            color: white;
-            cursor: pointer;
-        }
-    </style>
+    </script>
 </head>
 <body>
     <!-- Header con logo y botones de autenticación -->
@@ -71,84 +44,145 @@
             <h1>Print.</h1>
             <p>Design and publish modern sites at any scale with Framer’s web builder.</p>
             <div class="hero-buttons">
-                <button id="centralbtn">Comenzar</button>
+                <button class="pbutton">Comenzar</button>
             </div>
         </div>
     </section>
 
-    <!-- Sección de Información del Proyecto -->
-    <section class="project-info">
-        <div class="container">
-            <h2>Sobre el Proyecto</h2>
-            <p>
-                Somos un equipo de la orientación TIC en Ort, especializados en conectar personas que necesitan imprimir en 3D con dueños de impresoras 3D. Nuestro equipo está conformado por:
-            </p>
-            <ul class="team-list">
-                <li><strong>Julieta Kohan</strong> - Front-end de HTML y conexión</li>
-                <li><strong>Lucila Dayan</strong> - Front-end de HTML y diseño CSS</li>
-                <li><strong>Otros miembros del equipo</strong> - Desarrollo y soporte</li>
-            </ul>
-            <div class="project-image">
-                <img src="project-image.png" alt="Proyecto Conexión 3D">
+
+
+
+
+
+    <!-- Sección "Sobre Nosotros" -->
+    <section class="hidden">
+    <section id="about" class="about-section">
+        <h2>¿Qué es Imprime3D?</h2>
+        <p>Imprime3D es la plataforma que conecta a personas que necesitan imprimir en 3D con propietarios de impresoras 3D. Puedes encontrar, reservar y colaborar con dueños de impresoras cerca de ti. Nos apasiona la tecnología y la creatividad, y queremos hacer que la impresión 3D sea accesible para todos.</p>
+        <img src="3d-printing.jpg" alt="Impresión 3D en acción">
+    </section>
+</section>
+
+
+    <!-- Sección de Características -->
+    <section class="hidden">
+    <section id="features" class="features-section">
+        <h2>Características Principales</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3>Impresión Local</h3>
+                <p>Conecta con impresoras 3D cerca de tu ubicación para minimizar tiempos de espera y costos de envío.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Variedad de Materiales</h3>
+                <p>Accede a una amplia gama de materiales como PLA, ABS, PETG, y más, según tus necesidades de impresión.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Soporte Personalizado</h3>
+                <p>Los dueños de impresoras te ayudarán con cualquier duda técnica sobre el proceso de impresión.</p>
             </div>
         </div>
     </section>
+</section>
 
-    <!-- Carrusel de Integrantes del Proyecto -->
-    <main>
-        <div>
-            <span>Sobre Nosotros</span>
-            <h1>Integrantes del proyecto</h1>
-            <hr>
-            <p>Conoce a los talentosos miembros que hacen posible este proyecto.</p>
-        </div>
-        <div class="swiper">
+
+    <!-- Sección de Equipo con carrusel -->
+    <section class="hidden">
+
+    <section id="team" class="team-section">
+        <h2>Nuestro Equipo</h2>
+        <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide swiper-slide--one">
-                    <div>
-                        <h2>Julieta Kohan</h2>
-                        <p>Front End HTML y conexión</p>
-                    </div>
+                <div class="swiper-slide">
+                    <h3>Julieta Kohan</h3>
+                    <p>Front-end Developer</p>
                 </div>
-                <div class="swiper-slide swiper-slide--two">
-                    <div>
-                        <h2>Lucila Dayan</h2>
-                        <p>Front End HTML y CSS</p>
-                    </div>
+                <div class="swiper-slide">
+                    <h3>Lucila Dayan</h3>
+                    <p>Front-end y Diseño CSS</p>
                 </div>
-                <div class="swiper-slide swiper-slide--three">
-                    <div>
-                        <h2>Nicolás Said</h2>
-                        <p>Diseño</p>
-                    </div>
+                <div class="swiper-slide">
+                    <h3>Nicolás Said</h3>
+                    <p>Diseñador</p>
                 </div>
-                <div class="swiper-slide swiper-slide--four">
-                    <div>
-                        <h2>Benjamín Fridman</h2>
-                        <p>Back End</p>
-                    </div>
+                <div class="swiper-slide">
+                    <h3>Benjamín Fridman</h3>
+                    <p>Back-end Developer</p>
                 </div>
             </div>
-            <div class="swiper-button-prev">&lt;</div>
-            <div class="swiper-button-next">&gt;</div>
+            <!-- Add Pagination -->
             <div class="swiper-pagination"></div>
         </div>
-    </main>
+    </section>
+</section>
 
-    <!-- Scripts para Swiper -->
+
+    <!-- Sección de FAQs -->
+    <section class="hidden">
+    <section id="faq" class="faq-section">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq-item">
+            <h3>¿Cómo encuentro una impresora cerca de mí?</h3>
+            <p>Simplemente utiliza nuestra herramienta de búsqueda y encuentra los dueños de impresoras más cercanos a tu ubicación.</p>
+        </div>
+        <div class="faq-item">
+            <h3>¿Qué tipos de archivos aceptan las impresoras?</h3>
+            <p>Aceptamos la mayoría de los formatos de archivos 3D, incluyendo STL, OBJ, y 3MF.</p>
+        </div>
+        <div class="faq-item">
+            <h3>¿Cuánto cuesta una impresión?</h3>
+            <p>El precio varía según el tamaño del objeto y el material utilizado. Cada dueño de impresora fija su propio precio.</p>
+        </div>
+    </section>
+</section>
+
+
+    <!-- Pie de página -->
+    <section class="hidden">
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>Sobre Imprime3D</h3>
+                <p>Somos una plataforma innovadora dedicada a hacer la impresión 3D accesible para todos. Nuestro objetivo es conectar a creativos y makers con la tecnología de impresión 3D.</p>
+            </div>
+            <div class="footer-section links">
+                <h3>Enlaces Útiles</h3>
+                <ul>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <h3>Síguenos</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Imprime3D | Todos los derechos reservados.
+        </div>
+    </footer>
+</section>
+
+
+    <!-- Swiper JS para el carrusel del equipo -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        const swiper = new Swiper('.swiper', {
+        const swiper = new Swiper('.swiper-container', {
             loop: true,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
             },
         });
     </script>
+
+
+
+
+
+
 </body>
 </html>
