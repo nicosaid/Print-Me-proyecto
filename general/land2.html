@@ -27,8 +27,9 @@
     <header>
         <div class="logo">PrinMe</div>
         <div class="auth-buttons">
-            <button class="login">Login</button>
-            <button class="signup">Sign Up</button>
+            <button class="header-button">Iniciar Sesion</button>
+            <button class="header-button">Registrarte</button>
+                  
         </div>
     </header>
 
@@ -40,13 +41,21 @@
                 Tu navegador no soporta la etiqueta de video.
             </video>
         </div>
-        <div class="hero-text">
-            <h1>Print.</h1>
-            <p>Design and publish modern sites at any scale with Framer’s web builder.</p>
-            <div class="hero-buttons">
-                <button class="pbutton">Comenzar</button>
+    
+
+        <div class="hero-section">
+            <div class="hero-text">
+                <h1> Conectarte con impresoras 3d nunca fue tan facil</h1>
+                <p>PrintMe te ayuda a hacer esa interaccion mas rapida y sencilla</p>
+                <div class="hero-buttons">
+                    <button class="pbutton">Comenzar</button>
+                </div>
             </div>
         </div>
+        
+    
+
+
     </section>
 
 
@@ -179,10 +188,24 @@
         });
     </script>
 
+<script>
+
+// Detectar scroll y ajustar la opacidad de la luz inferior
+window.addEventListener('scroll', function() {
+    const bottomLight = document.querySelector('.bottom-light');
+    const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+
+    if (scrollPosition > 50) { // Desaparece después de hacer scroll
+        bottomLight.style.opacity = '0';
+    } else {
+        bottomLight.style.opacity = '1';
+    }
+});
+</script>
 
 
 
-
+<div class="bottom-light"></div>
 
 </body>
 </html>
