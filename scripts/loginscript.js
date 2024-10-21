@@ -37,8 +37,6 @@ function enviarDatosLogIn() {
     // const telefono = document.querySelector("input[name='telefono']").value;
     // const email = document.querySelector("input[name='email']").value;
     // const contrasena = document.querySelector("input[name='contrasena']").value;
-
-
     const data = {
         mail: mail.value,
         contra: contra.value
