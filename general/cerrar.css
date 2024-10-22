@@ -1,0 +1,47 @@
+/* CSS para la ventana emergente */
+.modal {
+    display: none; /* Ocultada por defecto */
+    position: fixed; /* Posicionamiento fijo */
+    z-index: 1; /* Se muestra encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    overflow: auto; /* Permite desplazamiento si es necesario */
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro con opacidad */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Centrado */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ancho */
+    max-width: 500px; /* Ancho máximo */
+    border-radius: 10px; /* Bordes redondeados */
+    border-bottom: 2px solid #888; /* Marco en la parte inferior */
+}
+
+.button-group {
+    display: flex;
+    justify-content: center; /* Centrar botones */
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 40px; /* Aumentar el espacio superior para los botones */
+}
+
+#confirmLogout, #cancelLogout {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px; /* Bordes más redondeados */
+    cursor: pointer;
+}
+
+#confirmLogout {
+    background-color: red; /* Rojo para cerrar sesión */
+    color: white;
+}
+
+#cancelLogout {
+    background-color: green; /* Verde para cancelar */
+    color: white;
+}

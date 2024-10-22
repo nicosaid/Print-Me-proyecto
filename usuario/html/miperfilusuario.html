@@ -6,89 +6,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="miperfiluser.css">
+    <link rel="stylesheet" href="../css/miperfiluser.css">
+    <link rel="stylesheet" href="../css/topbar.css">
+    <link rel="stylesheet" href="../../general/cerrar.css">
     <script src="miperfiluser.js"></script>
-    <script>
-        function editField(id) {
-            const input = document.getElementById(id);
-            input.classList.remove('disabled'); // Elimina la clase "disabled" para habilitar la edición
-            const saveButton = document.createElement('button');// Agrega un botón de guardar
-            saveButton.textContent = 'Guardar';
-            saveButton.onclick = () => saveField(id);
-            input.parentNode.appendChild(saveButton);
-        }
-
-        function saveField(id) {
-            const input = document.getElementById(id);
-            const valor = input.value; // Obtiene el valor actual del campo
-            // Envía el valor al servidor para actualizar la base de datos
-            //...
-            // Vuelve a agregar la clase "disabled" para deshabilitar la edición
-            input.classList.add('disabled');
- 
-           // button.setAttribute('onclick', 'editField("' + id + '")');
-            // Elimina el botón de guardar
-            const saveButton = input.parentNode.querySelector('button');
-            saveButton.parentNode.removeChild(saveButton);
-        }
-
-    </script>
+    
 </head>
 <body>
-    <main>
-        <form action="/ruta/del/servidor" method="post">
-            <h1>Mi perfil</h1>
 
-            <div class="formdiv">
-                <label for="Descripcion"> Descripcion:</label>
-                <br><br>
-                <input type="text" id="Descripcion" name="Descripcion" value="Valor desde la base de datos" class="form-control disabled" disabled>
-                <button type="button" class="edit-button" onclick="editField('Descripcion')">
-                    <i class="bi bi-pencil"></i>
-                </button>
-                <br><br>
-            </div> 
-   
-            <div class="formdiv">
-                <label for="Nombre">Nombre:</label>
-                <br><br>
-                <input type="text" id="nombre" name="nombre" value="Valor desde la base de datos" class="form-control disabled" disabled>
-                <button type="button" class="edit-button" onclick="editField('nombre')">
-                    <i class="bi bi-pencil"></i>
-                </button>
-                <br><br>
+<header>
+    <div class="card">
+        <div class="loader">
+            <p>PrintMe</p>
+            <div class="words">
+                <span class="word">1 Entras</span>
+                <span class="word">2 Elegis</span>
+                <span class="word">3 Mandas</span>
+                <span class="word">4 Te imprimen</span>
+                <span class="word">5 Recibis</span>
             </div>
-           
-            <div class="formdiv">
-                <label for="Apellido">Apellido:</label>
-                <br><br>
-                <input type="text" id="apellido" name="apellido" value="Valor desde la base de datos" class="form-control disabled" disabled>
-                <button type="button" class="edit-button" onclick="editField('apellido')">
-                    <i class="bi bi-pencil"></i>
-                </button>
-                <br><br>
-            </div>
-         
-            <div class="formdiv">
-                <label for="Email">Email:</label>
-                <br><br>
-                <input type="email" id="email" name="email" value="Valor desde la base de datos" class="form-control disabled" disabled>
-                <button type="button" class="edit-button" onclick="editField('email')">
-                    <i class="bi bi-pencil"></i>
-                </button>
-                <br><br>
-            </div>
+        </div>
+    </div>
+      
+    <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+    <nav id="nav" class="nav">
+        <button id="cerrar" class="cerrar-menu"><i class="bi bi-x"></i></button>
+        <ul class="nav-list">
+            <li><a href="../html/miperfilusuario.html">Mi perfil</a></li>
+            <li><a href="../html/servicioimpresion3d.html">Servicio impresion 3D</a></li>
+            <li><a href="#" id="logoutLink">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+</header>
 
-            <div class="formdiv">
-                <label for="contraseña">Contraseña:</label>
-                <br><br>
-                <input type="password" id="contraseña" name="contraseña" value="Valor desde la base de datos" class="form-control disabled" disabled>
-                <button type="button" class="edit-button" onclick="editField('contraseña')">
-                    <i class="bi bi-pencil"></i>
-                </button>
+<!-- Ventana emergente -->
+<div id="logoutModal" class="modal">
+    <div class="modal-content">
+        <h2>¿Estás seguro de que quieres cerrar sesión?</h2>
+        <div class="button-group">
+            <button id="confirmLogout">Sí, cerrar sesión</button>
+            <button id="cancelLogout">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<main>
+    <div class="profile-container">
+        <h1>MI PERFIL</h1>
+        <form action="#">
+            <div class="input-group">
+                <label for="name">NOMBRE Y APELLIDO</label>
+                <input type="text" id="name" placeholder="Nombre y apellido...">
             </div>
-            <br><br>
+            <div class="input-group">
+                <label for="description">DESCRIPCION</label>
+                <input type="text" id="description" placeholder="Descripción...">
+            </div>
+            <div class="input-group">
+                <label for="email">EMAIL</label>
+                <input type="email" id="email" placeholder="Example@gmail.com">
+            </div>
+            <div class="input-group">
+                <label for="zona">ZONA</label>
+                <input type="text" id="zona" placeholder="Ejemplo: Zona...">
+            </div>
+            <div class="input-group">
+                <label for="impresora">IMPRESORA</label>
+                <div class="button-group">
+                    <button type="button">Impresora/s</button>
+                    <button type="button">Filamento/s</button>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="password">Contraseña</label>
+                <select id="password">
+                    <option value="">Contraseña</option>
+                </select>
+            </div>
         </form>
-    </main>
+    </div>
+</main>
+
+<script>
+    // Obtener elementos
+    const logoutLink = document.getElementById('logoutLink');
+    const modal = document.getElementById('logoutModal');
+    const confirmLogout = document.getElementById('confirmLogout');
+    const cancelLogout = document.getElementById('cancelLogout');
+
+    // Mostrar la ventana emergente al hacer clic en "Cerrar Sesión"
+    logoutLink.onclick = function(event) {
+        event.preventDefault(); // Evitar que el enlace recargue la página
+        modal.style.display = "flex"; // Mostrar modal
+    }
+
+    // Al hacer clic en "Cancelar"
+    cancelLogout.onclick = function() {
+        modal.style.display = "none"; // Ocultar modal
+    }
+
+    // Al hacer clic en "Sí, cerrar sesión"
+    confirmLogout.onclick = function() {
+        // Aquí puedes agregar la lógica para cerrar sesión
+        alert("Sesión cerrada"); // Ejemplo de cierre de sesión
+        modal.style.display = "none"; // Ocultar modal
+    }
+
+    // Cerrar el modal si se hace clic fuera de él
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none"; // Ocultar modal
+        }
+    }
+</script>
+
 </body>
 </html>
