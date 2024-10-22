@@ -47,7 +47,6 @@ header nav ul li a:hover {
 
 
 
-
 /* ********************************** */
 /*             video de fondo    */
 /* ********************************** */
@@ -69,7 +68,6 @@ header nav ul li a:hover {
             object-fit: cover;
             pointer-events: none; /* Desactiva la interacción con el video */
         }
-
 
 
 
@@ -125,13 +123,12 @@ header nav ul li a:hover {
 
 /* General hero section styles */
 .hero-section {
-    height: 100vh;
     display: flex;
     justify-content: flex-start; /* Alinea todo a la izquierda */
     align-items: flex-start; /* Mantiene el contenido más arriba */
     position: relative;
     padding-left: 80px; /* Mantener el contenido un poco a la derecha */
-    padding-top: 100px; /* Ajustado para mover el contenido más abajo */
+    padding-top: 50px; /* Ajustado para mover el contenido más abajo */
     overflow: hidden;
 }
 
