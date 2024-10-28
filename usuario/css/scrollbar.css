@@ -1,0 +1,26 @@
+.scroll-content {
+    width: 320px;
+    height: 400px;
+    overflow-y: auto; /* Activa el scrollbar solo en vertical */
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+/* Estilos de scrollbar personalizados */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
