@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,10 @@
     <title>Inicio de Sesión</title>
     <link rel="stylesheet" href="../general/sesion.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="fondo.css">
+    <script src="../scripts/loginscript.js"></script>
+    <!-- <link rel="stylesheet" href="../fondo.css">     -->
 </head>
+
 <body>
     <canvas id="starCanvas"></canvas> <!-- Colocar el canvas aquí para que esté al fondo -->
 
@@ -23,7 +26,7 @@
     </div>
 
     <div class="login-container">
-        <form class="login-form">
+        <form class="login-form" id="login-form">
             <h1>LOG IN</h1>
             <p>Welcome Back!</p>
 
@@ -44,7 +47,7 @@
             <p>¿Aún no tienes cuenta? <a href="../general/elegiRol.html">Haz Click Aquí</a></p>
         </form>
     </div>
-
-    <script src="fondo.js"></script> <!-- Script al final para que se cargue después de que se renderice la página -->
+    <!-- Script al final para que se cargue después de que se renderice la página -->
 </body>
+
 </html>

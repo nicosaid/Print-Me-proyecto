@@ -1,8 +1,8 @@
 function IrAnalisis() {
-    document.location.href="PopUpSubirFoto.html";
+    document.location.href = "PopUpSubirFoto.html";
 }
 function validarFormularioLI() {
- 
+
     var mail = document.getElementById("mail").value;
     var contra = document.getElementById("contra").value;
 
@@ -21,17 +21,18 @@ function validarFormularioLI() {
     }
 
 
-   
-    if (contra === "" ){
+
+    if (contra === "") {
         alert("Porfavor, ingrese su contraseña")
         return false;
     }
     return true;
 }
-function enviarDatosLogIn() {
+function enviarDatosLogIn(e) {
+    e.preventDefault();
     console.log("entro a la funcion enviar datos Log In")
-   const mail = document.getElementById("mail");
-   const contra = document.getElementById("contra");
+    const mail = document.getElementById("mail");
+    const contra = document.getElementById("contra");
 
 
     // const telefono = document.querySelector("input[name='telefono']").value;
@@ -40,9 +41,9 @@ function enviarDatosLogIn() {
     const data = {
         mail: mail.value,
         contra: contra.value
-       
+
     };
-console.log(data);
+    console.log(data);
     fetch("print-me1.vercel.app/login/login", {
         method: "POST",
         headers: {
@@ -50,37 +51,37 @@ console.log(data);
         },
         body: JSON.stringify(data)
     })
-    .then((response) => {
-        if (response.status === 200) {
-            console.log("200")
-            return response.json();
-        } else if (response.status === 400) {
-            console.log("Error: No se pudo completar la solicitud.");
-            alert("Alguno de los datos introducidos es incorrecto")
-        }
-    })
-    .then((data) => {
-        if (data && data.token){
-            console.log("Datos enviados exitosamente:", data);
-            localStorage.setItem("token", data.token);
-            alert("LogIn exitoso.");
-            IrAnalisis();
+        .then((response) => {
+            if (response.status === 200) {
+                console.log("200")
+                return response.json();
+            } else if (response.status === 400) {
+                console.log("Error: No se pudo completar la solicitud.");
+                alert("Alguno de los datos introducidos es incorrecto")
+            }
+        })
+        .then((data) => {
+            if (data && data.token) {
+                console.log("Datos enviados exitosamente:", data);
+                localStorage.setItem("token", data.token);
+                alert("LogIn exitoso.");
+                IrAnalisis();
 
 
-        }
-       
-    })
-    .catch((error) => {
-        console.log("hubo error");
-        console.error(error);
-        alert("Hubo un problema con el envío de los datos.");
-    });
+            }
+
+        })
+        .catch((error) => {
+            console.log("hubo error");
+            console.error(error);
+            alert("Hubo un problema con el envío de los datos.");
+        });
 }
-function ConfirmarLogin (){
-    document.getElementById("form").addEventListener("submit", function(event) {
+function ConfirmarLogin() {
+    document.getElementById("form").addEventListener("submit", function (event) {
         event.preventDefault(); // Evitar que la página se recargue
         console.log("entra");
-   
+
         // Llamamos a la función de validación de datos
         if (validarFormularioLI()) {
             // Si los datos son válidos, enviamos los datos a la API
@@ -98,3 +99,10 @@ function ConfirmarLogin (){
 
 
 
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const loginForm = document.getElementById("login-form");
+
+    loginForm.addEventListener("submit", enviarDatosLogIn);
+})
