@@ -35,13 +35,3 @@
     border-radius: 20px; /* Bordes más redondeados */
     cursor: pointer;
 }
-
-#confirmLogout {
-    background-color: red; /* Rojo para cerrar sesión */
-    color: white;
-}
-
-#cancelLogout {
-    background-color: green; /* Verde para cancelar */
-    color: white;
-}
