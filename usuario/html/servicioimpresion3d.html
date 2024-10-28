@@ -90,36 +90,18 @@
     <h1 class="heading-1">Elegi un perfil para contratar tu servicio impresion 3d</h1>
         <div class="principaldiv">
 
-
-
-
                <!--buscador-->
-
-               <div class="group">
-                <input placeholder="Search" type="search" class="input">
-              </div>
-
-
-
-
-
-   
-
+ 
           
+        <input class="input" placeholder="text">
 
-              <div class="container-options">
-                <span class="active">Todos</span>
-    
-                <span class="active"> Favoritos </span>
-    
-    
-        
-                
-    <!-- Texto para abrir la ventana emergente -->
+        <div class="container-options">
+            <span class="active">Todos</span>
 
-    <span onclick="openPopup()">Filtrar por impresora</span> 
-    </div>
-    
+            <span class="active"> Favoritos</span>
+<!-- Texto para abrir la ventana emergente -->
+<span onclick="openPopup()">Filtrar por necesidad</span>
+</div>
 
 
 <!-- Fondo oscuro -->
@@ -158,16 +140,6 @@
             <option value="carton">Cartón</option>
         </select><br>
     </div>
-    <!-- Dropdown para seleccionar filamentos -->
-    <div class="input-box">
-        <label for="filamentos">Seleccionar Filamentos:</label>
-        <select id="filamentos">
-            <option value="Filamento1">Filamento1</option>
-            <option value="Filamento2">Filamento2</option>
-            <option value="Filamento3">Filamento3</option>
-        </select><br>
-    </div>
-
 
     <!-- Radiobutton para post impresión -->
   
@@ -192,6 +164,7 @@
 </script>
 
 
+
 <div class="perfilesDueños">
 
     <!-- Tarjeta de perfil 1 -->
@@ -200,7 +173,9 @@
         <div class="info">
             <h2>Juan Carlos</h2>
             <p class="stats">
-           
+                <span>Impresora: XYZ Modelo Pro</span>
+                <span>Zona: Buenos Aires</span>
+                <span>Ofrece post-impresión: Sí</span>
             </p>
 
 
@@ -223,37 +198,68 @@
 
 
         </div>
-       
-<div class="con-like">
-  <input class="like" type="checkbox" title="like">
-  <div class="checkmark">
-    <svg xmlns="http://www.w3.org/2000/svg" class="outline" viewBox="0 0 24 24">
-      <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z"></path>
-    </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" class="filled" viewBox="0 0 24 24">
-      <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z"></path>
-    </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" height="100" width="100" class="celebrate">
-      <polygon class="poly" points="10,10 20,20"></polygon>
-      <polygon class="poly" points="10,50 20,50"></polygon>
-      <polygon class="poly" points="20,80 30,70"></polygon>
-      <polygon class="poly" points="90,10 80,20"></polygon>
-      <polygon class="poly" points="90,50 80,50"></polygon>
-      <polygon class="poly" points="80,80 70,70"></polygon>
-    </svg>
-  </div>
-</div>
-
-
-
+        <div class="favorite">
+            <button class="favorite-btn">Favorito</button>
+        </div>
     </div>
 
+    <!-- Tarjeta de perfil 2 -->
+    <div class="card">
+        <img src="../css/impresora 3d.png" alt="Impresora" class="printer-image">
+        <div class="info">
+            <h2>Camila Gómez</h2>
+            <p class="stats">
+                <span>Impresora: Anycubic Mega S</span>
+                <span>Zona: Córdoba</span>
+                <span>Ofrece post-impresión: No</span>
+            </p>
+            <a href="perfil.html" class="info-link">Ir al perfil</a>
+        </div>
+        <div class="favorite">
+            <button class="favorite-btn">Favorito</button>
+        </div>
+    </div>
 
-
+           <!-- Producto 1 -->
+           <div class="flip-card">
+            <div class="flip-card-inner">
+                <!-- Parte delantera de la tarjeta -->
+                <div class="flip-card-front">
+                  
+<img src="../css/impresora 3d.png" alt="Impresora">
+                    <h3 class="name">Juan Carlos</h3>
+                </div>
     
+                <!-- Parte trasera de la tarjeta -->
+                <div class="flip-card-back">
+                    <p class="printer-model">Impresora: XYZ Modelo Pro</p>
+                    <p class="zone">Zona: Buenos Aires</p>
+                    <p class="post-print">Ofrece post-impresión: Sí</p>
+                    <a href="perfil.html" class="profile-button">Ir al perfil</a>
+                </div>
+            </div>
+        </div>
 
-</div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        </div>
+
+        
+
+  
+        
+        </div>
 </main>
 		<script
 			src="https://kit.fontawesome.com/81581fb069.js"
