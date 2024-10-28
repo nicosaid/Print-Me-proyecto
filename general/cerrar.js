@@ -1,30 +1,32 @@
-// Obtener elementos
-const logoutLink = document.getElementById('logoutLink');
-const modal = document.getElementById('logoutModal');
-const confirmLogout = document.getElementById('confirmLogout');
-const cancelLogout = document.getElementById('cancelLogout');
+document.addEventListener("DOMContentLoaded", () => {
+    const logoutBtn = document.getElementById("logoutBtn");
+    const logoutModal = document.getElementById("logoutModal");
+    const confirmLogout = document.getElementById("confirmLogout");
+    const cancelLogout = document.getElementById("cancelLogout");
 
-// Mostrar la ventana emergente al hacer clic en "Cerrar Sesión"
-logoutLink.onclick = function(event) {
-    event.preventDefault(); // Evitar que el enlace recargue la página
-    modal.style.display = "flex"; // Mostrar modal
-}
+    // Abrir el modal al hacer clic en el botón de "Cerrar Sesión"
+    logoutBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        logoutModal.style.display = "flex"; // Mostrar el modal como flex
+    });
 
-// Al hacer clic en "Cancelar"
-cancelLogout.onclick = function() {
-    modal.style.display = "none"; // Ocultar modal
-}
+    // Cerrar el modal al hacer clic en "Cancelar"
+    cancelLogout.addEventListener("click", () => {
+        logoutModal.style.display = "none"; // Ocultar el modal
+    });
 
-// Al hacer clic en "Sí, cerrar sesión"
-confirmLogout.onclick = function() {
-    // Aquí puedes agregar la lógica para cerrar sesión
-    alert("Sesión cerrada"); // Ejemplo de cierre de sesión
-    modal.style.display = "none"; // Ocultar modal
-}
+    // Acción de cerrar sesión al confirmar
+    confirmLogout.addEventListener("click", () => {
+        // Lógica de cierre de sesión aquí
+        alert("Sesión cerrada"); // Mensaje de prueba o redirige a otra página
+        logoutModal.style.display = "none";
+    });
 
-// Cerrar el modal si se hace clic fuera de él
-window.onclick = function(event) {
-    if (event.target === modal) {
-        modal.style.display = "none"; // Ocultar modal
-    }
-}
+    // Cerrar el modal al hacer clic fuera del contenido del modal
+    window.addEventListener("click", (event) => {
+        if (event.target === logoutModal) {
+            logoutModal.style.display = "none";
+        }
+    });
+});
+
