@@ -27,9 +27,9 @@ function validarFormularioLI() {
     return true;
 }
 
-function enviarDatosLogIn(e) {
+function enviarDatosRegistro(e) {
     e.preventDefault();
-    console.log("entro a la funcion enviar datos Log In")
+    console.log("entro a la funcion enviar datos Registro")
     const mail = document.getElementById("mail");
     const contra = document.getElementById("contra");
 
@@ -43,7 +43,7 @@ function enviarDatosLogIn(e) {
 
     };
     console.log(data);
-    fetch("print-me1.vercel.app/login/login", {
+    fetch("print-me1.vercel.app/registercomprador/registercomp", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -84,7 +84,7 @@ function ConfirmarLogin() {
         // Llamamos a la función de validación de datos
         if (validarFormularioLI()) {
             // Si los datos son válidos, enviamos los datos a la API
-            enviarDatosLogIn();
+            enviarDatosRegistro();
         }
     });
 }
