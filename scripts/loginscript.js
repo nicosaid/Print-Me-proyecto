@@ -1,8 +1,4 @@
-function IrAnalisis() {
-    document.location.href = "PopUpSubirFoto.html";
-}
-
-function validarFormularioLI() {
+function validarFormulario() {
 
     var mail = document.getElementById("mail").value;
     var contra = document.getElementById("contra").value;
@@ -45,16 +41,14 @@ function enviarDatosLogIn(e) {
     console.log(data);
     fetch("print-me1.vercel.app/login/login", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
         body: JSON.stringify(data)
     })
         .then((response) => {
             if (response.status === 200) {
                 console.log("200")
                 return response.json();
-            } else if (response.status === 400) {
+            } 
+            else if (response.status === 400) {
                 console.log("Error: No se pudo completar la solicitud.");
                 alert("Alguno de los datos introducidos es incorrecto")
             }
@@ -64,8 +58,6 @@ function enviarDatosLogIn(e) {
                 console.log("Datos enviados exitosamente:", data);
                 localStorage.setItem("token", data.token);
                 alert("LogIn exitoso.");
-                IrAnalisis();
-
 
             }
 
@@ -82,8 +74,8 @@ function ConfirmarLogin() {
         console.log("entra");
 
         // Llamamos a la función de validación de datos
-        if (validarFormularioLI()) {
-            // Si los datos son válidos, enviamos los datos a la API
+        if (validarFormulario()) {
+            // Si los datos son válidos, enviamos los datos
             enviarDatosLogIn();
         }
     });
@@ -91,6 +83,5 @@ function ConfirmarLogin() {
 
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.getElementById("login-form");
-
     loginForm.addEventListener("submit", enviarDatosLogIn);
 })

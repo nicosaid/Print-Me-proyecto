@@ -1,35 +1,5 @@
-function IrAnalisis() {
-    document.location.href = "PopUpSubirFoto.html";
-}
-
-function validarFormularioLI() {
-
-    var mail = document.getElementById("mail").value;
-    var contra = document.getElementById("contra").value;
-
-
-    if (mail === "") {
-        alert("Por favor, ingresa tu correo electrónico.");
-        return false;
-    }
-
-    // Verificar que el email sea válido
-    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    if (!emailPattern.test(mail)) {
-        alert("Por favor, ingresa un correo electrónico válido.");
-        return false;
-    }
-
-    if (contra === "") {
-        alert("Porfavor, ingrese su contraseña")
-        return false;
-    }
-    return true;
-}
-
 function enviarDatosRegistro(e) {
     e.preventDefault();
-    console.log("entro a la funcion enviar datos Registro")
     const mail = document.getElementById("mail");
     const contra = document.getElementById("contra");
 
@@ -63,10 +33,7 @@ function enviarDatosRegistro(e) {
             if (data && data.token) {
                 console.log("Datos enviados exitosamente:", data);
                 localStorage.setItem("token", data.token);
-                alert("LogIn exitoso.");
-                IrAnalisis();
-
-
+                alert("Registro exitoso.");
             }
 
         })
@@ -76,21 +43,21 @@ function enviarDatosRegistro(e) {
             alert("Hubo un problema con el envío de los datos.");
         });
 }
+
 function ConfirmarLogin() {
     document.getElementById("form").addEventListener("submit", function (event) {
         event.preventDefault(); // Evitar que la página se recargue
         console.log("entra");
 
         // Llamamos a la función de validación de datos
-        if (validarFormularioLI()) {
-            // Si los datos son válidos, enviamos los datos a la API
+        if (validarFormulario()) {
+            // Si los datos son válidos, enviamos los datos 
             enviarDatosRegistro();
         }
     });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const loginForm = document.getElementById("login-form");
-
+    const loginForm = document.getElementById("registro-form");
     loginForm.addEventListener("submit", enviarDatosLogIn);
 })
