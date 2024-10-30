@@ -1,4 +1,3 @@
-<script>
 function editField(id) {
     var field = document.getElementById(id);
     field.disabled = false; // Habilita el campo para edición
@@ -21,4 +20,3 @@ function saveField(id) {
 
     alert('Cambios guardados para el campo: ' + id);
 }
-</script> 

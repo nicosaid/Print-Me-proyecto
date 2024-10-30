@@ -39,7 +39,7 @@ function enviarDatosLogIn(e) {
 
     };
     console.log(data);
-    fetch("print-me1.vercel.app/login/login", {
+    fetch("https://print-me1.vercel.app/login/login", {
         method: "POST",
         body: JSON.stringify(data)
     })
