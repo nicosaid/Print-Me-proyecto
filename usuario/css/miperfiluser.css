@@ -3,7 +3,6 @@
 }
 
 
-
 main {
     display: flex;
     justify-content: center;
@@ -35,6 +34,8 @@ h1 {
     margin-bottom: 5px;
     font-weight: bold;
     color: #333;
+    position: relative; /* Para posicionar elementos dentro */
+
 }
 
 .input-group input,
@@ -70,4 +71,21 @@ select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+
+
+.edit-button {
+    margin-left: 10px; /* Espacio entre el input y el botón */
+    padding: 5px 10px; /* Espaciado interno del botón */
+    border: none; /* Sin borde */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+/* Efecto hover para el botón */
+.edit-button:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el mouse */
 }

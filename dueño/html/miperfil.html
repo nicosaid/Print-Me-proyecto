@@ -6,226 +6,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../dueño/cerrarcesion.css">
-    <link rel="stylesheet" href="../dueño/miperfil.css">
+    <link rel="stylesheet" href="../css/miperfil.css">
+    <link rel="stylesheet" href="../css/topbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-   
+
+
     <header>
-        <div class="logo-container">
-            <img class="logo" src="../general/print me logo1.png" alt="logo">
-            
-        </div>
-        <nav>
-            <button id="menu-icon">
-            
-                &#9776;
-            </button>
-            <div class="contenedor-opciones">
-                <li><a href="./pantallainiciodueño.html">Inicio</a></li>
-                <li><a href="./miperfil.html">Mi perfil</a></li>
-                <li><a href="./cotizador.html">Cotizador</a></li>
-                <li><a href="./quienessomosduenio.html">Quienes Somos</a></li>
-                <li><a id="cerrarSesion" href="../general/index.html">Cerrar Sesión</a></li>
+        
+        <div clas s="card">
+            <div class="loader">
+              <p>PrintMe</p>
+              <div class="words">
+                <span class="word">1 Entras</span>
+                <span class="word">2 Elegis</span>
+                <span class="word">3 Mandas</span>
+                <span class="word">4 Te imprimen</span>
+                <span class="word">5 Recibis</span>
+              </div>
             </div>
-        </nav>
+          </div>     
+          
+          <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+           <nav id="nav" class="nav">
+            <button id="cerrar" class="cerrar-menu"><i class="bi bi-x"></i></button>
+            <ul class="nav-list">
+                <li><a href="../html/miperfilusuario.html">Mi perfil</a></li>
+                <li><a href="">Cotizador</a></li>
+                <li><a href="">Pedidos</a></li>
+                <li><a href="">Cerrar sesion</a></li>
+            </ul>
+           </nav>
     </header>
 
-    <!-- Modal para confirmar cierre de sesión -->
-    <div id="VentanaConfirmar" class="modal">
-        <div class="modal-content">
-            <p>¿Seguro que quieres cerrar sesión?</p>
-            <button id="confirmarBtn" class="btn btn-confirm">Sí, confirmar</button>
-            <button id="cancelarBtn" class="btn btn-cancel">No, volver atrás</button>
-        </div>
-    </div>
 
-    <script>
-        const enlace = document.getElementById('cerrarSesion');
-        const modal = document.getElementById('VentanaConfirmar');
-        const confirmarBtn = document.getElementById('confirmarBtn');
-        const cancelarBtn = document.getElementById('cancelarBtn');
+ <body>
+     
+<div class="profile-container">
+    <h2>MI PERFIL</h2>
+    <form>
+        <label for="nombre">NOMBRE Y APELLIDO</label>
+        <input type="text" id="nombre" placeholder="Nombre y apellido..." value="{{nombre}}">
 
-        enlace.addEventListener('click', function(event) {
-            event.preventDefault(); 
-            modal.style.display = 'block'; // Mostrar el modal
-        });
+        <label for="descripcion">DESCRIPCIÓN</label>
+        <input type="text" id="descripcion" placeholder="Descripción..." value="{{descripcion}}">
 
-        // Confirmar y proceder a la navegación
-        confirmarBtn.onclick = function() {
-            window.location.href = enlace.href; // Navegar a la URL
-        }
+        <label for="email">EMAIL</label>
+        <input type="email" id="email" placeholder="Example@gmail.com" value="{{email}}">
 
-        // Cancelar y cerrar
-        cancelarBtn.onclick = function() {
-            modal.style.display = 'none';
-        }
+        <label for="zona">ZONA</label>
+        <input type="text" id="zona" placeholder="Example@gmail.com" value="{{zona}}">
 
-        //menú
-        const btn = document.getElementById('menu-icon');
-        const menu = document.querySelector('.contenedor-opciones');
-        let isMenuOpen = false;
+        <label for="impresora">IMPRESORA</label>
+        <input type="text" id="impresora" placeholder="Impresora/s" value="{{impresora}}">
 
-        // Función para alternar el estado del menú
-        function toggleMenu() {
-            menu.classList.toggle('show-menu');
-            isMenuOpen = !isMenuOpen;
-        }
+        <label for="filamento">FILAMENTO</label>
+        <input type="text" id="filamento" placeholder="Filamento/s" value="{{filamento}}">
 
-        // Función para cerrar el menú al hacer clic fuera
-        function closeMenu(event) {
-            if (isMenuOpen && !menu.contains(event.target) && !btn.contains(event.target)) {
-                menu.classList.remove('show-menu');
-                isMenuOpen = false;
-            }
-        }
+        <label for="password">CONTRASEÑA</label>
+        <input type="password" id="password" placeholder="contraseña..." value="{{password}}">
 
-        // Agregar el manejador de eventos al botón de menú
-        btn.addEventListener('click', toggleMenu);
-
-        // Agregar el manejador de eventos al documento para cerrar el menú
-        document.addEventListener('click', closeMenu);
-    </script>
-    <br><br>
-    <br><br>
-
-   
-
-    <form action="/ruta/del/servidor" method="get">
-
-     <h1>Mi perfil</h1>
-
-        <div class="formdiv">
-
-        <label for="Descripcion"> Descripcion:</label>
-        <br><br>
-        <input type="text" id="Descripcion" name="Descripcion" value="Valor desde la base de datos" class="disabled" disabled>
-        <button type="button" class="edit-button" onclick="editField('Descripcion')">
-            <i class="fas fa-pencil-alt"></i>
-        </button>
-        <br><br>
-
-       </div> 
-
-       <div class="formdiv">
-
-        <label for="Nombre">Nombre:</label>
-        <br><br>
-        <input type="text" id="nombre" name="nombre" value="Valor desde la base de datos" class="disabled" disabled>
-        <button type="button" class="edit-button" onclick="editField('nombre')">
-            <i class="fas fa-pencil-alt"></i>
-        </button>
-        <br><br>
-
-       </div>
-        
-       <div class="formdiv">
-
-    <label for="Apellido">Apellido:</label>
-    <br><br>
-    <input type="text" id="apellido" name="apellido" value="Valor desde la base de datos" class="disabled" disabled>
-    <button type="button" class="edit-button" onclick="editField('apellido')">
-        <i class="fas fa-pencil-alt"></i>
-    </button>
-    <br><br>
-
-</div>
-      
-<div class="formdiv">
-
-    <label for="Email">Email:</label>
-    <br><br>
-    <input type="email" id="email" name="email" value="Valor desde la base de datos" class="disabled" disabled>
-    <button type="button" class="edit-button" onclick="editField('email')">
-        <i class="fas fa-pencil-alt"></i>
-    </button>
-    <br><br>
-
-
-
-</div>
-   
-<div class="formdiv">
-        <div class="dropdown">  
-            <h3>Elige tu impresora <span class="arrow">▼</span></h3>
-            <br><br>
-            <br><br>
-            <ul class="dropdown-content">
-                <li>Impresora1</li>
-                <li>Impresora2</li>
-                <li>Impresora3</li>
-            </ul>
-        </div>
-            <br><br>
-</div>
-    
-        <script>
-            document.querySelector('.arrow').addEventListener('click', function() {
-                const dropdownContent = document.querySelector('.dropdown-content');
-                dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-            });
-    
-            // Close the dropdown if the user clicks outside of it
-            window.addEventListener('click', function(e) {
-                if (!e.target.matches('.arrow')) {
-                    const dropdowns = document.getElementsByClassName("dropdown-content");
-                    for (let i = 0; i < dropdowns.length; i++) {
-                        let openDropdown = dropdowns[i];
-                        if (openDropdown.style.display === 'block') {
-                            openDropdown.style.display = 'none';
-                        }
-                    }
-                }
-            });
-        </script>
-    
-
-    <div class="formdiv">
-        <label for="tuimpresora">Tu Impresora:</label>
-        <br><br>
-        <input type="text" id="tuimpresora" name="tuimpresora" value="Valor desde la base de datos" class="disabled" disabled>
-        <button type="button" class="edit-button" onclick="editField('tuimpresora')">
-            <i class="fas fa-pencil-alt"></i>
-        </button>
-    </div>
-        <br><br>
-
-        
-
-
-    <div class="formdiv">
-        <label for="contraseña">Contraseña:</label>
-        <br><br>
-    <input type="password" id="contraseña" name="contraseña" value="Valor desde la base de datos" class="disabled" disabled>
-    <button type="button" class="edit-button" onclick="editField('contraseña')">
-        <i class="fas fa-pencil-alt"></i>
-    </button>
-</div>
-<br><br>
-
-
+        <select id="password-options">
+            <option value="contraseña">Contraseña</option>
+            <!-- Agrega más opciones aquí si es necesario -->
+        </select>
     </form>
-
-    <script>
-        function editField(id) {
-            var field = document.getElementById(id);
-            field.disabled = false; // Habilita el campo para edición
-            field.classList.remove('disabled'); // Elimina la clase de estilo deshabilitado
-
-            // Cambiar el botón a un botón de guardar
-            var button = field.nextElementSibling;
-            button.innerHTML = '<i class="fas fa-save"></i>';
-            button.setAttribute('onclick', 'saveField("' + id + '")');
-        }
-
-        function saveField(id) {
-            var field = document.getElementById(id);
-            field.disabled = true; // Deshabilita el campo nuevamente
-            field.classList.add('disabled'); // Agrega la clase de estilo deshabilitado
-
-            var button = field.nextElementSibling;
-            button.innerHTML = '<i class="fas fa-pencil-alt"></i>';
-            button.setAttribute('onclick', 'editField("' + id + '")');
-
-            alert('Cambios guardados para el campo: ' + id);
-        }
-    </script>
+</div>
+ </body>
 </html>

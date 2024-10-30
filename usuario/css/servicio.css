@@ -414,9 +414,7 @@
 	position: relative;
 	width: 100%; /* Ocupa todo el ancho del contenedor padre */
 	margin-bottom: 40px;
-	margin-top: 10px;
 	justify-content: center;
-
 
 
    }
@@ -433,6 +431,7 @@
 	background-color: #f3f3f4;
 	color: #0d0c22;
 	transition: .3s ease;
+	margin: 30px;
    }
    
    .input::placeholder {

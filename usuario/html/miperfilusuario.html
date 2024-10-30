@@ -33,18 +33,7 @@
         <ul class="nav-list">
             <li><a href="../html/miperfilusuario.html">Mi perfil</a></li>
             <li><a href="../html/servicioimpresion3d.html">Servicio impresion 3D</a></li>
-        
-            
-
-
-
-
-
-
-
-
-
-
+       
 
         </ul>
     </nav>
@@ -53,41 +42,148 @@
 
 
 
-
-
 <main>
     <div class="profile-container">
         <h1>MI PERFIL</h1>
         <form action="#">
-            <div class="input-group">
-                <label for="name">NOMBRE Y APELLIDO</label>
-                <input type="text" id="name" placeholder="Nombre y apellido...">
-            </div>
-            <div class="input-group">
-                <label for="description">DESCRIPCION</label>
-                <input type="text" id="description" placeholder="Descripción...">
-            </div>
-            <div class="input-group">
-                <label for="email">EMAIL</label>
-                <input type="email" id="email" placeholder="Example@gmail.com">
-            </div>
-            <div class="input-group">
-                <label for="zona">ZONA</label>
-                <input type="text" id="zona" placeholder="Ejemplo: Zona...">
-            </div>
-            <div class="input-group">
-                <label for="impresora">IMPRESORA</label>
-                <div class="button-group">
-                    <button type="button">Impresora/s</button>
-                    <button type="button">Filamento/s</button>
+            <!-- Campo: Nombre y Apellido -->
+            <div class="editable-field-container">
+                <div class="input-group">
+                    <label for="editable-input" class="editable-label">Nombre y Apellido</label>
+                    <div class="input-wrapper"> 
+                        <input type="text" id="editable-input" value="{{nombre}}" readonly>
+                        <button class="edit-button" onclick="toggleEdit('editable-input', 'edit-button', 'Actualizar', 'Editar')" id="edit-button">Editar</button>
+                    </div>
                 </div>
             </div>
-            <div class="input-group">
-                <label for="password">Contraseña</label>
-                <select id="password">
-                    <option value="">Contraseña</option>
-                </select>
+
+            <!-- Campo: Descripción -->
+            <div class="editable-field-container">
+                <div class="input-group">
+                    <label for="description-input" class="editable-label">Descripción</label>
+                    <div class="input-wrapper"> 
+                        <input type="text" id="description-input" value="{{descripcion}}" readonly>
+                        <button class="edit-button" onclick="toggleEdit('description-input', 'description-edit-button', 'Actualizar', 'Editar')" id="description-edit-button">Editar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campo: Email -->
+            <div class="editable-field-container">
+                <div class="input-group">
+                    <label for="email-input" class="editable-label">Email</label>
+                    <div class="input-wrapper"> 
+                        <input type="email" id="email-input" value="{{email}}" readonly>
+                        <button class="edit-button" onclick="toggleEdit('email-input', 'email-edit-button', 'Actualizar', 'Editar')" id="email-edit-button">Editar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campo: Zona (Dropdown) -->
+            <div class="editable-field-container">
+                <div class="input-group">
+                    <label for="zona-select" class="editable-label">Zona</label>
+                    <div class="input-wrapper"> 
+                        <select id="zona-select" disabled>
+                            <option value="zona1">Zona 1</option>
+                            <option value="zona2">Zona 2</option>
+                            <option value="zona3">Zona 3</option>
+                        </select>
+                        <button class="edit-button" onclick="toggleDropdown()" id="zona-edit-button">Editar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campo: Impresora -->
+            <div class="editable-field-container">
+                <div class="input-group">
+                    <label for="impresora-input" class="editable-label">Impresora</label>
+                    <div class="input-wrapper"> 
+                        <input type="text" id="impresora-input" value="{{impresora}}" readonly>
+                        <button class="edit-button" onclick="toggleEdit('impresora-input', 'impresora-edit-button', 'Actualizar', 'Editar')" id="impresora-edit-button">Editar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campo: Filamento -->
+            <div class="editable-field-container">
+                <div class="input-group">
+                    <label for="filamento-input" class="editable-label">Filamento</label>
+                    <div class="input-wrapper"> 
+                        <input type="text" id="filamento-input" value="{{filamento}}" readonly>
+                        <button class="edit-button" onclick="toggleEdit('filamento-input', 'filamento-edit-button', 'Actualizar', 'Editar')" id="filamento-edit-button">Editar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campo: Post impresión -->
+            <div class="editable-field-container">
+                <div class="input-group">
+                    <label class="editable-label">Post impresión</label>
+                    <div class="input-wrapper"> 
+                        <label><input type="radio" name="post-impresion" value="sí" disabled> Sí</label>
+                        <label><input type="radio" name="post-impresion" value="no" disabled> No</label>
+                        <button class="edit-button" onclick="toggleRadio()" id="post-impresion-edit-button">Editar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campo: Contraseña -->
+            <div class="editable-field-container">
+                <div class="input-group">
+                    <label for="password-input" class="editable-label">Contraseña</label>
+                    <div class="input-wrapper"> 
+                        <input type="password" id="password-input" value="{{contraseña}}" readonly>
+                        <button class="edit-button" onclick="toggleEdit('password-input', 'password-edit-button', 'Actualizar', 'Editar')" id="password-edit-button">Editar</button>
+                    </div>
+                </div>
             </div>
         </form>
+    </div>
+
+    <script>
+        function toggleEdit(inputId, buttonId, updateText, editText) {
+            const inputField = document.getElementById(inputId);
+            const editButton = document.getElementById(buttonId);
+
+            if (inputField.hasAttribute("readonly")) {
+                inputField.removeAttribute("readonly");
+                inputField.focus();
+                editButton.textContent = updateText; // Cambiar texto del botón a "Actualizar"
+            } else {
+                inputField.setAttribute("readonly", true);
+                editButton.textContent = editText; // Cambiar texto del botón de nuevo a "Editar"
+                
+                // Aquí puedes agregar código para guardar el valor actualizado en la base de datos
+                console.log("Nuevo valor guardado:", inputField.value);
+            }
+        }
+
+        function toggleDropdown() {
+            const dropdown = document.getElementById("zona-select");
+            const editButton = document.getElementById("zona-edit-button");
+
+            dropdown.disabled = !dropdown.disabled; // Alternar habilitación del dropdown
+            editButton.textContent = dropdown.disabled ? "Editar" : "Actualizar"; // Cambiar texto del botón
+        }
+
+        function toggleRadio() {
+            const radios = document.querySelectorAll('input[name="post-impresion"]');
+            radios.forEach(radio => {
+                radio.disabled = !radio.disabled; // Alternar habilitación de los botones de radio
+            });
+
+            const editButton = document.getElementById("post-impresion-edit-button");
+            editButton.textContent = radios[0].disabled ? "Editar" : "Actualizar"; // Cambiar texto del botón
+        }
+    </script>
+</main>
+
+
+
+
+
+
+
     </div>
 </main>
