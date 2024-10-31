@@ -57,6 +57,7 @@
                 </div>
             </div>
 
+
             <!-- Campo: Descripción -->
             <div class="editable-field-container">
                 <div class="input-group">
@@ -68,16 +69,18 @@
                 </div>
             </div>
 
-            <!-- Campo: Email -->
-            <div class="editable-field-container">
-                <div class="input-group">
-                    <label for="email-input" class="editable-label">Email</label>
-                    <div class="input-wrapper"> 
-                        <input type="email" id="email-input" value="{{email}}" readonly>
-                        <button class="edit-button" onclick="toggleEdit('email-input', 'email-edit-button', 'Actualizar', 'Editar')" id="email-edit-button">Editar</button>
+
+                  <!-- Campo: Email -->
+                  <div class="editable-field-container">
+                    <div class="input-group">
+                        <label for="email-input" class="editable-label">Email</label>
+                        <div class="input-wrapper"> 
+                            <input type="email" id="description-input" value="{{email}}" readonly>
+                            <button class="edit-button" onclick="toggleEdit('description-input', 'description-edit-button', 'Actualizar', 'Editar')" id="description-edit-button">Editar</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+    
 
             <!-- Campo: Zona (Dropdown) -->
             <div class="editable-field-container">
@@ -129,17 +132,42 @@
             </div>
 
             <!-- Campo: Contraseña -->
-            <div class="editable-field-container">
+
+               <div class="editable-field-container">
                 <div class="input-group">
-                    <label for="password-input" class="editable-label">Contraseña</label>
+                    <label class="editable-label"> No recuerdas tu contrasenia? </label>
                     <div class="input-wrapper"> 
-                        <input type="password" id="password-input" value="{{contraseña}}" readonly>
-                        <button class="edit-button" onclick="toggleEdit('password-input', 'password-edit-button', 'Actualizar', 'Editar')" id="password-edit-button">Editar</button>
-                    </div>
+                   
+                        <div class="popup-container" id="popup-container">
+                            <button class="recuperarcontra" onclick="togglePopup()">Recuperar/Cambiar Contraseña</button>
+                        </div>
+                                            </div>
+
+
+<script>
+
+
+                                            function togglePopup() {
+                                                const popup = document.getElementById("popup-container");
+                                                const overlay = document.querySelector(".overlay");
+                                            
+                                                if (popup.style.display === "none" || !popup.style.display) {
+                                                    popup.style.display = "block";
+                                                    overlay.style.display = "block";
+                                                } else {
+                                                    popup.style.display = "none";
+                                                    overlay.style.display = "none";
+                                                }
+                                            }
+                                        </script>
+                                            
                 </div>
             </div>
         </form>
     </div>
+
+
+
 
     <script>
         function toggleEdit(inputId, buttonId, updateText, editText) {

@@ -1,8 +1,9 @@
+/* Imagen del logo */
 .logo img { 
     width: 100px;
 }
 
-
+/* Contenedor principal alineado al centro */
 main {
     display: flex;
     justify-content: center;
@@ -10,82 +11,129 @@ main {
     margin-top: 70px;
 }
 
+/* Contenedor del perfil */
 .profile-container {
     background-color: #e0e0e0;
-    padding: 30px; /* Ajusté el padding del formulario para que no sea tan grande */
+    padding: 50px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 60%;
     text-align: center;
-    width: 600px;
 }
 
-h1 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.input-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.input-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-    position: relative; /* Para posicionar elementos dentro */
-
-}
-
-.input-group input,
-.input-group select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-}
-
-.button-group {
+/* Contenedor principal de campo editable alineado a la izquierda */
+.editable-field-container {
+    margin: 20px 0;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
 }
 
-.button-group button {
-    flex: 1;
-    margin: 0 5px;
-    padding: 10px;
-    background-color: #d1d1d1;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
+/* Estilo del título alineado a la izquierda */
+h1 {
+    font-size: 24px;
+    color: #333;
+    text-align: left;
+    margin-bottom: 30px;
 }
 
-.button-group button:hover {
-    background-color: #bbb;
+/* Grupo de entrada */
+.input-group {
+    display: flex;
+    flex-direction: column; /* Cambiado para que el label esté arriba */
+    align-items: flex-start;
+    margin-bottom: 15px;
+    width: 100%;
 }
 
+/* Etiqueta alineada arriba del campo */
+.editable-label {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px; /* Espacio entre el label y el input */
+}
+
+/* Contenedor del campo de entrada */
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+/* Campo de entrada (input) - para texto, correo electrónico, contraseña y menú desplegable */
+input[type="text"],
+input[type="email"],
+input[type="password"],
 select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: border-color 0.3s ease;
+    text-align: left;
+}
+
+/* Efecto al enfocar el campo */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border-color: #007bff; /* Color al enfocar */
 }
 
 
 
+.recuperarcontra  {
+    margin-left: 10px;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #fff;
+    background-color: var(--primary-color, #007bff); /* Color primario */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+
+
+
+
+/* Botón de edición alineado a la derecha del campo */
 .edit-button {
-    margin-left: 10px; /* Espacio entre el input y el botón */
-    padding: 5px 10px; /* Espaciado interno del botón */
-    border: none; /* Sin borde */
-    background-color: #007bff; /* Color de fondo del botón */
-    color: white; /* Color del texto del botón */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    margin-left: 10px;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #fff;
+    background-color: var(--primary-color, #007bff); /* Color primario */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Efecto hover para el botón */
+/* Efecto hover en el botón de editar */
 .edit-button:hover {
-    background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+    background-color: #0056b3; /* Color más oscuro en hover */
 }
+
+/* Estilo adicional para el botón cuando está en modo "Actualizar" */
+.edit-button.updating {
+    background-color: #28a745; /* Verde para "Actualizar" */
+}
+
+.edit-button.updating:hover {
+    background-color: #218838; /* Verde oscuro al pasar el mouse */
+}
+
+
+
+
+
