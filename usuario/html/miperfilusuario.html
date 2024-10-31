@@ -33,6 +33,8 @@
         <ul class="nav-list">
             <li><a href="../html/miperfilusuario.html">Mi perfil</a></li>
             <li><a href="../html/servicioimpresion3d.html">Servicio impresion 3D</a></li>
+            <li><a href="../html/servicioimpresion3d.html">Cerrar Sesion</a></li>
+
        
 
         </ul>
@@ -138,28 +140,96 @@
                     <label class="editable-label"> No recuerdas tu contrasenia? </label>
                     <div class="input-wrapper"> 
                    
-                        <div class="popup-container" id="popup-container">
-                            <button class="recuperarcontra" onclick="togglePopup()">Recuperar/Cambiar Contraseña</button>
-                        </div>
-                                            </div>
+
+                   
+                            <style>
+                                /* Estilos del botón "Recuperar/Cambiar Contraseña" */
+                                .recuperar-contra {
+                                    background-color: #1d2a61; /* Color de fondo similar al botón "Listo" */
+                                    color: #ffffff; /* Color del texto */
+                                    padding: 10px 20px;
+                                    font-size: 16px;
+                                    border: none;
+                                    border-radius: 5px;
+                                    cursor: pointer;
+                                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                                    transition: background-color 0.3s ease;
+                                }
+                        
+                                .recuperar-contra:hover {
+                                    background-color: #132147; /* Color de fondo más oscuro en hover */
+                                }
+                        
+                                /* Estilo de contenedor emergente */
+                                .popup-container {
+                                    display: none; /* Oculto por defecto */
+                                    position: fixed;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    background-color: #ffffff;
+                                    padding: 30px;
+                                    border-radius: 10px;
+                                    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+                                    z-index: 1000;
+                                    text-align: center;
+                                }
+                        
+                                /* Fondo de pantalla oscurecido */
+                                .overlay {
+                                    display: none; /* Oculto por defecto */
+                                    position: fixed;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    background-color: rgba(0, 0, 0, 0.5);
+                                    z-index: 999;
+                                }
+                            </style>
+                        
+                      
+                        
+                            <!-- Botón que abre el popup -->
+                            <button class="recuperar-contra" onclick="togglePopup()">Cambiar Contraseña</button>
+
+                        
+                            <!-- Contenedor del Popup -->
+                            <div class="popup-container" id="popup-container">
+                                <h2>Cambiar Contraseña</h2>
+<br>
+                                <input type="password" placeholder="Escribir nueva contraseña" style="padding: 10px; font-size: 16px; width: 100%; margin-bottom: 15px;">
+                                <input type="password" placeholder="Confirmar contraseña" style="padding: 10px; font-size: 16px; width: 100%; margin-bottom: 20px;">
+                                <button class="recuperar-contra" onclick="togglePopup()">Reestablecer Contrasena</button>
+                            </div>
+                        
+                            <!-- Fondo Oscurecido -->
+                            <div class="overlay" onclick="togglePopup()"></div>
+                        
+                            <script>
+                                // Función para mostrar y ocultar el popup
+                                function togglePopup() {
+                                    const popup = document.getElementById("popup-container");
+                                    const overlay = document.querySelector(".overlay");
+                        
+                                    if (popup.style.display === "none" || !popup.style.display) {
+                                        popup.style.display = "block";
+                                        overlay.style.display = "block";
+                                    } else {
+                                        popup.style.display = "none";
+                                        overlay.style.display = "none";
+                                    }
+                                }
+                            </script>
+                        
+                        </body>
+                        </html>
+                        
 
 
-<script>
 
 
-                                            function togglePopup() {
-                                                const popup = document.getElementById("popup-container");
-                                                const overlay = document.querySelector(".overlay");
-                                            
-                                                if (popup.style.display === "none" || !popup.style.display) {
-                                                    popup.style.display = "block";
-                                                    overlay.style.display = "block";
-                                                } else {
-                                                    popup.style.display = "none";
-                                                    overlay.style.display = "none";
-                                                }
-                                            }
-                                        </script>
+
                                             
                 </div>
             </div>
@@ -206,6 +276,8 @@
         }
     </script>
 </main>
+
+
 
 
 

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../general/cerrar.css">
+
+    <title>Cerrar Sesión</title>
+    <style>
+    
+
+    </style>
+</head>
+<body>
+
+    <!-- Botón que abre el popup de cerrar sesión -->
+    <button class="logout-button" onclick="togglePopup()">Cerrar Sesión</button>
+
+    <!-- Contenedor del Popup -->
+    <div class="popup-container" id="popup-container">
+        <h2>¿Estás seguro?</h2>
+        <!-- Contenedor de botones para alinearlos en una fila -->
+        <div class="button-container">
+            <button class="popup-button confirm-button" onclick="cerrarSesion()">Sí, cerrar sesión</button>
+            <button class="popup-button cancel-button" onclick="togglePopup()">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Fondo Oscurecido -->
+    <div class="overlay" onclick="togglePopup()"></div>
+
+    <script>
+        // Función para mostrar y ocultar el popup
+        function togglePopup() {
+            const popup = document.getElementById("popup-container");
+            const overlay = document.querySelector(".overlay");
+
+            if (popup.style.display === "none" || !popup.style.display) {
+                popup.style.display = "block";
+                overlay.style.display = "block";
+            } else {
+                popup.style.display = "none";
+                overlay.style.display = "none";
+            }
+        }
+
+ 
+    </script>
+
+</body>
+</html>

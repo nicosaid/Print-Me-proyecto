@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../dueño/cerrarcesion.css">
-    <link rel="stylesheet" href="../css/miperfil.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../../usuario/css/miperfiluser.css">
     <link rel="stylesheet" href="../css/topbar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-
+    <script src="../js/miperfiluser.js"></script>
+    
+</head>
+<body>
     <header>
-        
         <div clas s="card">
             <div class="loader">
               <p>PrintMe</p>
@@ -30,46 +30,226 @@
            <nav id="nav" class="nav">
             <button id="cerrar" class="cerrar-menu"><i class="bi bi-x"></i></button>
             <ul class="nav-list">
-                <li><a href="../html/miperfilusuario.html">Mi perfil</a></li>
+                <li><a href="../html/miperfil.html">Mi perfil</a></li>
                 <li><a href="">Cotizador</a></li>
-                <li><a href="">Pedidos</a></li>
+                <li><a href="../html/inicio.html">Pedidos</a></li>
                 <li><a href="">Cerrar sesion</a></li>
             </ul>
            </nav>
     </header>
+   
 
 
- <body>
-     
-<div class="profile-container">
-    <h2>MI PERFIL</h2>
-    <form>
-        <label for="nombre">NOMBRE Y APELLIDO</label>
-        <input type="text" id="nombre" placeholder="Nombre y apellido..." value="{{nombre}}">
 
-        <label for="descripcion">DESCRIPCIÓN</label>
-        <input type="text" id="descripcion" placeholder="Descripción..." value="{{descripcion}}">
 
-        <label for="email">EMAIL</label>
-        <input type="email" id="email" placeholder="Example@gmail.com" value="{{email}}">
+<main>
+    <div class="profile-container">
+        <h1>MI PERFIL</h1>
+        <form action="#">
+            <!-- Campo: Nombre y Apellido -->
+            <div class="editable-field-container">
+                <div class="input-group">
+                    <label for="editable-input" class="editable-label">Nombre y Apellido</label>
+                    <div class="input-wrapper"> 
+                        <input type="text" id="editable-input" value="{{nombre}}" readonly>
+                        <button class="edit-button" onclick="toggleEdit('editable-input', 'edit-button', 'Actualizar', 'Editar')" id="edit-button">Editar</button>
+                    </div>
+                </div>
+            </div>
 
-        <label for="zona">ZONA</label>
-        <input type="text" id="zona" placeholder="Example@gmail.com" value="{{zona}}">
 
-        <label for="impresora">IMPRESORA</label>
-        <input type="text" id="impresora" placeholder="Impresora/s" value="{{impresora}}">
+            <!-- Campo: Descripción -->
+            <div class="editable-field-container">
+                <div class="input-group">
+                    <label for="description-input" class="editable-label">Descripción</label>
+                    <div class="input-wrapper"> 
+                        <input type="text" id="description-input" value="{{descripcion}}" readonly>
+                        <button class="edit-button" onclick="toggleEdit('description-input', 'description-edit-button', 'Actualizar', 'Editar')" id="description-edit-button">Editar</button>
+                    </div>
+                </div>
+            </div>
 
-        <label for="filamento">FILAMENTO</label>
-        <input type="text" id="filamento" placeholder="Filamento/s" value="{{filamento}}">
 
-        <label for="password">CONTRASEÑA</label>
-        <input type="password" id="password" placeholder="contraseña..." value="{{password}}">
+                  <!-- Campo: Email -->
+                  <div class="editable-field-container">
+                    <div class="input-group">
+                        <label for="email-input" class="editable-label">Email</label>
+                        <div class="input-wrapper"> 
+                            <input type="email" id="description-input" value="{{email}}" readonly>
+                            <button class="edit-button" onclick="toggleEdit('description-input', 'description-edit-button', 'Actualizar', 'Editar')" id="description-edit-button">Editar</button>
+                        </div>
+                    </div>
+                </div>
+    
 
-        <select id="password-options">
-            <option value="contraseña">Contraseña</option>
-            <!-- Agrega más opciones aquí si es necesario -->
-        </select>
-    </form>
-</div>
- </body>
-</html>
+            <!-- Campo: Zona (Dropdown) -->
+            <div class="editable-field-container">
+                <div class="input-group">
+                    <label for="zona-select" class="editable-label">Zona</label>
+                    <div class="input-wrapper"> 
+                        <select id="zona-select" disabled>
+                            <option value="zona1">Zona 1</option>
+                            <option value="zona2">Zona 2</option>
+                            <option value="zona3">Zona 3</option>
+                        </select>
+                        <button class="edit-button" onclick="toggleDropdown()" id="zona-edit-button">Editar</button>
+                    </div>
+                </div>
+            </div>
+
+    
+
+            <!-- Campo: Contraseña -->
+
+               <div class="editable-field-container">
+                <div class="input-group">
+                    <label class="editable-label"> No recuerdas tu contrasenia? </label>
+                    <div class="input-wrapper"> 
+                   
+
+                   
+                            <style>
+                                /* Estilos del botón "Recuperar/Cambiar Contraseña" */
+                                .recuperar-contra {
+                                    background-color: #1d2a61; /* Color de fondo similar al botón "Listo" */
+                                    color: #ffffff; /* Color del texto */
+                                    padding: 10px 20px;
+                                    font-size: 16px;
+                                    border: none;
+                                    border-radius: 5px;
+                                    cursor: pointer;
+                                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                                    transition: background-color 0.3s ease;
+                                }
+                        
+                                .recuperar-contra:hover {
+                                    background-color: #132147; /* Color de fondo más oscuro en hover */
+                                }
+                        
+                                /* Estilo de contenedor emergente */
+                                .popup-container {
+                                    display: none; /* Oculto por defecto */
+                                    position: fixed;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    background-color: #ffffff;
+                                    padding: 30px;
+                                    border-radius: 10px;
+                                    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+                                    z-index: 1000;
+                                    text-align: center;
+                                }
+                        
+                                /* Fondo de pantalla oscurecido */
+                                .overlay {
+                                    display: none; /* Oculto por defecto */
+                                    position: fixed;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    background-color: rgba(0, 0, 0, 0.5);
+                                    z-index: 999;
+                                }
+                            </style>
+                        
+                      
+                        
+                            <!-- Botón que abre el popup -->
+                            <button class="recuperar-contra" onclick="togglePopup()">Cambiar Contraseña</button>
+
+                        
+                            <!-- Contenedor del Popup -->
+                            <div class="popup-container" id="popup-container">
+                                <h2>Cambiar Contraseña</h2>
+<br>
+                                <input type="password" placeholder="Escribir nueva contraseña" style="padding: 10px; font-size: 16px; width: 100%; margin-bottom: 15px;">
+                                <input type="password" placeholder="Confirmar contraseña" style="padding: 10px; font-size: 16px; width: 100%; margin-bottom: 20px;">
+                                <button class="recuperar-contra" onclick="togglePopup()">Reestablecer Contrasena</button>
+                            </div>
+                        
+                            <!-- Fondo Oscurecido -->
+                            <div class="overlay" onclick="togglePopup()"></div>
+                        
+                            <script>
+                                // Función para mostrar y ocultar el popup
+                                function togglePopup() {
+                                    const popup = document.getElementById("popup-container");
+                                    const overlay = document.querySelector(".overlay");
+                        
+                                    if (popup.style.display === "none" || !popup.style.display) {
+                                        popup.style.display = "block";
+                                        overlay.style.display = "block";
+                                    } else {
+                                        popup.style.display = "none";
+                                        overlay.style.display = "none";
+                                    }
+                                }
+                            </script>
+                        
+                        </body>
+                        </html>
+                        
+
+
+
+
+
+                                            
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+
+    <script>
+        function toggleEdit(inputId, buttonId, updateText, editText) {
+            const inputField = document.getElementById(inputId);
+            const editButton = document.getElementById(buttonId);
+
+            if (inputField.hasAttribute("readonly")) {
+                inputField.removeAttribute("readonly");
+                inputField.focus();
+                editButton.textContent = updateText; // Cambiar texto del botón a "Actualizar"
+            } else {
+                inputField.setAttribute("readonly", true);
+                editButton.textContent = editText; // Cambiar texto del botón de nuevo a "Editar"
+                
+                // Aquí puedes agregar código para guardar el valor actualizado en la base de datos
+                console.log("Nuevo valor guardado:", inputField.value);
+            }
+        }
+
+        function toggleDropdown() {
+            const dropdown = document.getElementById("zona-select");
+            const editButton = document.getElementById("zona-edit-button");
+
+            dropdown.disabled = !dropdown.disabled; // Alternar habilitación del dropdown
+            editButton.textContent = dropdown.disabled ? "Editar" : "Actualizar"; // Cambiar texto del botón
+        }
+
+        function toggleRadio() {
+            const radios = document.querySelectorAll('input[name="post-impresion"]');
+            radios.forEach(radio => {
+                radio.disabled = !radio.disabled; // Alternar habilitación de los botones de radio
+            });
+
+            const editButton = document.getElementById("post-impresion-edit-button");
+            editButton.textContent = radios[0].disabled ? "Editar" : "Actualizar"; // Cambiar texto del botón
+        }
+    </script>
+</main>
+
+
+
+
+
+
+
+
+
+    </div>
+</main>
