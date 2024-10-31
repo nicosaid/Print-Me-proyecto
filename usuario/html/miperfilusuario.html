@@ -6,40 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../css/miperfiluser.css">
+    <link rel="stylesheet" href="../../general/miperfil.css">
     <link rel="stylesheet" href="../css/topbar.css">
     <script src="../js/miperfiluser.js"></script>
     
 </head>
 <body>
-
-<header>
-    <div class="card">
-        <div class="loader">
-            <p>PrintMe</p>
-            <div class="words">
+    <header>
+        <div clas s="card">
+            <div class="loader">
+              <p>PrintMe</p>
+              <div class="words">
                 <span class="word">1 Entras</span>
                 <span class="word">2 Elegis</span>
                 <span class="word">3 Mandas</span>
                 <span class="word">4 Te imprimen</span>
                 <span class="word">5 Recibis</span>
+              </div>
             </div>
-        </div>
-    </div>
-      
-    <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
-    <nav id="nav" class="nav">
-        <button id="cerrar" class="cerrar-menu"><i class="bi bi-x"></i></button>
-        <ul class="nav-list">
-            <li><a href="../html/miperfilusuario.html">Mi perfil</a></li>
-            <li><a href="../html/servicioimpresion3d.html">Servicio impresion 3D</a></li>
-            <li><a href="../html/servicioimpresion3d.html">Cerrar Sesion</a></li>
+          </div>     
+          
+          <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+           <nav id="nav" class="nav">
+            <button id="cerrar" class="cerrar-menu"><i class="bi bi-x"></i></button>
+            <ul class="nav-list">
+                <li><a href="../html/miperfilusuario.html">Mi perfil</a></li>
+                <li><a href="../html/servicioimpresion3d.html">Servicio impresion 3D</a></li>
+                <li><a href="">Cerrar Sesion</a></li>
 
-       
-
-        </ul>
-    </nav>
-</header>
+    </header>
 
 
 
@@ -99,39 +94,7 @@
                 </div>
             </div>
 
-            <!-- Campo: Impresora -->
-            <div class="editable-field-container">
-                <div class="input-group">
-                    <label for="impresora-input" class="editable-label">Impresora</label>
-                    <div class="input-wrapper"> 
-                        <input type="text" id="impresora-input" value="{{impresora}}" readonly>
-                        <button class="edit-button" onclick="toggleEdit('impresora-input', 'impresora-edit-button', 'Actualizar', 'Editar')" id="impresora-edit-button">Editar</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Campo: Filamento -->
-            <div class="editable-field-container">
-                <div class="input-group">
-                    <label for="filamento-input" class="editable-label">Filamento</label>
-                    <div class="input-wrapper"> 
-                        <input type="text" id="filamento-input" value="{{filamento}}" readonly>
-                        <button class="edit-button" onclick="toggleEdit('filamento-input', 'filamento-edit-button', 'Actualizar', 'Editar')" id="filamento-edit-button">Editar</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Campo: Post impresión -->
-            <div class="editable-field-container">
-                <div class="input-group">
-                    <label class="editable-label">Post impresión</label>
-                    <div class="input-wrapper"> 
-                        <label><input type="radio" name="post-impresion" value="sí" disabled> Sí</label>
-                        <label><input type="radio" name="post-impresion" value="no" disabled> No</label>
-                        <button class="edit-button" onclick="toggleRadio()" id="post-impresion-edit-button">Editar</button>
-                    </div>
-                </div>
-            </div>
+    
 
             <!-- Campo: Contraseña -->
 
@@ -287,3 +250,7 @@
 
     </div>
 </main>
+
+
+
+
