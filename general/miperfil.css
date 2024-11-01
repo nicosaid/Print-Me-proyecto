@@ -102,21 +102,38 @@ select:focus {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Efecto hover en el botón de editar */
 .edit-button:hover {
     background-color: #0056b3; /* Color más oscuro en hover */
+    transform: scale(1.05); /* Agranda ligeramente el botón */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Añade sombra más intensa */
+
 }
 
-/* Estilo adicional para el botón cuando está en modo "Actualizar" */
-.edit-button.updating {
-    background-color: #28a745; /* Verde para "Actualizar" */
+.btnazul {
+    background-color: #1d2a61;
+    color: #ffffff;
+    padding: 10px 40px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.edit-button.updating:hover {
-    background-color: #218838; /* Verde oscuro al pasar el mouse */
+.btnazul:hover {
+    background-color: #132147;
+    transform: scale(1.05); /* Agranda ligeramente el botón */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Añade sombra más intensa */
 }
+
+
+
 
 
 

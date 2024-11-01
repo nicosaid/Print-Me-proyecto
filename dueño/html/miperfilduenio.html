@@ -41,28 +41,25 @@
 
 
 
-<!-- Botón que abre el popup de cerrar sesión -->
 <button class="logout-button" onclick="togglePopupLogout()">Cerrar Sesión</button>
 
-<!-- Contenedor del Popup de Cerrar Sesión -->
 <div class="popup-container-logout" id="popup-container-logout">
     <h2>¿Estás seguro?</h2>
-    <!-- Contenedor de botones para alinearlos en una fila -->
+
     <div class="button-container-logout">
         <button class="popup-button-logout confirm-button-logout" onclick="cerrarSesion()">Sí, cerrar sesión</button>
         <button class="popup-button-logout cancel-button-logout" onclick="togglePopupLogout()">Cancelar</button>
     </div>
 </div>
 
-<!-- Fondo Oscurecido para el popup de Cerrar Sesión -->
 <div class="overlay-logout" onclick="togglePopupLogout()"></div>
 
 
 
 
 <script>
-    // Función para mostrar y ocultar el popup específico de cerrar sesión
-    function togglePopupLogout() {
+
+function togglePopupLogout() {
         const popup = document.getElementById("popup-container-logout");
         const overlay = document.querySelector(".overlay-logout");
 
@@ -89,7 +86,7 @@
     <div class="profile-container">
         <h1>MI PERFIL</h1>
         <form action="#">
-            <!-- Campo: Nombre y Apellido -->
+
             <div class="editable-field-container">
                 <div class="input-group">
                     <label for="editable-input" class="editable-label">Nombre y Apellido</label>
@@ -101,7 +98,7 @@
             </div>
 
 
-            <!-- Campo: Descripción -->
+
             <div class="editable-field-container">
                 <div class="input-group">
                     <label for="description-input" class="editable-label">Descripción</label>
@@ -113,8 +110,8 @@
             </div>
 
 
-                  <!-- Campo: Email -->
-                  <div class="editable-field-container">
+
+            <div class="editable-field-container">
                     <div class="input-group">
                         <label for="email-input" class="editable-label">Email</label>
                         <div class="input-wrapper"> 
@@ -125,8 +122,8 @@
                 </div>
     
 
-            <!-- Campo: Zona (Dropdown) -->
-            <div class="editable-field-container">
+
+                <div class="editable-field-container">
                 <div class="input-group">
                     <label for="zona-select" class="editable-label">Zona</label>
                     <div class="input-wrapper"> 
@@ -140,7 +137,7 @@
                 </div>
             </div>
 
-            <!-- Campo: Impresora -->
+         
             <div class="editable-field-container">
                 <div class="input-group">
                     <label for="impresora-input" class="editable-label">Impresora</label>
@@ -151,7 +148,6 @@
                 </div>
             </div>
 
-            <!-- Campo: Filamento -->
             <div class="editable-field-container">
                 <div class="input-group">
                     <label for="filamento-input" class="editable-label">Filamento</label>
@@ -162,7 +158,6 @@
                 </div>
             </div>
 
-            <!-- Campo: Post impresión -->
             <div class="editable-field-container">
                 <div class="input-group">
                     <label class="editable-label">Post impresión</label>
@@ -176,33 +171,18 @@
 
            
 
-<!-- Campo: Contraseña -->
 <div class="editable-field-container">
     <div class="input-group">
         <label class="editable-label">¿No recuerdas tu contraseña?</label>
         <div class="input-wrapper">
 
             <style>
-                /* Estilos del botón "Recuperar/Cambiar Contraseña" */
-                .recuperar-contra {
-                    background-color: #1d2a61; /* Color de fondo similar al botón "Listo" */
-                    color: #ffffff; /* Color del texto */
-                    padding: 10px 20px;
-                    font-size: 16px;
-                    border: none;
-                    border-radius: 5px;
-                    cursor: pointer;
-                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-                    transition: background-color 0.3s ease;
-                }
+              
 
-                .recuperar-contra:hover {
-                    background-color: #132147; /* Color de fondo más oscuro en hover */
-                }
 
-                /* Estilo de contenedor emergente */
+
                 .popup-container-recuperar {
-                    display: none; /* Oculto por defecto */
+                    display: none; 
                     position: fixed;
                     top: 50%;
                     left: 50%;
@@ -215,9 +195,8 @@
                     text-align: center;
                 }
 
-                /* Fondo de pantalla oscurecido */
                 .overlay-recuperar {
-                    display: none; /* Oculto por defecto */
+                    display: none; 
                     position: fixed;
                     top: 0;
                     left: 0;
@@ -228,24 +207,21 @@
                 }
             </style>
 
-            <!-- Botón que abre el popup de recuperación de contraseña -->
             <button class="recuperar-contra" onclick="togglePopupRecuperar()">Cambiar Contraseña</button>
 
-            <!-- Contenedor del Popup de recuperación de contraseña -->
             <div class="popup-container-recuperar" id="popup-container-recuperar">
                 <h2>Cambiar Contraseña</h2>
                 <br>
                 <input type="password" placeholder="Escribir nueva contraseña" style="padding: 10px; font-size: 16px; width: 100%; margin-bottom: 15px;">
                 <input type="password" placeholder="Confirmar contraseña" style="padding: 10px; font-size: 16px; width: 100%; margin-bottom: 20px;">
-                <button class="recuperar-contra" onclick="togglePopupRecuperar()">Restablecer Contraseña</button>
+                <button class="" onclick="togglePopupRecuperar()">Restablecer Contraseña</button>
             </div>
 
-            <!-- Fondo Oscurecido para el popup de recuperación de contraseña -->
             <div class="overlay-recuperar" onclick="togglePopupRecuperar()"></div>
 
             <script>
-                // Función para mostrar y ocultar el popup específico de recuperación de contraseña
-                function togglePopupRecuperar() {
+
+function togglePopupRecuperar() {
                     const popup = document.getElementById("popup-container-recuperar");
                     const overlay = document.querySelector(".overlay-recuperar");
 
@@ -291,12 +267,11 @@
             if (inputField.hasAttribute("readonly")) {
                 inputField.removeAttribute("readonly");
                 inputField.focus();
-                editButton.textContent = updateText; // Cambiar texto del botón a "Actualizar"
+                editButton.textContent = updateText; 
             } else {
                 inputField.setAttribute("readonly", true);
-                editButton.textContent = editText; // Cambiar texto del botón de nuevo a "Editar"
+                editButton.textContent = editText; 
                 
-                // Aquí puedes agregar código para guardar el valor actualizado en la base de datos
                 console.log("Nuevo valor guardado:", inputField.value);
             }
         }
@@ -305,18 +280,18 @@
             const dropdown = document.getElementById("zona-select");
             const editButton = document.getElementById("zona-edit-button");
 
-            dropdown.disabled = !dropdown.disabled; // Alternar habilitación del dropdown
-            editButton.textContent = dropdown.disabled ? "Editar" : "Actualizar"; // Cambiar texto del botón
+            dropdown.disabled = !dropdown.disabled; 
+            editButton.textContent = dropdown.disabled ? "Editar" : "Actualizar"; 
         }
 
         function toggleRadio() {
             const radios = document.querySelectorAll('input[name="post-impresion"]');
             radios.forEach(radio => {
-                radio.disabled = !radio.disabled; // Alternar habilitación de los botones de radio
+                radio.disabled = !radio.disabled; 
             });
 
             const editButton = document.getElementById("post-impresion-edit-button");
-            editButton.textContent = radios[0].disabled ? "Editar" : "Actualizar"; // Cambiar texto del botón
+            editButton.textContent = radios[0].disabled ? "Editar" : "Actualizar"; 
         }
     </script>
 </main>

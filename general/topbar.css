@@ -33,16 +33,165 @@ header {
 }
 
 
-.nav-list {
-    list-style-type: none;
-    display: flex;
-    gap: 1rem;
+
+.option-container {
+  display: flex;
+  flex-direction: row; /* Coloca las opciones en una fila horizontal */
+  gap: 1rem; /* Espacio entre las opciones */
 }
 
-.nav-list li a {
-    text-decoration: none;
-    color: #1c1c1c;
+
+
+
+a {
+  text-decoration: none; /* Elimina el subrayado */
+  color: inherit; /* Usa el color de texto del elemento padre */
+  padding: 0; /* Elimina cualquier padding */
+  margin: 0; /* Elimina cualquier margen */
+  border: none; /* Elimina cualquier borde */
+  background: none; /* Elimina cualquier fondo */
+  cursor: pointer; /* Cambia el cursor a pointer para indicar que es clickeable */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.optioncoti {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  --primary-color: #111;
+  --hovered-color: rgb(6, 6, 162);
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.optioncoti p {
+  margin: 0;
+  position: relative;
+  color: var(--primary-color);
+}
+
+.optioncoti::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  left: 0;
+  bottom: -7px;
+  background: var(--hovered-color);
+  height: 2px;
+  transition: 0.3s ease-out;
+}
+
+.optioncoti p::before {
+  position: absolute;
+  /*   box-sizing: border-box; */
+  content: "Cotizador";
+  width: 0%;
+  inset: 0;
+  color: var(--hovered-color);
+  overflow: hidden;
+  transition: 0.3s ease-out;
+}
+
+.optioncoti:hover::after {
+  width: 100%;
+}
+
+.optioncoti:hover p::before {
+  width: 100%
+}
+
+
+
+
+
+.optionmiperf {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  --primary-color: #111;
+  --hovered-color: rgb(6, 6, 162);
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.optionmiperf p {
+  margin: 0;
+  position: relative;
+  color: var(--primary-color);
+}
+
+.optionmiperf::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  left: 0;
+  bottom: -7px;
+  background: var(--hovered-color);
+  height: 2px;
+  transition: 0.3s ease-out;
+}
+
+.optionmiperf p::before {
+  position: absolute;
+  content: "Mi perfil";
+  width: 0%;
+  inset: 0;
+  color: var(--hovered-color);
+  overflow: hidden;
+  transition: 0.3s ease-out;
+}
+
+.optionmiperf:hover::after {
+  width: 100%;
+}
+
+.optionmiperf:hover p::before {
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -72,3 +72,58 @@
 .cancel-button-logout:hover {
     background-color: #c2c2c2;
 }
+
+
+
+
+
+.logout-button {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    --primary-color: #111;
+    --hovered-color: rgb(6, 6, 162);
+    position: relative;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .logout-button p {
+    margin: 0;
+    position: relative;
+    color: var(--primary-color);
+  }
+  
+  .logout-button::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    left: 0;
+    bottom: -7px;
+    background: var(--hovered-color);
+    height: 2px;
+    transition: 0.3s ease-out;
+  }
+  
+  .logout-button p::before {
+    position: absolute;
+    content: "Cerrar Sesion";
+    width: 0%;
+    inset: 0;
+    color: var(--hovered-color);
+    overflow: hidden;
+    transition: 0.3s ease-out;
+  }
+  
+  .logout-button:hover::after {
+    width: 100%;
+  }
+  
+  .logout-button:hover p::before {
+    width: 100%;
+  }
+  
+  
