@@ -45,7 +45,7 @@
 
         <div class="hero-section">
             <div class="hero-text">
-                <h1> Conectarte con impresoras 3d nunca fue tan facil</h1>
+               <br>   <br><h1> Conectarte con impresoras 3d nunca fue tan facil</h1>
                 <p>PrintMe te ayuda a hacer esa interaccion mas rapida y sencilla</p>
                 <div class="hero-buttons">
                     <button class="pbutton">Comenzar</button>
@@ -61,6 +61,7 @@
 
 
 
+<br><br><br><br>
 
 
     <!-- Sección "Sobre Nosotros" -->
@@ -202,7 +203,470 @@ window.addEventListener('scroll', function() {
     }
 });
 </script>
+<style>
+/* General resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #fff;
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #4ce3f7; /* Light blue on hover */
+}
+
+
+
+
+
+/* ********************************** */
+/*             video de fondo    */
+/* ********************************** */
+
+         /* Estilos para el video de fondo */
+         .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1; /* Poner el video detrás del contenido */
+        }
+        
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none; /* Desactiva la interacción con el video */
+        }
+
+
+
+
+
+
+
+/* ********************************** */
+/*             BOTONES header        */
+/* ********************************** */
+/* Estilos para los botones del header */
+.header-button {
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 1rem; /* Tamaño de texto */
+    border: 2px solid #d1d1d1; /* Borde gris claro */
+    border-radius: 5px; /* Bordes menos redondeados para un efecto cuadrado */
+    background-color: transparent; /* Sin fondo */
+    color: #d1d1d1; /* Color del texto gris claro */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Efecto de transición */
+    margin-right: 15px; /* Espaciado entre botones */
+}
+
+/* Efecto hover para los botones */
+.header-button:hover {
+    background-color: rgba(209, 209, 209, 0.2); /* Fondo suave gris claro en hover */
+    color: #d1d1d1; /* Color del texto gris claro en hover */
+    transform: scale(1.05); /* Efecto de aumento */
+}
+
+/* Estilos para los botones en estado activo (opcional) */
+.header-button:active {
+    transform: scale(0.95); /* Efecto de disminución al hacer clic */
+}
+
+/* Para quitar el margen derecho en el último botón */
+.header-button:last-child {
+    margin-right: 0; /* Elimina margen derecho en el último botón */
+}
+
+
+
+
+
+
+/* ********************************** */
+/*             COntenido primera secion         */
+/* ********************************** */
+
+
+
+
+
+/* General hero section styles */
+.hero-section {
+    display: flex;
+    justify-content: flex-start; /* Alinea todo a la izquierda */
+    align-items: flex-start; /* Mantiene el contenido más arriba */
+    position: relative;
+    padding-left: 80px; /* Mantener el contenido un poco a la derecha */
+    padding-top: 50px; /* Ajustado para mover el contenido más abajo */
+    overflow: hidden;
+}
+
+/* Text styles */
+.hero-text {
+    text-align: left;
+    max-width: 700px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+.hero-text h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 1.5rem;
+    color: #b3b3b3;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Button styles */
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+
+
+/* Button Styles */
+.pbutton {
+    padding: 15px 40px; /* Aumenta el tamaño del botón */
+    text-transform: uppercase;
+    border-radius: 8px;
+    font-size: 20px; /* Aumenta el tamaño de la fuente */
+    font-weight: 500;
+    color: #ffffff80;
+    text-shadow: none;
+    background: transparent;
+    cursor: pointer;
+    box-shadow: transparent;
+    border: 1px solid #ffffff80;
+    transition: 0.5s ease;
+    user-select: none;
+}
+
+.pbutton:hover,
+.pbutton:focus {
+    color: #ffffff;
+    background: #008cff;
+    border: 1px solid #008cff;
+    text-shadow: 0 0 8px #ffffff, 0 0 15px #ffffff, 0 0 25px #ffffff; /* Aumenta las sombras */
+    box-shadow: 0 0 10px #008cff, 0 0 30px #008cff, 0 0 60px #008cff, 0 0 120px #008cff; /* Más sombras para mayor efecto */
+}
+
+
+
+
+/* ********************************** */
+/*            que es el proyecto          */
+/* ********************************** */
+
+
+/* About Section */
+.about-section {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.about-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #1f4e79;
+}
+
+.about-section p {
+    font-size: 18px;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-section img {
+    width: 100%;
+    max-width: 700px;
+    margin: 40px auto 0;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* ********************************** */
+/*           Caracteristicas principales    */
+/* ********************************** */
+
+
+/* Features Section */
+.features-section {
+    padding: 80px 20px;
+    background-color: #f0f4f8;
+}
+
+.features-section h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    color: #1f4e79;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-item {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #1f4e79;
+}
+
+.feature-item p {
+    font-size: 16px;
+    color: #666;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ********************************** */
+/*          nuestros nombres    */
+/* ********************************** */
+
+
+/* Team Section */
+.team-section {
+    padding: 80px 20px;
+    background-color: white;
+    text-align: center;
+}
+
+.team-section h2 {
+    font-size: 36px;
+    color: #1f4e79;
+    margin-bottom: 50px;
+}
+
+.swiper-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.swiper-slide {
+    background-color: #61a0d2;
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #f8c537;
+}
+
+
+
+
+
+/* ********************************** */
+/*          seccion faq    */
+/* ********************************** */
+
+/* FAQ Section */
+.faq-section {
+    padding: 80px 20px;
+    background-color: #f0f4f8;
+}
+
+.faq-section h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    color: #1f4e79;
+}
+
+.faq-item {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item h3 {
+    font-size: 22px;
+    color: #1f4e79;
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    font-size: 16px;
+    color: #666;
+}
+
+
+
+
+
+
+
+/* ********************************** */
+/*          footer   */
+/* ********************************** */
+footer {
+    background-color: #1f4e79;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 20px;
+    min-width: 250px;
+}
+
+.footer-section h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-section p,
+.footer-section ul {
+    font-size: 16px;
+    color: #cfdce5;
+}
+
+.footer-bottom {
+    font-size: 14px;
+    margin-top: 40px;
+    color: #cfdce5;
+}
+
+
+
+
+
+
+/* ********************************** */
+/*             secciones efecto desaparicion             */
+/* ********************************** */
+        /* Estilos iniciales para las secciones */
+         .hidden{
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            margin: 100px 0;
+            padding: 50px;
+        }
+
+        /* Estilo para cuando la sección es visible */
+        .hidden.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+   
+
+
+
+/* ********************************** */
+/*             Luz en la parte inferior de la pantalla             */
+/* ********************************** */
+.bottom-light {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px; /* Altura del efecto de luz */
+    background: linear-gradient(to top, rgba(0, 123, 255, 0.753), transparent); /* Azul claro y suave */
+    pointer-events: none; /* Para que no interfiera con otros elementos */
+    z-index: 9999; /* Para que esté por encima de otros elementos */
+    transition: opacity 0.5s ease;
+}
+
+
+
+</style>
 
 
 <div class="bottom-light"></div>

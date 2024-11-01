@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participante 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        nav button {
+            margin: 0 10px;
+        }
+
+        main {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .section {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            background-color: #4a90e2;
+            color: white;
+        }
+        
+        .navigation-arrows {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .arrow {
+            cursor: pointer;
+            font-size: 24px;
+            color: #4a90e2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Participante 1</h1>
+    </header>
+    <nav>
+        <button onclick="showSection('proyectos')">Proyectos</button>
+        <button onclick="showSection('galeria')">Galería</button>
+        <button onclick="showSection('contacto')">Contacto</button>
+    </nav>
+    <main>
+        <div class="navigation-arrows">
+            <span class="arrow" onclick="navigate('prev')">&#8592; Anterior</span>
+            <span class="arrow" onclick="navigate('next')">Siguiente &#8594;</span>
+        </div>
+        
+        <div id="proyectos" class="section">
+            <h2>Proyectos</h2>
+            <p>Aquí están los proyectos realizados por el Participante 1.</p>
+        </div>
+        <div id="galeria" class="section">
+            <h2>Galería</h2>
+            <p>Aquí puedes ver algunas imágenes de trabajos realizados por el Participante 1.</p>
+        </div>
+        <div id="contacto" class="section">
+            <h2>Contacto</h2>
+            <p>Si deseas contactar al Participante 1, puedes escribir a: participante1@example.com</p>
+        </div>
+    </main>
+    <footer>
+        <button onclick="location.href='index.html'">Volver a Inicio</button>
+    </footer>
+    <script>
+        let currentSection = 0;
+        const sections = document.querySelectorAll('.section');
+
+        function showSection(sectionId) {
+            sections.forEach((section, index) => {
+                if (section.id === sectionId) {
+                    section.style.display = 'block';
+                    currentSection = index;
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+
+        function navigate(direction) {
+            if (direction === 'next') {
+                currentSection = (currentSection + 1) % sections.length;
+            } else {
+                currentSection = (currentSection - 1 + sections.length) % sections.length;
+            }
+            sections.forEach((section, index) => {
+                section.style.display = (index === currentSection) ? 'block' : 'none';
+            });
+        }
+
+        // Mostrar la primera sección al cargar
+        showSection('proyectos');
+    </script>
+</body>
+</html>

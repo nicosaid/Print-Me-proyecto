@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Fondo suave */
+}
+
+.container {
+    width: 80%; /* Ancho del carrusel */
+    max-width: 800px; /* Limitar el ancho del carrusel */
+    margin: 40px auto; /* Espaciado superior e inferior */
+    position: relative; /* Necesario para el posicionamiento de flechas */
+}
+
+.slides {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.slide {
+    background-color: #ffffff; /* Blanco */
+    border: 1px solid #d1d1d1; /* Gris suave */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 40px; /* Relleno para la carta */
+    width: 100%; /* Cada slide ocupará el 100% del contenedor */
+    box-sizing: border-box;
+    display: none; /* Ocultar todos por defecto */
+    opacity: 0; /* Opacidad inicial */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Animación suave */
+}
+
+.slide.active {
+    display: block; /* Solo el slide activo se mostrará */
+    opacity: 1; /* Opacidad del slide activo */
+    transform: scale(1.05); /* Escalar ligeramente el slide activo */
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: #333; /* Gris oscuro */
+    cursor: pointer;
+    transition: color 0.3s; /* Efecto de cambio de color */
+}
+
+.arrow:hover {
+    color: #007ACC; /* Azul claro al pasar el mouse */
+}
+
+.arrow.left {
+    left: 10px; /* Ubicación de la flecha izquierda */
+}
+
+.arrow.right {
+    right: 10px; /* Ubicación de la flecha derecha */
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #007ACC; /* Azul claro */
+    color: white; /* Texto blanco en el pie de página */
+}
+
+/* Animación de entrada para las diapositivas */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide.active {
+    animation: slideIn 0.5s forwards; /* Efecto de entrada */
+}
