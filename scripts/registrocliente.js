@@ -1,15 +1,18 @@
 function enviarDatosRegistro(e) {
     e.preventDefault(); // Previene que se recargue la página al enviar el formulario
     const mail = document.getElementById("mail");
-    const contra = document.getElementById("contra");
+    const contraseña = document.getElementById("contraseña");
+    const nombre_apellido = document.getElementById("nombre_apellido");
 
     const data = {
         mail: mail.value,
-        contra: contra.value
+        contraseña: contraseña.value,
+        nombre_apellido: nombre_apellido.value,
+
     };
     console.log(data);
 
-    fetch("https://print-me1.vercel.app/registercomprador/registercomp", {  
+    fetch("https://print-me-ten.vercel.app/registercomprador/registercomp", {  
         method: "POST",
         headers: {
             "Content-Type": "application/json",
