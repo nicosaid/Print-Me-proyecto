@@ -30,17 +30,21 @@
           <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
            <nav id="nav" class="nav">
             <button id="cerrar" class="cerrar-menu"><i class="bi bi-x"></i></button>
-            <ul class="nav-list">
-                <li><a href="../html/miperfilusuario.html">Mi perfil</a></li>
-                <li><a href="../html/servicioimpresion3d.html">Servicio impresion 3D</a></li>
+            <div class="option-container">
+            
 
+                    <a href="../html/miperfilusuario.html" class="optionmiperf" ><p>Mi perfil</p></a>
+                      <a href="../html/servicioimpresion3d.html" class="optionserv" ><p> Servicio Impresion 3D</p></a>
+            
 
+                      
+            
 
 
 
 
 <!-- Botón que abre el popup de cerrar sesión -->
-<button class="logout-button" onclick="togglePopupLogout()">Cerrar Sesión</button>
+<button class="logout-button" onclick="togglePopupLogout()" >   <p>Cerrar Sesion</p>  </button>
 
 <!-- Contenedor del Popup de Cerrar Sesión -->
 <div class="popup-container-logout" id="popup-container-logout">
@@ -54,7 +58,7 @@
 
 <!-- Fondo Oscurecido para el popup de Cerrar Sesión -->
 <div class="overlay-logout" onclick="togglePopupLogout()"></div>
-
+</div>
 
 
 

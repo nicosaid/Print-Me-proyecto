@@ -15,8 +15,11 @@
 </head>
 <body>
 
+
+
+
     <header>
-        <div clas s="card">
+        <div class="card">
             <div class="loader">
               <p>PrintMe</p>
               <div class="words">
@@ -29,37 +32,44 @@
             </div>
           </div>     
           
-          <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
-           <nav id="nav" class="nav">
-            <button id="cerrar" class="cerrar-menu"><i class="bi bi-x"></i></button>
-            <ul class="nav-list">
-                <li><a href="../html/miperfilduenio.html">Mi perfil</a></li>
-                <li><a href="../html/cotizador.html">Cotizador</a></li>
-                <li><a href="../html/inicio.html">Pedidos</a></li>
+       
+
+        <div class="option-container">
+
+        
+        <a href="../html/cotizador.html" class="optioncoti" ><p>Cotizador</p></a>
+          <a href="../html/miperfilduenio.html" class="optionmiperf" ><p>Mi perfil</p></a>
+          <a href="../html/inicio.html" class="optionpedid" ><p>Pedidos</p></a>
+
+
+
              
 
 
 
+<!-- Botón que abre el popup de cerrar sesión -->
+<button class="logout-button" onclick="togglePopupLogout()" >   <p>Cerrar Sesion</p>  </button>
 
-<button class="logout-button" onclick="togglePopupLogout()">Cerrar Sesión</button>
-
+<!-- Contenedor del Popup de Cerrar Sesión -->
 <div class="popup-container-logout" id="popup-container-logout">
     <h2>¿Estás seguro?</h2>
-
+    <!-- Contenedor de botones para alinearlos en una fila -->
     <div class="button-container-logout">
         <button class="popup-button-logout confirm-button-logout" onclick="cerrarSesion()">Sí, cerrar sesión</button>
         <button class="popup-button-logout cancel-button-logout" onclick="togglePopupLogout()">Cancelar</button>
     </div>
 </div>
 
+<!-- Fondo Oscurecido para el popup de Cerrar Sesión -->
 <div class="overlay-logout" onclick="togglePopupLogout()"></div>
+</div>
 
 
 
 
 <script>
-
-function togglePopupLogout() {
+    // Función para mostrar y ocultar el popup específico de cerrar sesión
+    function togglePopupLogout() {
         const popup = document.getElementById("popup-container-logout");
         const overlay = document.querySelector(".overlay-logout");
 
@@ -77,6 +87,7 @@ function togglePopupLogout() {
             </ul>
            </nav>
     </header>
+
 
 
 

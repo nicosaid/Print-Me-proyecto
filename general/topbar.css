@@ -172,6 +172,54 @@ a {
 
 
 
+.optionpedid {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  --primary-color: #111;
+  --hovered-color: rgb(6, 6, 162);
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.optionpedid p {
+  margin: 0;
+  position: relative;
+  color: var(--primary-color);
+}
+
+.optionpedid::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  left: 0;
+  bottom: -7px;
+  background: var(--hovered-color);
+  height: 2px;
+  transition: 0.3s ease-out;
+}
+
+.optionpedid p::before {
+  position: absolute;
+  content: "Pedidos";
+  width: 0%;
+  inset: 0;
+  color: var(--hovered-color);
+  overflow: hidden;
+  transition: 0.3s ease-out;
+}
+
+.optionpedid:hover::after {
+  width: 100%;
+}
+
+.optionpedid:hover p::before {
+  width: 100%;
+}
 
 
 
@@ -179,6 +227,56 @@ a {
 
 
 
+
+
+.optionserv {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  --primary-color: #111;
+  --hovered-color: rgb(6, 6, 162);
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.optionserv p {
+  margin: 0;
+  position: relative;
+  color: var(--primary-color);
+}
+
+.optionserv::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  left: 0;
+  bottom: -7px;
+  background: var(--hovered-color);
+  height: 2px;
+  transition: 0.3s ease-out;
+}
+
+.optionserv p::before {
+  position: absolute;
+  content: "Servicio Impresion 3D";
+  width: 0%;
+  inset: 0;
+  color: var(--hovered-color);
+  overflow: hidden;
+  transition: 0.3s ease-out;
+}
+
+.optionserv:hover::after {
+  width: 100%;
+}
+
+.optionserv:hover p::before {
+  width: 100%;
+}
 
 
 
