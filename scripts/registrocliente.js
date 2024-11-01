@@ -1,3 +1,18 @@
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Script cargado y DOM listo");
+
+    const registroForm = document.getElementById("registro-form");
+    console.log("Formulario encontrado:", registroForm);
+
+    if (registroForm) {
+        registroForm.addEventListener("submit", enviarDatosRegistro);
+        console.log("EventListener de submit añadido");
+    } else {
+        console.error("El formulario de registro no se encontró en el DOM.");
+    }
+});
+
+
 function enviarDatosRegistro(e) {
     e.preventDefault(); // Previene que se recargue la página al enviar el formulario
     const mail = document.getElementById("mail");
