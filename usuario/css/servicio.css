@@ -29,6 +29,8 @@
 }
 
 
+
+
 /* ********************************** */
 /*             div principal             */
 /* ********************************** */
@@ -40,30 +42,45 @@
 	margin: 50px auto; /* Centrar el div y separarlo de los costados */
 	margin-top: -13px;
 	padding: 40px; /* Espacio interno más amplio */
-	background-color: #ececec; /* Color de fondo azul oscuro */
+	background-color: #ececec; /* Color de fondo */
 	border-radius: 15px; /* Bordes redondeados */
 	backdrop-filter: blur(100px); /* Aplicar desenfoque al fondo */
-	border-radius: 15px; /* Bordes redondeados */
-	box-shadow: 0 100px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-	border: 1px solid #e0e0e0; /* Borde sutil */
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
 	border: 1px solid #e0e0e0; /* Borde sutil */
 	text-align: center; /* Centrar contenido */
-	align-items: center;
-	justify-content: center;
-  }
-  
-  
-  .principaldiv h2 {
+	overflow-y: auto; /* Barra de desplazamiento vertical */
+	max-height: 500px; /* Altura máxima para que aparezca el scrollbar si es necesario */
+}
+
+/* Personalización de la scrollbar */
+.principaldiv::-webkit-scrollbar {
+	width: 8px; /* Ancho de la barra de desplazamiento */
+}
+
+.principaldiv::-webkit-scrollbar-thumb {
+	background-color: var(--primary-color); /* Color de la barra */
+	border-radius: 10px; /* Bordes redondeados de la barra */
+}
+
+.principaldiv::-webkit-scrollbar-track {
+	background-color: #e0e0e0; /* Color de fondo del track */
+}
+
+.principaldiv h2 {
 	font-size: 2rem; /* Aumentar tamaño del título */
-	color: black; /* Texto blanco para el título */
+	color: black; /* Texto negro para el título */
 	margin-bottom: 20px;
-  }
-  
-  .principaldiv p {
+}
+
+.principaldiv p {
 	font-size: 1.2rem; /* Aumentar tamaño del texto del párrafo */
-	color: black; /* Texto gris claro */
-  }
+	color: black; /* Texto negro */
+}
+
+
+
+
+
 
 
 

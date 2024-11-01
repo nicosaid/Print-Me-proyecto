@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../css/topbar.css">
+    <link rel="stylesheet" href="../../general/topbar.css">
     <link rel="stylesheet" href="../../general/miperfil.css">
+    <link rel="stylesheet" href="../../general/cerrar.css">
     <script src="../js/miperfiluser.js"></script>
     
 </head>
 <body>
-
 
     <header>
         <div clas s="card">
@@ -33,13 +33,55 @@
            <nav id="nav" class="nav">
             <button id="cerrar" class="cerrar-menu"><i class="bi bi-x"></i></button>
             <ul class="nav-list">
-                <li><a href="../html/miperfil.html">Mi perfil</a></li>
+                <li><a href="../html/miperfilduenio.html">Mi perfil</a></li>
                 <li><a href="../html/cotizador.html">Cotizador</a></li>
                 <li><a href="../html/inicio.html">Pedidos</a></li>
-                <li><a href="">Cerrar sesion</a></li>
+             
+
+
+
+
+<!-- Botón que abre el popup de cerrar sesión -->
+<button class="logout-button" onclick="togglePopupLogout()">Cerrar Sesión</button>
+
+<!-- Contenedor del Popup de Cerrar Sesión -->
+<div class="popup-container-logout" id="popup-container-logout">
+    <h2>¿Estás seguro?</h2>
+    <!-- Contenedor de botones para alinearlos en una fila -->
+    <div class="button-container-logout">
+        <button class="popup-button-logout confirm-button-logout" onclick="cerrarSesion()">Sí, cerrar sesión</button>
+        <button class="popup-button-logout cancel-button-logout" onclick="togglePopupLogout()">Cancelar</button>
+    </div>
+</div>
+
+<!-- Fondo Oscurecido para el popup de Cerrar Sesión -->
+<div class="overlay-logout" onclick="togglePopupLogout()"></div>
+
+
+
+
+<script>
+    // Función para mostrar y ocultar el popup específico de cerrar sesión
+    function togglePopupLogout() {
+        const popup = document.getElementById("popup-container-logout");
+        const overlay = document.querySelector(".overlay-logout");
+
+        if (popup.style.display === "none" || !popup.style.display) {
+            popup.style.display = "block";
+            overlay.style.display = "block";
+        } else {
+            popup.style.display = "none";
+            overlay.style.display = "none";
+        }
+    }
+</script>
+
+
             </ul>
            </nav>
     </header>
+
+
 
 
 
@@ -76,8 +118,8 @@
                     <div class="input-group">
                         <label for="email-input" class="editable-label">Email</label>
                         <div class="input-wrapper"> 
-                            <input type="email" id="description-input" value="{{email}}" readonly>
-                            <button class="edit-button" onclick="toggleEdit('description-input', 'description-edit-button', 'Actualizar', 'Editar')" id="description-edit-button">Editar</button>
+                            <input type="email" id="email-input" value="{{email}}" readonly>
+                            <button class="edit-button" onclick="toggleEdit('email-input', 'email-edit-button', 'Actualizar', 'Editar')" id="email-edit-button">Editar</button>
                         </div>
                     </div>
                 </div>
@@ -132,95 +174,98 @@
                 </div>
             </div>
 
-            <!-- Campo: Contraseña -->
+           
 
-               <div class="editable-field-container">
-                <div class="input-group">
-                    <label class="editable-label"> No recuerdas tu contrasenia? </label>
-                    <div class="input-wrapper"> 
-                   
+<!-- Campo: Contraseña -->
+<div class="editable-field-container">
+    <div class="input-group">
+        <label class="editable-label">¿No recuerdas tu contraseña?</label>
+        <div class="input-wrapper">
 
-                   
-                            <style>
-                                /* Estilos del botón "Recuperar/Cambiar Contraseña" */
-                                .recuperar-contra {
-                                    background-color: #1d2a61; /* Color de fondo similar al botón "Listo" */
-                                    color: #ffffff; /* Color del texto */
-                                    padding: 10px 20px;
-                                    font-size: 16px;
-                                    border: none;
-                                    border-radius: 5px;
-                                    cursor: pointer;
-                                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-                                    transition: background-color 0.3s ease;
-                                }
-                        
-                                .recuperar-contra:hover {
-                                    background-color: #132147; /* Color de fondo más oscuro en hover */
-                                }
-                        
-                                /* Estilo de contenedor emergente */
-                                .popup-container {
-                                    display: none; /* Oculto por defecto */
-                                    position: fixed;
-                                    top: 50%;
-                                    left: 50%;
-                                    transform: translate(-50%, -50%);
-                                    background-color: #ffffff;
-                                    padding: 30px;
-                                    border-radius: 10px;
-                                    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-                                    z-index: 1000;
-                                    text-align: center;
-                                }
-                        
-                                /* Fondo de pantalla oscurecido */
-                                .overlay {
-                                    display: none; /* Oculto por defecto */
-                                    position: fixed;
-                                    top: 0;
-                                    left: 0;
-                                    width: 100%;
-                                    height: 100%;
-                                    background-color: rgba(0, 0, 0, 0.5);
-                                    z-index: 999;
-                                }
-                            </style>
-                        
-                      
-                        
-                            <!-- Botón que abre el popup -->
-                            <button class="recuperar-contra" onclick="togglePopup()">Cambiar Contraseña</button>
+            <style>
+                /* Estilos del botón "Recuperar/Cambiar Contraseña" */
+                .recuperar-contra {
+                    background-color: #1d2a61; /* Color de fondo similar al botón "Listo" */
+                    color: #ffffff; /* Color del texto */
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                    transition: background-color 0.3s ease;
+                }
 
-                        
-                            <!-- Contenedor del Popup -->
-                            <div class="popup-container" id="popup-container">
-                                <h2>Cambiar Contraseña</h2>
-<br>
-                                <input type="password" placeholder="Escribir nueva contraseña" style="padding: 10px; font-size: 16px; width: 100%; margin-bottom: 15px;">
-                                <input type="password" placeholder="Confirmar contraseña" style="padding: 10px; font-size: 16px; width: 100%; margin-bottom: 20px;">
-                                <button class="recuperar-contra" onclick="togglePopup()">Reestablecer Contrasena</button>
-                            </div>
-                        
-                            <!-- Fondo Oscurecido -->
-                            <div class="overlay" onclick="togglePopup()"></div>
-                        
-                            <script>
-                                // Función para mostrar y ocultar el popup
-                                function togglePopup() {
-                                    const popup = document.getElementById("popup-container");
-                                    const overlay = document.querySelector(".overlay");
-                        
-                                    if (popup.style.display === "none" || !popup.style.display) {
-                                        popup.style.display = "block";
-                                        overlay.style.display = "block";
-                                    } else {
-                                        popup.style.display = "none";
-                                        overlay.style.display = "none";
-                                    }
-                                }
-                            </script>
-                        
+                .recuperar-contra:hover {
+                    background-color: #132147; /* Color de fondo más oscuro en hover */
+                }
+
+                /* Estilo de contenedor emergente */
+                .popup-container-recuperar {
+                    display: none; /* Oculto por defecto */
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: #ffffff;
+                    padding: 30px;
+                    border-radius: 10px;
+                    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+                    z-index: 1000;
+                    text-align: center;
+                }
+
+                /* Fondo de pantalla oscurecido */
+                .overlay-recuperar {
+                    display: none; /* Oculto por defecto */
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    z-index: 999;
+                }
+            </style>
+
+            <!-- Botón que abre el popup de recuperación de contraseña -->
+            <button class="recuperar-contra" onclick="togglePopupRecuperar()">Cambiar Contraseña</button>
+
+            <!-- Contenedor del Popup de recuperación de contraseña -->
+            <div class="popup-container-recuperar" id="popup-container-recuperar">
+                <h2>Cambiar Contraseña</h2>
+                <br>
+                <input type="password" placeholder="Escribir nueva contraseña" style="padding: 10px; font-size: 16px; width: 100%; margin-bottom: 15px;">
+                <input type="password" placeholder="Confirmar contraseña" style="padding: 10px; font-size: 16px; width: 100%; margin-bottom: 20px;">
+                <button class="recuperar-contra" onclick="togglePopupRecuperar()">Restablecer Contraseña</button>
+            </div>
+
+            <!-- Fondo Oscurecido para el popup de recuperación de contraseña -->
+            <div class="overlay-recuperar" onclick="togglePopupRecuperar()"></div>
+
+            <script>
+                // Función para mostrar y ocultar el popup específico de recuperación de contraseña
+                function togglePopupRecuperar() {
+                    const popup = document.getElementById("popup-container-recuperar");
+                    const overlay = document.querySelector(".overlay-recuperar");
+
+                    if (popup.style.display === "none" || !popup.style.display) {
+                        popup.style.display = "block";
+                        overlay.style.display = "block";
+                    } else {
+                        popup.style.display = "none";
+                        overlay.style.display = "none";
+                    }
+                }
+            </script>
+      
+
+
+
+
+
+
+
                         </body>
                         </html>
                         

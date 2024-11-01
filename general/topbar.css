@@ -44,6 +44,33 @@ header {
     color: #1c1c1c;
 }
 
+
+
+
+.logout-button {
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+  background: none;        /* Elimina el fondo */
+  border: none;            /* Elimina el borde */
+  padding: 0;              /* Elimina el relleno */
+  margin: 0;               /* Elimina cualquier margen */
+  cursor: pointer;         /* Mantén el cursor de puntero */
+  color: #1c1c1c;          /* Color del texto */
+  font-family: inherit;    /* Hereda la fuente del elemento padre */
+  font-size: 1rem;         /* Ajusta el tamaño de la fuente */
+  transition: color 0.3s ease;  /* Transición para el color */
+}
+
+.logout-button a {
+  text-decoration: none;   /* Quita el subrayado */
+  color: inherit;          /* Usa el color del padre */
+}
+
+
+
+
+
 .abrir-menu,
 .cerrar-menu {
     display: none;

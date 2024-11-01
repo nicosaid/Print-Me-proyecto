@@ -1,91 +1,74 @@
+/* Estilo del contenedor emergente para el popup de cerrar sesión */
+.popup-container-logout {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-align: center;
+    width: 320px;
+    font-family: Arial, sans-serif;
+}
 
-        /* Estilo de contenedor emergente */
-        .popup-container {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            text-align: center;
-            width: 320px;
-            font-family: Arial, sans-serif;
-        }
+/* Fondo de pantalla oscurecido para el popup de cerrar sesión */
+.overlay-logout {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
 
-        /* Fondo de pantalla oscurecido */
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-        }
+/* Contenedor de los botones en fila */
+.button-container-logout {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espacio entre botones */
+    margin-top: 20px;
+}
 
-        /* Contenedor de los botones en fila */
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px; /* Espacio entre botones */
-            margin-top: 20px;
-        }
+/* Estilos de los botones en el popup de cerrar sesión */
+.popup-button-logout {
+    padding: 10px 0;
+    font-size: 13px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 120px;
+    transition: background-color 0.3s ease, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    padding: 12px;
+}
 
-        /* Estilos de los botones en el popup */
-        .popup-button {
-            padding: 10px 0;
-            font-size: 13px; /* Tamaño de texto reducido para que no se divida */
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            width: 120px; /* Ajusta el ancho de los botones */
-            transition: background-color 0.3s ease, transform 0.2s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            white-space: nowrap; /* Evita el salto de línea */
-            padding: 12px ;
+.popup-button-logout:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
 
-        }
+.confirm-button-logout {
+    background-color: #ff4b5c;
+    color: #ffffff;
+}
 
-        .popup-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-            
-        }
+.confirm-button-logout:hover {
+    background-color: #d9444e;
+}
 
-        .confirm-button {
-            background-color: #ff4b5c;
-            color: #ffffff;
-        }
+.cancel-button-logout {
+    background-color: #e0e0e0;
+    color: #333;
+}
 
-        .confirm-button:hover {
-            background-color: #d9444e;
-        }
-
-        .cancel-button {
-            background-color: #e0e0e0;
-            color: #333;
-        
-        }
-
-        .cancel-button:hover {
-            background-color: #c2c2c2;
-        }
-
-        /* Títulos y textos */
-        .popup-container h2 {
-            color: #333;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .popup-container p {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
+.cancel-button-logout:hover {
+    background-color: #c2c2c2;
+}
