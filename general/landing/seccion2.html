@@ -1,0 +1,103 @@
+<div class="card-container">
+    <div class="card">
+      <div class="img-content">
+        Como surgio el proyecto
+      </div>
+      <div class="content">
+        <p class="heading">Nuestro Origen</p>
+        <p class="description">
+          Nuestro equipo se dio cuenta de la falta de una conexion entre las personas que poseen impresoras 3D y las personas que necesitan este servicio.
+        </p>
+      </div>
+    </div>
+</div>
+
+<style>
+
+
+body{
+    background: black;
+
+}
+
+
+.card-container {
+  width: 400px; /* Ampliado para dar más espacio al texto */
+  height: 300px;
+  position: relative;
+  border-radius: 10px;
+}
+
+.card-container::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: rgb(1, 1, 154);
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(59px);
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+  position: relative;
+}
+
+.card .img-content {
+  width: 100%;
+  height: 100%;
+  font-size: 40px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgb(201, 201, 201);
+  transition: scale 0.6s, rotate 0.6s, filter 1s;
+}
+
+.card .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Cambiado para alinear al inicio */
+  justify-content: center;
+  color: #000000;
+  text-align: left; /* Cambiado para que el texto esté alineado a la izquierda */
+  line-height: 1.5;
+  padding: 10px;
+  width: 80%; /* Ajustado para darle más anchura */
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card .content .heading {
+  font-size: 35px; /* Aumentado el tamaño de la fuente del heading */
+  font-weight: 700;
+  margin: 0;
+}
+
+.card .content .description {
+  font-size: 20px; /* Aumentado el tamaño de la fuente de la descripción */
+  margin-top: 8px;
+  text-align: justify; /* Esto ayuda a distribuir mejor el texto */
+}
+
+.card:hover .content {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.card:hover .img-content {
+  scale: 2.5;
+  rotate: 30deg;
+  filter: blur(7px);
+}
+</style>

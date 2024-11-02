@@ -5,19 +5,6 @@ body {
 
 
 
-.card {
-	width: 50%; 
-	padding: 40px; /* Espacio interno más amplio */
-	background-color: #ececec; 
-	border-radius: 15px; 
-	backdrop-filter: blur(100px);
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-	border: 1px solid #e0e0e0; /* Borde sutil */
-	text-align: center; /* Centrar contenido */
-	height: 50%; /* Altura máxima para que aparezca el scrollbar si es necesario */
-    align-items: center;
-}
-
 .principaldiv {
 	width: 50%;
 	height: 500px;
@@ -47,6 +34,15 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
 h2 {
     color: #2c2c54;
     font-size: 1.5em;
@@ -56,7 +52,7 @@ h2 {
 
 
 .printer-image {
-    width: 200px;
+    width: 250px;
     height: 200px;    border-radius: 10px;
     margin-bottom: 20px;
 }
@@ -65,29 +61,22 @@ h3 {
     color: #2c2c54;
     margin-bottom: 10px;
 
-
 }
 
-.description {
-    width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    margin-bottom: 20px;
-}
+
 
 
 /* From Uiverse.io by biswacpcode */ 
 .hacerpe {
     color: white;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 15px;
     background-color:darkblue;
     font-weight: 400px;
     font-family: 'Poppins', sans-serif;
     padding:10px;
     border-radius: 10px;
-    
+
   }
   
   .hacerpe a
@@ -105,7 +94,7 @@ h3 {
     
   }
   
-  .hacerpe::after, button::before {
+  .hacerpe::after, .hacerpe::before {
     content: '';
     width: 0%;
     height: 2px;
@@ -116,11 +105,22 @@ h3 {
     
   }
   
-  .hacerpe:hover::after, button:hover::before {
+  .hacerpe:hover::after, .hacerpe:hover::before {
     width: 100%;
   
   
   }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

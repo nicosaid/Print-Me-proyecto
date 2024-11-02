@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0; /* Eliminar márgenes */
+            height: 100vh; /* Altura completa de la ventana */
+            display: flex; /* Usar flexbox para centrar */
+            justify-content: center; /* Centrar horizontalmente */
+            align-items: center; /* Centrar verticalmente */
+            background-color: #111; /* Color de fondo */
+        }
+
+        .animacion1 {
+            display: flex;
+            justify-content: center; /* Centra contenido dentro de este grupo */
+        }
+
+        #cursor,
+        #box {
+            cursor: pointer;
+        }
+
+        #cursor {
+            overflow: visible;
+            transform: translate3d(300px, 0, 0) scale(1);
+            transform-origin: center center;
+            transform-box: fill-box;
+            animation: cursor 5s ease infinite alternate;
+        }
+
+        @keyframes cursor {
+            0% {
+                opacity: 0;
+                transform: translate3d(300px, 0, 0) scale(1);
+            }
+            30% {
+                opacity: 1;
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+            60% {
+                opacity: 1;
+                transform: translate3d(-200px, -200px, 0) scale(1);
+            }
+            65% {
+                opacity: 1;
+                transform: translate3d(-200px, -200px, 0) scale(0.95);
+            }
+            70% {
+                opacity: 1;
+                transform: translate3d(-200px, -200px, 0) scale(1);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(-300px, -50px, 0) scale(1);
+            }
+        }
+
+        #box {
+            opacity: 0;
+            animation: box 5s ease infinite alternate;
+        }
+
+        @keyframes box {
+            0%,
+            60% {
+                opacity: 0;
+            }
+            65%,
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Estilos para el texto */
+        #staticText {
+            fill: white; /* Color del texto estático */
+            font-size: 48px; /* Tamaño de la fuente más grande */
+            font-weight: bold; /* Negrita */
+            text-anchor: middle; /* Centrar el texto */
+            dominant-baseline: middle; /* Centrar verticalmente */
+        }
+
+        #dynamicText {
+            fill: #2563EB; /* Color del texto dinámico */
+            font-size: 24px; /* Aumentar el tamaño de la fuente */
+            font-weight: bold; /* Negrita */
+            text-anchor: middle; /* Centrar el texto */
+            dominant-baseline: middle; /* Centrar verticalmente */
+        }
+
+        #cursorText {
+            fill: white; /* Color del texto del cursor */
+            font-size: 16px; /* Tamaño de la fuente */
+            font-weight: bold; /* Negrita */
+            text-anchor: middle; /* Centrar el texto */
+            dominant-baseline: middle; /* Centrar verticalmente */
+            pointer-events: none; /* Evita que el texto del cursor interfiera con los clics */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="animacion1">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 614 390"
+            height="390"
+            width="614"
+        > 
+            <!-- Texto estático en dos líneas -->
+            <text x="50%" y="30%" id="staticText">
+                <tspan x="50%" dy="0">Impresiones 3D</tspan>
+                <tspan x="50%" dy="1.2em">a tu alcance</tspan>
+            </text>
+
+            <g id="box">
+                <path
+                    stroke-width="2"
+                    stroke="#2563EB"
+                    fill-opacity="0.05"
+                    fill="#2563EB"
+                    d="M587 20H28V306H587V20Z"
+                    id="figny9-box"
+                ></path>
+                <path
+                    stroke-width="2"
+                    stroke="#2563EB"
+                    fill="white"
+                    d="M33 15H23V25H33V15Z"
+                    id="figny9-adjust-1"
+                ></path>
+                <path
+                    stroke-width="2"
+                    stroke="#2563EB"
+                    fill="white"
+                    d="M33 301H23V311H33V301Z"
+                    id="figny9-adjust-3"
+                ></path>
+                <path
+                    stroke-width="2"
+                    stroke="#2563EB"
+                    fill="white"
+                    d="M592 301H582V311H592V301Z"
+                    id="figny9-adjust-4"
+                ></path>
+                <path
+                    stroke-width="2"
+                    stroke="#2563EB"
+                    fill="white"
+                    d="M592 15H582V25H592V15Z"
+                    id="figny9-adjust-2"
+                ></path>
+                
+                <!-- Texto dinámico que se mostrará al hacer clic, con nueva posición -->
+                <text x="50%" y="65%" id="dynamicText">Conexión rápida e interactiva</text>
+            </g>
+
+            <g id="cursor" title="printme"> <!-- Añadir el título aquí -->
+                <path
+                    stroke-width="2"
+                    stroke="white"
+                    fill="#2563EB"
+                    d="M453.383 343L448 317L471 331L459.745 333.5L453.383 343Z"
+                    id="Vector 273"
+                ></path>
+                <path
+                    fill="#2563EB"
+                    d="M587 343H469.932V376H587V343Z"
+                    id="Rectangle 786"
+                ></path>
+                
+                <!-- Texto centrado "printme" dentro de la etiqueta -->
+                <text x="508" y="359" id="cursorText">PrintMe</text>
+            </g>
+        </svg>
+    </div>
+
+    <script>
+        const box = document.getElementById('box');
+        const dynamicText = document.getElementById('dynamicText');
+
+        // Lógica para mostrar el texto dinámico al hacer clic
+        box.addEventListener('click', () => {
+            dynamicText.style.opacity = 1; // Muestra el texto dinámico
+        });
+    </script>
+</body>
+</html>

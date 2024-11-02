@@ -42,28 +42,25 @@
 
 
 
-
-<!-- Botón que abre el popup de cerrar sesión -->
 <button class="logout-button" onclick="togglePopupLogout()" >   <p>Cerrar Sesion</p>  </button>
 
-<!-- Contenedor del Popup de Cerrar Sesión -->
 <div class="popup-container-logout" id="popup-container-logout">
 <h2>¿Estás seguro?</h2>
-<!-- Contenedor de botones para alinearlos en una fila -->
+
 <div class="button-container-logout">
     <button class="popup-button-logout confirm-button-logout" onclick="cerrarSesion()">Sí, cerrar sesión</button>
     <button class="popup-button-logout cancel-button-logout" onclick="togglePopupLogout()">Cancelar</button>
 </div>
 </div>
 
-<!-- Fondo Oscurecido para el popup de Cerrar Sesión -->
+
 <div class="overlay-logout" onclick="togglePopupLogout()"></div>
 </div>
 
 
 
 <script>
-// Función para mostrar y ocultar el popup específico de cerrar sesión
+
 function togglePopupLogout() {
     const popup = document.getElementById("popup-container-logout");
     const overlay = document.querySelector(".overlay-logout");
@@ -88,36 +85,59 @@ function togglePopupLogout() {
 
                       <div class="principaldiv">
                         <h2>FERNANDO.R3D</h2>
-                        <div class="rating">
-                            <img src="estrella.png" alt="rating icon"> <!-- Icono de estrella -->
-                            <span>50</span>
-                            <span>348</span>
-                        </div>
-                        <img src="../css/impresora 3d.png" alt="Impresora" class="printer-image">
-                        <h3>DESCRIPCION</h3>
-                        <textarea class="description" placeholder="Descripción..."></textarea>
                         
-                        <div class="dropdowns">
-                            <div class="dropdown">
-                                <button class="dropdown-button">Info completa</button>
-                                <div class="dropdown-content">
-                                    <p>Opción 1</p>
-                                    <p>Opción 2</p>
-                                    <p>Opción 3</p>
-                                </div>
-                            </div>
-                            <div class="dropdown">
-                                <button class="dropdown-button">Stock de filamentos</button>
-                                <div class="dropdown-content">
-                                    <p>Opción A</p>
-                                    <p>Opción B</p>
-                                    <p>Opción C</p>
-                                </div>
-                            </div>
-                        </div>
-                
+
+                     
+                     
+
+
+
+ 
+    <!-- Imagen de la impresora -->
+    <div class="image-container">
+        <img src="https://aremsaprod.vtexassets.com/arquivos/ids/680826-1200-auto?v=638640632367500000&width=1200&height=auto&aspect=true" alt="Impresora 3D">
+        
+    </div>
+    
+    <!-- Descripción -->
+    <h2>DESCRIPCION</h2>
+    <textarea class="description" placeholder="Descripcion..." readonly></textarea>
+    
+    <!-- Selectores -->
+    <div class="selectors">
+        <div class="selector">
+            <h3>IMPRESORAS</h3>
+            <select>
+                <option>Info completa</option>
+                <!-- Opciones adicionales -->
+            </select>
+        </div>
+
+        <div class="selector">
+            <h3>FILAMENTOS</h3>
+            <select>
+                <option>Stock de filamentos</option>
+                <!-- Opciones adicionales -->
+            </select>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
                         <button class= hacerpe>    Realizar Pedido</button>                    </div>
                 
+                   
+                </div>
+
+
 
 
 </body>
