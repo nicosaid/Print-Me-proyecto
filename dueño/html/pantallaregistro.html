@@ -45,7 +45,6 @@
             <div class="error"></div>
           </div>
 
-          <!-- Menú desplegable para seleccionar el modelo de impresora -->
           <div class="input-box">
             <label for="modelo-impresora">Modelo de Impresora:</label><br>
             <select id="modelo-impresora" name="modelo-impresora">
@@ -56,7 +55,6 @@
             </select><br><br>
           </div>
 
-          <!-- Menú desplegable para seleccionar el material -->
           <div class="input-box">
             <label for="material">Material:</label><br>
             <select id="material" name="material">
@@ -67,44 +65,221 @@
             </select><br><br>
           </div>
 
-          <div class="container">
-            <!-- Botón "Sí" -->
-            <input style="display: none;" id="yes" type="checkbox" />
-            <label class="check" for="yes">
-              <svg viewBox="0 0 18 18" height="40px" width="40px">
-                <path
-                  d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                ></path>
-                <polyline points="1 9 7 14 15 4"></polyline>
-              </svg>
-            </label>
-          
-            <!-- Botón "No" -->
-            <input style="display: none;" id="no" type="checkbox" />
-            <label class="check" for="no">
-              <svg viewBox="0 0 18 18" height="40px" width="40px">
-                <path
-                  d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
-                ></path>
-                <polyline points="1 9 7 14 15 4"></polyline>
-              </svg>
-            </label>
+          <div class="radio-button-container">
+            <div class="radio-button">
+              <input type="radio" class="radio-button__input" id="radio1" name="radio-group">
+              <label class="radio-button__label" for="radio1">
+                <span class="radio-button__custom"></span>
+                Sí
+              </label>
+            </div>
+            <div class="radio-button">
+              <input type="radio" class="radio-button__input" id="radio2" name="radio-group">
+              <label class="radio-button__label" for="radio2">
+                <span class="radio-button__custom"></span>
+                No
+              </label>
+            </div>
           </div>
 
-          
-          
-
           <button type="submit">Registrarme</button>
-
         </div>
 
-
-        <!-- Opción para iniciar sesión -->
         <p>¿Ya tienes cuenta? <a href="../../general/sesion.html">Haz Click Aquí</a></p>
       </form>
     </div>
   </main>
 
   <script src="../../general/fondo.js"></script>
+
+  <style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Centra verticalmente */
+    height: 100vh;
+    background-color: rgb(17, 17, 43);
+    color: white;
+    overflow-x: hidden; 
+  }
+
+  canvas {
+      position: absolute; /* Asegúrate que el canvas esté detrás del contenido */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0; /* Mantener el canvas en el fondo */
+  }
+
+  .registro-container {
+      display: flex;
+      position: relative; /* Necesario para el z-index */
+      z-index: 1; /* Asegúrate de que el formulario esté por encima del canvas */
+      width: 100%;
+      height: 100%;
+      max-width: 500px; /* Máximo ancho para el formulario */
+      padding-right: 20px; /* Espaciado a la derecha */
+      margin-left: auto; /* Alinear a la derecha */
+  }
+
+  .scrollable-container {
+      max-height: 300px;
+      overflow-y: auto;
+      scrollbar-color: black transparent;
+      scrollbar-width: thin;
+      margin: 0; 
+  }
+
+  .scrollable-container::-webkit-scrollbar {
+      width: 5px;
+  }
+
+  .scrollable-container::-webkit-scrollbar-track {
+      background: transparent;
+  }
+
+  .scrollable-container::-webkit-scrollbar-thumb {
+      background-color: black; /* Cambiar a negro */
+      border-radius: 10px;
+  }
+
+  .registro-form {
+      background-color: white;
+      border-radius: 20px;
+      padding: 30px 40px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+
+  h1 {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 0;
+      color: #000;
+      letter-spacing: 2px;
+  }
+
+  p {
+      font-size: 14px;
+      margin: 10px 0 20px; /* Ajuste del margen */
+      color: #666;
+  }
+
+  .input-box {
+      width: 100%;
+      margin-bottom: -10px; 
+  }
+
+  .input-box input,
+  .input-box select {
+      width: 400px; 
+      padding: 15px;
+      font-size: 16px;
+      border-radius: 50px;
+      border: 1px solid #ccc;
+      text-align: center;
+      color: #333;
+      box-sizing: border-box;
+  }
+
+  .input-box input::placeholder,
+  .input-box select {
+      color: #ccc;
+  }
+
+  button {
+      width: 400px; /* Mantener el tamaño original del botón */
+      padding: 15px;
+      font-size: 16px;
+      border-radius: 50px;
+      border: 1px solid #ccc;
+      text-align: center;
+      background-color: #1a2f87;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      margin: 0px;
+  }
+
+  button:hover {
+      background-color: #0f1e66;
+  }
+
+  p a {
+      color: #1a2f87;
+      text-decoration: none;
+      font-weight: bold;
+  }
+
+  p a:hover {
+      text-decoration: underline;
+  }
+
+  .logo-container {
+      position: fixed;
+      right: 55%;
+      top: 27%; 
+  }
+
+  .radio-button-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+  }
+  
+  .radio-button {
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+  }
+  
+  .radio-button__input {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+  }
+  
+  .radio-button__label {
+      display: inline-block;
+      padding-left: 30px;
+      margin-bottom: 10px;
+      position: relative;
+      font-size: 15px;
+      color: #000;
+      font-weight: 600;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+  }
+  
+  .radio-button__custom {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid #555;
+      transition: all 0.3s ease;
+  }
+  
+  .radio-button__input:checked + .radio-button__label .radio-button__custom {
+      background-color: #1a2f87;
+  }
+  </style>
 </body>
 </html>

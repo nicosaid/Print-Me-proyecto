@@ -4,7 +4,6 @@ body {
     font-family: 'Arial', sans-serif;
     background-size: cover;
     display: flex;
-    justify-content: flex-start; /* Mover el formulario hacia la izquierda */
     align-items: center;
     height: 100vh;
     background-color: rgb(17, 17, 43);
@@ -16,9 +15,10 @@ body {
 .registro-container {
     display: flex;
     justify-content: flex-start; /* Mover el formulario hacia la izquierda */
+    margin-right: 70px;
     align-items: center;
     width: 100%;
-    max-width: 500px; /* Ancho máximo del formulario */
+    max-width: 400px; /* Ancho máximo del formulario */
     height: 100%;
 }
 
@@ -50,12 +50,11 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 100%;
-    max-width: 500px; /* Ancho máximo del formulario */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-left: -100px; /* Ajustar el formulario más a la izquierda */
+    margin-right: 200px; /* Ajustar el formulario más a la izquierda */
 }
 
 
@@ -134,3 +133,79 @@ p a:hover {
     top: 27%; 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+.radio-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .radio-button {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .radio-button__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .radio-button__label {
+    display: inline-block;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    position: relative;
+    font-size: 15px;
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+  
+  .radio-button__custom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #555;
+    transition: all 0.3s ease;
+  }
+  
+  .radio-button__input:checked + .radio-button__label .radio-button__custom {
+    background-color: #4c8bf5;
+    border-color: transparent;
+    transform: scale(0.8);
+    box-shadow: 0 0 20px #4c8bf580;
+  }
+  
+  .radio-button__input:checked + .radio-button__label {
+    color: #4c8bf5;
+  }
+  
+  .radio-button__label:hover .radio-button__custom {
+    transform: scale(1.2);
+    border-color: #4c8bf5;
+    box-shadow: 0 0 20px #4c8bf580;
+  }
+  
