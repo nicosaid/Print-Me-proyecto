@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pantallaregistro.css">
+    <title>Formulario de Registro</title>
+    <style>
+        /* Estilos básicos para el formulario */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .editable-field-container {
+            margin-bottom: 20px;
+        }
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .editable-label {
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        .edit-button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: transparent; /* Fondo transparente */
+            color: #007bff; /* Color del texto */
+            border: none; /* Sin bordes */
+            cursor: pointer; /* Cambia el cursor al pasar por encima */
+            font-size: 14px; /* Tamaño de la fuente */
+        }
+        .edit-button:hover {
+            text-decoration: underline; /* Subrayar al pasar el cursor */
+            color: #0056b3; /* Color al pasar el cursor */
+        }
+
+        /* From Uiverse.io by gharsh11032000 */
+        .radio-button-container {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .radio-button {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .radio-button__input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .radio-button__label {
+            display: inline-block;
+            padding-left: 30px;
+            margin-bottom: 10px;
+            position: relative;
+            font-size: 15px;
+            color: #f2f2f2;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .radio-button__custom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #555;
+            transition: all 0.3s ease;
+        }
+
+        .radio-button__input:checked + .radio-button__label .radio-button__custom {
+            background-color: #4c8bf5;
+            border-color: transparent;
+            transform: scale(0.8);
+            box-shadow: 0 0 20px #4c8bf580;
+        }
+
+        .radio-button__input:checked + .radio-button__label {
+            color: #4c8bf5;
+        }
+
+        .radio-button__label:hover .radio-button__custom {
+            transform: scale(1.2);
+            border-color: #4c8bf5;
+            box-shadow: 0 0 20px #4c8bf580;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Formulario de Registro</h1>
+
+    <form id="registro-form">
+        <!-- Sección de botones de radio -->
+        <div class="editable-field-container">
+            <div class="input-group">
+                <label class="editable-label">Post impresión</label>
+                <div class="radio-button-container">
+                    <div class="radio-button">
+                        <input type="radio" class="radio-button__input" id="radio1" name="post-impresion" value="sí" disabled>
+                        <label class="radio-button__label" for="radio1">
+                            <span class="radio-button__custom"></span>
+                            Sí
+                        </label>
+                    </div>
+                    <div class="radio-button">
+                        <input type="radio" class="radio-button__input" id="radio2" name="post-impresion" value="no" disabled>
+                        <label class="radio-button__label" for="radio2">
+                            <span class="radio-button__custom"></span>
+                            No
+                        </label>
+                    </div>
+                </div>
+                <button type="button" class="edit-button" onclick="toggleRadio()" id="post-impresion-edit-button">Editar</button>
+            </div>
+        </div>
+        
+        <!-- Otras secciones del formulario -->
+        <div class="editable-field-container">
+            <div class="input-group">
+                <label class="editable-label">Nombre</label>
+                <input type="text" name="nombre" required>
+            </div>
+        </div>
+
+        <div class="editable-field-container">
+            <div class="input-group">
+                <label class="editable-label">Email</label>
+                <input type="email" name="email" required>
+            </div>
+        </div>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        function toggleRadio() {
+            const radios = document.querySelectorAll('input[name="post-impresion"]');
+            const editButton = document.getElementById("post-impresion-edit-button");
+
+            // Alterna el estado deshabilitado de los botones de radio
+            let isDisabled = radios[0].disabled;
+
+            radios.forEach(radio => {
+                radio.disabled = !isDisabled;  // Habilita o deshabilita
+            });
+
+            // Cambia el texto del botón basado en el estado actual de los botones de radio
+            editButton.textContent = isDisabled ? "Actualizar" : "Editar";
+        }
+    </script>
+
+</body>
+</html>

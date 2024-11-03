@@ -169,17 +169,35 @@
                 </div>
             </div>
 
+
+
+
             <div class="editable-field-container">
                 <div class="input-group">
                     <label class="editable-label">Post impresión</label>
-                    <div class="input-wrapper"> 
-                        <label><input type="radio" name="post-impresion" value="sí" disabled> Sí</label>
-                        <label><input type="radio" name="post-impresion" value="no" disabled> No</label>
-                        <button class="edit-button" onclick="toggleRadio()" id="post-impresion-edit-button">Editar</button>
+                    <div class="radio-button-container">
+                        <div class="radio-button">
+                            <input type="radio" class="radio-button__input" id="radio1" name="post-impresion" value="sí" disabled>
+                            <label class="radio-button__label" for="radio1">
+                                <span class="radio-button__custom"></span>
+                                Sí
+                            </label>
+                        </div>
+                        <div class="radio-button">
+                            <input type="radio" class="radio-button__input" id="radio2" name="post-impresion" value="no" disabled>
+                            <label class="radio-button__label" for="radio2">
+                                <span class="radio-button__custom"></span>
+                                No
+                            </label>
+                        </div>
                     </div>
+                    <button type="button" class="edit-button" onclick="toggleRadio()" id="post-impresion-edit-button" 
+                    >Editar</button>
                 </div>
             </div>
 
+
+            
            
 
 <div class="editable-field-container">
@@ -270,41 +288,57 @@ function togglePopupRecuperar() {
 
 
 
-    <script>
-        function toggleEdit(inputId, buttonId, updateText, editText) {
-            const inputField = document.getElementById(inputId);
-            const editButton = document.getElementById(buttonId);
+<script>
+    function toggleEdit(inputId, buttonId, updateText, editText) {
+        const inputField = document.getElementById(inputId);
+        const editButton = document.getElementById(buttonId);
 
-            if (inputField.hasAttribute("readonly")) {
-                inputField.removeAttribute("readonly");
-                inputField.focus();
-                editButton.textContent = updateText; 
-            } else {
-                inputField.setAttribute("readonly", true);
-                editButton.textContent = editText; 
-                
-                console.log("Nuevo valor guardado:", inputField.value);
-            }
+        if (inputField.hasAttribute("readonly")) {
+            inputField.removeAttribute("readonly");
+            inputField.focus();
+            editButton.textContent = updateText; 
+        } else {
+            inputField.setAttribute("readonly", true);
+            editButton.textContent = editText; 
+            
+            console.log("Nuevo valor guardado:", inputField.value);
         }
+    }
 
-        function toggleDropdown() {
-            const dropdown = document.getElementById("zona-select");
-            const editButton = document.getElementById("zona-edit-button");
+    function toggleDropdown() {
+        const dropdown = document.getElementById("zona-select");
+        const editButton = document.getElementById("zona-edit-button");
 
-            dropdown.disabled = !dropdown.disabled; 
-            editButton.textContent = dropdown.disabled ? "Editar" : "Actualizar"; 
-        }
+        dropdown.disabled = !dropdown.disabled; 
+        editButton.textContent = dropdown.disabled ? "Editar" : "Actualizar"; 
+    }
 
-        function toggleRadio() {
+
+    
+
+
+
+
+    function toggleRadio() {
             const radios = document.querySelectorAll('input[name="post-impresion"]');
+            const editButton = document.getElementById("post-impresion-edit-button");
+
+            // Alterna el estado deshabilitado de los botones de radio
+            let isDisabled = radios[0].disabled;
+
             radios.forEach(radio => {
-                radio.disabled = !radio.disabled; 
+                radio.disabled = !isDisabled;  // Habilita o deshabilita
             });
 
-            const editButton = document.getElementById("post-impresion-edit-button");
-            editButton.textContent = radios[0].disabled ? "Editar" : "Actualizar"; 
+            // Cambia el texto del botón basado en el estado actual de los botones de radio
+            editButton.textContent = isDisabled ? "Actualizar" : "Editar";
         }
-    </script>
+
+
+
+
+</script>
+
 </main>
 
 
