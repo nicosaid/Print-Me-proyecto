@@ -1,123 +1,188 @@
-
 body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
   background-size: cover;
   display: flex;
-  justify-content: flex-end; 
   align-items: center;
+  justify-content: flex-end; 
+  margin-right: 100px;
   height: 100vh;
   background-color: rgb(17, 17, 43);
   color: white;
-  padding-right: 100px; 
+  overflow-x: hidden; 
+}
+
+canvas {
+    position: absolute; /* Asegúrate que el canvas esté detrás del contenido */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Mantener el canvas en el fondo */
 }
 
 .registro-container {
-  display: flex;
-  justify-content: right;
-  align-items: center;
-  width: 500px;
-  height: 100%;
+    display: flex;
+    position: relative; /* Necesario para el z-index */
+    z-index: 1; /* Asegúrate de que el formulario esté por encima del canvas */
+    width: 100%;
+    height: 100%;
+    max-width: 500px; /* Máximo ancho para el formulario */
+    padding-right: 20px; /* Espaciado a la derecha */
+    margin-left: auto; /* Alinear a la derecha */
+}
+
+.scrollable-container {
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-color: black transparent;
+    scrollbar-width: thin;
+    margin: 0; 
+}
+
+.scrollable-container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+    background-color: black; /* Cambiar a negro */
+    border-radius: 10px;
 }
 
 .registro-form {
-  background-color: white;
-  border-radius: 20px;
-  padding: 30px 40px; 
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px 40px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-
 h1 {
-  font-size: 28px;
-  font-weight: bold;
-  margin: 0;
-  color: #000;
-  letter-spacing: 2px;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+    color: #000;
+    letter-spacing: 2px;
 }
 
 p {
-  font-size: 14px;
-  margin: 10px 0 30px;
-  color: #ffffff;
+    font-size: 14px;
+    margin: 10px 0 20px; /* Ajuste del margen */
+    color: #666;
 }
-
 
 .input-box {
-  margin: -8px; 
-  width: 100%;
+    width: 100%;
+    margin-bottom: -10px; 
 }
 
-.input-box input {
-  width: 100%;
-  padding: 15px;
-  font-size: 16px;
-  border-radius: 50px;
-  border: 1px solid #ccc;
-  text-align: center;
-  color: #333;
-  position: center;
-  box-sizing: border-box;
-
+.input-box input,
+.input-box select {
+    width: 400px; 
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    text-align: center;
+    color: #333;
+    box-sizing: border-box;
 }
 
-.input-box input::placeholder {
-  color: #ccc;
+.input-box input::placeholder,
+.input-box select {
+    color: #ccc;
 }
 
 button {
-  width: 100%;
-  padding: 15px;
-  font-size: 16px;
-  border-radius: 50px;
-  border: 1px solid #ccc;
-  text-align: center;
-  background-color: #1a2f87;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-  margin: 0px;
+    width: 400px; /* Mantener el tamaño original del botón */
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    text-align: center;
+    background-color: #1a2f87;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 0px;
 }
 
 button:hover {
-  background-color: #0f1e66;
-}
-
-p {
-  font-size: 12px;
-  color: #666;
+    background-color: #0f1e66;
 }
 
 p a {
-  color: #1a2f87;
-  text-decoration: none;
-  font-weight: bold;
+    color: #1a2f87;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 p a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
-
-
-
-.content {
-  position: relative;
-  z-index: 1; /* Asegura que el contenido esté sobre el video */
-  color: white; /* Cambia el color del texto si es necesario */
-  text-align: center;
-  padding: 20px;
-}
-
 
 .logo-container {
-  position: fixed; /* Fija la posición respecto a la ventana del navegador */
-  right: 55%; /* Posiciona la parte superior del elemento al 50% de la altura de la pantalla */
-  top: 27%; 
+    position: fixed;
+    right: 55%;
+    top: 27%; 
+}
+
+.radio-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.radio-button {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.radio-button__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.radio-button__label {
+    display: inline-block;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    position: relative;
+    font-size: 15px;
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.radio-button__custom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #555;
+    transition: all 0.3s ease;
+}
+
+.radio-button__input:checked + .radio-button__label .radio-button__custom {
+    background-color: #1a2f87;
 }

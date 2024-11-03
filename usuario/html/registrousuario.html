@@ -12,48 +12,60 @@
 </head>
 <body>
   <canvas id="starCanvas"></canvas>
-
   
-    <main>
-        <!-- Contenedor del Logo -->
-        <div class="logo-container">
-            
-            <img class="logo" src="../logo.png" alt="logo">
-        </div>
 
-        <script src="../../general/fondo.js"></script>
+  <main>
+    <div class="logo-container">
+      <img class="logo" src="../../general/logo.png" alt="logo">
+    </div>
+
+    <div class="registro-container">
+      <form action="" method="post" id="registro-form" class="registro-form" novalidate>
+        <h1>Registrarte</h1>
+        <p>Welcome!</p>
+
+        <div class="scrollable-container">
+          <div class="input-box">
+            <label for="Usuario">Usuario:</label><br>
+            <input type="text" id="usuario" name="usuario" placeholder="Usuario..." autofocus><br><br>
+            <div class="error"></div>
+          </div>
+
+          <div class="input-box">
+            <label for="email">Correo electrónico:</label><br>
+            <input type="email" id="email" name="email" placeholder="Ejemplo@gmail.com"><br><br>
+            <div class="error"></div>
+          </div>
+
+          <div class="input-box">
+            <label for="contra">Contraseña:</label><br>
+            <input type="password" id="contra" name="contra" placeholder="Contraseña..." minlength="8"><br><br>
+            <div class="error"></div>
+          </div>
+
+          <div class="input-box">
+            <label for="contra2">Confirmar contraseña:</label><br>
+            <input type="password" id="contra2" name="contra2" placeholder="Confirmar contraseña..."><br><br>
+            <div class="error"></div>
+          </div>
 
 
-<div class="registro-container">
-    <form action="" method="post" id="registro-form" class="registro-form" novalidate>
 
-      <h1>Registrarte</h1>
-      <p>Welcome!</p>
+          <div class="input-box">
+            <label for="modelo-impresora">Zona de Residencia:</label><br>
+            <select id="modelo-impresora" name="modelo-impresora">
+              <option value="" disabled selected>Zona de Residencia</option>
+              <option value="residencia1">residencia1</option>
+              <option value="residencia2">residencia2</option>
+              <option value="residencia3">residencia3</option>
+            </select><br><br>
+          </div>
 
 
-      <div class="input-box">
-        <label for="Usuario">Usuario:</label><br>
-                <input type="text" id="nombre_apellido" name="nombre_apellido" placeholder="Usuario..." autofocus><br><br>
-                <div class="error"></div>
-              </div>
-              <div class="input-box">
-                <label for="mail">Correo electrónico:</label><br>
-                <input type="mail" id="mail" name="mail" placeholder="Ejemplo@gmail.com"><br><br>
-                <div class="error"></div>
-              </div>
-              <div class="input-box">
-                <label for="contraseña">Contraseña:</label><br>
-                <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña..." minlength="8"><br><br>
-                <div class="error"></div>
-              </div>
-              <div class="input-box">
-                <label for="contraseña2">Confirmar contraseña:</label><br>
-                <input type="password" id="contraseña2" name="contraseña2" placeholder="Confirmar contraseña..."><br><br>
-                <div class="error"></div>
-              </div>
-
-              
+         
        <button type="submit">Registrarme</button>
+
+      </div>
 
           <!-- Opción para registrarse -->
           <p>¿Ya tienes cuenta? <a href="../../general/sesion.html">Haz Click Aquí</a></p>

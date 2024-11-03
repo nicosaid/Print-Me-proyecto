@@ -22,31 +22,39 @@
 
         <div class="scrollable-container">
           <div class="input-box">
-            <label for="Usuario">Usuario:</label><br>
             <input type="text" id="usuario" name="usuario" placeholder="Usuario..." autofocus><br><br>
             <div class="error"></div>
           </div>
 
           <div class="input-box">
-            <label for="email">Correo electrónico:</label><br>
             <input type="email" id="email" name="email" placeholder="Ejemplo@gmail.com"><br><br>
             <div class="error"></div>
           </div>
 
           <div class="input-box">
-            <label for="contra">Contraseña:</label><br>
             <input type="password" id="contra" name="contra" placeholder="Contraseña..." minlength="8"><br><br>
             <div class="error"></div>
           </div>
 
           <div class="input-box">
-            <label for="contra2">Confirmar contraseña:</label><br>
             <input type="password" id="contra2" name="contra2" placeholder="Confirmar contraseña..."><br><br>
             <div class="error"></div>
           </div>
 
+
+
+
           <div class="input-box">
-            <label for="modelo-impresora">Modelo de Impresora:</label><br>
+            <select id="modelo-impresora" name="modelo-impresora">
+              <option value="" disabled selected>Zona de Residencia</option>
+              <option value="residencia1">residencia1</option>
+              <option value="residencia2">residencia2</option>
+              <option value="residencia3">residencia3</option>
+            </select><br><br>
+          </div>
+
+          
+          <div class="input-box">
             <select id="modelo-impresora" name="modelo-impresora">
               <option value="" disabled selected>Selecciona el modelo</option>
               <option value="modelo1">Modelo 1</option>
@@ -56,7 +64,6 @@
           </div>
 
           <div class="input-box">
-            <label for="material">Material:</label><br>
             <select id="material" name="material">
               <option value="" disabled selected>Selecciona el material</option>
               <option value="pla">PLA</option>
