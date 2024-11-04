@@ -10,20 +10,13 @@
     <link rel="stylesheet" href="../../general/topbar.css">
     <link rel="stylesheet" href="../../general/cerrar.css">
     <script src="../js/miperfiluser.js"></script>
-    
-    
 </head>
 
-
-
 <link rel="apple-touch-icon" sizes="180x180" href="../../general/icon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../general/icon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../general/icon/favicon-16x16.png">
-    <link rel="manifest" href="../../general/icon/site.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="../../general/icon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../general/icon/favicon-16x16.png">
+<link rel="manifest" href="../../general/icon/site.webmanifest">
 
-
-
-    
 <body>
     <header>
         <div clas s="card">
@@ -44,38 +37,23 @@
             <button id="cerrar" class="cerrar-menu"><i class="bi bi-x"></i></button>
             <div class="option-container">
             
-
                     <a href="../html/miperfilusuario.html" class="optionmiperf" ><p>Mi perfil</p></a>
                       <a href="../html/servicioimpresion3d.html" class="optionserv" ><p> Servicio Impresion 3D</p></a>
             
-
-                      
-            
-
-
-
-
-<!-- Botón que abre el popup de cerrar sesión -->
 <button class="logout-button" onclick="togglePopupLogout()" >   <p>Cerrar Sesion</p>  </button>
 
-<!-- Contenedor del Popup de Cerrar Sesión -->
 <div class="popup-container-logout" id="popup-container-logout">
     <h2>¿Estás seguro?</h2>
-    <!-- Contenedor de botones para alinearlos en una fila -->
     <div class="button-container-logout">
         <button class="popup-button-logout confirm-button-logout" onclick="cerrarSesion()">Sí, cerrar sesión</button>
         <button class="popup-button-logout cancel-button-logout" onclick="togglePopupLogout()">Cancelar</button>
     </div>
 </div>
 
-<!-- Fondo Oscurecido para el popup de Cerrar Sesión -->
 <div class="overlay-logout" onclick="togglePopupLogout()"></div>
 </div>
 
-
-
 <script>
-    // Función para mostrar y ocultar el popup específico de cerrar sesión
     function togglePopupLogout() {
         const popup = document.getElementById("popup-container-logout");
         const overlay = document.querySelector(".overlay-logout");
@@ -89,18 +67,12 @@
         }
     }
 </script>
-
-
     </header>
-
-
-
 
 <main>
     <div class="profile-container">
         <h1>MI PERFIL</h1>
         <form action="#">
-            <!-- Campo: Nombre y Apellido -->
             <div class="editable-field-container">
                 <div class="input-group">
                     <label for="editable-input" class="editable-label">Nombre y Apellido</label>
@@ -111,8 +83,6 @@
                 </div>
             </div>
 
-
-            <!-- Campo: Descripción -->
             <div class="editable-field-container">
                 <div class="input-group">
                     <label for="description-input" class="editable-label">Descripción</label>
@@ -123,47 +93,25 @@
                 </div>
             </div>
 
-
-                  <!-- Campo: Email -->
-                  <div class="editable-field-container">
-                    <div class="input-group">
-                        <label for="email-input" class="editable-label">Email</label>
-                        <div class="input-wrapper"> 
-                            <input type="email" id="description-input" value="{{email}}" readonly>
-                            <button class="edit-button" onclick="toggleEdit('description-input', 'description-edit-button', 'Actualizar', 'Editar')" id="description-edit-button">Editar</button>
-                        </div>
-                    </div>
-                </div>
-    
-
-            <!-- Campo: Zona (Dropdown) -->
             <div class="editable-field-container">
                 <div class="input-group">
-                    <label for="zona-select" class="editable-label">Zona</label>
+                    <label for="email-input" class="editable-label">Email</label>
                     <div class="input-wrapper"> 
-                        <select id="zona-select" disabled>
-                            <option value="zona1">Zona 1</option>
-                            <option value="zona2">Zona 2</option>
-                            <option value="zona3">Zona 3</option>
-                        </select>
-                        <button class="edit-button" onclick="toggleDropdown()" id="zona-edit-button">Editar</button>
+                        <input type="email" id="description-input" value="{{email}}" readonly>
+                        <button class="edit-button" onclick="toggleEdit('description-input', 'description-edit-button', 'Actualizar', 'Editar')" id="description-edit-button">Editar</button>
                     </div>
                 </div>
             </div>
 
-    
-
-  <!-- Campo: Contraseña -->
 <div class="editable-field-container">
     <div class="input-group">
         <label class="editable-label">¿No recuerdas tu contraseña?</label>
         <div class="input-wrapper">
 
             <style>
-                /* Estilos del botón "Recuperar/Cambiar Contraseña" */
                 .recuperar-contra {
-                    background-color: #1d2a61; /* Color de fondo similar al botón "Listo" */
-                    color: #ffffff; /* Color del texto */
+                    background-color: #1d2a61;
+                    color: #ffffff;
                     padding: 10px 20px;
                     font-size: 16px;
                     border: none;
@@ -174,12 +122,11 @@
                 }
 
                 .recuperar-contra:hover {
-                    background-color: #132147; /* Color de fondo más oscuro en hover */
+                    background-color: #132147; 
                 }
 
-                /* Estilo de contenedor emergente */
                 .popup-container-recuperar {
-                    display: none; /* Oculto por defecto */
+                    display: none; 
                     position: fixed;
                     top: 50%;
                     left: 50%;
@@ -192,9 +139,8 @@
                     text-align: center;
                 }
 
-                /* Fondo de pantalla oscurecido */
                 .overlay-recuperar {
-                    display: none; /* Oculto por defecto */
+                    display: none;
                     position: fixed;
                     top: 0;
                     left: 0;
@@ -205,10 +151,11 @@
                 }
             </style>
 
-            <!-- Botón que abre el popup de recuperación de contraseña -->
+
+
+
             <button class="recuperar-contra" onclick="togglePopupRecuperar()">Cambiar Contraseña</button>
 
-            <!-- Contenedor del Popup de recuperación de contraseña -->
             <div class="popup-container-recuperar" id="popup-container-recuperar">
                 <h2>Cambiar Contraseña</h2>
                 <br>
@@ -217,11 +164,9 @@
                 <button class="recuperar-contra" onclick="togglePopupRecuperar()">Restablecer Contraseña</button>
             </div>
 
-            <!-- Fondo Oscurecido para el popup de recuperación de contraseña -->
             <div class="overlay-recuperar" onclick="togglePopupRecuperar()"></div>
 
             <script>
-                // Función para mostrar y ocultar el popup específico de recuperación de contraseña
                 function togglePopupRecuperar() {
                     const popup = document.getElementById("popup-container-recuperar");
                     const overlay = document.querySelector(".overlay-recuperar");
@@ -234,28 +179,15 @@
                         overlay.style.display = "none";
                     }
                 }
+
+
+                
             </script>
         </div>
     </div>
 </div>
-
-                        
-                        </body>
-                        </html>
-                        
-
-
-
-
-
-                                            
-                </div>
-            </div>
         </form>
     </div>
-
-
-
 
     <script>
         function toggleEdit(inputId, buttonId, updateText, editText) {
@@ -265,12 +197,10 @@
             if (inputField.hasAttribute("readonly")) {
                 inputField.removeAttribute("readonly");
                 inputField.focus();
-                editButton.textContent = updateText; // Cambiar texto del botón a "Actualizar"
+                editButton.textContent = updateText;
             } else {
                 inputField.setAttribute("readonly", true);
-                editButton.textContent = editText; // Cambiar texto del botón de nuevo a "Editar"
-                
-                // Aquí puedes agregar código para guardar el valor actualizado en la base de datos
+                editButton.textContent = editText;
                 console.log("Nuevo valor guardado:", inputField.value);
             }
         }
@@ -279,33 +209,20 @@
             const dropdown = document.getElementById("zona-select");
             const editButton = document.getElementById("zona-edit-button");
 
-            dropdown.disabled = !dropdown.disabled; // Alternar habilitación del dropdown
-            editButton.textContent = dropdown.disabled ? "Editar" : "Actualizar"; // Cambiar texto del botón
+            dropdown.disabled = !dropdown.disabled;
+            editButton.textContent = dropdown.disabled ? "Editar" : "Actualizar";
         }
 
         function toggleRadio() {
             const radios = document.querySelectorAll('input[name="post-impresion"]');
             radios.forEach(radio => {
-                radio.disabled = !radio.disabled; // Alternar habilitación de los botones de radio
+                radio.disabled = !radio.disabled;
             });
 
             const editButton = document.getElementById("post-impresion-edit-button");
-            editButton.textContent = radios[0].disabled ? "Editar" : "Actualizar"; // Cambiar texto del botón
+            editButton.textContent = radios[0].disabled ? "Editar" : "Actualizar";
         }
     </script>
 </main>
-
-
-
-
-
-
-
-
-
-    </div>
-</main>
-
-
-
-
+</body>
+</html>

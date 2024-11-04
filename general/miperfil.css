@@ -46,6 +46,18 @@ h1 {
     align-items: flex-start;
     margin-bottom: 15px;
     width: 100%;
+    display: flex;
+}
+
+.input-group-editar {
+
+    display: flex;
+    flex-direction: row; /* Cambiado para que el label esté arriba */
+    align-items: flex-start;
+    margin-bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
 }
 
 /* Etiqueta alineada arriba del campo */
@@ -64,7 +76,6 @@ h1 {
 
 
 
-/* Campo de entrada (input) - para texto, correo electrónico, contraseña y menú desplegable */
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -80,7 +91,6 @@ select {
     text-align: left;
 }
 
-/* Efecto al enfocar el campo */
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus,
@@ -93,10 +103,21 @@ select:focus {
 
 #post-impresion-edit-button
 {
-margin-left: 315px;
-margin-top: -50px;
+ margin-left: 50px;
+ margin-top: 10px;
 
 }
+
+.editable-field-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.separador{
+    display: flex;
+    flex-direction: column;
+}
+
 
 
 .edit-button {
@@ -141,8 +162,49 @@ margin-top: -50px;
 }
 
 
+            /* Estilos del botón "Recuperar/Cambiar Contraseña" */
+            .recuperar-contra {
+                background-color: #1d2a61; /* Color de fondo similar al botón "Listo" */
+                color: #ffffff; /* Color del texto */
+                padding: 10px 20px;
+                font-size: 16px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                transition: background-color 0.3s ease;
+            }
 
+            .recuperar-contra:hover {
+                background-color: #132147; /* Color de fondo más oscuro en hover */
+            }
 
+            /* Estilo de contenedor emergente */
+            .popup-container-recuperar {
+                display: none; /* Oculto por defecto */
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #ffffff;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+                z-index: 1000;
+                text-align: center;
+            }
+
+            /* Fondo de pantalla oscurecido */
+            .overlay-recuperar {
+                display: none; /* Oculto por defecto */
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
 
 
 

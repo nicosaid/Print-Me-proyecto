@@ -24,7 +24,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2rem;
+    padding: 1.5rem;
     background-color: #ececec;
 }
 
@@ -56,6 +56,13 @@ a {
 
 
 
+
+
+body {
+	background-image: url("https://img.freepik.com/vector-gratis/fondo-monocromo-estilo-realista_52683-67242.jpg?t=st=1730732334~exp=1730735934~hmac=136f47362d5c3a4f8dc403c695e60500c47873f73ca5be5772ae809c51cfe90b&w=1800");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
 
 
 

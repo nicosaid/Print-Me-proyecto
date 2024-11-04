@@ -24,7 +24,7 @@
 
 
 
-    
+
 <body>
 
 
@@ -185,7 +185,8 @@
 
 
             <div class="editable-field-container">
-                <div class="input-group">
+                <div class="input-group-editar">
+                    <div class="separador">
                     <label class="editable-label">Post impresión</label>
                     <div class="radio-button-container">
                         <div class="radio-button">
@@ -203,6 +204,7 @@
                             </label>
                         </div>
                     </div>
+                </div>
                     <button type="button" class="edit-button" onclick="toggleRadio()" id="post-impresion-edit-button" 
                     >Editar</button>
                 </div>
@@ -210,59 +212,35 @@
 
 
             
-           
+         
 
-<div class="editable-field-container">
+
+  <!-- Campo: Contraseña -->
+  <div class="editable-field-container">
     <div class="input-group">
         <label class="editable-label">¿No recuerdas tu contraseña?</label>
         <div class="input-wrapper">
 
-            <style>
-              
+        
 
-
-
-                .popup-container-recuperar {
-                    display: none; 
-                    position: fixed;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    background-color: #ffffff;
-                    padding: 30px;
-                    border-radius: 10px;
-                    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-                    z-index: 1000;
-                    text-align: center;
-                }
-
-                .overlay-recuperar {
-                    display: none; 
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: rgba(0, 0, 0, 0.5);
-                    z-index: 999;
-                }
-            </style>
-
+            <!-- Botón que abre el popup de recuperación de contraseña -->
             <button class="recuperar-contra" onclick="togglePopupRecuperar()">Cambiar Contraseña</button>
 
+            <!-- Contenedor del Popup de recuperación de contraseña -->
             <div class="popup-container-recuperar" id="popup-container-recuperar">
                 <h2>Cambiar Contraseña</h2>
                 <br>
                 <input type="password" placeholder="Escribir nueva contraseña" style="padding: 10px; font-size: 16px; width: 100%; margin-bottom: 15px;">
                 <input type="password" placeholder="Confirmar contraseña" style="padding: 10px; font-size: 16px; width: 100%; margin-bottom: 20px;">
-                <button class="" onclick="togglePopupRecuperar()">Restablecer Contraseña</button>
+                <button class="recuperar-contra" onclick="togglePopupRecuperar()">Restablecer Contraseña</button>
             </div>
 
+            <!-- Fondo Oscurecido para el popup de recuperación de contraseña -->
             <div class="overlay-recuperar" onclick="togglePopupRecuperar()"></div>
 
             <script>
-
-function togglePopupRecuperar() {
+                // Función para mostrar y ocultar el popup específico de recuperación de contraseña
+                function togglePopupRecuperar() {
                     const popup = document.getElementById("popup-container-recuperar");
                     const overlay = document.querySelector(".overlay-recuperar");
 
@@ -275,7 +253,22 @@ function togglePopupRecuperar() {
                     }
                 }
             </script>
-      
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

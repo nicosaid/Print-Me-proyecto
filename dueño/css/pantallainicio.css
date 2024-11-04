@@ -400,7 +400,35 @@ img {
 
   
 
+
+.wrapper .btn {
+	width: 100%;
+	padding: 15px;
+	background-color: rgba(255, 255, 255, 0.2);
+	margin-bottom: 10px;
+	color: white;
+	border: none;
+	border-radius: 40px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background-color 0.3s ease;
+}
+
+.wrapper .btn:hover {
+	background-color: rgba(255, 255, 255, 0.279);
+}
+
    
+  
+
+
+
+
+
+
+
+
+
    
 
 
