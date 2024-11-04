@@ -187,3 +187,10 @@ body {
   .radio-button__input:checked + .radio-button__label .radio-button__custom {
       background-color: #1a2f87;
   }
+
+
+
+
+#postimp {
+    color:  #707070be;
+}
