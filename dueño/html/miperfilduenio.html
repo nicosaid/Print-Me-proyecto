@@ -187,7 +187,7 @@
             <div class="editable-field-container">
                 <div class="input-group-editar">
                     <div class="separador">
-                    <label class="editable-label">Post impresión</label>
+                    <label class="editable-label">Realiza post impresión</label>
                     <div class="radio-button-container">
                         <div class="radio-button">
                             <input type="radio" class="radio-button__input" id="radio1" name="post-impresion" value="sí" disabled>
@@ -238,27 +238,33 @@
             <!-- Fondo Oscurecido para el popup de recuperación de contraseña -->
             <div class="overlay-recuperar" onclick="togglePopupRecuperar()"></div>
 
-            <script>
-                // Función para mostrar y ocultar el popup específico de recuperación de contraseña
-                function togglePopupRecuperar() {
-                    const popup = document.getElementById("popup-container-recuperar");
-                    const overlay = document.querySelector(".overlay-recuperar");
-
-                    if (popup.style.display === "none" || !popup.style.display) {
-                        popup.style.display = "block";
-                        overlay.style.display = "block";
-                    } else {
-                        popup.style.display = "none";
-                        overlay.style.display = "none";
-                    }
-                }
-            </script>
+          
         </div>
     </div>
 </div>
 
 
+<script>
 
+document.addEventListener("DOMContentLoaded", function() {
+    // Función para mostrar y ocultar el popup de recuperación de contraseña
+    function togglePopupRecuperar() {
+        const popup = document.getElementById("popup-container-recuperar");
+        const overlay = document.querySelector(".overlay-recuperar");
+
+        const isVisible = popup.style.display === "block";
+        popup.style.display = isVisible ? "none" : "block";
+        overlay.style.display = isVisible ? "none" : "block";
+    }
+
+    // Agregar event listeners al botón y al overlay para abrir/cerrar el popup
+    document.querySelector(".recuperar-contra").addEventListener("click", togglePopupRecuperar);
+    document.querySelector(".overlay-recuperar").addEventListener("click", togglePopupRecuperar);
+});
+
+
+
+</script>
 
 
 

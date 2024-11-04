@@ -115,7 +115,6 @@
     inset: 0;
     color: var(--hovered-color);
     overflow: hidden;
-    transition: 0.3s ease-out;
   }
   
   .logout-button:hover::after {

@@ -165,24 +165,27 @@
             </div>
 
             <div class="overlay-recuperar" onclick="togglePopupRecuperar()"></div>
-
             <script>
-                function togglePopupRecuperar() {
-                    const popup = document.getElementById("popup-container-recuperar");
-                    const overlay = document.querySelector(".overlay-recuperar");
 
-                    if (popup.style.display === "none" || !popup.style.display) {
-                        popup.style.display = "block";
-                        overlay.style.display = "block";
-                    } else {
-                        popup.style.display = "none";
-                        overlay.style.display = "none";
-                    }
-                }
-
-
+                document.addEventListener("DOMContentLoaded", function() {
+                    // Función para mostrar y ocultar el popup de recuperación de contraseña
+                    function togglePopupRecuperar() {
+                        const popup = document.getElementById("popup-container-recuperar");
+                        const overlay = document.querySelector(".overlay-recuperar");
                 
-            </script>
+                        const isVisible = popup.style.display === "block";
+                        popup.style.display = isVisible ? "none" : "block";
+                        overlay.style.display = isVisible ? "none" : "block";
+                    }
+                
+                    // Agregar event listeners al botón y al overlay para abrir/cerrar el popup
+                    document.querySelector(".recuperar-contra").addEventListener("click", togglePopupRecuperar);
+                    document.querySelector(".overlay-recuperar").addEventListener("click", togglePopupRecuperar);
+                });
+                
+                
+                
+                </script>
         </div>
     </div>
 </div>
