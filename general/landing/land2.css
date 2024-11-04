@@ -16,6 +16,7 @@ header {
 header .logo {
     font-size: 1.5em;
     font-weight: bold;
+    color: #d1d1d1;
 }
 
 header nav ul {
@@ -138,7 +139,6 @@ header nav ul li a:hover {
     text-align: left;
     max-width: 700px;
     color: white;
-    font-family: 'Arial', sans-serif;
 }
 
 .one-text h1 {
