@@ -191,9 +191,9 @@
             <h2>Juan Carlos</h2>
             <p class="stats"></p>
 
-       
 
-            <button class="button" onclick="window.location.href='perfildueño.html'" >
+
+            <button class="button" onclick="redirectWithDelay()">
                 Ir al Perfil
                 <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
                     <path
@@ -203,6 +203,17 @@
                     ></path>
                 </svg>
             </button>
+            
+            <script>
+                function redirectWithDelay() {
+                    // Redirige a la pantalla de carga después de hacer clic
+                    window.location.href = '../html/loading.html';
+                }
+            </script>            
+       
+
+
+            
             
 
 
