@@ -1,28 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrintMe</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../../usuario/css/perfildue.css">
-    <link rel="stylesheet" href="../../general/cerrar.css">
-    <script src="../js/miperfiluser.js"></script>
+    <title>Botón con SVG y Animación</title>
+    <style>
+      
+
+        .btn-conteiner {
+            display: flex;
+            justify-content: flex-start; /* Cambiado a flex-start para alinear a la izquierda */
+            padding-left: 20px; /* Margen izquierdo para el contenedor */
+            --color-text: #000000; /* Texto negro */
+            --color-background: #fff;
+            --color-outline: #ff145b80;
+            --color-shadow: #00000080;
+        }
+
+        .btn-content {
+            display: flex;
+            align-items: center;
+            padding: 7px 20px; /* Relleno del botón */
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--color-text);
+            background: var(--color-background);
+            transition: 1s;
+            border-radius: 100px;
+            box-shadow: 0 0 0.2em 0 var(--color-background);
+            font-size: 18px; /* Tamaño de la fuente */
+            margin-left: 10px; /* Añade margen a la izquierda del botón */
+            margin-top: 20px; /* Ajusta el margen superior para bajarlo */
+            display: inline-flex; /* Para centrar el contenido */
+            align-items: center; /* Centra verticalmente el contenido del botón */
+        }
+
+        .btn-content:hover, .btn-content:focus {
+            transition: 0.5s;
+            outline: 0.1em solid transparent;
+            outline-offset: 0.2em;
+            box-shadow: 0 0 0.4em 0 var(--color-background);
+        }
+
+        .btn-content .icon-arrow {
+            transition: 0.5s;
+            margin-right: 10px; /* Ajusta el margen a la derecha dentro del botón */
+            transform: scale(0.6);
+        }
+
+  
+
+        .icon-arrow {
+            width: 16px; /* Reduce el tamaño del SVG */
+            margin-left: 5px; /* Menos margen a la izquierda dentro del botón */
+            position: relative;
+            top: 6%;
+            fill: #000000; /* Flechas negras */
+        }
+
+        /* SVG */
+        #arrow-icon-one, #arrow-icon-two, #arrow-icon-three {
+            transition: 0.4s;
+            fill: #000000; /* Flechas negras */
+        }
+
+        /* SVG animations */
+        .btn-content:hover #arrow-icon-one {
+            transform: translateX(0%);
+            animation: color_anim 1s infinite 0.6s;
+        }
+
+        .btn-content:hover #arrow-icon-two {
+            transform: translateX(0%);
+            animation: color_anim 1s infinite 0.4s;
+        }
+
+        .btn-content:hover #arrow-icon-three {
+            animation: color_anim 1s infinite 0.2s;
+        }
+
+        @keyframes color_anim {
+            0% {
+                fill: black; /* Flechas negras */
+            }
+            50% {
+                fill: var(--color-background);
+            }
+            100% {
+                fill: black; /* Flechas negras */
+            }
+        }
+
+
+        #volver{
+margin-left: 15px;            }
+
+
+    </style>
 </head>
 <body>
-    <link rel="apple-touch-icon" sizes="180x180" href="../../general/icon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../general/icon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../general/icon/favicon-16x16.png">
-    <link rel="manifest" href="../../general/icon/site.webmanifest">
-    
-    <canvas id="starCanvas"></canvas>
-    <script src="../../general/fondo.js"></script>
-    
-   
-
-<div class="btn-conteiner">
-
+    <div class="btn-conteiner">
         <a class="btn-content" href="#">
             <span class="icon-arrow">
                 <svg width="50px" height="33px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -36,64 +114,5 @@
             <span id="volver">Volver</span> <!-- Texto 'Volver' -->
         </a>
     </div>
-    
-
-
-
-
-
-    
-    <div class="card">
-        <h1 class="title">FERNANDO.R3D</h1>
-        <img src="../html/impresoraperfil.png" alt="Impresora 3D" class="printer-image">
-    
-
-        <div class="description">
-            <label for="desc">DESCRIPCIÓN</label>
-            <textarea id="desc" placeholder="Describa su pedido..." readonly>
-            </textarea>
-        </div>
-        
-
-
-
-
-        <div class="info">
-            <div class="field" id="impresora-field">
-              <label for="impresora">Impresora:</label>
-              <div class="data-field" id="impresora-info">Impresora XYZ 123</div> <!-- Información no modificable -->
-            </div>
-            <div class="field" id="filamento-field">
-              <label for="filamento">Filamento:</label>
-              <div class="data-field" id="filamento-info">Filamento PLA Color Azul</div> <!-- Información no modificable -->
-            </div>
-          </div>
-          
-          
-
-
-
-
-
-        
-        <button class="start-order">Iniciar pedido</button>
-    </div>
 </body>
 </html>
-
-<style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-
-
-
-
-
-
-
-
-</style>

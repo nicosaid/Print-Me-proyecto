@@ -1,0 +1,266 @@
+.btn-conteiner {
+ --color-text: #000000; /* Texto negro */
+  --color-background: #fff;
+  --color-outline: #ff145b80;
+  --color-shadow: #00000080;
+
+}
+.btn-content {
+  display: flex;
+  align-items: end;
+  padding: 7px 20px; /* Relleno del botón */
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: 1s;
+  border-radius: 100px;
+  box-shadow: 0 0 0.2em 0 var(--color-background);
+  font-size: 18px; /* Tamaño de la fuente */
+  margin-left: 10px; /* Añade margen a la izquierda del botón */
+  display: inline-flex; /* Para centrar el contenido */
+  align-items: center; /* Centra verticalmente el contenido del botón */
+}
+
+.btn-content:hover, .btn-content:focus {
+  transition: 0.5s;
+  outline: 0.1em solid transparent;
+  outline-offset: 0.2em;
+  box-shadow: 0 0 0.4em 0 var(--color-background);
+}
+
+.btn-content .icon-arrow {
+  transition: 0.5s;
+  margin-right: 10px; /* Ajusta el margen a la derecha dentro del botón */
+  transform: scale(0.6);
+}
+
+
+
+.icon-arrow {
+  width: 16px; /* Reduce el tamaño del SVG */
+  margin-left: 5px; /* Menos margen a la izquierda dentro del botón */
+  position: relative;
+  top: 6%;
+  fill: #000000; /* Flechas negras */
+}
+
+/* SVG */
+#arrow-icon-one, #arrow-icon-two, #arrow-icon-three {
+  transition: 0.4s;
+  fill: #000000; /* Flechas negras */
+}
+
+/* SVG animations */
+.btn-content:hover #arrow-icon-one {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.6s;
+}
+
+.btn-content:hover #arrow-icon-two {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.4s;
+}
+
+.btn-content:hover #arrow-icon-three {
+  animation: color_anim 1s infinite 0.2s;
+}
+
+@keyframes color_anim {
+  0% {
+      fill: black; /* Flechas negras */
+  }
+  50% {
+      fill: var(--color-background);
+  }
+  100% {
+      fill: black; /* Flechas negras */
+  }
+}
+
+
+#volver{
+margin-left: 15px;  
+   
+       }
+
+
+
+
+
+
+
+
+
+.info {
+  display: flex; /* Usar flexbox para alinear los campos uno al lado del otro */
+  justify-content: space-between; /* Espacio entre los campos */
+  margin-bottom: 10px; /* Espacio inferior para el contenedor */
+}
+
+.field {
+  display: flex; 
+  flex-direction: column; /* Apilar el label y el campo uno sobre otro */
+  width: 48%; /* Ajustar el ancho para que quepan en una línea */
+  align-items: center; /* Centrar los elementos horizontalmente */
+}
+
+.info label {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #1a1a1a; /* Color de texto */
+  margin-bottom: 2px; /* Espacio entre el label y la información */
+}
+
+.data-field {
+  font-size: 0.85em;
+  color: #666; /* Color de texto más claro */
+  background: none; /* Sin fondo */
+  border: none; /* Sin borde */
+  padding: 5px; /* Espacio interior opcional */
+  text-align: center; /* Centrar el texto dentro del campo de datos */
+}
+
+
+
+
+
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(17, 17, 43);
+  color: white;
+  overflow-x: hidden;
+  height: 100vh;
+  flex-direction: column;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+
+
+
+
+.card {
+  background: #fff;
+  padding: 20px;
+  width: 500px; /* Aumentado el ancho */
+  max-width: 90%; /* Para que se ajuste en pantallas pequeñas */
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  margin-top: -20px; /* Mueve la tarjeta hacia arriba */
+
+
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.printer-image {
+  width: 80%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.description {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.description label {
+  display: block;
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.description textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: none;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.tab {
+  flex: 1;
+  padding: 8px;
+  font-size: 0.9em;
+  color: #fff;
+  background-color: #1a1a1a;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.tab.active {
+  background-color: #004080;
+}
+
+.tab:last-child {
+  margin-right: 0;
+}
+
+.selectors {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+select {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.9em;
+  margin-right: 5px;
+}
+
+select:last-child {
+  margin-right: 0;
+}
+
+.start-order {
+  width: 100%;
+  padding: 10px;
+  background-color: #004080;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.start-order:hover {
+  background-color: #002a5b;
+}

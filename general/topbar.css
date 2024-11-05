@@ -24,7 +24,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.5rem;
+    padding: 1rem;
     background-color: #ececec;
 }
 
@@ -320,16 +320,6 @@ body {
   text-decoration: none;   /* Quita el subrayado */
   color: inherit;          /* Usa el color del padre */
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

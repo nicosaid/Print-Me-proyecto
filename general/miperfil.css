@@ -19,6 +19,7 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 60%;
     text-align: center;
+    margin-bottom: 100px;
 }
 
 /* Contenedor principal de campo editable alineado a la izquierda */

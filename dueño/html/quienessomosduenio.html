@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="pantallainicio.css">
+
+    <header>
+        <div class="logo-container">
+            <img class="logo" src="../general/print me logo1.png" alt="logo">
+            
+        </div>
+        <nav>
+            <button id="menu-icon">
+            
+                &#9776;
+            </button>
+            <div class="contenedor-opciones">
+                <li><a href="./pantallainiciodueño.html">Inicio</a></li>
+                <li><a href="./miperfil.html">Mi perfil</a></li>
+                <li><a href="./cotizador.html">Cotizador</a></li>
+                <li><a href="./quienessomosduenio.html">Quienes Somos</a></li>
+                <li><a id="cerrarSesion" href="../general/index.html">Cerrar Sesión</a></li>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Modal para confirmar cierre de sesión -->
+    <div id="VentanaConfirmar" class="modal">
+        <div class="modal-content">
+            <p>¿Seguro que quieres cerrar sesión?</p>
+            <button id="confirmarBtn" class="btn btn-confirm">Sí, confirmar</button>
+            <button id="cancelarBtn" class="btn btn-cancel">No, volver atrás</button>
+        </div>
+    </div>
+
+    <script>
+        const enlace = document.getElementById('cerrarSesion');
+        const modal = document.getElementById('VentanaConfirmar');
+        const confirmarBtn = document.getElementById('confirmarBtn');
+        const cancelarBtn = document.getElementById('cancelarBtn');
+
+        // Mostrar el modal al hacer clic en el enlace
+        enlace.addEventListener('click', function(event) {
+            event.preventDefault(); // Evitar la navegación
+            modal.style.display = 'block'; // Mostrar el modal
+        });
+
+        // Confirmar y proceder a la navegación
+        confirmarBtn.onclick = function() {
+            window.location.href = enlace.href; // Navegar a la URL
+        }
+
+        // Cancelar y cerrar el modal
+        cancelarBtn.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        // JavaScript para el menú
+        const btn = document.getElementById('menu-icon');
+        const menu = document.querySelector('.contenedor-opciones');
+        let isMenuOpen = false;
+
+        // Función para alternar el estado del menú
+        function toggleMenu() {
+            menu.classList.toggle('show-menu');
+            isMenuOpen = !isMenuOpen;
+        }
+
+        // Función para cerrar el menú al hacer clic fuera
+        function closeMenu(event) {
+            if (isMenuOpen && !menu.contains(event.target) && !btn.contains(event.target)) {
+                menu.classList.remove('show-menu');
+                isMenuOpen = false;
+            }
+        }
+
+        // Agregar el manejador de eventos al botón de menú
+        btn.addEventListener('click', toggleMenu);
+
+        // Agregar el manejador de eventos al documento para cerrar el menú
+        document.addEventListener('click', closeMenu);
+    </script>
+
+</html>
+
+<h1>¿Quienes Somos?</h1>
+<h2> Somos grupo de personas que ideó una pagina web la cual conecta a dueños de impresoras 3d que quieran ganar plata o no usen la impresora por el tiempo o cualquier razon con gente que necesite imprimir y no tenga donde. Unos de nuestros principales objetivos son expandir el mundo de la impresqn 3d y lograr que toda la gente que quiera imprimir algo y no tenga como pueda hacerlo lo mas facil, economica y rapidamente posible. </h2> 
+</html>
