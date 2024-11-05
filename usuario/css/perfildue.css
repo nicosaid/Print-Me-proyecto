@@ -3,9 +3,11 @@
   --color-background: #fff;
   --color-outline: #ff145b80;
   --color-shadow: #00000080;
-  display: flex;
+  display: inline-block;
   justify-content: flex-start;
 padding: 40px 20px;
+width: fit-content;
+
 }
 .btn-content {
   display: flex;
@@ -130,7 +132,7 @@ body {
   background-size: cover;
   background-color: rgb(17, 17, 43);
   color: white;
-  overflow-x: hidden;
+  overflow: hidden;
   height: 100vh;
 }
 
@@ -153,6 +155,13 @@ canvas {
   max-width: 90%; /* Para que se ajuste en pantallas pequeñas */
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  margin-top: -90px;
+  text-align: center;
+}
+
+.card-completa{
+  display: flex;
+  justify-content: center;
 }
 
 
