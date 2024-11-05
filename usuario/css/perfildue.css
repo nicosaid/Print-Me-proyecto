@@ -3,7 +3,9 @@
   --color-background: #fff;
   --color-outline: #ff145b80;
   --color-shadow: #00000080;
-
+  display: flex;
+  justify-content: flex-start;
+padding: 40px 20px;
 }
 .btn-content {
   display: flex;
@@ -90,21 +92,13 @@ margin-left: 15px;
 
 
 
-
-
-
 .info {
   display: flex; /* Usar flexbox para alinear los campos uno al lado del otro */
   justify-content: space-between; /* Espacio entre los campos */
   margin-bottom: 10px; /* Espacio inferior para el contenedor */
 }
 
-.field {
-  display: flex; 
-  flex-direction: column; /* Apilar el label y el campo uno sobre otro */
-  width: 48%; /* Ajustar el ancho para que quepan en una línea */
-  align-items: center; /* Centrar los elementos horizontalmente */
-}
+
 
 .info label {
   font-size: 0.9em;
@@ -134,14 +128,10 @@ body {
   padding: 0;
   font-family: 'Arial', sans-serif;
   background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: rgb(17, 17, 43);
   color: white;
   overflow-x: hidden;
   height: 100vh;
-  flex-direction: column;
 }
 
 canvas {
@@ -156,7 +146,6 @@ canvas {
 
 
 
-
 .card {
   background: #fff;
   padding: 20px;
@@ -164,11 +153,12 @@ canvas {
   max-width: 90%; /* Para que se ajuste en pantallas pequeñas */
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  margin-top: -20px; /* Mueve la tarjeta hacia arriba */
-
-
 }
+
+
+
+
+
 
 .title {
   font-size: 1.5em;
