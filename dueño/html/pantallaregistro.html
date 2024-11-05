@@ -15,9 +15,6 @@
 
 
 
-
-
-
 <body>
   <canvas id="starCanvas"></canvas>
 
@@ -26,29 +23,29 @@
       <img class="logo" src="../../general/logo.png" alt="logo">
     </div>
 
-    <div class="registro-container">
+    <div class="registro-form">
       <form action="" method="post" id="registro-form" class="registro-form" novalidate>
         <h1>Registrarte</h1>
         <p>Welcome!</p>
 
         <div class="scrollable-container">
           <div class="input-box">
-            <input type="text" id="usuario" name="usuario" placeholder="Usuario..." autofocus><br><br>
+            <input type="text" id="nombre_apellido" name="usuario" placeholder="Usuario..." autofocus><br><br>
             <div class="error"></div>
           </div>
 
           <div class="input-box">
-            <input type="email" id="email" name="email" placeholder="Ejemplo@gmail.com"><br><br>
+            <input type="email" id="mail" name="email" placeholder="Ejemplo@gmail.com"><br><br>
             <div class="error"></div>
           </div>
 
           <div class="input-box">
-            <input type="password" id="contra" name="contra" placeholder="Contraseña..." minlength="8"><br><br>
+            <input type="password" id="contraseña" name="contra" placeholder="Contraseña..." minlength="8"><br><br>
             <div class="error"></div>
           </div>
 
           <div class="input-box">
-            <input type="password" id="contra2" name="contra2" placeholder="Confirmar contraseña..."><br><br>
+            <input type="password" id="contraseña2" name="contra2" placeholder="Confirmar contraseña..."><br><br>
             <div class="error"></div>
           </div>
 
@@ -111,7 +108,8 @@
   </main>
 
   <script src="../../general/fondo.js"></script>
-
+  <script defer src="/usuario/js/formregistrovalidar.js"></script>
+  <script src="/scripts/registrocliente.js"></script>
   
 </body>
 </html>
