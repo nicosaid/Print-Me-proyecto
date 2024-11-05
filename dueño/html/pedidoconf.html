@@ -9,6 +9,19 @@
         * {
             box-sizing: border-box;
         }
+
+
+
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
         
         body {
             font-family: 'Arial', sans-serif;
@@ -18,6 +31,7 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
+            width: ;
             margin: 0;
             overflow: hidden;
         }
@@ -31,13 +45,14 @@
         /* Modal */
         .modal {
             background-color: #fff;
+            color: #1a1a1a;
             border-radius: 10px;
             padding: 20px;
-            max-width: 400px;
-            width: 90%;
+            width: 200%;
             text-align: center;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             position: relative;
+            max-width: ;
         }
 
         /* Encabezado */
@@ -130,10 +145,28 @@
             font-size: 0.8rem;
             color: #333;
         }
+
+        .description label {
+  display: block;
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+
+
+
+
     </style>
 </head>
 
 <body>
+
+    <canvas id="starCanvas"></canvas>
+    <script src="../../general/fondo.js"></script>
+    
+   
+
     <div class="card-completa">
         <div class="modal">
             <h2>PEDIDO CONFIRMADO</h2>
@@ -141,6 +174,8 @@
                 <div class="icon-plus">+</div>
             </div>
             <p>Haz click en cada barrita dependiendo del estado del pedido</p>
+            <p>Haz click en cada barrita dependiendo del estado del pedido</p>
+
             <div class="progress-bar">
                 <div class="bar green"></div>
                 <div class="bar green"></div>
@@ -151,11 +186,8 @@
                 <input type="text" id="price" placeholder="Escribir precio del pedido">
             </div>
             <button class="generate-link">Generar link</button>
-            <footer>
-                <img src="logo.png" alt="PrintMe Logo">
-                <span>PrintMe - 3D Printing Your Ideas</span>
-            </footer>
         </div>
+
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
