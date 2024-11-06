@@ -19,7 +19,7 @@ body {
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: 0; /* Mantener el canvas en el fondo */
+      z-index: -1; /* Mantener el canvas en el fondo */
   }
 
   .registro-container {
