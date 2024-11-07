@@ -107,17 +107,88 @@
 
 
 
-
 <!-- Fondo oscuro -->
 <div id="overlay" class="overlay"></div>
 
 <!-- Pantalla emergente -->
 <div id="popup" class="wrapper">
-<div class="popup-header">Link </div>
+<div class="popup-header"> Enlaces </div>
 
 <div class="h2"> </div>
 
 <br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="containeremergente">
+    <div class="link-section">
+      <h3>ENLACE PARA COBRAR PAGO SENA</h3>
+      <div class="input-container">
+        <input type="text" value="https://www.mercadopago.com/linkjuanmanuelsena
+        " readonly>
+        <button class="copy-button" onclick="copyText(this)">COPIAR</button>
+      </div>
+    </div>
+  
+    <div class="link-section">
+      <h3>ENLACE PARA COBRAR PAGO FINAL</h3>
+      <div class="input-container">
+        <input type="text" value="https://www.mercadopago.com/linkjuanmanuelpagofinal" readonly>
+        <button class="copy-button" onclick="copyText(this)">COPIAR</button>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+function copyText(button) {
+  // Encuentra el campo de entrada dentro del mismo contenedor
+  const input = button.previousElementSibling;
+
+  // Selecciona el texto y lo copia al portapapeles
+  input.select();
+  input.setSelectionRange(0, 99999); // Para dispositivos móviles
+  navigator.clipboard.writeText(input.value);
+
+  // Cambia el texto del botón a "Copiado" y añade la clase 'copied' permanentemente
+  button.textContent = "COPIADO";
+  button.classList.add("copied");
+}
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
 
 
 
