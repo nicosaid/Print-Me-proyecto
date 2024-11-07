@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function validarFormulario() {
 
     var mail = document.getElementById("mail").value;
-    var contra = document.getElementById("contra").value;
+    var contra = document.getElementById("contraseña").value;
 
 
     if (mail === "") {
@@ -46,7 +46,6 @@ function enviarDatosLogin(e) {
     const data = {
         mail: mail.value,
         contraseña: contraseña.value,
-        nombre_apellido: nombre_apellido.value,
 
     };
     console.log(data);

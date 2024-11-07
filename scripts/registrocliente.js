@@ -14,9 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function enviarDatosRegistro(e) {
     e.preventDefault(); // Previene que se recargue la página al enviar el formulario
+    const nombre_apellido = document.getElementById("nombre_apellido");
     const mail = document.getElementById("mail");
     const contraseña = document.getElementById("contraseña");
-    const nombre_apellido = document.getElementById("nombre_apellido");
+   
 
     const data = {
         mail: mail.value,

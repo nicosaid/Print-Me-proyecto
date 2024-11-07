@@ -114,7 +114,7 @@
                 <div class="input-group">
                     <label for="editable-input" class="editable-label">Nombre y Apellido</label>
                     <div class="input-wrapper"> 
-                        <input type="text" id="editable-input" value="{{nombre}}" readonly>
+                        <input type="text" id="editable-input" readonly>
                         <button  id="edit-button" class="edit-button" onclick="toggleEdit('editable-input', 'edit-button', 'Actualizar', 'Editar')" onclick="guardarDatosPerfil()">Editar</button>
                     </div>
                 </div>
@@ -126,7 +126,7 @@
                 <div class="input-group">
                     <label for="description-input" class="editable-label">Descripción</label>
                     <div class="input-wrapper"> 
-                        <input type="text" id="description-input" value="{{descripcion}}" readonly>
+                        <input type="text" id="description-input" readonly>
                         <button class="edit-button" onclick="toggleEdit('description-input', 'description-edit-button', 'Actualizar', 'Editar')" id="description-edit-button">Editar</button>
                     </div>
                 </div>
@@ -138,7 +138,7 @@
                     <div class="input-group">
                         <label for="email-input" class="editable-label">Email</label>
                         <div class="input-wrapper"> 
-                            <input type="email" id="email-input" value="{{email}}" readonly>
+                            <input type="email" id="email-input" readonly>
                             <button class="edit-button" onclick="toggleEdit('email-input', 'email-edit-button', 'Actualizar', 'Editar')" id="email-edit-button">Editar</button>
                         </div>
                     </div>
@@ -151,9 +151,9 @@
                     <label for="zona-select" class="editable-label">Zona</label>
                     <div class="input-wrapper"> 
                         <select id="zona-select" disabled>
-                            <option value="zona1">Zona 1</option>
-                            <option value="zona2">Zona 2</option>
-                            <option value="zona3">Zona 3</option>
+                            <option>Zona 1</option>
+                            <option>Zona 2</option>
+                            <option>Zona 3</option>
                         </select>
                         <button class="edit-button" onclick="toggleDropdown()" id="zona-edit-button">Editar</button>
                     </div>
@@ -165,7 +165,7 @@
                 <div class="input-group">
                     <label for="impresora-input" class="editable-label">Impresora</label>
                     <div class="input-wrapper"> 
-                        <input type="text" id="impresora-input" value="{{impresora}}" readonly>
+                        <input type="text" id="impresora-input" readonly>
                         <button class="edit-button" onclick="toggleEdit('impresora-input', 'impresora-edit-button', 'Actualizar', 'Editar')" id="impresora-edit-button">Editar</button>
                     </div>
                 </div>
@@ -175,7 +175,7 @@
                 <div class="input-group">
                     <label for="filamento-input" class="editable-label">Filamento</label>
                     <div class="input-wrapper"> 
-                        <input type="text" id="filamento-input" value="{{filamento}}" readonly>
+                        <input type="text" id="filamento-input" readonly>
                         <button class="edit-button" onclick="toggleEdit('filamento-input', 'filamento-edit-button', 'Actualizar', 'Editar')" id="filamento-edit-button">Editar</button>
                     </div>
                 </div>
@@ -190,14 +190,14 @@
                     <label class="editable-label">Realiza post impresión</label>
                     <div class="radio-button-container">
                         <div class="radio-button">
-                            <input type="radio" class="radio-button__input" id="radio1" name="post-impresion" value="sí" disabled>
+                            <input type="radio" class="radio-button__input" id="radio1" name="post-impresion" disabled>
                             <label class="radio-button__label" for="radio1">
                                 <span class="radio-button__custom"></span>
                                 Sí
                             </label>
                         </div>
                         <div class="radio-button">
-                            <input type="radio" class="radio-button__input" id="radio2" name="post-impresion" value="no" disabled>
+                            <input type="radio" class="radio-button__input" id="radio2" name="post-impresion" disabled>
                             <label class="radio-button__label" for="radio2">
                                 <span class="radio-button__custom"></span>
                                 No
@@ -272,6 +272,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
             </div>
         </form>
+    
     </div>
 
 
@@ -327,16 +328,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 </script>
-
-</main>
-
-
-
-
-
-
-
-
-
-    </div>
-</main>
+<script src="../../scripts/dataperfildueño.js"></script>
