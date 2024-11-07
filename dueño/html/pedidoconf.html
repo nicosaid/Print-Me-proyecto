@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pantalla de Pedido Confirmado</title>
     <style>
-        /* Estilos generales */
         * {
             box-sizing: border-box;
         }
@@ -27,9 +26,6 @@ canvas {
             font-family: 'Arial', sans-serif;
             background-color: rgb(17, 17, 43);
             color: white;
-            display: flex;
-            height: 100vh;
-            width: ;
             margin: 0;
             overflow: hidden;
         }
@@ -40,7 +36,6 @@ canvas {
             align-items: center;
         }
 
-        /* Modal */
         .modal {
             background-color: #fff;
             color: #1a1a1a;
@@ -55,18 +50,15 @@ canvas {
             padding-bottom: 30px;
             padding-top: 30px;
            
-            align-items: center;
-            justify-content: center;
+      
 
      }
 
-        /* Encabezado */
         .modal h2 {
             font-size: 1.5rem;
             color: #1a1a1a;
         }
 
-        /* Contenedor de imagen */
         .image-placeholder {
             width: 80px;
             height: 80px;
@@ -84,7 +76,6 @@ canvas {
             font-size: 2rem;
         }
 
-        /* Barra de progreso */
         .progress-bar {
             display: flex;
             gap: 5px;
@@ -105,7 +96,6 @@ canvas {
             background-color: #ccc;
         }
 
-        /* Input de precio */
         .price-input {
             display: flex;
             align-items: center;
@@ -121,7 +111,6 @@ canvas {
             width: 60%;
         }
 
-        /* Botón de generar link */
         .generate-link {
             background-color: #1a3f7d;
             color: #fff;
@@ -132,7 +121,6 @@ canvas {
             font-size: 1rem;
         }
 
-        /* Footer */
         footer {
             display: flex;
             align-items: center;
@@ -175,7 +163,6 @@ margin-top: -15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     padding: 10px;
     gap: 5px;
     
@@ -184,7 +171,7 @@ margin-top: -15px;
   .header {
     flex: 1;
     width: 100%;
-    border: 2px dashed green; /* Cambiado a verde */
+    border: 2px dashed green; 
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -193,7 +180,7 @@ margin-top: -15px;
   }
   
   .header .center-image {
-    max-height: 250px; /* Ajusta según el tamaño deseado */
+    max-height: 250px; 
     max-width: 250px;
   }
   
@@ -203,7 +190,7 @@ margin-top: -15px;
   }
   
   .footer {
-    background-color: rgba(0, 128, 0, 0.075); /* Cambiado a verde claro */
+    background-color: rgba(0, 128, 0, 0.075); 
     width: 100%;
     height: 40px;
     padding: 8px;
@@ -218,7 +205,7 @@ margin-top: -15px;
   
   .footer svg {
     height: 130%;
-    fill: green; /* Cambiado a verde */
+    fill: green; 
     background-color: rgba(70, 66, 66, 0.103);
     border-radius: 50%;
     padding: 2px;
@@ -248,7 +235,7 @@ margin-top: -15px;
   
 
   .btn-conteiner {
- --color-text: #000000; /* Texto negro */
+ --color-text: #000000; 
   --color-background: #fff;
   --color-outline: #ff145b80;
   --color-shadow: #00000080;
@@ -266,7 +253,7 @@ width: fit-content;
 .btn-content {
   display: flex;
   align-items: end;
-  padding: 7px 20px; /* Relleno del botón */
+  padding: 7px 20px; 
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
@@ -346,7 +333,8 @@ margin-left: 15px;
 
 .alineacion{
     display: inline-flex; /* Para centrar el contenido */
-  align-items: center; /* Centra verticalmente el contenido del botón */
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -442,6 +430,8 @@ margin-left: 15px;
                 <input type="text" id="price" placeholder="Escribir precio del pedido">
             </div>
             <button class="generate-link">Generar link</button>
+
+            
         </div>
 
     </div>
