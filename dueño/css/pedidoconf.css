@@ -27,7 +27,7 @@ body {
 .card-completa {
     display: flex;
     justify-content: center;
-    margin-top: -50px;
+    margin-top: -60px;
 }
 
 .modal {
