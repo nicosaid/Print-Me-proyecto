@@ -1,0 +1,117 @@
+
+
+   /* ********************************** */
+/*             emergente             */
+/* ********************************** */
+.wrapper {
+	width: 600px;
+	background: rgb(2, 0, 36);
+	backdrop-filter: blur(9px);
+	color: #fff;
+	border-radius: 12px;
+	padding: 40px 50px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: none;
+	z-index: 1000;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+	max-height: 90%;
+	overflow-y: auto;
+}
+
+/* ********************************** */
+/*      Encabezado del Pop-up         */
+/* ********************************** */
+.popup-header {
+	font-size: 36px;
+	text-align: center;
+}
+
+/* ********************************** */
+/*       Contenedor del Input         */
+/* ********************************** */
+.input-box {
+	position: relative;
+	width: 100%;
+	height: 40px;
+	margin: 30px 0;
+	color: beige;
+}
+
+/* ********************************** */
+/*       Estilos del Input y Select   */
+/* ********************************** */
+.input-box input, .input-box select {
+	width: 100%;
+	height: 40px;
+	background: transparent;
+	border: none;
+	outline: none;
+	border: 2px solid rgba(255, 255, 255, 0.2);
+	border-radius: 40px;
+	font-size: 14px;
+	color: #fff;
+	padding: 10px 20px;
+	transition: border 0.3s ease, color 0.3s ease;
+}
+
+/* ********************************** */
+/*   Estilo para Placeholder y Select */
+/* ********************************** */
+.input-box input::placeholder, .input-box select {
+	color: #fff;
+}
+
+/* ********************************** */
+/*     Estilo de las Opciones Select  */
+/* ********************************** */
+.input-box select option {
+	background-color: rgb(2, 0, 36);
+	color: #fff;
+}
+
+/* ********************************** */
+/*      Estilo del Label flotante     */
+/* ********************************** */
+.input-box label {
+	position: absolute;
+	left: 10px;
+	top: -30px;
+	color: #fff;
+}
+
+   
+
+  
+
+
+.wrapper .btn {
+	width: 100%;
+	padding: 15px;
+	background-color: rgba(255, 255, 255, 0.2);
+	margin-bottom: 10px;
+	color: white;
+	border: none;
+	border-radius: 40px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background-color 0.3s ease;
+}
+
+.wrapper .btn:hover {
+	background-color: rgba(255, 255, 255, 0.279);
+}
+
+   
+
+
+
+
+
+
+   
+  
+
+

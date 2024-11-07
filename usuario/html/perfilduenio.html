@@ -87,7 +87,110 @@
 
 
         
-        <button class="start-order">Iniciar pedido</button>
+        <button onclick="openPopup()" class="start-order">Iniciar pedido</button>
+
+
+
+
+
+            
+            <!-- Fondo oscuro -->
+            <div id="overlay" class="overlay"></div>
+            
+            <!-- Pantalla emergente -->
+            <div id="popup" class="wrapper">
+            <div class="popup-header">Estado Del Pedido</div>
+            <br><br>
+            
+            <!-- Dropdown para seleccionar zona -->
+            <div class="input-box">
+                <label for="estado">Seleccionar estado:</label>
+                <select id="estado">
+                    <option value="EnProceso">En Proceso </option>
+                    <option value="Enpaquetando">Enpaquetando</option>
+                    <option value="EnCamino">En Camino</option>
+                    <option value="Finalizado">Finalizado</option>
+            
+                </select><br>
+            </div>
+            
+            
+            
+            <!-- Botón de cerrar -->
+            <input type="button" value="Aceptar" class="btn" onclick="closePopup()">
+            </div>
+            
+            
+            
+            
+            
+            
+            <script>
+            
+            
+            // Función para abrir la pantalla emergente
+            function openPopup() {
+            document.getElementById("popup").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+            
+            // Añadir la clase popup-open al span
+            document.querySelector("span.active").classList.add("popup-open");
+            }
+            
+            // Función para cerrar la pantalla emergente
+            function closePopup() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+            
+            // Eliminar la clase popup-open del span
+            document.querySelector("span.active").classList.remove("popup-open");
+            }
+            
+            
+            </script>
+            
+            
+            
+            
+                        
+                    </div>
+            
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const progressBars = document.querySelectorAll('.progress-bar .bar');
+                        progressBars.forEach((bar, index) => {
+                            bar.addEventListener('click', () => {
+                                progressBars.forEach((b, i) => {
+                                    b.classList.toggle('green', i <= index);
+                                    b.classList.toggle('gray', i > index);
+                                });
+                            });
+                        });
+                    });
+                </script>
+            </body>
+            </html>
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
     </div>
 </div>
 </body>
