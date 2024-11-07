@@ -100,16 +100,12 @@
                 <label for="price">Precio</label>
                 <input type="text" id="price" placeholder="Escribir precio del pedido">
             </div>
-            <button class="generate-link">Generar link</button>
+            <button onclick="openPopup()" class="generate-link">Generar link</button>
 
 
 
 
 
-              <!-- Texto para abrir la ventana emergente -->
-
-    <span onclick="openPopup()">iltrar por Estado</span> 
-</div>
 
 
 <!-- Fondo oscuro -->
@@ -117,20 +113,12 @@
 
 <!-- Pantalla emergente -->
 <div id="popup" class="wrapper">
-<div class="popup-header">Estado Del Pedido</div>
+<div class="popup-header">Link </div>
+
+<div class="h2"> </div>
+
 <br><br>
 
-<!-- Dropdown para seleccionar zona -->
-<div class="input-box">
-    <label for="estado">Seleccionar estado:</label>
-    <select id="estado">
-        <option value="EnProceso">En Proceso </option>
-        <option value="Enpaquetando">Enpaquetando</option>
-        <option value="EnCamino">En Camino</option>
-        <option value="Finalizado">Finalizado</option>
-
-    </select><br>
-</div>
 
 
 
