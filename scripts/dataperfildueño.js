@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch('https://print-me1.vercel.app/vendedores/vendedorByID/1')
         .then(response => response.json())
         .then(data => {
+            console.log(data);
+
             document.getElementById("editable-input").value = data.nombre;
             document.getElementById("description-input").value = data.descripcion;
             document.getElementById("email-input").value = data.email;
