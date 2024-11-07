@@ -467,3 +467,62 @@ margin-left: 15px;
   
 
 
+
+
+
+
+
+
+
+
+
+
+
+/* Estilo de cada sección de enlace */
+.link-section {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .link-section h3 {
+    font-size: 1em;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+  
+  /* Contenedor del input y botón */
+  .input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Estilo del campo de texto */
+  .input-container input {
+    flex: 1;
+    padding: 8px;
+    font-size: 0.9em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e8e8e8;
+    color: #777;
+    text-align: left;
+  }
+  
+  /* Estilo del botón de copiar */
+  .copy-button {
+    padding: 8px 12px;
+    margin-left: 10px;
+    background-color: #001f60;
+    color: #fff;
+    font-size: 0.9em;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .copy-button:hover {
+    background-color: #002b8a;
+  }
