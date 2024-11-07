@@ -87,7 +87,101 @@
 
 
         
-        <button class="start-order">Iniciar pedido</button>
+        <button onclick="openPopup()" class="start-order">Iniciar pedido</button>
+
+
+
+
+
+            
+            <!-- Fondo oscuro -->
+            <div id="overlay" class="overlay"></div>
+            
+            <!-- Pantalla emergente -->
+            <div id="popup" class="wrapper">
+            <div class="popup-header"> Pedido Realizado</div>
+            <br><br>
+            
+        
+        <!-- Botón de redirección a la página de inicio -->
+<input type="button" value="Volver a la home" class="btn" onclick="window.location.href='../html/servicioimpresion3d.html'">
+
+            
+
+
+
+
+
+            
+            
+            
+            
+            <script>
+            
+            
+            // Función para abrir la pantalla emergente
+            function openPopup() {
+            document.getElementById("popup").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+            
+            // Añadir la clase popup-open al span
+            document.querySelector("span.active").classList.add("popup-open");
+            }
+            
+            // Función para cerrar la pantalla emergente
+            function closePopup() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+            
+            // Eliminar la clase popup-open del span
+            document.querySelector("span.active").classList.remove("popup-open");
+            }
+            
+            
+            </script>
+            
+            
+            
+            
+                        
+                    </div>
+            
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const progressBars = document.querySelectorAll('.progress-bar .bar');
+                        progressBars.forEach((bar, index) => {
+                            bar.addEventListener('click', () => {
+                                progressBars.forEach((b, i) => {
+                                    b.classList.toggle('green', i <= index);
+                                    b.classList.toggle('gray', i > index);
+                                });
+                            });
+                        });
+                    });
+                </script>
+            </body>
+            </html>
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
     </div>
 </div>
 </body>

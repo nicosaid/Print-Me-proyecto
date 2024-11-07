@@ -1,0 +1,469 @@
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+
+canvas {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: -1;
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: rgb(17, 17, 43);
+    color: white;
+    margin: 0;
+    overflow: hidden;
+}
+
+.card-completa {
+    display: flex;
+    justify-content: center;
+    margin-top: -60px;
+}
+
+.modal {
+    background-color: #fff;
+    color: #1a1a1a;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+
+.container {
+height: 300px;
+width: 300px;
+border-radius: 10px;
+box-shadow: 4px 4px 30px rgba(0, 0, 0, .2);
+display: flex;
+flex-direction: column;
+padding: 10px;
+gap: 5px;
+
+}
+
+.modal h2 {
+    font-size: 1.5rem;
+    color: #1a1a1a;
+}
+
+.image-placeholder {
+    width: 80px;
+    height: 80px;
+    margin: 20px auto;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-plus {
+    color: #4caf50;
+    font-size: 2rem;
+}
+
+.progress-bar {
+    display: flex;
+    gap: 5px;
+    margin: 15px 0;
+}
+
+.bar {
+    width: 33%;
+    height: 10px;
+    border-radius: 5px;
+}
+
+.green {
+    background-color: #4caf50;
+}
+
+.gray {
+    background-color: #ccc;
+}
+
+.price-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.price-input input {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: 60%;
+}
+
+.generate-link {
+    background-color: #1a3f7d;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+footer img {
+    width: 30px;
+    height: 30px;
+}
+
+footer span {
+    font-size: 0.8rem;
+    color: #333;
+}
+
+.description label {
+display: block;
+font-size: 0.9em;
+color: #666;
+margin-bottom: 4px;
+}
+
+.estado {
+margin-top: -15px;
+}
+
+
+
+
+
+
+
+
+.header {
+flex: 1;
+width: 100%;
+border: 2px dashed green; 
+border-radius: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+
+.header .center-image {
+max-height: 250px; 
+max-width: 250px;
+}
+
+.header p {
+text-align: center;
+color: black;
+}
+
+.footer {
+background-color: rgba(0, 128, 0, 0.075); 
+width: 100%;
+height: 40px;
+padding: 8px;
+border-radius: 10px;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: flex-end;
+color: black;
+border: none;
+}
+
+.footer svg {
+height: 130%;
+fill: green; 
+background-color: rgba(70, 66, 66, 0.103);
+border-radius: 50%;
+padding: 2px;
+cursor: pointer;
+box-shadow: 0 2px 30px rgba(0, 0, 0, 0.205);
+}
+
+.footer p {
+flex: 1;
+text-align: center;
+}
+
+#file {
+display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn-conteiner {
+--color-text: #000000; 
+--color-background: #fff;
+--color-outline: #ff145b80;
+--color-shadow: #00000080;
+display: inline-block;
+justify-content: flex-start;
+padding: 40px 20px;
+width: fit-content;
+
+}
+
+
+
+
+
+.btn-content {
+display: flex;
+align-items: end;
+padding: 7px 20px; 
+text-decoration: none;
+font-family: 'Poppins', sans-serif;
+font-weight: 600;
+color: var(--color-text);
+background: var(--color-background);
+transition: 1s;
+border-radius: 100px;
+box-shadow: 0 0 0.2em 0 var(--color-background);
+font-size: 18px; /* Tamaño de la fuente */
+margin-left: 10px; /* Añade margen a la izquierda del botón */
+display: inline-flex; /* Para centrar el contenido */
+align-items: center; /* Centra verticalmente el contenido del botón */
+}
+
+.btn-content:hover, .btn-content:focus {
+transition: 0.5s;
+outline: 0.1em solid transparent;
+outline-offset: 0.2em;
+box-shadow: 0 0 0.4em 0 var(--color-background);
+}
+
+.btn-content .icon-arrow {
+transition: 0.5s;
+margin-right: 10px; /* Ajusta el margen a la derecha dentro del botón */
+transform: scale(0.6);
+}
+
+
+
+.icon-arrow {
+width: 16px; /* Reduce el tamaño del SVG */
+margin-left: 5px; /* Menos margen a la izquierda dentro del botón */
+position: relative;
+top: 6%;
+fill: #000000; /* Flechas negras */
+}
+
+/* SVG */
+#arrow-icon-one, #arrow-icon-two, #arrow-icon-three {
+transition: 0.4s;
+fill: #000000; /* Flechas negras */
+}
+
+/* SVG animations */
+.btn-content:hover #arrow-icon-one {
+transform: translateX(0%);
+animation: color_anim 1s infinite 0.6s;
+}
+
+.btn-content:hover #arrow-icon-two {
+transform: translateX(0%);
+animation: color_anim 1s infinite 0.4s;
+}
+
+.btn-content:hover #arrow-icon-three {
+animation: color_anim 1s infinite 0.2s;
+}
+
+@keyframes color_anim {
+0% {
+fill: black; /* Flechas negras */
+}
+50% {
+fill: var(--color-background);
+}
+100% {
+fill: black; /* Flechas negras */
+}
+}
+
+
+#volver{
+margin-left: 15px;  
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+   /* ********************************** */
+/*             emergente             */
+/* ********************************** */
+.wrapper {
+	width: 600px;
+	background: rgb(2, 0, 36);
+	backdrop-filter: blur(9px);
+	color: #fff;
+	border-radius: 12px;
+	padding: 40px 50px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: none;
+	z-index: 1000;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+	max-height: 90%;
+	overflow-y: auto;
+}
+
+/* ********************************** */
+/*      Encabezado del Pop-up         */
+/* ********************************** */
+.popup-header {
+	font-size: 36px;
+	text-align: center;
+}
+
+/* ********************************** */
+/*       Contenedor del Input         */
+/* ********************************** */
+.input-box {
+	position: relative;
+	width: 100%;
+	height: 40px;
+	margin: 30px 0;
+	color: beige;
+}
+
+/* ********************************** */
+/*       Estilos del Input y Select   */
+/* ********************************** */
+.input-box input, .input-box select {
+	width: 100%;
+	height: 40px;
+	background: transparent;
+	border: none;
+	outline: none;
+	border: 2px solid rgba(255, 255, 255, 0.2);
+	border-radius: 40px;
+	font-size: 14px;
+	color: #fff;
+	padding: 10px 20px;
+	transition: border 0.3s ease, color 0.3s ease;
+}
+
+/* ********************************** */
+/*   Estilo para Placeholder y Select */
+/* ********************************** */
+.input-box input::placeholder, .input-box select {
+	color: #fff;
+}
+
+/* ********************************** */
+/*     Estilo de las Opciones Select  */
+/* ********************************** */
+.input-box select option {
+	background-color: rgb(2, 0, 36);
+	color: #fff;
+}
+
+/* ********************************** */
+/*      Estilo del Label flotante     */
+/* ********************************** */
+.input-box label {
+	position: absolute;
+	left: 10px;
+	top: -30px;
+	color: #fff;
+}
+
+   
+
+  
+
+
+.wrapper .btn {
+	width: 100%;
+	padding: 15px;
+	background-color: rgba(255, 255, 255, 0.2);
+	margin-bottom: 10px;
+	color: white;
+	border: none;
+	border-radius: 40px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background-color 0.3s ease;
+}
+
+.wrapper .btn:hover {
+	background-color: rgba(255, 255, 255, 0.279);
+}
+
+   
+
+
+
+
+    /* Fondo de pantalla oscurecido */
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+
+
+
+
+   
+  
+
+
