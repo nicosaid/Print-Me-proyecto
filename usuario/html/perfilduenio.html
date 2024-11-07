@@ -104,10 +104,36 @@
             
         
         <!-- Botón de redirección a la página de inicio -->
-<input type="button" value="Volver a la home" class="btn" onclick="window.location.href='../html/servicioimpresion3d.html'">
+        <input type="button" value="Coordinar por Whatsapp" class="btn" onclick="abrirWhatsapp()" />
 
             
 
+
+        <script>
+
+
+// Ejemplo de función para abrir WhatsApp con el número de la base de datos
+function abrirWhatsapp() {
+    // Supón que este número viene de una llamada a la base de datos
+    const numeroTelefono = "5491112345678"; // Aquí se usa un número de ejemplo
+
+    // Texto de mensaje predeterminado
+    const mensaje = "Hola, quiero coordinar el servicio de impresión 3D.";
+    
+    // Abre WhatsApp con el número y el mensaje
+    const urlWhatsapp = `https://wa.me/${numeroTelefono}?text=${encodeURIComponent(mensaje)}`;
+    window.location.href = urlWhatsapp;
+}
+
+
+
+
+        </script>
+
+  <!-- Botón de redirección a la página de inicio -->
+  <input type="button" value="Volver a la home" class="btnchico" onclick="window.location.href='../html/servicioimpresion3d.html'">
+
+            
 
 
 

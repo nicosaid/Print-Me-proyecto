@@ -399,6 +399,29 @@ select:last-child {
 
 
 
+.wrapper .btnchico {
+  width: 80%; /* Reducido para que sea más chico */
+  padding: 4px 6px; /* Padding más pequeño */
+  background-color: transparent;
+  text-decoration: underline;
+  margin-bottom: 8px; /* Margen inferior más pequeño */
+  color: white;
+  border: none;
+  border-radius: 30px; /* Bordes redondeados más pequeños */
+  cursor: pointer;
+  font-size: 14px; /* Tamaño de fuente reducido */
+  transition: background-color 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
 
     /* Fondo de pantalla oscurecido */
     .overlay {

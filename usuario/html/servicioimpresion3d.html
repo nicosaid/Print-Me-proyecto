@@ -108,8 +108,7 @@
 
         <!--buscador-->  
         <input class="input" placeholder="Buscar..." id="buscador">
-        <button onclick="buscar()">Buscar</button>
-
+        <button class="buscarenter"      onclick="buscar()">Buscar</button>
 
 
 
@@ -243,99 +242,6 @@
 
 
 
-
-
-
-          .containerlike input {
-  position: flex;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-.containerlike {
-  display: block;
-  position: relative;
-  cursor: pointer;
-  user-select: none;
-  transition: 100ms;
-  
-  
-}
-
-.checkmark {
-  top: 0;
-  left: 0;
-  height: 2em;
-  width: 2em;
-  transition: 100ms;
-  animation: dislike_effect 400ms ease;
-  fill: transparent; /* Fondo transparente inicialmente */
-  stroke: black; /* Borde negro del corazón cuando no está chequeado */
-  stroke-width: 2; /* Grosor del borde */
-  transform: translateX(5px); /* Mueve el corazón 5px a la derecha */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.containerlike input:checked ~ .checkmark path {
-  fill: #FF5353; /* Relleno rojo cuando está chequeado */
-  stroke: none; /* Sin borde cuando está chequeado */
-}
-
-.containerlike input:checked ~ .checkmark {
-  animation: like_effect 400ms ease;
-}
-
-.containerlike:hover {
-  transform: scale(1.1);
-}
-
-@keyframes like_effect {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes dislike_effect {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
           </style>
           
 
@@ -354,35 +260,6 @@
     </div>
 
 
-
-
-
-    <div class="card">
-        <img src="../css/impresora 3d.png" alt="Impresora" class="printer-image">
-        <div class="info">
-            <h2>Juan Carlos</h2>
-
-
-
-
-            <p class="stats"></p>
-
-            <button class="button">
-            Ir al Perfil
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  fill-rule="evenodd"
-                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </button>
-            
-        </div>
-        <div class="favorite">
-            <button class="favorite-btn">Favorito</button>
-        </div>
-    </div>
 
 
 

@@ -567,5 +567,119 @@
 
 
 
+  .buscarenter {
+	background-color: var(--primary-color);
+	color: white; /* Color del texto */
+	padding: 5px 10px; /* Tamaño reducido del botón */
+	border: none; /* Sin borde */
+	border-radius: 4px; /* Bordes redondeados */
+	font-size: 14px; /* Tamaño de la fuente reducido */
+	font-weight: bold; /* Texto en negrita */
+	cursor: pointer; /* Cursor cambia a mano */
+	transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para efectos */
+  }
+  
+  .buscarenter:hover {
+	background-color:  rgb(71, 3, 230);
+	transform: scale(1.05); /* Agranda ligeramente al hacer hover */
+  }
+  
+  .buscarenter:active {
+	transform: scale(0.95); /* Lo reduce ligeramente al hacer clic */
+  }
+  
+  
+  
+  
+  
+  
 
 
+
+
+
+
+          .containerlike input {
+  position: flex;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.containerlike {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  transition: 100ms;
+  
+  
+}
+
+.checkmark {
+  position: relative;
+  top: 0;
+  right: 80px; /* Desplaza el corazón 10px hacia la derecha */
+  height: 2em;
+  width: 2em;
+  transition: 100ms;
+  animation: dislike_effect 400ms ease;
+  fill: transparent; /* Fondo transparente inicialmente */
+  stroke: black; /* Borde negro del corazón cuando no está chequeado */
+  stroke-width: 2; /* Grosor del borde */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.containerlike input:checked ~ .checkmark path {
+  fill: #FF5353; /* Relleno rojo cuando está chequeado */
+  stroke: none; /* Sin borde cuando está chequeado */
+}
+
+.containerlike input:checked ~ .checkmark {
+  animation: like_effect 400ms ease;
+}
+
+
+
+@keyframes like_effect {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes dislike_effect {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
