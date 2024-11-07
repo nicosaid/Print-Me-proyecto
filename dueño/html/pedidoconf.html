@@ -28,8 +28,6 @@ canvas {
             background-color: rgb(17, 17, 43);
             color: white;
             display: flex;
-            align-items: center;
-            justify-content: center;
             height: 100vh;
             width: ;
             margin: 0;
@@ -52,8 +50,15 @@ canvas {
             text-align: center;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             position: relative;
-            max-width: ;
-        }
+            padding-left: 100px;
+            padding-right: 100px;
+            padding-bottom: 30px;
+            padding-top: 30px;
+           
+            align-items: center;
+            justify-content: center;
+
+     }
 
         /* Encabezado */
         .modal h2 {
@@ -153,7 +158,202 @@ canvas {
   margin-bottom: 4px;
 }
 
+.estado {
+margin-top: -15px;
+}
 
+
+
+  
+
+
+.container {
+    height: 300px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 30px rgba(0, 0, 0, .2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    gap: 5px;
+    
+  }
+  
+  .header {
+    flex: 1;
+    width: 100%;
+    border: 2px dashed green; /* Cambiado a verde */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .header .center-image {
+    max-height: 250px; /* Ajusta según el tamaño deseado */
+    max-width: 250px;
+  }
+  
+  .header p {
+    text-align: center;
+    color: black;
+  }
+  
+  .footer {
+    background-color: rgba(0, 128, 0, 0.075); /* Cambiado a verde claro */
+    width: 100%;
+    height: 40px;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: black;
+    border: none;
+  }
+  
+  .footer svg {
+    height: 130%;
+    fill: green; /* Cambiado a verde */
+    background-color: rgba(70, 66, 66, 0.103);
+    border-radius: 50%;
+    padding: 2px;
+    cursor: pointer;
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.205);
+  }
+  
+  .footer p {
+    flex: 1;
+    text-align: center;
+  }
+  
+  #file {
+    display: none;
+  }
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+  .btn-conteiner {
+ --color-text: #000000; /* Texto negro */
+  --color-background: #fff;
+  --color-outline: #ff145b80;
+  --color-shadow: #00000080;
+  display: inline-block;
+  justify-content: flex-start;
+padding: 40px 20px;
+width: fit-content;
+
+}
+
+
+
+
+
+.btn-content {
+  display: flex;
+  align-items: end;
+  padding: 7px 20px; /* Relleno del botón */
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: 1s;
+  border-radius: 100px;
+  box-shadow: 0 0 0.2em 0 var(--color-background);
+  font-size: 18px; /* Tamaño de la fuente */
+  margin-left: 10px; /* Añade margen a la izquierda del botón */
+  display: inline-flex; /* Para centrar el contenido */
+  align-items: center; /* Centra verticalmente el contenido del botón */
+}
+
+.btn-content:hover, .btn-content:focus {
+  transition: 0.5s;
+  outline: 0.1em solid transparent;
+  outline-offset: 0.2em;
+  box-shadow: 0 0 0.4em 0 var(--color-background);
+}
+
+.btn-content .icon-arrow {
+  transition: 0.5s;
+  margin-right: 10px; /* Ajusta el margen a la derecha dentro del botón */
+  transform: scale(0.6);
+}
+
+
+
+.icon-arrow {
+  width: 16px; /* Reduce el tamaño del SVG */
+  margin-left: 5px; /* Menos margen a la izquierda dentro del botón */
+  position: relative;
+  top: 6%;
+  fill: #000000; /* Flechas negras */
+}
+
+/* SVG */
+#arrow-icon-one, #arrow-icon-two, #arrow-icon-three {
+  transition: 0.4s;
+  fill: #000000; /* Flechas negras */
+}
+
+/* SVG animations */
+.btn-content:hover #arrow-icon-one {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.6s;
+}
+
+.btn-content:hover #arrow-icon-two {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.4s;
+}
+
+.btn-content:hover #arrow-icon-three {
+  animation: color_anim 1s infinite 0.2s;
+}
+
+@keyframes color_anim {
+  0% {
+      fill: black; /* Flechas negras */
+  }
+  50% {
+      fill: var(--color-background);
+  }
+  100% {
+      fill: black; /* Flechas negras */
+  }
+}
+
+
+#volver{
+margin-left: 15px;  
+   
+       }
+
+
+.alineacion{
+    display: inline-flex; /* Para centrar el contenido */
+  align-items: center; /* Centra verticalmente el contenido del botón */
+}
+
+
+       
+
+
+       
 
 
 
@@ -167,19 +367,75 @@ canvas {
     
    
 
+
+
+<div class="btn-conteiner">
+
+    <a class="btn-content" href="../html/inicio.html">
+        <span class="icon-arrow">
+            <svg width="50px" height="33px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <path id="arrow-icon-one" d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z" fill="black" style="transform: rotate(180deg); transform-origin: center;"></path>
+                    <path id="arrow-icon-two" d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z" fill="black" style="transform: rotate(180deg); transform-origin: center;"></path>
+                    <path id="arrow-icon-three" d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628531,42.8608513 L0.154518597,39.1069479 C-0.0425151876,38.9134427 -0.0456793413,38.5968729 0.148184489,38.3998695 C0.150289368,38.3977268 0.152413173,38.395603 0.154556168,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.154520772,4.60825197 C-0.0424865788,4.41477773 -0.0456013467,4.09820839 0.148075585,3.90117456 C0.150162594,3.89904911 0.152268598,3.89694235 0.154393339,3.89485454 Z" fill="black" style="transform: rotate(180deg); transform-origin: center;"></path>
+                </g>
+            </svg>
+        </span>
+        <span id="volver">Volver</span> 
+
+   
+    </a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="alineacion">
+
     <div class="card-completa">
         <div class="modal">
             <h2>PEDIDO CONFIRMADO</h2>
-            <div class="image-placeholder">
-                <div class="icon-plus">+</div>
-            </div>
-            <p>Haz click en cada barrita dependiendo del estado del pedido</p>
-            <p>Haz click en cada barrita dependiendo del estado del pedido</p>
+           
+            <div class="container"> 
+                <div class="header"> 
+                  <!-- Imagen reemplazando el SVG -->
+                  <img src="../../dueño/html/subirfoto.png" class="center-image" />
+                </div> 
+                <label for="file" class="footer"> 
+                  <!-- Footer SVGs -->
+                  <svg fill="#000000" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.331 6H8.5v20h15V14.154h-8.169z"></path>
+                    <path d="M18.153 6h-.009v5.342H23.5v-.002z"></path>
+                  </svg> 
+                  <p>Not selected file</p> 
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.16565 10.1534C5.07629 8.99181 5.99473 8 7.15975 8H16.8402C18.0053 8 18.9237 8.9918 18.8344 10.1534L18.142 19.1534C18.0619 20.1954 17.193 21 16.1479 21H7.85206C6.80699 21 5.93811 20.1954 5.85795 19.1534L5.16565 10.1534Z" stroke="#000000" stroke-width="2"></path> 
+                    <path d="M19.5 5H4.5" stroke="#000000" stroke-width="2" stroke-linecap="round"></path> 
+                    <path d="M10 3C10 2.44772 10.4477 2 11 2H13C13.5523 2 14 2.44772 14 3V5H10V3Z" stroke="#000000" stroke-width="2"></path>
+                  </svg>
+                </label> 
+                <input id="file" type="file"> 
+              </div>
+
+
+
+
+            <p>Haz click en cada barrita dependiendo del </p>
+            <p class="estado"> estado del pedido</p>
 
             <div class="progress-bar">
                 <div class="bar green"></div>
                 <div class="bar green"></div>
                 <div class="bar gray"></div>
+                <div class="bar gray"></div>
+
             </div>
             <div class="price-input">
                 <label for="price">Precio</label>
