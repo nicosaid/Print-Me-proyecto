@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../general/topbar.css">
     <link rel="stylesheet" href="../css/servicio.css">
     <link rel="stylesheet" href="../../general/cerrar.js">
-    <link rel="stylesheet" href="../../general/cerrar.css">
+    <link rel="stylesheet" href="../../general/">
     <link rel="stylesheet" href="../css/scrollbar.css">
 
 </head>
@@ -40,7 +40,7 @@
                 <span class="word">1 Elegis</span>
               </div>
             </div>
-          </div>      
+                  </div>      
           
           <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
            <nav id="nav" class="nav">
@@ -224,93 +224,125 @@
 
 
 
+          
 
-        <label class="containerlike">
-            <input checked="checked" type="checkbox">
-            <div class="checkmark">
-              <svg viewBox="0 0 256 256">
-              <rect fill="none" height="256" width="256"></rect>
-              <path d="M224.6,51.9a59.5,59.5,0,0,0-43-19.9,60.5,60.5,0,0,0-44,17.6L128,59.1l-7.5-7.4C97.2,28.3,59.2,26.3,35.9,47.4a59.9,59.9,0,0,0-2.3,87l83.1,83.1a15.9,15.9,0,0,0,22.6,0l81-81C243.7,113.2,245.6,75.2,224.6,51.9Z" stroke-width="20px" stroke="#FFF" fill="none"></path></svg>
-            </div>
+          <label class="containerlike">
+            <input type="checkbox">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+            </svg>
           </label>
           
           
           <style>
           
+
+
+
+
+
+
+
+
+
+
           .containerlike input {
-            position: absolute;
-            opacity: 0;
-            cursor: pointer;
-            height: 0;
-            width: 0;
-          }
-          
-          .containerlike {
-            display: block;
-            position: relative;
-            cursor: pointer;
-            font-size: 20px;
-            user-select: none;
-            transition: 100ms;
-          }
-          
-          .checkmark {
-            top: 0;
-            left: 0;
-            height: 2em;
-            width: 2em;
-            transition: 100ms;
-            animation: dislike_effect 400ms ease;
-          }
-          
-          .containerlike input:checked ~ .checkmark path {
-            fill: #FF5353;
-            stroke-width: 0;
-          }
-          
-          .containerlike input:checked ~ .checkmark {
-            animation: like_effect 400ms ease;
-          }
-          
-          .containerlike:hover {
-            transform: scale(1.1);
-          }
-          
-          @keyframes like_effect {
-            0% {
-              transform: scale(0);
-            }
-          
-            50% {
-              transform: scale(1.2);
-            }
-          
-            100% {
-              transform: scale(1);
-            }
-          }
-          
-          @keyframes dislike_effect {
-            0% {
-              transform: scale(0);
-            }
-          
-            50% {
-              transform: scale(1.2);
-            }
-          
-            100% {
-              transform: scale(1);
-            }
-          }
-          
+  position: flex;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.containerlike {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  transition: 100ms;
+  
+  
+}
+
+.checkmark {
+  top: 0;
+  left: 0;
+  height: 2em;
+  width: 2em;
+  transition: 100ms;
+  animation: dislike_effect 400ms ease;
+  fill: transparent; /* Fondo transparente inicialmente */
+  stroke: black; /* Borde negro del corazón cuando no está chequeado */
+  stroke-width: 2; /* Grosor del borde */
+  transform: translateX(5px); /* Mueve el corazón 5px a la derecha */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.containerlike input:checked ~ .checkmark path {
+  fill: #FF5353; /* Relleno rojo cuando está chequeado */
+  stroke: none; /* Sin borde cuando está chequeado */
+}
+
+.containerlike input:checked ~ .checkmark {
+  animation: like_effect 400ms ease;
+}
+
+.containerlike:hover {
+  transform: scale(1.1);
+}
+
+@keyframes like_effect {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes dislike_effect {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
           </style>
           
 
 
 
 
-          
+
 
 
 
