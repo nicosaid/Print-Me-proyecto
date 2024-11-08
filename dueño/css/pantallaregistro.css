@@ -22,16 +22,7 @@ body {
       z-index: -1; /* Mantener el canvas en el fondo */
   }
 
-  .registro-container {
-      display: flex;
-      position: relative; /* Necesario para el z-index */
-      z-index: 1; /* Asegúrate de que el formulario esté por encima del canvas */
-      width: 100%;
-      height: 100%;
-      max-width: 500px; /* Máximo ancho para el formulario */
-      padding-right: 20px; /* Espaciado a la derecha */
-      margin-left: auto; /* Alinear a la derecha */
-  }
+
 
   .scrollable-container {
       max-height: 300px;
@@ -57,15 +48,15 @@ body {
   .registro-form {
       background-color: white;
       border-radius: 20px;
-      padding: 30px 40px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      padding: 20px 30px;
       text-align: center;
-      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
   }
+
+  
 
   h1 {
       font-size: 28px;

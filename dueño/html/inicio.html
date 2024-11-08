@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Print Me</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../../general/topbar.css">
+    <link rel="stylesheet" href="../../general/css/topbar.css">
     <link rel="stylesheet" href="../css/pantallainicio.css">
-    <link rel="stylesheet" href="../../general/cerrar.css">
 
 </head>
 
@@ -53,20 +52,20 @@
 
 
 
-<!-- Botón que abre el popup de cerrar sesión -->
-<button class="logout-button" onclick="togglePopupLogout()" >   <p>Cerrar Sesion</p>  </button>
 
-<!-- Contenedor del Popup de Cerrar Sesión -->
+          <button class="logout-button" onclick="togglePopupLogout()" >   <p>Cerrar Sesion</p>  </button>
+
+
 <div class="popup-container-logout" id="popup-container-logout">
     <h2>¿Estás seguro?</h2>
-    <!-- Contenedor de botones para alinearlos en una fila -->
+
     <div class="button-container-logout">
         <button class="popup-button-logout confirm-button-logout" onclick="cerrarSesion()">Sí, cerrar sesión</button>
         <button class="popup-button-logout cancel-button-logout" onclick="togglePopupLogout()">Cancelar</button>
     </div>
 </div>
 
-<!-- Fondo Oscurecido para el popup de Cerrar Sesión -->
+
 <div class="overlay-logout" onclick="togglePopupLogout()"></div>
 </div>
 
@@ -74,8 +73,8 @@
 
 
 <script>
-    // Función para mostrar y ocultar el popup específico de cerrar sesión
-    function togglePopupLogout() {
+
+function togglePopupLogout() {
         const popup = document.getElementById("popup-container-logout");
         const overlay = document.querySelector(".overlay-logout");
 
@@ -108,15 +107,9 @@
 
         <div class="principaldiv">
 
-               <!--buscador-->
 
-               <div class="group">
-                 <input placeholder="Search" type="search" class="input">
-               </div>
-
-
-
-               <!--aca termina el buscador-->
+        <input class="input" placeholder="Buscar..." id="buscador">
+        <button class="buscarenter" onclick="buscar()">Buscar</button>
 
 
           
@@ -129,21 +122,21 @@
     
         
                 
-    <!-- Texto para abrir la ventana emergente -->
 
+                
     <span onclick="openPopup()">Filtrar por Estado</span> 
     </div>
     
 
-<!-- Fondo oscuro -->
-<div id="overlay" class="overlay"></div>
 
-<!-- Pantalla emergente -->
+    <div id="overlay" class="overlay"></div>
+
+
 <div id="popup" class="wrapper">
     <div class="popup-header">Estado Del Pedido</div>
     <br><br>
 
-    <!-- Dropdown para seleccionar zona -->
+
     <div class="input-box">
         <label for="estado">Seleccionar estado:</label>
         <select id="estado">
@@ -157,7 +150,7 @@
 
 
 
-    <!-- Botón de cerrar -->
+
     <input type="button" value="Aceptar" class="btn" onclick="closePopup()">
 </div>
 
@@ -169,8 +162,8 @@
 <script>
  
 
- // Función para abrir la pantalla emergente
-function openPopup() {
+
+ function openPopup() {
     document.getElementById("popup").style.display = "block";
     document.getElementById("overlay").style.display = "block";
     
@@ -178,12 +171,12 @@ function openPopup() {
     document.querySelector("span.active").classList.add("popup-open");
 }
 
-// Función para cerrar la pantalla emergente
+
 function closePopup() {
     document.getElementById("popup").style.display = "none";
     document.getElementById("overlay").style.display = "none";
     
-    // Eliminar la clase popup-open del span
+
     document.querySelector("span.active").classList.remove("popup-open");
 }
 
@@ -194,7 +187,7 @@ function closePopup() {
 <div class="perfilesDueños">
 
             <div class="card">
-                <img src="../html/impresora 3d copy.png" alt="3D Printer" class="printer-image">
+                <img src="../fotos/impresora 3d.png" alt="3D Printer" class="printer-image">
                 <div class="info">
                     <h2>Fernando R (Especializado en impresiones grandes y detalladas)</h2>
 
@@ -211,7 +204,7 @@ function closePopup() {
                     
                     <script>
                         function redirectWithDelay() {
-                            // Redirige a la pantalla de carga después de hacer clic
+
                             window.location.href = '../../dueño/html/loading.html';
                         }
                     </script>  
@@ -219,44 +212,14 @@ function closePopup() {
 
 
 
-
-
-
-
-
-
                     <button class="rechazar">Rechazar</button>
 
             </div>
 
-        </div>
 
-        <div class="card">
-            <img src="../html/impresora 3d copy.png" alt="3D Printer" class="printer-image">
-            <div class="info">
-                <h2>Fernando R (Especializado en impresiones grandes y detalladas)</h2>
-           
-        </div>
-            
-        </div>
+     
 
-        <div class="card">
-            <img src="../html/impresora 3d copy.png" alt="3D Printer" class="printer-image">
-            <div class="info">
-                <h2>Fernando R (Especializado en impresiones grandes y detalladas)</h2>
-           
-        </div>
 
-    </div>
-
-    <div class="card">
-        <img src="../html/impresora 3d copy.png" alt="3D Printer" class="printer-image">
-        <div class="info">
-            <h2>Fernando R (Especializado en impresiones grandes y detalladas)</h2>
-       
-    </div>
-        
-    </div>
 
 
   

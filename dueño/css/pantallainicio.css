@@ -69,6 +69,13 @@ img {
 }
 
 
+
+
+
+
+
+
+
 /* ********************************** */
 /*             Buscador             */
 /* ********************************** */
@@ -78,15 +85,15 @@ img {
 	line-height: 28px;
 	align-items: center;
 	position: relative;
-	width: 80%; /* Ocupa todo el ancho del contenedor padre */
+	width: 100%; /* Ocupa todo el ancho del contenedor padre */
 	margin-bottom: 40px;
-	margin-top: 40px;
+	justify-content: center;
 
 
    }
    
    .input {
-	width: 100%;
+	width:80%;
 	height: 40px;
 	line-height: 28px;
 	padding: 0 1rem;
@@ -97,7 +104,7 @@ img {
 	background-color: #f3f3f4;
 	color: #0d0c22;
 	transition: .3s ease;
-	
+	margin: 30px;
    }
    
    .input::placeholder {
@@ -112,12 +119,42 @@ img {
    }
    
    .icon {
-	position: absolute;
+	position;
 	left: 1rem;
 	fill: #9e9ea7;
 	width: 1rem;
 	height: 1rem;
    }
+   
+   
+
+
+  .buscarenter {
+	background-color: var(--primary-color);
+	color: white; /* Color del texto */
+	padding: 5px 10px; /* Tamaño reducido del botón */
+	border: none; /* Sin borde */
+	border-radius: 4px; /* Bordes redondeados */
+	font-size: 14px; /* Tamaño de la fuente reducido */
+	font-weight: bold; /* Texto en negrita */
+	cursor: pointer; /* Cursor cambia a mano */
+	transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para efectos */
+  }
+  
+  .buscarenter:hover {
+	background-color:  rgb(71, 3, 230);
+	transform: scale(1.05); /* Agranda ligeramente al hacer hover */
+  }
+  
+  .buscarenter:active {
+	transform: scale(0.95); /* Lo reduce ligeramente al hacer clic */
+  }
+  
+
+
+
+
+  
    
    
 
