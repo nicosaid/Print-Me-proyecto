@@ -76,7 +76,7 @@
                 <div class="input-group">
                     <label for="editable-input" class="editable-label">Nombre y Apellido</label>
                     <div class="input-wrapper"> 
-                        <input type="text" id="editable-input"  readonly>
+                        <input type="text" id="nombre-apellido"  readonly>
                         <button class="edit-button" onclick="toggleEdit('editable-input', 'edit-button', 'Actualizar', 'Editar')" id="edit-button">Editar</button>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                 <div class="input-group">
                     <label for="description-input" class="editable-label">Descripción</label>
                     <div class="input-wrapper"> 
-                        <input type="text" id="description-input" readonly>
+                        <input type="text" id="descripcion" readonly>
                         <button class="edit-button" onclick="toggleEdit('description-input', 'description-edit-button', 'Actualizar', 'Editar')" id="description-edit-button">Editar</button>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                 <div class="input-group">
                     <label for="email-input" class="editable-label">Email</label>
                     <div class="input-wrapper"> 
-                        <input type="email" id="description-input" readonly>
+                        <input type="email" id="mail" readonly>
                         <button class="edit-button" onclick="toggleEdit('description-input', 'description-edit-button', 'Actualizar', 'Editar')" id="description-edit-button">Editar</button>
                     </div>
                 </div>
@@ -185,6 +185,7 @@
             editButton.textContent = radios[0].disabled ? "Editar" : "Actualizar";
         }
     </script>
+    <script src="/scripts/dataperfilcliente.js"></script>
 </main>
 </body>
 </html>

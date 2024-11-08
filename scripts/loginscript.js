@@ -101,3 +101,41 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("El formulario de registro no se encontró en el DOM.");
     }
 })
+
+// Función para guardar el token y el ID
+async function loginUser(credentials) {
+    try {
+        // Llamada al backend para iniciar sesión
+        const response = await fetch('print-me1.vercel.app/login/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(credentials)
+        });
+
+        // Verificar si la respuesta es exitosa
+        if (response.ok) {
+            const data = await response.json();
+            
+            // Guardar el token y el id del cliente en localStorage
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('clientId', data.clientId);
+
+            console.log('Login exitoso. Token y clientId guardados en localStorage.');
+        } else {
+            console.error('Error en el inicio de sesión:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error de red:', error);
+    }
+}
+
+/*
+// Ejemplo de uso
+const credentials = {
+    username: 'usuario',
+    password: 'contraseña'
+};
+
+loginUser(credentials);*/
