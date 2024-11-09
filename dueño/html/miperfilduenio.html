@@ -221,48 +221,36 @@
 
         
 
-            <!-- Botón que abre el popup de recuperación de contraseña -->
-            <button class="recuperar-contra" onclick="togglePopupRecuperar()">Cambiar Contraseña</button>
-
-            <!-- Contenedor del Popup de recuperación de contraseña -->
-            <div class="popup-container-recuperar" id="popup-container-recuperar">
-                <h2>Cambiar Contraseña</h2>
-                <br>
-                <input type="password" placeholder="Escribir nueva contraseña" style="padding: 10px; font-size: 16px; width: 100%; margin-bottom: 15px;">
-                <input type="password" placeholder="Confirmar contraseña" style="padding: 10px; font-size: 16px; width: 100%; margin-bottom: 20px;">
-                <button class="recuperar-contra" onclick="togglePopupRecuperar()">Restablecer Contraseña</button>
-            </div>
-
-            <!-- Fondo Oscurecido para el popup de recuperación de contraseña -->
-            <div class="overlay-recuperar" onclick="togglePopupRecuperar()"></div>
-
-          
-        </div>
-    </div>
-</div>
-
-
-<script>
-
-document.addEventListener("DOMContentLoaded", function() {
-    // Función para mostrar y ocultar el popup de recuperación de contraseña
-    function togglePopupRecuperar() {
-        const popup = document.getElementById("popup-container-recuperar");
-        const overlay = document.querySelector(".overlay-recuperar");
-
-        const isVisible = popup.style.display === "block";
-        popup.style.display = isVisible ? "none" : "block";
-        overlay.style.display = isVisible ? "none" : "block";
-    }
-
-    // Agregar event listeners al botón y al overlay para abrir/cerrar el popup
-    document.querySelector(".recuperar-contra").addEventListener("click", togglePopupRecuperar);
-    document.querySelector(".overlay-recuperar").addEventListener("click", togglePopupRecuperar);
-});
+            
 
 
 
-</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                         </body>
                         </html>
