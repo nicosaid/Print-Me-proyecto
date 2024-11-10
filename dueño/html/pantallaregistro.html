@@ -42,13 +42,10 @@
             <input type="password" id="contraseña" name="contra" placeholder="Contraseña..." minlength="8"><br><br>
             <div class="error"></div>
           </div>
-
           <div class="input-box">
             <input type="password" id="contraseña2" name="contra2" placeholder="Confirmar contraseña..."><br><br>
             <div class="error"></div>
           </div>
-
-
 
 
           <div class="scrollable-container">
@@ -60,12 +57,14 @@
 
 
           <div class="input-box">
-            <select id="modelo-impresora" name="modelo-impresora">
+            <select id="residencia" name="modelo-impresora">
               <option value="" disabled selected>Zona de Residencia</option>
               <option value="residencia1">residencia1</option>
               <option value="residencia2">residencia2</option>
               <option value="residencia3">residencia3</option>
-            </select><br><br>
+            </select>
+            <div class="error"></div>
+            <br><br>
           </div>
 
           
@@ -75,7 +74,9 @@
               <option value="modelo1">Modelo 1</option>
               <option value="modelo2">Modelo 2</option>
               <option value="modelo3">Modelo 3</option>
-            </select><br><br>
+            </select>
+            <div class="error"></div>
+            <br><br>
           </div>
 
           <div class="input-box">
@@ -84,27 +85,31 @@
               <option value="pla">PLA</option>
               <option value="abs">ABS</option>
               <option value="resina">Resina</option>
-            </select><br><br>
+            </select>
+            <div class="error"></div>
+            <br><br>
           </div>
 
-
-          <label for="postimp" id="postimp">Realiza post Impresion?</label>
-          <div class="radio-button-container">
-            <div class="radio-button">
-              <input type="radio" class="radio-button__input" id="radio1" name="radio-group">
-              <label class="radio-button__label" for="radio1">
-                <span class="radio-button__custom"></span>
-                Sí
-              </label>
+            <div class="input-box" id="postimp">
+              <label>Realiza post Impresion?</label>
+            <div class="radio-button-container">
+              <div class="radio-button">
+                <input type="radio" class="radio-button__input" id="radio1" name="radio-group">
+                <label class="radio-button__label" for="radio1">
+                  <span class="radio-button__custom"></span>
+                  Sí
+                </label>
+              </div>
+              <div class="radio-button">
+                <input type="radio" class="radio-button__input" id="radio2" name="radio-group">
+                <label class="radio-button__label" for="radio2">
+                  <span class="radio-button__custom"></span>
+                  No
+                </label>
+              </div>
+              <div class="error">
+              </div>
             </div>
-            <div class="radio-button">
-              <input type="radio" class="radio-button__input" id="radio2" name="radio-group">
-              <label class="radio-button__label" for="radio2">
-                <span class="radio-button__custom"></span>
-                No
-              </label>
-            </div>
-          </div>
 
           <button type="submit">Registrarme</button>
         </div>
@@ -116,7 +121,7 @@
 
   <script src="../../general/js/fondo.js"></script>
   <script defer src="/usuario/js/formregistrovalidar.js"></script>
-  <script src="/scripts/registrocliente.js"></script>
+  <script src="/scripts/registrodueño.js"></script>
   
 </body>
 </html>

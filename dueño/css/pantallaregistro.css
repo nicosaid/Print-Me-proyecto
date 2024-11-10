@@ -185,3 +185,13 @@ body {
 #postimp {
     color:  #707070be;
 }
+
+/*agrego codigo*/
+
+/* Estilo del mensaje de error */
+.input-box .error {
+    color: red; /* Texto del mensaje de error en rojo */
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block; /* Asegúrate de que el error esté visible solo cuando haya un mensaje */
+}

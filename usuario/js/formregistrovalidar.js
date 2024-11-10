@@ -1,3 +1,4 @@
+let postImpresionValue; // Declaración global de la variable
 document.addEventListener("DOMContentLoaded", () => {
 
     const form = document.getElementById('registro-form');
@@ -5,34 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const mail = document.getElementById('mail');
     const contraseña = document.getElementById('contraseña');
     const contraseña2 = document.getElementById('contraseña2');
+    const telefono = document.getElementById("telefono");
+    const residencia = document.getElementById("residencia");
+    const modeloImpresora = document.getElementById("modelo-impresora");
+    const material = document.getElementById("material");
 
-    const a = form.addEventListener('submit', e => {
+    form.addEventListener('submit', e => {
         e.preventDefault();
-        console.log("El 'submit' event listener está leyendo los siguientes valores:");
-        console.log(`Nombre y Apellido: ${username.value}`);
-        console.log(`Email: ${mail.value}`);
-        console.log(`Contraseña: ${contraseña.value}`);
-        console.log(`Confirmación de Contraseña: ${contraseña2.value}`);
         validateInputs();
     });
-
-    const setError = (element, message) => {
-        const inputControl = element.parentElement;
-        const errorDisplay = inputControl.querySelector('.error');
-
-        errorDisplay.innerText = message;
-        inputControl.classList.add('error');
-        inputControl.classList.remove('success')
-    }
-
-    const setSuccess = element => {
-        const inputControl = element.parentElement;
-        const errorDisplay = inputControl.querySelector('.error');
-
-        errorDisplay.innerText = '';
-        inputControl.classList.add('success');
-        inputControl.classList.remove('error');
-    };
 
     const isValidEmail = mail => {
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -40,15 +22,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const validateInputs = () => {
-        const usernameValue = nombre_apellido.value.trim();
+        const usernameValue = username.value.trim();
         const mailValue = mail.value.trim();
         const contraseñaValue = contraseña.value.trim();
         const contraseña2Value = contraseña2.value.trim();
+        const telefonoValue = telefono.value.trim();
+        const residenciaValue = residencia.value;
+        const modeloImpresoraValue = modeloImpresora.value;
+        const materialValue = material.value;
+        const postImpresion = document.querySelector("input[name='radio-group']:checked");
 
         if (usernameValue === '') {
-            setError(nombre_apellido, 'Usuario requerido');
+            setError(username, 'Usuario requerido');
         } else {
-            setSuccess(nombre_apellido);
+            setSuccess(username);
         }
 
         if (mailValue === '') {
@@ -62,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (contraseñaValue === '') {
             setError(contraseña, 'Contraseña requerida');
         } else if (contraseñaValue.length < 8) {
-            setError(contraseña, 'La contraseña debe tener tener mas de 8 caracteres.')
+            setError(contraseña, 'La contraseña debe tener mas de 8 caracteres.')
         } else {
             setSuccess(contraseña);
         }
@@ -74,5 +61,70 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             setSuccess(contraseña2);
         }
-    }
-})
+
+        if (telefonoValue === '') {
+            setError(telefono, 'Teléfono requerido');
+        } else if (!/^\d{10}$/.test(telefonoValue)) {
+            setError(telefono, 'El teléfono debe tener exactamente 10 dígitos');
+        } else {
+            setSuccess(telefono);
+        }
+
+        if (residenciaValue === '') {
+            setError(residencia, 'Seleccione una zona de residencia');
+        } else {
+            setSuccess(residencia);
+        }
+
+        if (modeloImpresoraValue === '') {
+            setError(modeloImpresora, 'Seleccione un modelo de impresora');
+        } else {
+            setSuccess(modeloImpresora);
+        }
+
+        if (materialValue === '') {
+            setError(material, 'Seleccione un material');
+        } else {
+            setSuccess(material);
+        }
+
+        if (!postImpresion) {
+            // Si ninguno de los radio buttons está seleccionado, mostrar un mensaje de error
+            setError(document.querySelector('.radio-button-container'),'Seleccione una opción de post impresión');
+            return false; // No permitir el envío del formulario
+        } else {
+            // Si uno de los radio buttons está seleccionado, ejecutar la lógica
+            setSuccess(document.querySelector('.radio-button-container'));
+    
+            // Verificar cuál de los radio buttons está seleccionado
+            if (postImpresion.id === "radio1") {
+                postImpresionValue = true;
+            } else if (postImpresion.id === "radio2") {
+                postImpresionValue = false;
+            }
+    
+            return true; // Permitir el envío del formulario
+        }
+    };
+        });
+      
+//esta funcion es para que se ponga el borde rojo y aparezca el mensaje en caso de error
+const setError = (element, message) => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = message;
+    inputControl.classList.add('error');
+    inputControl.classList.remove('success')
+   // element.classList.add('error');// Aplica borde rojo al select o radio button container      
+}
+
+const setSuccess = element => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = '';
+    inputControl.classList.add('success');
+    inputControl.classList.remove('error');
+};
+
