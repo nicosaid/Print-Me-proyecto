@@ -113,38 +113,62 @@
 
 
 
-            <button class="recuperar-contra" onclick="togglePopupRecuperar()">Cambiar Contraseña</button>
 
-            <div class="popup-container-recuperar" id="popup-container-recuperar">
-                <h2>Cambiar Contraseña</h2>
-                <br>
-                <input type="password" placeholder="Escribir nueva contraseña" style="padding: 10px; font-size: 16px; width: 100%; margin-bottom: 15px;">
-                <input type="password" placeholder="Confirmar contraseña" style="padding: 10px; font-size: 16px; width: 100%; margin-bottom: 20px;">
-                <button class="recuperar-contra" onclick="togglePopupRecuperar()">Restablecer Contraseña</button>
-            </div>
 
-            <div class="overlay-recuperar" onclick="togglePopupRecuperar()"></div>
-            <script>
+       
+            </head>
+            <body>
+            
+              <!-- Botón para abrir el popup -->
+              <button class="recuperar-contra" onclick="abrirPopup()">Cambiar Contraseña</button>
+            
+              <!-- Popup overlay para cambiar contraseña -->
+              <div class="popupcambiar-overlay" id="popupcambiarOverlay">
+                <div class="popupcambiar">
+                  <h2>Cambiar Contraseña</h2>
+                  <br>
 
-                document.addEventListener("DOMContentLoaded", function() {
-                    // Función para mostrar y ocultar el popup de recuperación de contraseña
-                    function togglePopupRecuperar() {
-                        const popup = document.getElementById("popup-container-recuperar");
-                        const overlay = document.querySelector(".overlay-recuperar");
-                
-                        const isVisible = popup.style.display === "block";
-                        popup.style.display = isVisible ? "none" : "block";
-                        overlay.style.display = isVisible ? "none" : "block";
-                    }
-                
-                    // Agregar event listeners al botón y al overlay para abrir/cerrar el popup
-                    document.querySelector(".recuperar-contra").addEventListener("click", togglePopupRecuperar);
-                    document.querySelector(".overlay-recuperar").addEventListener("click", togglePopupRecuperar);
-                });
-                
-                
-                
-                </script>
+                  <form>
+             
+                        <label class="textopopup" for="confirmPassword">Confirmar Nueva Contraseña</label>
+                    <input type="password" id="confirmPassword" required><br><br>
+            
+                    <label class="textopopup" for="confirmPassword">Confirmar Nueva Contraseña</label>
+                    <input type="password" id="confirmPassword" required><br><br>
+            
+                    <button type="submit" class="guardar-btn"> Guardar Cambios</button>
+                  </form>
+                  <button class="cerrar-btn" onclick="cerrarPopup()">Cerrar</button>
+                </div>
+              </div>
+            
+              <script>
+                // Función para abrir el popup
+                function abrirPopup() {
+                  document.getElementById('popupcambiarOverlay').style.display = 'flex';
+                }
+            
+                // Función para cerrar el popup
+                function cerrarPopup() {
+                  document.getElementById('popupcambiarOverlay').style.display = 'none';
+                }
+              </script>
+            
+
+
+
+
+
+            </body>
+            </html>
+            
+
+
+
+            
+
+
+     
         </div>
     </div>
 </div>
@@ -185,6 +209,13 @@
             editButton.textContent = radios[0].disabled ? "Editar" : "Actualizar";
         }
     </script>
+
+
+
+
+
+
+
     <script src="/scripts/dataperfilcliente.js"></script>
 </main>
 </body>

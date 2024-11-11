@@ -224,28 +224,53 @@
             
 
 
+       
+        </head>
+        <body>
+        
+          <!-- Botón para abrir el popup -->
+          <button class="recuperar-contra" onclick="abrirPopup()">Cambiar Contraseña</button>
+        
+          <!-- Popup overlay para cambiar contraseña -->
+          <div class="popupcambiar-overlay" id="popupcambiarOverlay">
+            <div class="popupcambiar">
+              <h2>Cambiar Contraseña</h2>
+              <br>
+
+              <form>
+         
+                    <label class="textopopup" for="confirmPassword">Confirmar Nueva Contraseña</label>
+                <input type="password" id="confirmPassword" required><br><br>
+        
+                <label class="textopopup" for="confirmPassword">Confirmar Nueva Contraseña</label>
+                <input type="password" id="confirmPassword" required><br><br>
+        
+                <button type="submit" class="guardar-btn"> Guardar Cambios</button>
+              </form>
+              <button class="cerrar-btn" onclick="cerrarPopup()">Cerrar</button>
+            </div>
+          </div>
+        
+          <script>
+            // Función para abrir el popup
+            function abrirPopup() {
+              document.getElementById('popupcambiarOverlay').style.display = 'flex';
+            }
+        
+            // Función para cerrar el popup
+            function cerrarPopup() {
+              document.getElementById('popupcambiarOverlay').style.display = 'none';
+            }
+          </script>
+        
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </body>
+        </html>
+        
 
 
 
