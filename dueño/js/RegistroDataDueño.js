@@ -1,29 +1,23 @@
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("Script cargado y DOM listo");
-
-    const registroForm = document.getElementById("registro-form");
-    console.log("Formulario encontrado:", registroForm);
-
-    if (registroForm) {
-        registroForm.addEventListener("submit", enviarDatosRegistro);
-        console.log("EventListener de submit añadido");
-    } else {
-        console.error("El formulario de registro no se encontró en el DOM.");
-    }
-});
-
 function enviarDatosRegistro(e) {
     e.preventDefault(); // Previene que se recargue la página al enviar el formulario
     const nombre_apellido = document.getElementById("nombre_apellido");
     const mail = document.getElementById("mail");
     const contraseña = document.getElementById("contraseña");
-   
+    const telefono = document.getElementById("telefono");
+    const residencia = document.getElementById("residencia");
+    const modeloImpresora = document.getElementById("modelo-impresora");
+    const material = document.getElementById("material");
+    const postImpresion = document.querySelector("input[name='radio-group']:checked")?.id === "radio1"; // Verifica si se seleccionó "Sí" o "No"
 
     const data = {
+        nombre_apellido: nombre_apellido.value,
         mail: mail.value,
         contraseña: contraseña.value,
-        nombre_apellido: nombre_apellido.value,
-
+        telefono: telefono.value,
+        residencia: residencia.value,
+        modeloImpresora: modeloImpresora.value,
+        material: material.value,
+        postImpresion
     };
     console.log(data);
 
@@ -44,10 +38,8 @@ function enviarDatosRegistro(e) {
         }
     })
     .then((data) => {
-        if (data && data.token) {
-            console.log("Datos enviados exitosamente:", data);
-            localStorage.setItem("token", data.token);
-            alert("Registro exitoso.");
+        if (data) {
+            console.log("Registro exitoso", data);
         }
     })
     .catch((error) => {
@@ -66,3 +58,4 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("El formulario de registro no se encontró en el DOM.");
     }
 });
+

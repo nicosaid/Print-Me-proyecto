@@ -1,36 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Script cargado y DOM listo");
-
     const loginForm = document.getElementById("login-form");
-    console.log("Formulario encontrado:", loginForm);
-
     if (loginForm) {
         loginForm.addEventListener("submit", enviarDatosLogin);
-        console.log("EventListener de submit añadido");
     } else {
-        console.error("El formulario de login no se encontró en el DOM.");
+        console.error("No se encontró el formulario de login.");
     }
 });
 
-function validarFormulario() {
-
-    var mail = document.getElementById("mail").value;
-    var contra = document.getElementById("contraseña").value;
-
+const validateInputs = () => {
+    const mail = document.getElementById("mail").value;
+    const contraseña = document.getElementById("contraseña").value;
 
     if (mail === "") {
         alert("Por favor, ingresa tu correo electrónico.");
         return false;
     }
-
-    // Verificar que el email sea válido
-    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    if (!emailPattern.test(mail)) {
-        alert("Por favor, ingresa un correo electrónico válido.");
-        return false;
-    }
-
-    if (contra === "") {
+    
+    if (contraseña === "") {
         alert("Porfavor, ingrese su contraseña")
         return false;
     }
@@ -38,11 +24,15 @@ function validarFormulario() {
 }
 
 function enviarDatosLogin(e) {
-    e.preventDefault(); // Previene que se recargue la página al enviar el formulario
+    e.preventDefault();
+
+    if (!validateInputs()) {
+        return; // Si la validación falla, salir de la función
+    }
+
     const mail = document.getElementById("mail");
     const contraseña = document.getElementById("contraseña");
-    const nombre_apellido = document.getElementById("nombre_apellido");
-
+   
     const data = {
         mail: mail.value,
         contraseña: contraseña.value,
@@ -50,7 +40,7 @@ function enviarDatosLogin(e) {
     };
     console.log(data);
 
-    fetch("https://print-me-ten.vercel.app/registercomprador/registercomp", {  
+    fetch("https://print-me1.vercel.app/login/login", {  
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -70,72 +60,13 @@ function enviarDatosLogin(e) {
         if (data && data.token) {
             console.log("Datos enviados exitosamente:", data);
             localStorage.setItem("token", data.token);
+            localStorage.setItem('clientId', data.clientId);
             alert("Login exitoso.");
         }
     })
     .catch((error) => {
-        console.log("hubo error");
+        console.log("error");
         console.error(error);
         alert("Hubo un problema con el envío de los datos.");
     });
 }
-
-function ConfirmarLogin() {
-    document.getElementById("form").addEventListener("submit", function (event) {
-        event.preventDefault(); // Evitar que la página se recargue
-        console.log("entra");
-
-        // Llamamos a la función de validación de datos
-        if (validarFormulario()) {
-            // Si los datos son válidos, enviamos los datos
-            enviarDatosLogIn();
-        }
-    });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    const loginForm = document.getElementById("login-form");
-    if (registroForm) {
-        registroForm.addEventListener("submit", enviarDatosRegistro);
-    } else {
-        console.error("El formulario de registro no se encontró en el DOM.");
-    }
-})
-
-// Función para guardar el token y el ID
-async function loginUser(credentials) {
-    try {
-        // Llamada al backend para iniciar sesión
-        const response = await fetch('print-me1.vercel.app/login/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(credentials)
-        });
-
-        // Verificar si la respuesta es exitosa
-        if (response.ok) {
-            const data = await response.json();
-            
-            // Guardar el token y el id del cliente en localStorage
-            localStorage.setItem('token', data.token);
-            localStorage.setItem('clientId', data.clientId);
-
-            console.log('Login exitoso. Token y clientId guardados en localStorage.');
-        } else {
-            console.error('Error en el inicio de sesión:', response.statusText);
-        }
-    } catch (error) {
-        console.error('Error de red:', error);
-    }
-}
-
-/*
-// Ejemplo de uso
-const credentials = {
-    username: 'usuario',
-    password: 'contraseña'
-};
-
-loginUser(credentials);*/

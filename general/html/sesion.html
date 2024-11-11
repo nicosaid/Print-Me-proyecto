@@ -8,7 +8,7 @@
     <title>PrintMe</title>
     <link rel="stylesheet" href="../css/sesion.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="../scripts/loginscript.js"></script>
+    <script src="/scripts/loginscript.js"></script>
 </head>
 
 <link rel="apple-touch-icon" sizes="180x180" href="../../general/icon/apple-touch-icon.png">
@@ -40,11 +40,13 @@
             <!-- Campo del correo electrónico -->
             <div class="input-box">
                 <input type="email" placeholder="example@mail.com" id="mail" required>
+                <div class="error"></div>
             </div>
 
             <!-- Campo de la contraseña -->
             <div class="input-box">
                 <input type="password" placeholder="Contraseña..." id="contraseña" required>
+                <div class="error"></div>
             </div>
 
             <!-- Botón de inicio de sesión -->

@@ -88,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
             setSuccess(material);
         }
 
+
         if (!postImpresion) {
             // Si ninguno de los radio buttons está seleccionado, mostrar un mensaje de error
             setError(document.querySelector('.radio-button-container'),'Seleccione una opción de post impresión');
@@ -95,14 +96,13 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             // Si uno de los radio buttons está seleccionado, ejecutar la lógica
             setSuccess(document.querySelector('.radio-button-container'));
-    
+        
             // Verificar cuál de los radio buttons está seleccionado
-            if (postImpresion.id === "radio1") {
-                postImpresionValue = true;
+             if (postImpresion.id === "radio1") {
+            postImpresionValue = true;
             } else if (postImpresion.id === "radio2") {
-                postImpresionValue = false;
+            postImpresionValue = false;
             }
-    
             return true; // Permitir el envío del formulario
         }
     };
