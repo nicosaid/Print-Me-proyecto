@@ -39,7 +39,9 @@ function enviarDatosRegistro(e) {
     })
     .then((data) => {
         if (data) {
-            console.log("Registro exitoso", data);
+        console.log("Registro exitoso", data);
+        // Redirigir a la página de login después de un registro exitoso
+        window.location.href = '/general/html/sesion.html';
         }
     })
     .catch((error) => {
