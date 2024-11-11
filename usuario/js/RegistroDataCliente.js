@@ -22,7 +22,7 @@ function enviarDatosRegistro(e) {
     };
     console.log(data);
 
-    fetch("https://print-me1.vercel.app/registercomprador/registercomp", {  
+    fetch("https://print-me-ten.vercel.app/registercomprador/registercomp", {  
         method: "POST",
         headers: {
             "Content-Type": "application/json",
