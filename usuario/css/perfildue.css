@@ -145,8 +145,9 @@ body {
   background-size: cover;
   background-color: rgb(17, 17, 43);
   color: white;
-  overflow: hidden;
   height: 100vh;
+  margin-bottom: 150px;
+
 }
 
 canvas {
