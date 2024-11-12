@@ -165,7 +165,6 @@ body {
   inset: 0;
   color: var(--hovered-color);
   overflow: hidden;
-  transition: 0.3s ease-out;
 }
 
 .optionmiperf:hover::after {

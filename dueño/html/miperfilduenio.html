@@ -236,18 +236,17 @@
             <div class="popupcambiar">
               <h2>Cambiar Contraseña</h2>
               <br>
-
               <form>
-         
-                    <label class="textopopup" for="confirmPassword">Nueva Contraseña</label>
-                <input type="password" id="newPassword" required><br><br>
+                <div class="inputs">
+                <label class="textopopup" for="confirmPassword">Nueva Contraseña</label>
+                <input type="password" id="newPassword" required class="inputcontra"><br><br>
         
                 <label class="textopopup" for="confirmPassword">Confirmar Nueva Contraseña</label>
-                <input type="password" id="confirmPassword" required><br><br>
-        
+                <input type="password" id="confirmPassword" class="inputcontra" required><br><br>
+            </div>
                 <button type="submit" class="guardar-btn"> Guardar Cambios</button>
+                <button class="cerrar-btn" onclick="cerrarPopup()">Cerrar</button>
               </form>
-              <button class="cerrar-btn" onclick="cerrarPopup()">Cerrar</button>
             </div>
           </div>
         
@@ -262,20 +261,9 @@
               document.getElementById('popupcambiarOverlay').style.display = 'none';
             }
           </script>
-        
-
-
-
-
 
         </body>
         </html>
-        
-
-
-
-
-
 
                         </body>
                         </html>
@@ -285,9 +273,6 @@
         </form>
     
     </div>
-
-
-
 
 <script>
     function toggleEdit(inputId, buttonId, updateText, editText) {
@@ -313,11 +298,6 @@
         dropdown.disabled = !dropdown.disabled; 
         editButton.textContent = dropdown.disabled ? "Editar" : "Actualizar"; 
     }
-
-
-    
-
-
 
 
     function toggleRadio() {

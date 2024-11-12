@@ -21,13 +21,16 @@ body {
     background-color: rgb(17, 17, 43);
     color: white;
     margin: 0;
-    overflow: hidden;
+    
 }
 
 .card-completa {
     display: flex;
     justify-content: center;
     margin-top: -60px;
+    margin-bottom: 50px;
+
+    
 }
 
 .modal {
