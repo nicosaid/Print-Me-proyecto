@@ -29,7 +29,7 @@ function enviarDatosRegistro(e) {
         body: JSON.stringify(data)
     })
     .then((response) => {
-        if (response.status === 200) {
+        if (response.status === 200 || response.status === 201) {
             console.log("200");
             return response.json();
         } else if (response.status === 400) {
@@ -40,6 +40,8 @@ function enviarDatosRegistro(e) {
     .then((data) => {
         if (data) {
             console.log("Registro exitoso", data);
+            window.location.href = '/general/html/sesion.html';
+            console.log("Redireccionando a sesión");
         }
     })
     .catch((error) => {
