@@ -24,27 +24,26 @@ body {
 
 
 
-  .scrollable-container {
-      max-height: 300px;
-      overflow-y: auto;
-      scrollbar-color: black transparent;
-      scrollbar-width: thin;
-      margin: 0; 
-  }
 
-  .scrollable-container::-webkit-scrollbar {
-      width: 5px;
-  }
 
-  .scrollable-container::-webkit-scrollbar-track {
-      background: transparent;
-  }
 
-  .scrollable-container::-webkit-scrollbar-thumb {
-      background-color: black; /* Cambiar a negro */
-      border-radius: 10px;
-  }
 
+
+
+
+
+  /* Contenedor de la scrollbar */
+.scrollable-container {
+    max-height: 300px; /* O la altura que desees */
+    overflow-y: auto; /* Habilitar barra de desplazamiento vertical */
+    scrollbar-color: #808080 transparent; /* Color de la thumb (gris) y el track (transparente) en Firefox */
+    scrollbar-width: thin; /* Ancho de la scrollbar (para Firefox) */
+    margin: 0;
+}
+
+
+
+  
   .registro-form {
       background-color: white;
       border-radius: 20px;
@@ -194,4 +193,8 @@ body {
     font-size: 0.9em;
     margin-top: 5px;
     display: block; /* Asegúrate de que el error esté visible solo cuando haya un mensaje */
+}
+.input-box 
+{
+    margin-top: 20px;
 }
