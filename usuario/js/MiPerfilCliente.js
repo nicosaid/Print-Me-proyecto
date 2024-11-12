@@ -1,35 +1,8 @@
-/*// Recuperar el token y el ID del cliente desde localStorage
-const token = localStorage.getItem('token');
-const clientId = localStorage.getItem('clientId');
-console.log('Token:', token);
-console.log('ID del Cliente:', clientId);*/
-
-//simulando un token y id hasta que ande el login y pueda usar los datos posta
-
-const fakeToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
-const fakeID = 3;
-
-// Revisa si los valores ya están en localStorage; si no, guarda los simulados
-if (!localStorage.getItem('fakeToken') || !localStorage.getItem('fakeID')) {
-    localStorage.setItem("fakeToken", fakeToken);
-    localStorage.setItem("fakeID", fakeID);
-}
-
 // Obtén el token e ID del localStorage
-const token = localStorage.getItem('fakeToken');
-const clientId = localStorage.getItem('fakeID');
+const token = localStorage.getItem('token');
+const id = localStorage.getItem('id');
 console.log("Token actual:", token);
-console.log("ID actual:", clientId);
-
-// Código para actualizar los datos con valores reales cuando estén disponibles
-// (esto se ejecutaría solo cuando 'data' proviene de una respuesta de API)
-if (typeof data !== 'undefined' && data.fakeToken && data.fakeID) {
-    localStorage.setItem("fakeToken", data.fakeToken);
-    localStorage.setItem("fakeID", data.fakeID);
-} else {
-    console.error("Datos no válidos o aún no disponibles");
-}
-
+console.log("ID actual:", id);
 
 //EDITAR DATOS
 
@@ -60,9 +33,9 @@ function saveField(id) {
 
 // Cargar datos del perfil al iniciar
 document.addEventListener("DOMContentLoaded", () => {
-    fetch(`https://print-me-ten.vercel.app/compradores/compradorByID`, { //agregar token alf ruta
+    fetch(`https://print-me-ten.vercel.app/compradores/compradorByID${token}`, { 
         headers: {
-            'Authorization': `Bearer ${fakeToken}`,  // Añadir el token en el encabezado
+            'Authorization': `Bearer ${token}`,  // Añadir el token en el encabezado
             'Content-Type': 'application/json'
         }
     })
@@ -90,10 +63,10 @@ function guardarDatosPerfil() {
         email: document.getElementById("mail").value,
     };
 
-    fetch(`https://print-me-ten.vercel.app/compradores/comprador/${fakeID}`, {
+    fetch(`https://print-me-ten.vercel.app/compradores/comprador/${id}`, {
         method: 'PUT',
         headers: {
-            'Authorization': `Bearer ${fakeToken}`,  // Añadir el token en el encabezado
+            'Authorization': `Bearer ${id}`,
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(perfilData)
