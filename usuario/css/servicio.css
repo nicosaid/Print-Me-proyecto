@@ -151,7 +151,8 @@
  }
  
  .info h2 {
-	margin: 0;
+	position: center;
+	margin-left: -35px;
 	font-size: 18px;
 	font-weight: bold;
  }
