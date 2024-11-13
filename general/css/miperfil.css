@@ -29,7 +29,6 @@ main {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-
     
 }
 
@@ -46,10 +45,9 @@ h1 {
     display: flex;
     flex-direction: column; /* Cambiado para que el label esté arriba */
     align-items: flex-start;
-    margin-bottom: 155px;
+    margin-bottom: 15px;
     width: 100%;
     display: flex;
-
 }
 
 .input-group-editar {
