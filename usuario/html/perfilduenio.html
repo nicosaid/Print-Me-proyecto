@@ -7,29 +7,15 @@
     <title>PrintMe</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../usuario/css/perfildue.css">
-
-
-
-
-
-
     <link rel="apple-touch-icon" sizes="180x180" href="../../general/icon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../../general/icon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../../general/icon/favicon-16x16.png">
     <link rel="manifest" href="../../general/icon/site.webmanifest">
-
-
-
-
-
-
 </head>
 <body>
   
     <canvas id="starCanvas"></canvas>
     <script src="../../general/js/fondo.js"></script>
-    
-   
 
 <div class="btn-conteiner">
 
@@ -48,10 +34,6 @@
     </div>
     
 
-
-
-
-
     <div class="card-completa">
     <div class="card">
         <h1 class="title" id="nombre">FERNANDO.R3D</h1>
@@ -65,9 +47,6 @@
         </div>
         
 
-
-
-
         <div class="info">
             <div class="field" id="impresora-field">
               <label for="impresora">Impresora:</label>
@@ -78,21 +57,10 @@
               <div class="data-field" id="filamento-info">Filamento PLA Color Azul</div> <!-- Información no modificable -->
             </div>
           </div>
-          
-          
-
-
-
-
-
         
         <button onclick="openPopup()" class="start-order" id="start-order">Iniciar pedido</button>
 
 
-
-
-
-            
             <!-- Fondo oscuro -->
             <div id="overlay" class="overlay"></div>
             
@@ -105,42 +73,12 @@
         <!-- Botón de redirección a la página de inicio -->
         <input type="button" value="Coordinar por Whatsapp" class="btn" onclick="abrirWhatsapp()" />
 
-            
 
-
-        <script>
-
-
-// Ejemplo de función para abrir WhatsApp con el número de la base de datos
-function abrirWhatsapp() {
-    // Supón que este número viene de una llamada a la base de datos
-    const numeroTelefono = "5491112345678"; // Aquí se usa un número de ejemplo
-
-    // Texto de mensaje predeterminado
-    const mensaje = "Hola, quiero coordinar el servicio de impresión 3D. Mi pedido ya ha sido realizado por la web, miralo y aceptalo en la pagina de PrintMe";
-    
-    // Abre WhatsApp con el número y el mensaje
-    const urlWhatsapp = `https://wa.me/${numeroTelefono}?text=${encodeURIComponent(mensaje)}`;
-    window.location.href = urlWhatsapp;
-}
-
-
-
-
-        </script>
 
   <!-- Botón de redirección a la página de inicio -->
   <input type="button" value="Volver a la home" class="btnchico" onclick="window.location.href='../html/servicioimpresion3d.html'">
 
-            
-
-
-
-
-            
-            
-            
-            
+  
             <script>
             
             
@@ -162,51 +100,33 @@ function abrirWhatsapp() {
                 document.querySelector("span.active").classList.remove("popup-open");
             }
             
-            
             </script>
-            
-            
-            
-            
-                        
-                    </div>
-            
-                </div>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function() {
-                        const progressBars = document.querySelectorAll('.progress-bar .bar');
-                        progressBars.forEach((bar, index) => {
-                            bar.addEventListener('click', () => {
-                                progressBars.forEach((b, i) => {
-                                    b.classList.toggle('green', i <= index);
-                                    b.classList.toggle('gray', i > index);
-                                });
-                            });
-                        });
+        
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Primer bloque
+            const progressBars = document.querySelectorAll('.progress-bar .bar');
+            progressBars.forEach((bar, index) => {
+                bar.addEventListener('click', () => {
+                    progressBars.forEach((b, i) => {
+                        b.classList.toggle('green', i <= index);
+                        b.classList.toggle('gray', i > index);
                     });
-                </script>
+                });
+            });
+
+            // Segundo bloque
+            const expandables = document.querySelectorAll(".expandable");
+            expandables.forEach(function(expandable) {
+                expandable.addEventListener("click", function() {
+                    this.classList.toggle("active"); // Alterna la clase 'active'
+                });
+            });
+        });
+        </script>
                 <script src="/usuario/js/perfildueño.js"></script>
             </body>
             </html>
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         
     </div>
 </div>
@@ -219,13 +139,5 @@ function abrirWhatsapp() {
   margin: 0;
   padding: 0;
 }
-
-
-
-
-
-
-
-
 
 </style>

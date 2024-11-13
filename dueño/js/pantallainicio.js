@@ -20,7 +20,7 @@ function Solicitudes(comprador) {
     img.src = "../fotos/impresora 3d.png"; 
     perfilDiv.appendChild(img);
 
-    // Crear y añadir nombre
+    // Crear y añadir nombre 
     const nombre = document.createElement("h2");
     nombre.textContent = comprador.nombre_apellido;
     perfilDiv.appendChild(nombre);
