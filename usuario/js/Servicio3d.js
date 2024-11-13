@@ -3,12 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarPerfiles();
 });
 
-function redirectWithDelay() {
-    // Redirige a la pantalla de carga después de hacer clic
-    setTimeout(() => {
-        window.location.href = '../html/loading.html';
-    }, 1000);
-
+function seleccionarPerfil(idPerfilSeleccionado) {
+    localStorage.setItem('perfilSeleccionado', idPerfilSeleccionado);
+    window.location.href = 'usuario/html/perfilduenio.html';
 }
 
 function crearPerfil(vendedor) {
@@ -48,7 +45,7 @@ function crearPerfil(vendedor) {
 }
 
 function cargarPerfiles() {
-    fetch("http://localhost:3000/vendedores/buscar?q=martin")
+    fetch("http://print-me1.vercel.app/vendedores/vendedorByID/1 ") //esta ruta o la del buscador?
         .then(response => response.json())
         .then(data => {
             console.log("Data recibida:", data);
