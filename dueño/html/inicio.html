@@ -190,8 +190,6 @@ function closePopup() {
                 <img src="../fotos/impresora 3d.png" alt="3D Printer" class="printer-image">
                 <div class="info">
                     <h2>Fernando R (Especializado en impresiones grandes y detalladas)</h2>
-
-
                     <button class="aceptar"  onclick="redirectWithDelay()">
                        Aceptar
                             <path
@@ -210,11 +208,9 @@ function closePopup() {
                     </script>  
 
                     <button class="rechazar">Rechazar</button>
-
+                </div>
             </div>
-
-        </div>
-
+        <div id="solicitudes"></div>
 
 
 <!-- CARDS FALSOS
@@ -295,7 +291,22 @@ function closePopup() {
 
 
 
+<script>
+      const menuIcon = document.getElementById('menu-icon');
+  const buttonContainer = document.querySelector('.button-container');
 
+  // Alternar el menú al hacer clic en el ícono
+  menuIcon.addEventListener('click', function () {
+      buttonContainer.classList.toggle('show-menu');
+  });
+
+  // Cierra el menú si se hace clic fuera de él
+  document.addEventListener('click', function (event) {
+      if (!buttonContainer.contains(event.target) && !menuIcon.contains(event.target)) {
+          buttonContainer.classList.remove('show-menu');
+      }
+  });
+</script>
 
 
 

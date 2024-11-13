@@ -1,37 +1,17 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // Manejador para el ícono del menú
-  const menuIcon = document.getElementById('menu-icon');
-  const buttonContainer = document.querySelector('.button-container');
-
-  // Alternar el menú al hacer clic en el ícono
-  menuIcon.addEventListener('click', function () {
-      buttonContainer.classList.toggle('show-menu');
-  });
-
-  // Cierra el menú si se hace clic fuera de él
-  document.addEventListener('click', function (event) {
-      if (!buttonContainer.contains(event.target) && !menuIcon.contains(event.target)) {
-          buttonContainer.classList.remove('show-menu');
-      }
-  });
-
-
-});
- 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM cargado");
     cargarPerfiles();
 });
 
-function seleccionarPerfil(idPerfilSeleccionado) {
+/*function seleccionarPerfil(idPerfilSeleccionado) {
     localStorage.setItem('perfilSeleccionado', idPerfilSeleccionado);
     window.location.href = 'usuario/html/perfilduenio.html';
-}
+}*/
 
-function crearPerfil(vendedor) {
-    console.log("vendedor:",vendedor);
+function Solicitudes(comprador) {
+    console.log("comprador:", comprador);
 
-    // Crear un div contenedor para cada perfil
+    // Crear un div contenedor para cada solicitud
     const perfilDiv = document.createElement("div");
     perfilDiv.classList.add("info");//clase del css
 
@@ -42,34 +22,32 @@ function crearPerfil(vendedor) {
 
     // Crear y añadir nombre
     const nombre = document.createElement("h2");
-    nombre.textContent = vendedor.nombre_apellido;
+    nombre.textContent = comprador.nombre_apellido;
     perfilDiv.appendChild(nombre);
 
-    // Crear y añadir descripción
-    const descripcion = document.createElement("p");
-    descripcion.textContent = vendedor.descripcion;
-    perfilDiv.appendChild(descripcion);
+    // Crear y añadir botón "Aceptar"
+    const BotonAceptar = document.createElement("button");
+    botonPerfil.textContent = "Aceptar";
+    botonPerfil.classList.add("aceptar");
+    perfilDiv.appendChild(BotonAceptar);
 
-    // Crear y añadir botón "Ir al Perfil"
-    const botonPerfil = document.createElement("button");
-    botonPerfil.textContent = "Ir al Perfil";
-    botonPerfil.classList.add("button");
-    botonPerfil.onclick = () => {
-        redirectWithDelay(`/vendedor/${vendedor.id}`);
-    };
-    perfilDiv.appendChild(botonPerfil);
+    // Crear y añadir botón "Rechazar"
+    const BotonRechazar = document.createElement("button");
+    botonPerfil.textContent = "Rechazar";
+    botonPerfil.classList.add("rechazar");
+    perfilDiv.appendChild(BotonRechazar);
 
     // Agregar el perfil al contenedor principal
-    document.getElementById("TodosPerfiles").appendChild(perfilDiv);
+    document.getElementById("solicitudes").appendChild(perfilDiv);
 }
 
-function cargarPerfiles() {
-    fetch("https://print-me-ten.vercel.app/vendedores/vendedor/get")
+function cargarPedidos() {
+    fetch("https://print-me-ten.vercel.app/pedidos/pedidos ")
         .then(response => response.json())
         .then(data => {
             console.log("Data recibida:", data);
-            if (Array.isArray(data.vendedor)) {
-                data.vendedor.forEach(crearPerfil);
+            if (Array.isArray(data.comprador)) {
+                data.comprador.forEach(cargarPedidos);
             } else {
                 console.error("La propiedad 'vendedor' no es un array:", data);
             }
