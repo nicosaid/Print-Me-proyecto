@@ -1,5 +1,18 @@
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM cargado");
+    cargarPerfiles();
+});
+
+function redirectWithDelay() {
+    // Redirige a la pantalla de carga después de hacer clic
+    setTimeout(() => {
+        window.location.href = '../html/loading.html';
+    }, 1000);
+
+}
+
 function crearPerfil(vendedor) {
-    console.log(vendedor);
+    console.log("vendedir:",vendedor);
 
     // Crear un div contenedor para cada perfil
     const perfilDiv = document.createElement("div");
@@ -8,21 +21,26 @@ function crearPerfil(vendedor) {
     // Crear y añadir imagen
     const img = document.createElement("img");
     img.src = vendedor.imagen; //!cambiar vendedor.imagen al campo del backend
-    img.alt = "Imagen de " + vendedor.nombre;
+    img.alt = "Imagen de " + vendedor.nombre_apellido;
     perfilDiv.appendChild(img);
 
     // Crear y añadir nombre
-    const nombre = document.createElement("h3");
-    nombre.textContent = vendedor.nombre;
+    const nombre = document.createElement("h2");
+    nombre.textContent = vendedor.nombre_apellido;
     perfilDiv.appendChild(nombre);
+
+    // Crear y añadir descripción
+    const descripcion = document.createElement("p");
+    descripcion.textContent = vendedor.descripcion;
+    perfilDiv.appendChild(descripcion);
 
     // Crear y añadir botón "Ir al Perfil"
     const botonPerfil = document.createElement("button");
     botonPerfil.textContent = "Ir al Perfil";
-    botonPerfil.addEventListener("click", () => {
-        // !Redirigir o manejar evento para el perfil
-        window.location.href = `/vendedor/${vendedor.id}`;
-    });
+    botonPerfil.classList.add("button");
+    botonPerfil.onclick = () => {
+        redirectWithDelay(`/vendedor/${vendedor.id}`);
+    };
     perfilDiv.appendChild(botonPerfil);
 
     // Agregar el perfil al contenedor principal
@@ -30,36 +48,44 @@ function crearPerfil(vendedor) {
 }
 
 function cargarPerfiles() {
-    fetch("http://localhost:3000/vendedores/buscar?q=benji")
+    fetch("http://localhost:3000/vendedores/buscar?q=martin")
         .then(response => response.json())
         .then(data => {
-            data.forEach(crearPerfil);
+            console.log("Data recibida:", data);
+            if (Array.isArray(data.message)) {
+                data.message.forEach(crearPerfil);
+            } else {
+                console.error("La propiedad 'message' no es un array:", data);
+            }
         })
         .catch(error => console.error("Error al cargar perfiles:", error));
 }
 
-// Llamar a la función al cargar la página
-document.addEventListener("DOMContentLoaded", cargarPerfiles);
-
 //FILTROS
+/*      
+ // Función para filtrar perfiles según el tipo
+        function filterProfiles(info) {
+            const profiles = document.querySelectorAll('.profile');
+            profiles.forEach(profile => {
+                // Mostrar u ocultar según el tipo de filtro
+                if (type === 'todos') {
+                    profile.style.display = 'block';
+                } else if (type === 'favoritos') {
+                    if (profile.classList.contains('favorito')) {
+                        profile.style.display = 'block';
+                    } else {
+                        profile.style.display = 'none';
+                    }
+                }
+            });
+        }
 
 // FILTRO FAVORITOS
 
-function filterProfiles(type) {
-    const profiles = document.querySelectorAll('.profile');
-    profiles.forEach(profile => {
-        // Mostrar u ocultar según el tipo de filtro
-        if (type === 'todos') {
-            profile.style.display = 'block';
-        } else if (type === 'favoritos') {
-            if (profile.classList.contains('favorito')) {
-                profile.style.display = 'block';
-            } else {
-                profile.style.display = 'none';
-            }
-        }
-    });
-}
+    function toggleFavorite(spanElement) {
+        const profile = spanElement.parentElement; // Obtener el perfil al que pertenece el span
+        profile.classList.toggle('containerlike'); // Alternar la clase 'favorito'
+    }
 
 
 // FILTRAR POR NECESIDAD
@@ -105,6 +131,5 @@ fetch('/getProfiles', {
             profilesSection.appendChild(profileElement);
         });
     })
-    .catch(error => console.error('Error fetching profiles:', error));
-
-hidePopup(); // Close the pop-up after applying filters
+    .catch(error => console.error('Error fetching profiles:', error)); 
+    */
