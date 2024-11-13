@@ -86,7 +86,7 @@
 
 
         
-        <button onclick="openPopup()" class="start-order">Iniciar pedido</button>
+        <button onclick="openPopup()" class="start-order" id="start-order">Iniciar pedido</button>
 
 
 
@@ -146,20 +146,20 @@ function abrirWhatsapp() {
             
             // Función para abrir la pantalla emergente
             function openPopup() {
-            document.getElementById("popup").style.display = "block";
-            document.getElementById("overlay").style.display = "block";
-            
-            // Añadir la clase popup-open al span
-            document.querySelector("span.active").classList.add("popup-open");
-            }
-            
-            // Función para cerrar la pantalla emergente
-            function closePopup() {
-            document.getElementById("popup").style.display = "none";
-            document.getElementById("overlay").style.display = "none";
-            
-            // Eliminar la clase popup-open del span
-            document.querySelector("span.active").classList.remove("popup-open");
+                document.getElementById("popup").style.display = "block";
+                document.getElementById("overlay").style.display = "block";
+                
+                // Añadir la clase popup-open al span
+                document.querySelector("span.active").classList.add("popup-open");
+                }
+                
+                // Función para cerrar la pantalla emergente
+                function closePopup() {
+                document.getElementById("popup").style.display = "none";
+                document.getElementById("overlay").style.display = "none";
+                
+                // Eliminar la clase popup-open del span
+                document.querySelector("span.active").classList.remove("popup-open");
             }
             
             

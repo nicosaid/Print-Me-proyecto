@@ -9,7 +9,7 @@ function seleccionarPerfil(idPerfilSeleccionado) {
 }
 
 function crearPerfil(vendedor) {
-    console.log("vendedir:",vendedor);
+    console.log("vendedor:",vendedor);
 
     // Crear un div contenedor para cada perfil
     const perfilDiv = document.createElement("div");
@@ -17,8 +17,7 @@ function crearPerfil(vendedor) {
 
     // Crear y añadir imagen
     const img = document.createElement("img");
-    img.src = vendedor.imagen; //!cambiar vendedor.imagen al campo del backend
-    img.alt = "Imagen de " + vendedor.nombre_apellido;
+    img.src = "../fotos/impresora 3d.png"; 
     perfilDiv.appendChild(img);
 
     // Crear y añadir nombre
@@ -45,13 +44,30 @@ function crearPerfil(vendedor) {
 }
 
 function cargarPerfiles() {
-    fetch("http://print-me1.vercel.app/vendedores/vendedorByID/1 ") //esta ruta o la del buscador?
+    fetch("https://print-me-ten.vercel.app/vendedores/vendedor/get")
+        .then(response => response.json())
+        .then(data => {
+            console.log("Data recibida:", data);
+            if (Array.isArray(data.vendedor)) {
+                data.vendedor.forEach(crearPerfil);
+            } else {
+                console.error("La propiedad 'vendedor' no es un array:", data);
+            }
+        })
+        .catch(error => console.error("Error al cargar perfiles:", error));
+}
+
+function buscarPerfiles() {
+    document.getElementById("TodosPerfiles").innerHTML = "";
+    const searchInput = document.getElementById('buscador').value.toLowerCase(); // Obtener el valor del buscador en minúsculas
+    fetch("https://print-me-ten.vercel.app/vendedores/buscar?q=" + searchInput) 
         .then(response => response.json())
         .then(data => {
             console.log("Data recibida:", data);
             if (Array.isArray(data.message)) {
                 data.message.forEach(crearPerfil);
             } else {
+                console.log(data.message);
                 console.error("La propiedad 'message' no es un array:", data);
             }
         })
@@ -59,7 +75,7 @@ function cargarPerfiles() {
 }
 
 //FILTROS
-/*      
+
  // Función para filtrar perfiles según el tipo
         function filterProfiles(info) {
             const profiles = document.querySelectorAll('.profile');
@@ -129,4 +145,4 @@ fetch('/getProfiles', {
         });
     })
     .catch(error => console.error('Error fetching profiles:', error)); 
-    */
+    
