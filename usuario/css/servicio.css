@@ -685,3 +685,12 @@
     transform: scale(1);
   }
 }
+
+
+
+.no-results-message {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: red; /* O el color que prefieras */
+}

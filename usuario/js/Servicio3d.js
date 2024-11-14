@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 }*/
 
 function crearPerfil(vendedor) {
-    console.log("vendedor:",vendedor);
+    console.log("vendedor:", vendedor);
 
     // Crear un div contenedor para cada perfil
     const perfilDiv = document.createElement("div");
@@ -44,31 +44,53 @@ function MoverID(idPerfilSeleccionado){
     window.location.href = `/usuario/html/perfilduenio.html?id=${idPerfilSeleccionado}`; //cambio de pantalla y le paso el id
 }
 
-function cargarPerfiles() {
-    fetch("https://print-me-ten.vercel.app/vendedores/vendedor/get")
-        .then(response => response.json())
-        .then(data => {
-            console.log("Data recibida:", data);
-            if (Array.isArray(data.vendedor)) {
-                data.vendedor.forEach(crearPerfil);
-            } else {
-                console.error("La propiedad 'vendedor' no es un array:", data);
-            }
-        })
-        .catch(error => console.error("Error al cargar perfiles:", error));
-}
+    // Crear el contenedor de favoritos
+    const favoriteLabel = document.createElement("label");
+    favoriteLabel.classList.add("containerlike");
+    favoriteLabel.innerHTML = `
+        <input type="checkbox">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+        </svg>
+    `;
+    perfilCard.appendChild(favoriteLabel);
 
-function buscarPerfiles() {
-    document.getElementById("TodosPerfiles").innerHTML = "";
-    const searchInput = document.getElementById('buscador').value.toLowerCase(); // Obtener el valor del buscador en minúsculas
-    fetch("https://print-me-ten.vercel.app/vendedores/buscar?q=" + searchInput) 
+    // Agregar la tarjeta de perfil al contenedor principal
+    document.getElementById("TodosPerfiles").appendChild(perfilCard);
+}function buscarPerfiles() {
+    // Limpia el contenedor de perfiles antes de realizar la búsqueda
+    const todosPerfiles = document.getElementById("TodosPerfiles");
+    todosPerfiles.innerHTML = "";
+
+    // Obtiene el valor del campo de búsqueda en minúsculas
+    const searchInput = document.getElementById('buscador').value.toLowerCase();
+
+    // Realiza la petición de búsqueda a la API
+    fetch(`https://print-me-ten.vercel.app/vendedores/buscar?q=${encodeURIComponent(searchInput)}`)
         .then(response => response.json())
         .then(data => {
             console.log("Data recibida:", data);
+
+            // Verifica que `data.message` sea un array
             if (Array.isArray(data.message)) {
-                data.message.forEach(crearPerfil);
+                // Si hay resultados, crea los perfiles
+                if (data.message.length > 0) {
+                    // Limpia el mensaje de "no hay resultados" si ya existe
+                    const existingNoResultsMessage = document.querySelector(".no-results-message");
+                    if (existingNoResultsMessage) {
+                        existingNoResultsMessage.remove();
+                    }
+
+                    // Crea y muestra los perfiles
+                    data.message.forEach(crearPerfil);
+                } else {
+                    // Si no hay resultados, muestra el mensaje
+                    const noResultsMessage = document.createElement("p");
+                    noResultsMessage.textContent = "No hay perfiles que coincidan con la búsqueda.";
+                    noResultsMessage.classList.add("no-results-message");
+                    todosPerfiles.appendChild(noResultsMessage); // Aquí agregas el mensaje
+                }
             } else {
-                console.log(data.message);
                 console.error("La propiedad 'message' no es un array:", data);
             }
         })

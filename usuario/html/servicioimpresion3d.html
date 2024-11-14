@@ -102,15 +102,14 @@
         <button class="buscarenter" onclick="buscarPerfiles()" >Buscar</button>
 
 
-
-
-
         <div class="container-options">
-            <span class="active">Todos</span>
-            <span class="active"> Favoritos</span>
-        <!-- Texto para abrir la ventana emergente -->
+            <span onclick="filterProfiles('todos')">Todos</span>
+            <span onclick="filterProfiles('favoritos')">Favoritos</span>
             <span onclick="openPopup()">Filtrar por necesidad</span>
         </div>
+        
+
+
 
 <!-- Fondo oscuro -->
 <div id="overlay" class="overlay"></div>
@@ -201,6 +200,8 @@
           </label>
    
     </div>
+    <div id="TodosPerfiles"></div>
+
   
   
 
@@ -210,8 +211,9 @@
 
 
 
-<div id="TodosPerfiles"></div>
 </main>
+
+
 	<!-- Carga de Font Awesome -->
 <script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
 
