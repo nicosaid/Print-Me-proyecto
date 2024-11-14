@@ -1,62 +1,84 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM cargado");
     cargarPerfil();
-});
+
 
 /*function seleccionarPerfil(idPerfilSeleccionado) {
     localStorage.setItem('perfilSeleccionado', idPerfilSeleccionado);
     window.location.href = 'usuario/html/perfilduenio.html';
 }*/
 
+function cargarPerfil() {
+    const params = new URLSearchParams(window.location.search);
+    const idVendedor = params.get('id');  // Obtén el id de la URL
+
+    if (idVendedor) {
+        fetch(`https://print-me-ten.vercel.app/vendedores/vendedorByID/${idVendedor}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.message) {
+                    crearPerfil(data.message); // Aquí pasamos el objeto vendedor directamente
+                } else {
+                    console.error("No se encontraron datos para el vendedor:", data);
+                }
+            })
+            .catch(error => console.error("Error al cargar el perfil:", error));
+    } else {
+        console.error("ID del perfil no encontrado en la URL");
+    }
+}
+
 function crearPerfil(vendedor) {
     console.log("vendedor:", vendedor);
+    fetch(`https://print-me-ten.vercel.app/vendedores/vendedorByID/${vendedor.id}`)
+    .then(response => response.json())
+    .then(data => {
+        if (data && data.message) {
+            // Crear un div contenedor para cada perfil
+            const perfilDiv = document.createElement("div");
+            perfilDiv.classList.add("card"); // clase del CSS
 
-    // Crear un div contenedor para cada perfil
-    const perfilDiv = document.createElement("div");
-    perfilDiv.classList.add("card");//clase del css
+            perfilDiv.innerHTML = `
+                <img src="../fotos/impresora 3d.png" alt="Impresora" class="printer-image">
+                <h2>${data.message.nombre_apellido}</h2>
+                <p class="stats">${data.message.descripcion}</p>
 
-    perfilDiv.innerHTML = `
-        <img src="../fotos/impresora 3d.png" alt="Impresora" class="printer-image">
-        <h2>${vendedor.nombre_apellido}</h2>
-        <p class="stats">${vendedor.descripcion}</p>
+                <button class="button" onclick="MoverID(${data.message.id})">
+                    Ir al Perfil
+                    <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            `;
 
-        <button class="button" onclick="MoverID(${vendedor.id})">
-            Ir al Perfil
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" clip-rule="evenodd"></path>
-            </svg>
-        </button>
-
-        <label class="containerlike">
-            <input type="checkbox">
-            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
-            </svg>
-        </label>
-    `;
-
-    document.getElementById("TodosPerfiles").appendChild(perfilDiv);
-    perfilDiv.classList.add("info");
+            // Añadir la tarjeta de perfil al contenedor principal
+            document.getElementById("TodosPerfiles").appendChild(perfilDiv);
+            perfilDiv.classList.add("info");
+        } else {
+            console.error("No se encontraron datos para el vendedor:", data);
+        }
+    })
+    .catch(error => console.error("Error al cargar perfiles:", error));
 }
 
 function MoverID(idPerfilSeleccionado){
     console.log("idPerfilSeleccionado:", idPerfilSeleccionado);
-    window.location.href = `/usuario/html/perfilduenio.html?id=${idPerfilSeleccionado}`; //cambio de pantalla y le paso el id
+    window.location.href = `/usuario/html/perfilduenio.html?id=${idPerfilSeleccionado}`; 
+    const vendedor = data.vendedor; // Extrae el objeto 'vendedor'
+    console.log(vendedor);
+    if (vendedor && vendedor.numero_telefonico) {
+      numeroTelefono = vendedor.numero_telefonico;
+  } else {
+      console.warn("No se encontró 'numero_telefonico' en la respuesta de vendedor");
+  }
+      document.getElementById('nombre').textContent  = vendedor.nombre_apellido;
+      document.getElementById('imagen').src = "../fotos/impresoraperfil.png";
+      document.getElementById('desc').value  = vendedor.descripcion || "Sin descripción";
+      document.getElementById('impresora-info').textContent  = vendedor.impresora_modelo || "Impresora no especificado";
+      document.getElementById('filamento-info').textContent  = vendedor.impresora_materiales || "Filamento no especificado";//cambio de pantalla y le paso el id
 }
-
-    // Crear el contenedor de favoritos
-    const favoriteLabel = document.createElement("label");
-    favoriteLabel.classList.add("containerlike");
-    favoriteLabel.innerHTML = `
-        <input type="checkbox">
-        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
-        </svg>
-    `;
-    perfilCard.appendChild(favoriteLabel);
-
-    // Agregar la tarjeta de perfil al contenedor principal
-    document.getElementById("TodosPerfiles").appendChild(perfilCard);
+        
+  
 function buscarPerfiles() {
     // Limpia el contenedor de perfiles antes de realizar la búsqueda
     const todosPerfiles = document.getElementById("TodosPerfiles");
@@ -96,6 +118,7 @@ function buscarPerfiles() {
         })
         .catch(error => console.error("Error al cargar perfiles:", error));
 }
+});
 
 //FILTROS
 
@@ -140,32 +163,3 @@ function applyFilters() {
     });
     hidePopup(); // Cerrar el pop-up al aplicar los filtros
 }
-/*
-// AJAX request
-fetch('/getProfiles', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ zona: selectedZona, modelo: selectedModelo, material: selectedMaterial })
-})
-    .then(response => response.json())
-    .then(data => {
-        const profilesSection = document.getElementById('profiles');
-        profilesSection.innerHTML = ''; // Clear previous profiles
-
-        // Populate profiles with new data
-        data.forEach(profile => {
-            const profileElement = document.createElement('div');
-            profileElement.classList.add('profile');
-            profileElement.innerHTML = `
-            <img src="${profile.image}" alt="Impresora 3D">
-            <p>${profile.name}</p>
-            <span>${profile.views} vistas</span>
-            <span>${profile.comments} comentarios</span>
-        `;
-            profilesSection.appendChild(profileElement);
-        });
-    })
-    .catch(error => console.error('Error fetching profiles:', error)); 
-    */
