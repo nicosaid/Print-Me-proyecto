@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM cargado");
-    cargarPerfiles();
+    cargarPerfil();
 });
 
 /*function seleccionarPerfil(idPerfilSeleccionado) {
