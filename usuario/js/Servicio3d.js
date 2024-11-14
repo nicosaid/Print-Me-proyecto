@@ -57,7 +57,7 @@ function MoverID(idPerfilSeleccionado){
 
     // Agregar la tarjeta de perfil al contenedor principal
     document.getElementById("TodosPerfiles").appendChild(perfilCard);
-}function buscarPerfiles() {
+function buscarPerfiles() {
     // Limpia el contenedor de perfiles antes de realizar la búsqueda
     const todosPerfiles = document.getElementById("TodosPerfiles");
     todosPerfiles.innerHTML = "";
