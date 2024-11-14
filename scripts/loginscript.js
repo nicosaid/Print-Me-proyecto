@@ -60,7 +60,7 @@ function enviarDatosLogin(e) {
         if (data && data.token) {
             console.log("Datos enviados exitosamente:", data);
             localStorage.setItem("token", data.token);
-            localStorage.setItem('id', data.id);
+            localStorage.setItem('LoginId', data.id);
             alert("Login exitoso.");
         }
     })

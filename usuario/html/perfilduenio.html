@@ -36,7 +36,7 @@
 
     <div class="card-completa">
     <div class="card">
-        <h1 class="title" id="nombre">FERNANDO.R3D</h1>
+        <h1 class="title" id="nombre"></h1>
         <img src="../fotos/impresoraperfil.png" id="imagen" alt="Impresora 3D" class="printer-image">
     
 
@@ -50,16 +50,15 @@
         <div class="info">
             <div class="field" id="impresora-field">
               <label for="impresora">Impresora:</label>
-              <div class="data-field" id="impresora-info">Impresora XYZ 123</div> <!-- Información no modificable -->
+              <div class="data-field" id="impresora-info"> </div> 
             </div>
             <div class="field" id="filamento-field">
               <label for="filamento">Filamento:</label>
-              <div class="data-field" id="filamento-info">Filamento PLA Color Azul</div> <!-- Información no modificable -->
+              <div class="data-field" id="filamento-info"> </div> 
             </div>
           </div>
         
-        <button onclick="openPopup()" class="start-order" id="start-order">Iniciar pedido</button>
-
+        <button onclick="openPopup(); crearProducto();" class="start-order" id="start-order">Iniciar pedido</button>
 
             <!-- Fondo oscuro -->
             <div id="overlay" class="overlay"></div>
@@ -68,10 +67,8 @@
             <div id="popup" class="wrapper">
             <div class="popup-header"> Pedido Realizado</div>
             <br><br>
-            
-        
-        <!-- Botón de redirección a la página de inicio -->
-        <input type="button" value="Coordinar por Whatsapp" class="btn" onclick="abrirWhatsapp()" />
+ 
+        <input type="button" value="Coordinar por Whatsapp" class="btn" onclick="abrirWhatsApp()" />
 
 
 
@@ -80,26 +77,19 @@
 
   
             <script>
-            
-            
-            // Función para abrir la pantalla emergente
+            // Función para abrir la pantalla emergente contactar
             function openPopup() {
                 document.getElementById("popup").style.display = "block";
                 document.getElementById("overlay").style.display = "block";
-                
-                // Añadir la clase popup-open al span
-                document.querySelector("span.active").classList.add("popup-open");
+                const button = document.getElementById("start-order");                
+                    if (button) {
+                        button.classList.add("popup-open");  // Solo añade la clase si el span existe
+                    } else {
+                        console.error("No se encontró el elemento 'span.active'");
+                    }
                 }
                 
-                // Función para cerrar la pantalla emergente
-                function closePopup() {
-                document.getElementById("popup").style.display = "none";
-                document.getElementById("overlay").style.display = "none";
-                
-                // Eliminar la clase popup-open del span
-                document.querySelector("span.active").classList.remove("popup-open");
-            }
-            
+
             </script>
         
     <script>
@@ -124,7 +114,7 @@
             });
         });
         </script>
-                <script src="/usuario/js/perfildueño.js"></script>
+        <script src="/usuario/js/perfildueño.js"></script>
             </body>
             </html>
         

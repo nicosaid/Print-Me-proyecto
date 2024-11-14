@@ -3,44 +3,45 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarPerfiles();
 });
 
-function seleccionarPerfil(idPerfilSeleccionado) {
+/*function seleccionarPerfil(idPerfilSeleccionado) {
     localStorage.setItem('perfilSeleccionado', idPerfilSeleccionado);
     window.location.href = 'usuario/html/perfilduenio.html';
-}
+}*/
 
 function crearPerfil(vendedor) {
     console.log("vendedor:",vendedor);
 
     // Crear un div contenedor para cada perfil
     const perfilDiv = document.createElement("div");
-    perfilDiv.classList.add("info");//clase del css
+    perfilDiv.classList.add("card");//clase del css
 
-    // Crear y añadir imagen
-    const img = document.createElement("img");
-    img.src = "../fotos/impresora 3d.png"; 
-    perfilDiv.appendChild(img);
+    perfilDiv.innerHTML = `
+        <img src="../fotos/impresora 3d.png" alt="Impresora" class="printer-image">
+        <h2>${vendedor.nombre_apellido}</h2>
+        <p class="stats">${vendedor.descripcion}</p>
 
-    // Crear y añadir nombre
-    const nombre = document.createElement("h2");
-    nombre.textContent = vendedor.nombre_apellido;
-    perfilDiv.appendChild(nombre);
+        <button class="button" onclick="MoverID(${vendedor.id})">
+            Ir al Perfil
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" clip-rule="evenodd"></path>
+            </svg>
+        </button>
 
-    // Crear y añadir descripción
-    const descripcion = document.createElement("p");
-    descripcion.textContent = vendedor.descripcion;
-    perfilDiv.appendChild(descripcion);
+        <label class="containerlike">
+            <input type="checkbox">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+            </svg>
+        </label>
+    `;
 
-    // Crear y añadir botón "Ir al Perfil"
-    const botonPerfil = document.createElement("button");
-    botonPerfil.textContent = "Ir al Perfil";
-    botonPerfil.classList.add("button");
-    botonPerfil.onclick = () => {
-        redirectWithDelay(`/vendedor/${vendedor.id}`);
-    };
-    perfilDiv.appendChild(botonPerfil);
-
-    // Agregar el perfil al contenedor principal
     document.getElementById("TodosPerfiles").appendChild(perfilDiv);
+    perfilDiv.classList.add("info");
+}
+
+function MoverID(idPerfilSeleccionado){
+    console.log("idPerfilSeleccionado:", idPerfilSeleccionado);
+    window.location.href = `/usuario/html/perfilduenio.html?id=${idPerfilSeleccionado}`; //cambio de pantalla y le paso el id
 }
 
 function cargarPerfiles() {
@@ -117,7 +118,7 @@ function applyFilters() {
     });
     hidePopup(); // Cerrar el pop-up al aplicar los filtros
 }
-
+/*
 // AJAX request
 fetch('/getProfiles', {
     method: 'POST',
@@ -145,4 +146,4 @@ fetch('/getProfiles', {
         });
     })
     .catch(error => console.error('Error fetching profiles:', error)); 
-    
+    */
