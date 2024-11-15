@@ -108,29 +108,28 @@ function mostrarTodos() {
     });
 }
 
+//Filtro x necesidad
 
-function filtrarPerfiles() {
-    const zonaSeleccionada = document.getElementById('zona').value;
-    const impresoraSeleccionada = document.getElementById('impresora').value;
-    const materialesSeleccionados = document.getElementById('materiales').value;
-    const perfiles = document.querySelectorAll('.card');
-    perfiles.forEach(perfil => {
-        const zona = perfil.getAttribute('data-zona');
-        const impresora = perfil.getAttribute('data-impresora');
-        const materiales = perfil.getAttribute('data-materiales');
+document.getElementById("aceptar-button").addEventListener("click", () => {
+    const zona = document.getElementById("zona").value;
+    const modeloImpresora = document.getElementById("impresora").value;
+    const materiales = document.getElementById("materiales").value;
+    //Limpiar los perfiles actuales antes de aplicar el nuevo filtro
+    document.getElementById("TodosPerfiles").innerHTML = "";
 
-        const cumpleFiltroZona = zonaSeleccionada === "" || zona === zonaSeleccionada;
-        const cumpleFiltroImpresora = impresoraSeleccionada === "" || impresora === impresoraSeleccionada;
-        const cumpleFiltroMateriales = materialesSeleccionados === "" || materiales === materialesSeleccionados;
+    fetch(`https://print-me-ten.vercel.app/vendedores/vendedor/get?zona=${zona}&impresora${modeloImpresora}&materiales=${materiales}`)
+        .then(response => response.json())
+        .then(data => {
+            // Clear the current profiles
+            document.getElementById("TodosPerfiles").innerHTML = "";
 
-        // Muestra u oculta el perfil según los filtros
-        if (cumpleFiltroZona && cumpleFiltroImpresora && cumpleFiltroMateriales) {
-            perfil.style.display = "block";  // Muestra el perfil
-        } else {
-            perfil.style.display = "none";   // Oculta el perfil
-        }
-    });
+            if (Array.isArray(data.vendedor)) {
+                // Display the filtered profiles
+                data.vendedor.forEach(crearPerfil);
+            } else {
+                console.error("La propiedad 'vendedor' no es un array:", data);
+            }
+        })
+        .catch(error => console.error("Error al cargar perfiles:", error));
+});
 
-    // Cierra el popup de filtro después de aplicar los filtros
-    closePopup();
-}

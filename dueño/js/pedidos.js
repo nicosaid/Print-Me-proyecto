@@ -12,7 +12,7 @@ function crearPedido(pedido) {
 
     pedidoDiv.innerHTML = `
         <img src="../fotos/impresora 3d.png" alt="Impresora" class="printer-image">
-        <h2>${pedido.id_comprador}</h2>
+        <h2>${pedido.id}</h2>
         <button class="aceptar"  onclick="redirectWithDelay()">
                        Aceptar
                             <path
@@ -36,7 +36,7 @@ function crearPedido(pedido) {
     document.getElementById("TodosPedidos").appendChild(pedidoDiv);
     pedidoDiv.classList.add("info");
 }
-
+/*
 //hacer que el pedido lleve el nombre del cliente que lo pidio, tengo que hacer que segun el id que recibo, busoc el nombre del cliente y guardo eso en una avriable para usar en otras funciones
 const idPerfilCLiente = ""
 if (idPerfilCLiente) {
@@ -51,7 +51,7 @@ if (idPerfilCLiente) {
             console.warn("No se encontró n en la respuesta de vendedor");
         }
     });
-}
+}*/
 
 function MoverID(idPedidoSeleccionado){
     console.log("idPedidoSeleccionado:", idPedidoSeleccionado);
