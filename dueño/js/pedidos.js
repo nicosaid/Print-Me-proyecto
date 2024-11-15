@@ -1,61 +1,80 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM cargado");
-    cargarPerfiles();
+    cargarPedidos();
 });
 
-function crearPerfil(vendedor) {
-    console.log("vendedor:",vendedor);
+function crearPedido(pedido) {
+    console.log("pedido:",pedido);
 
     // Crear un div contenedor para cada perfil
-    const perfilDiv = document.createElement("div");
-    perfilDiv.classList.add("card");//clase del css
+    const pedidoDiv = document.createElement("div");
+    pedidoDiv.classList.add("card");//clase del css
 
-    perfilDiv.innerHTML = `
+    pedidoDiv.innerHTML = `
         <img src="../fotos/impresora 3d.png" alt="Impresora" class="printer-image">
-        <h2>${vendedor.nombre_apellido}</h2>
-        <p class="stats">${vendedor.descripcion}</p>
-
-        <button class="button" onclick="MoverID(${vendedor.id})">
-            Ir al Perfil
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" clip-rule="evenodd"></path>
-            </svg>
+        <h2>${pedido.id_comprador}</h2>
+        <button class="aceptar"  onclick="redirectWithDelay()">
+                       Aceptar
+                            <path
+                                fill-rule="evenodd"
+                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+                                clip-rule="evenodd"
+                            ></path>
+                        </svg>
         </button>
-
-        <label class="containerlike" >
-            <input type="checkbox" onclick="FiltroFavoritos(this)">
-            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
-            </svg>
-        </label>
+        <button class="rechazar"  onclick="redirectWithDelay()">
+                       Rechazar
+                            <path
+                                fill-rule="evenodd"
+                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+                                clip-rule="evenodd"
+                            ></path>
+                        </svg>
+        </button>
     `;
 
-    document.getElementById("TodosPerfiles").appendChild(perfilDiv);
-    perfilDiv.classList.add("info");
+    document.getElementById("TodosPedidos").appendChild(pedidoDiv);
+    pedidoDiv.classList.add("info");
 }
 
-function MoverID(idPerfilSeleccionado){
-    console.log("idPerfilSeleccionado:", idPerfilSeleccionado);
-    window.location.href = `/usuario/html/perfilduenio.html?id=${idPerfilSeleccionado}`; //cambio de pantalla y le paso el id
+//hacer que el pedido lleve el nombre del cliente que lo pidio, tengo que hacer que segun el id que recibo, busoc el nombre del cliente y guardo eso en una avriable para usar en otras funciones
+const idPerfilCLiente = ""
+if (idPerfilCLiente) {
+    fetch(`http://print-me-ten.vercel.app/compradores/compradorByID/${idPerfilCLiente}`)
+        .then(response => response.json())
+        .then(data => {
+          const comprador = data.pedido.id_comprador; // Extrae el objeto 'id_comprador'
+          console.log(comprador);
+          if (comprador) {
+            numeroTelefono = vendedor.numero_telefonico;
+        } else{
+            console.warn("No se encontró n en la respuesta de vendedor");
+        }
+    });
 }
 
-let perfilesCargados = [];
+function MoverID(idPedidoSeleccionado){
+    console.log("idPedidoSeleccionado:", idPedidoSeleccionado);
+    window.location.href = `/usuario/html/perfilduenio.html?id=${idPedidoSeleccionado}`; //cambio de pantalla y le paso el id
+}
 
-function cargarPerfiles() {
-    fetch("https://print-me-ten.vercel.app/vendedores/vendedor/get")
+let pedidosCargados = [];
+
+function cargarPedidos() {
+    fetch("https://print-me-ten.vercel.app/pedidos/pedidos")
         .then(response => response.json())
         .then(data => {
             console.log("Data recibida:", data);
-            if (Array.isArray(data.vendedor)) {
-                perfilesCargados = data.vendedor;
-                data.vendedor.forEach(crearPerfil);
+            if (Array.isArray(data)) {
+                pedidosCargados = data; 
+                data.forEach(crearPedido); 
             } else {
-                console.error("La propiedad 'vendedor' no es un array:", data);
+                console.error("El dato recibido no es un array:", data);
             }
         })
-        .catch(error => console.error("Error al cargar perfiles:", error));
+        .catch(error => console.error("Error al cargar pedidos:", error));
 }
-
+/*
 function buscarPerfiles() {
     document.getElementById("TodosPerfiles").innerHTML = "";
     const searchInput = document.getElementById('buscador').value.toLowerCase(); // Obtener el valor del buscador en minúsculas
@@ -72,6 +91,9 @@ function buscarPerfiles() {
         })
         .catch(error => console.error("Error al cargar perfiles:", error));
 }
+*/
+
+//ruta pediddoById  https://print-me-ten.vercel.app/pedidos/pedidosID/14 
 
 //FILTROS
 //marcar o desmarcar favorito

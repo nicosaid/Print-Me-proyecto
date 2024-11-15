@@ -1,4 +1,3 @@
-let LoginId = localStorage.getItem('LoginId'); // Recupera el id guardado en localStorage
 let token = localStorage.getItem('token');
 let numeroTelefono;
 
@@ -30,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     console.error('No se encontró un ID en la URL');
     }
     
-});
+    });
     function abrirWhatsApp()
     { 
         
@@ -57,7 +56,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const nuevoProducto = {
       producto: "producto",
-      LoginId : LoginId ,
     };
 
     

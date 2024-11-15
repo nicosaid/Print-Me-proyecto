@@ -140,10 +140,9 @@ function togglePopupLogout() {
     <div class="input-box">
         <label for="estado">Seleccionar estado:</label>
         <select id="estado">
-            <option value="EnProceso">En Proceso </option>
-            <option value="Enpaquetando">Enpaquetando</option>
+            <option value="Aceptado">Aceptado</option>
             <option value="EnCamino">En Camino</option>
-            <option value="Finalizado">Finalizado</option>
+            <option value="Entregado">Entregado</option>
 
         </select><br>
     </div>
@@ -189,7 +188,7 @@ function closePopup() {
             <div class="card">
                 <img src="../fotos/impresora 3d.png" alt="3D Printer" class="printer-image">
                 <div class="info">
-                    <h2>Fernando R (Especializado en impresiones grandes y detalladas)</h2>
+                    <h2>Fernando R</h2>
                     <button class="aceptar"  onclick="redirectWithDelay()">
                        Aceptar
                             <path
@@ -210,7 +209,7 @@ function closePopup() {
                     <button class="rechazar">Rechazar</button>
                 </div>
             </div>
-        <div id="solicitudes"></div>
+        <div id="TodosPedidos"></div>
 
 
 <!-- CARDS FALSOS
@@ -320,6 +319,6 @@ function closePopup() {
 		></script>
 
          <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-
+<script src="/dueño/js/pedidos.js"></script>
 	</body>
 </html>
