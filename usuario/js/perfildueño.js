@@ -1,4 +1,5 @@
-let clienteId = localStorage.getItem('LoginId'); // Recupera el id guardado en localStorage
+let LoginId = localStorage.getItem('LoginId'); // Recupera el id guardado en localStorage
+let token = localStorage.getItem('token');
 let numeroTelefono;
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -46,22 +47,19 @@ document.addEventListener("DOMContentLoaded", function() {
     
   function crearProducto() {
     
-    // Si no se encuentran el clienteId, muestra un mensaje de error y termina la función
-    if (!clienteId ) {
-        alert("No se encontró información de usuario. Por favor, inicie sesión.");
-        return;
+    if (!token) {
+        alert("Porfavor, inicia sesion. Redirigiendo al inicio de sesión...");
+        // Redirige o maneja la falta del token
+        window.location.href = '/general/html/sesion.html';
+    } else {
+        console.log("Token encontrado:", token);
     }
 
     const nuevoProducto = {
       producto: "producto",
-      clienteId : clienteId ,
+      LoginId : LoginId ,
     };
 
-    const token = localStorage.getItem("token");
-    if (!token) {
-        console.log("No se encontró el token.");
-        return; // Si no hay token, detener la ejecución
-    }
     
     fetch('https://print-me-ten.vercel.app/pedido/createpedido', {
         method: 'POST',

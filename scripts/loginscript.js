@@ -70,3 +70,4 @@ function enviarDatosLogin(e) {
         alert("Hubo un problema con el envío de los datos.");
     });
 }
+
