@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM cargado");
-    cargarPerfiles();
+    cargarPedidos();
 });
 
 /*function seleccionarPerfil(idPerfilSeleccionado) {
@@ -12,33 +12,33 @@ function Solicitudes(comprador) {
     console.log("comprador:", comprador);
 
     // Crear un div contenedor para cada solicitud
-    const perfilDiv = document.createElement("div");
-    perfilDiv.classList.add("info");//clase del css
+    const solicitudDiv = document.createElement("div");
+    solicitudDiv.classList.add("info");//clase del css
 
     // Crear y añadir imagen
     const img = document.createElement("img");
     img.src = "../fotos/impresora 3d.png"; 
-    perfilDiv.appendChild(img);
+    solicitudDiv.appendChild(img);
 
     // Crear y añadir nombre 
     const nombre = document.createElement("h2");
     nombre.textContent = comprador.nombre_apellido;
-    perfilDiv.appendChild(nombre);
+    solicitudDiv.appendChild(nombre);
 
     // Crear y añadir botón "Aceptar"
     const BotonAceptar = document.createElement("button");
     botonPerfil.textContent = "Aceptar";
     botonPerfil.classList.add("aceptar");
-    perfilDiv.appendChild(BotonAceptar);
+    solicitudDiv.appendChild(BotonAceptar);
 
     // Crear y añadir botón "Rechazar"
     const BotonRechazar = document.createElement("button");
     botonPerfil.textContent = "Rechazar";
     botonPerfil.classList.add("rechazar");
-    perfilDiv.appendChild(BotonRechazar);
+    solicitudDiv.appendChild(BotonRechazar);
 
     // Agregar el perfil al contenedor principal
-    document.getElementById("solicitudes").appendChild(perfilDiv);
+    document.getElementById("solicitudes").appendChild(solicitudDiv);
 }
 
 function cargarPedidos() {
@@ -47,7 +47,7 @@ function cargarPedidos() {
         .then(data => {
             console.log("Data recibida:", data);
             if (Array.isArray(data.comprador)) {
-                data.comprador.forEach(cargarPedidos);
+                data.comprador.forEach(Solicitudes);
             } else {
                 console.error("La propiedad 'vendedor' no es un array:", data);
             }
