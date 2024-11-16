@@ -62,8 +62,19 @@ function enviarDatosLogin(e) {
             localStorage.setItem("token", data.token);
             localStorage.setItem('LoginId', data.id);
             alert("Login exitoso.");
+            // Extraer el tipo de usuario del mensaje
+            const mensaje = data.message || "";
+            if (mensaje.includes("usuario: vendedor")) {
+                // Redirigir a la pantalla de vendedor
+                window.location.href = "/pantalla-vendedor.html";
+            } else if (mensaje.includes("usuario: cliente")) {
+                // Redirigir a la pantalla de cliente
+                window.location.href = "/pantalla-cliente.html";
+            } else {
+                console.log("Tipo de usuario no reconocido");
+            }
         }
-    })
+        })
     .catch((error) => {
         console.log("error");
         console.error(error);
