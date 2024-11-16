@@ -13,12 +13,17 @@ function enviarDatosRegistro(e) {
     const nombre_apellido = document.getElementById("nombre_apellido");
     const mail = document.getElementById("mail");
     const contraseña = document.getElementById("contraseña");
-   
+    const confirmPassword = document.getElementById("contraseña2");
+   // Validar que los campos no estén vacíos
+   if (!nombre_apellido || !mail || !contraseña) {
+    alert("Por favor, llena todos los campos.");
+    return;
+}
     const data = {
         mail: mail.value,
         contraseña: contraseña.value,
         nombre_apellido: nombre_apellido.value,
-
+        confirmPassword: confirmPassword.value,
     };
     console.log(data);
 
@@ -30,11 +35,10 @@ function enviarDatosRegistro(e) {
         body: JSON.stringify(data)
     })
     .then((response) => {
-        if (response.status === 200) {
-            console.log("200");
+        if (response.ok) {
             return response.json();
         } else if (response.status === 400) {
-            console.log("datos incorrectos");
+            throw new Error(`Error: ${response.statusText}`);
         }
     })
     .then((data) => {
@@ -42,7 +46,6 @@ function enviarDatosRegistro(e) {
         window.location.href = '/general/html/sesion.html';
     })
     .catch((error) => {
-        console.log("error con el envio de datos");
-        console.error(error);
+        console.error("Error con el envío de datos", error);
     });
 }

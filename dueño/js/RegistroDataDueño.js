@@ -3,6 +3,7 @@ function enviarDatosRegistro(e) {
     const nombre_apellido = document.getElementById("nombre_apellido");
     const mail = document.getElementById("mail");
     const contraseña = document.getElementById("contraseña");
+    const confirmPassword = document.getElementById("contraseña2");
     const telefono = document.getElementById("telefono");
     const residencia = document.getElementById("residencia");
     const modeloImpresora = document.getElementById("modelo-impresora");
@@ -13,6 +14,7 @@ function enviarDatosRegistro(e) {
         nombre_apellido: nombre_apellido.value,
         mail: mail.value,
         contraseña: contraseña.value,
+        confirmPassword: confirmPassword.value,
         telefono: telefono.value,
         residencia: residencia.value,
         modeloImpresora: modeloImpresora.value,
