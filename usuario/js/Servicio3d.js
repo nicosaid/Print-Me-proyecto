@@ -101,15 +101,18 @@ function mostrarFavoritos() {
 }
 
 // Restablecer para mostrar todos los perfiles
+
 function mostrarTodos() {
-    const perfiles = document.querySelectorAll('.card');
-    perfiles.forEach(perfil => {
-        perfil.style.display = "block";
-    });
+    // Limpia los filtros
+    document.getElementById('zona').value = '';
+    document.getElementById('impresora').value = '';
+    document.getElementById('materiales').value = '';
+    document.getElementById("TodosPerfiles").innerHTML = "";
+    perfilesCargados.forEach(crearPerfil);
 }
 
-//Filtro x necesidad
-
+//Filtro x necesidad desde el back
+/*
 document.getElementById("aceptar-button").addEventListener("click", () => {
     const zona = document.getElementById("zona").value;
     const modeloImpresora = document.getElementById("impresora").value;
@@ -117,7 +120,7 @@ document.getElementById("aceptar-button").addEventListener("click", () => {
     //Limpiar los perfiles actuales antes de aplicar el nuevo filtro
     document.getElementById("TodosPerfiles").innerHTML = "";
 
-    fetch(`https://print-me-ten.vercel.app/vendedores/vendedor/get?zona=${zona}&impresora${modeloImpresora}&materiales=${materiales}`)
+    fetch(`https://print-me-ten.vercel.app/vendedores/vendedor/get?zona=${zona}&impresora=${modeloImpresora}&materiales=${materiales}`)
         .then(response => response.json())
         .then(data => {
             // Clear the current profiles
@@ -131,5 +134,40 @@ document.getElementById("aceptar-button").addEventListener("click", () => {
             }
         })
         .catch(error => console.error("Error al cargar perfiles:", error));
+});*/
+
+//Filtro x necesidad desde el front
+document.getElementById("aceptar-button").addEventListener("click", () => {
+    const zona = document.getElementById("zona").value.toLowerCase();
+    const modeloImpresora = document.getElementById("impresora").value.toLowerCase();
+    const materiales = document.getElementById("materiales").value.toLowerCase();
+
+    // Clear the current profiles
+    document.getElementById("TodosPerfiles").innerHTML = "";
+
+    console.log("Selected filters:", { zona, modeloImpresora, materiales });
+
+    // Filter perfilesCargados array based on selected values
+    const filteredProfiles = perfilesCargados.filter(vendedor => {
+        const matchesZona = vendedor.zona.toLowerCase() === zona || !zona;
+        const matchesModelo = vendedor.impresora_modelo.toLowerCase() === modeloImpresora || !modeloImpresora;
+        const matchesMateriales = vendedor.impresora_materiales.toLowerCase() === materiales || !materiales;
+
+        console.log("Profile:", vendedor);
+        console.log("Matches Zona:", matchesZona);
+        console.log("Matches Modelo:", matchesModelo);
+        console.log("Matches Materiales:", matchesMateriales);
+
+        return matchesZona && matchesModelo && matchesMateriales;
+    });
+
+    console.log("Filtered Profiles:", filteredProfiles);
+
+    // Display the filtered profiles
+    if (filteredProfiles.length > 0) {
+        filteredProfiles.forEach(crearPerfil);
+    } else {
+        console.log("No profiles match the selected filters.");
+    }
 });
 
