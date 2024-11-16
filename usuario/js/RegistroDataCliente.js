@@ -13,6 +13,7 @@ function enviarDatosRegistro(e) {
     const nombre_apellido = document.getElementById("nombre_apellido");
     const mail = document.getElementById("mail");
     const contraseña = document.getElementById("contraseña");
+    const confirmPassword = document.getElementById("contraseña2");
    // Validar que los campos no estén vacíos
    if (!nombre_apellido || !mail || !contraseña) {
     alert("Por favor, llena todos los campos.");
@@ -22,7 +23,7 @@ function enviarDatosRegistro(e) {
         mail: mail.value,
         contraseña: contraseña.value,
         nombre_apellido: nombre_apellido.value,
-
+        confirmPassword: confirmPassword.value,
     };
     console.log(data);
 
