@@ -8,7 +8,7 @@ function enviarDatosRegistro(e) {
     const residencia = document.getElementById("residencia");
     const modeloImpresora = document.getElementById("modelo-impresora");
     const material = document.getElementById("material");
-    const postImpresion = document.querySelector("input[name='radio-group']:checked")?.id === "radio1"; // Verifica si se seleccionó "Sí" o "No"
+    const post_procesado = document.querySelector("input[name='radio-group']:checked")?.id === "radio1"; // Verifica si se seleccionó "Sí" o "No"
 
     const data = {
         nombre_apellido: nombre_apellido.value,
@@ -19,7 +19,7 @@ function enviarDatosRegistro(e) {
         residencia: residencia.value,
         modeloImpresora: modeloImpresora.value,
         material: material.value,
-        postImpresion
+        post_procesado
     };
     console.log(data);
 
@@ -62,4 +62,5 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("El formulario de registro no se encontró en el DOM.");
     }
 });
+
 
