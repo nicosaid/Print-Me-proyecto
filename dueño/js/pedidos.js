@@ -36,22 +36,6 @@ function crearPedido(pedido) {
     document.getElementById("TodosPedidos").appendChild(pedidoDiv);
     pedidoDiv.classList.add("info");
 }
-/*
-//hacer que el pedido lleve el nombre del cliente que lo pidio, tengo que hacer que segun el id que recibo, busoc el nombre del cliente y guardo eso en una avriable para usar en otras funciones
-const idPerfilCLiente = ""
-if (idPerfilCLiente) {
-    fetch(`http://print-me-ten.vercel.app/compradores/compradorByID/${idPerfilCLiente}`)
-        .then(response => response.json())
-        .then(data => {
-          const comprador = data.pedido.id_comprador; // Extrae el objeto 'id_comprador'
-          console.log(comprador);
-          if (comprador) {
-            numeroTelefono = vendedor.numero_telefonico;
-        } else{
-            console.warn("No se encontró n en la respuesta de vendedor");
-        }
-    });
-}*/
 
 function MoverID(idPedidoSeleccionado){
     console.log("idPedidoSeleccionado:", idPedidoSeleccionado);
@@ -74,6 +58,23 @@ function cargarPedidos() {
         })
         .catch(error => console.error("Error al cargar pedidos:", error));
 }
+
+//hacer que el pedido lleve el nombre del cliente que lo pidio, tengo que hacer que segun el id que recibo, busoc el nombre del cliente y guardo eso en una avriable para usar en otras funciones
+const id_comprador = ""
+if (id_comprador) {
+    fetch(`http://print-me-ten.vercel.app/compradores/compradorByID/${id_comprador}`)
+        .then(response => response.json())
+        .then(data => {
+          const comprador = data.pedido.id_comprador; // Extrae el objeto 'id_comprador'
+          console.log(comprador);
+          if (comprador) {
+            numeroTelefono = vendedor.numero_telefonico;
+        } else{
+            console.warn("No se encontró n en la respuesta de vendedor");
+        }
+    });
+}
+
 /*
 function buscarPerfiles() {
     document.getElementById("TodosPerfiles").innerHTML = "";
