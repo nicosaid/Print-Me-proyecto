@@ -107,20 +107,38 @@ function buscarPerfiles() {
 
 
 
-
 function mostrarFavoritos() {
     const perfiles = document.querySelectorAll('.card');
     perfiles.forEach(perfil => {
         const checkbox = perfil.querySelector('.containerlike input');
-        perfil.style.display = checkbox.checked ? "block" : "none";
+        if (checkbox.checked) {
+            perfil.style.display = "block";
+
+            // Estilos aplicados en línea
+            perfil.style.display = "flex";
+            perfil.style.alignItems = "center";
+            perfil.style.justifyContent = "space-between";
+            perfil.style.backgroundColor = "#ffffff"; // Fondo blanco
+            perfil.style.border = "1px solid #ddd";
+            perfil.style.borderRadius = "8px";
+            perfil.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)";
+            perfil.style.padding = "16px";
+            perfil.style.marginBottom = "16px";
+        } else {
+            perfil.style.display = "none";
+        }
     });
 }
+
+
+
+
+
 
 function mostrarTodos() {
     document.querySelector(".perfilesDueños").innerHTML = "";
     perfilesCargados.forEach(crearPerfil);
 }
-
 
 //Filtro x necesidad desde el back
 /*
