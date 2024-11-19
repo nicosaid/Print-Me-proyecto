@@ -142,19 +142,50 @@
     </main>
 
     <script>
-        // Función para calcular la cotización
-        function calcularCotizacion() {
-            const costoElectricidad = parseFloat(document.getElementById("costoElectricidad").value) || 0;
-            const costoFilamento = parseFloat(document.getElementById("costoFilamento").value) || 0;
-            const gramos = parseFloat(document.getElementById("gramos").value) || 0;
+     
 
-            // Cálculo del precio total
-            const precioTotal = (costoElectricidad * 1) + (costoFilamento * (gramos / 1000));
 
-            // Mostrar el resultado en el popup
-            document.getElementById("cotizacionResultado").innerText = `Precio total: $${precioTotal.toFixed(2)}`;
-            togglePopup();
-        }
+
+
+// Función para calcular la cotización
+function calcularCotizacion() {
+    // Obtener valores de entrada
+    const costoElectricidad = parseFloat(document.getElementById("costoElectricidad").value) || 0; // Costo eléctrico por hora
+    const costoFilamento = parseFloat(document.getElementById("costoFilamento").value) || 0; // Costo del filamento por kg
+    const gramos = parseFloat(document.getElementById("gramos").value) || 0; // Cantidad de filamento en gramos
+
+    // Parámetros internos (estimaciones realistas)
+    const consumoEnergiaPorHora = 0.1; // kWh (consumo promedio de una impresora 3D)
+    const costoMantenimientoPorHora = 5; // Costo estimado de mantenimiento por hora
+    const margenGanancia = 20; // Margen de ganancia en porcentaje
+    const densidadFilamento = 1.24; // g/cm³ (densidad promedio para PLA o ABS)
+
+    // Calcular el costo de filamento utilizado
+    const costoFilamentoUtilizado = (costoFilamento / 1000) * gramos; // Costo del filamento en gramos
+
+    // Estimación del volumen de filamento utilizado en cm³
+    const volumenFilamento = gramos / densidadFilamento; // Volumen en cm³ basado en gramos
+
+    // Estimar el costo eléctrico según el consumo promedio por hora
+    const costoElectricidadUtilizada = costoElectricidad * consumoEnergiaPorHora * volumenFilamento; // Costo eléctrico
+
+    // Cálculo del costo de mantenimiento
+    const costoMantenimiento = volumenFilamento * costoMantenimientoPorHora; // Costo de mantenimiento
+
+    // Costo base (sin margen de ganancia)
+    const costoBase = costoFilamentoUtilizado + costoElectricidadUtilizada + costoMantenimiento;
+
+    // Precio final con margen de ganancia
+    const precioFinal = costoBase * (1 + margenGanancia / 100);
+
+    // Mostrar el resultado en el popup
+    document.getElementById("cotizacionResultado").innerText = `Precio total: $${precioFinal.toFixed(2)}`;
+    togglePopup();
+}
+
+
+
+
 
         // Función para mostrar y ocultar el popup
         function togglePopup() {
