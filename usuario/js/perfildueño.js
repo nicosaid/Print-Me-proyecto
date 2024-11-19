@@ -6,7 +6,7 @@ console.log("ID actual:", LoginId);
 
 if (id) {
     // Hacer una petición al backend para obtener los datos
-    fetch(`https://print-me-ten.vercel.app/vendedores/vendedorByID/${LoginId}`) // Reemplaza con tu URL
+    fetch(`https://print-me-ten.vercel.app/vendedores/vendedorByID/${id}`) // Reemplaza con tu URL
       .then(response => response.json())
       .then(data => {
         // Rellenar los campos con los datos obtenidos
