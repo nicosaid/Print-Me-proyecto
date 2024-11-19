@@ -2,7 +2,7 @@
 const token = localStorage.getItem('token');
 const id = localStorage.getItem('LoginId');
 console.log("Token actual:", token);
-console.log("ID actual:", LoginId);
+console.log("ID actual:", id);
 
 if (id) {
     // Hacer una petición al backend para obtener los datos
