@@ -15,11 +15,11 @@ function enviarDatosRegistro(e) {
         mail: mail.value,
         contraseña: contraseña.value,
         confirmPassword: confirmPassword.value,
-        telefono: telefono.value,
-        residencia: residencia.value,
-        modeloImpresora: modeloImpresora.value,
-        material: material.value,
-        post_procesado
+        numero_telefonico: telefono.value,
+        zona: residencia.value,
+        impresora_modelo: modeloImpresora.value,
+        impresora_materiales: material.value,
+        post_procesado,
     };
     console.log(data);
 
@@ -42,7 +42,7 @@ function enviarDatosRegistro(e) {
     .then((data) => {
         if (data) {
             console.log("Registro exitoso", data);
-            window.location.href = '/general/html/sesion.html';
+            window.location.href = '../html/LoginDueño.html';
             console.log("Redireccionando a sesión");
         }
     })

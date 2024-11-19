@@ -4,6 +4,33 @@ const id = localStorage.getItem('id');
 console.log("Token actual:", token);
 console.log("ID actual:", id);
 
+if (id) {
+    // Hacer una petición al backend para obtener los datos
+    fetch(`https://print-me-ten.vercel.app/vendedores/vendedorByID/${id}`) // Reemplaza con tu URL
+      .then(response => response.json())
+      .then(data => {
+        // Rellenar los campos con los datos obtenidos
+        document.getElementById('nombre-apellido').value = data.nombre_apellido || '';
+        document.getElementById('descripcion').value = data.descripcion || '';
+        document.getElementById('email').value = data.mail || '';
+        document.getElementById('zona').value = data.zona || '';
+        document.getElementById('impresora').value = data.impresora_modelo || '';
+        document.getElementById('filamento').value = data.impresora_materiales || '';
+  
+        // Configurar el radio button según el valor de post_procesado
+        if (data.post_procesado) {
+          document.getElementById('postSi').checked = true; // Selecciona "Sí"
+        } else {
+          document.getElementById('postNo').checked = true; // Selecciona "No"
+        }
+      })
+      .catch(error => {
+        console.error('Error al obtener los datos:', error);
+      });
+  } else {
+    console.error('No se encontró id en localStorage.');
+  }
+
 //EDITAR DATOS
 
 function editField(id) {
@@ -28,32 +55,6 @@ function saveField(id) {
 
     alert('Cambios guardados para el campo: ' + id);
 }
-
-//CONEXION
-
-// Cargar datos del perfil al iniciar
-document.addEventListener("DOMContentLoaded", () => {
-    fetch(`https://print-me-ten.vercel.app/compradores/compradorByID${token}`, { 
-        headers: {
-            'Authorization': `Bearer ${token}`,  // Añadir el token en el encabezado
-            'Content-Type': 'application/json'
-        }
-    })
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error("Error al cargar los datos. Verifica el token.");
-            }
-        })
-        .then(data => {
-            document.getElementById("nombre-apellido").value = data.nombre;
-            document.getElementById("descripcion").value = data.descripcion;
-            document.getElementById("mail").value = data.email;
-            console.log(data);
-        })
-        .catch(error => console.error("Error al cargar datos del perfil:", error));
-});
 
 // Guardar datos del perfil
 function guardarDatosPerfil() {

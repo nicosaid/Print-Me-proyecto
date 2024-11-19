@@ -60,7 +60,7 @@
     <h2>¿Estás seguro?</h2>
 
     <div class="button-container-logout">
-        <button class="popup-button-logout confirm-button-logout" onclick="cerrarSesion()">Sí, cerrar sesión</button>
+        <button  id="cerrar-sesion-btn"  class="popup-button-logout confirm-button-logout" onclick="cerrarSesion()">Sí, cerrar sesión</button>
         <button class="popup-button-logout cancel-button-logout" onclick="togglePopupLogout()">Cancelar</button>
     </div>
 </div>
@@ -141,7 +141,8 @@ function togglePopupLogout() {
         <label for="estado">Seleccionar estado:</label>
         <select id="estado">
             <option value="Aceptado">Aceptado</option>
-            <option value="EnCamino">En Camino</option>
+            <option value="EnProceso">En Proceso</option>
+            <option value="Terminado">Terminado</option>
             <option value="Entregado">Entregado</option>
 
         </select><br>
@@ -319,6 +320,7 @@ function closePopup() {
 		></script>
 
          <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-<script src="/dueño/js/pedidos.js"></script>
+    <script src="/general/js/cerrarsesion.js"></script>
+    <script src="/dueño/js/pedidos.js"></script>
 	</body>
 </html>

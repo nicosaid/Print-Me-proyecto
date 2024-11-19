@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrintMe</title>
+    <link rel="stylesheet" href="../../general/css/sesion.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../general/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../general/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../general/icon/favicon-16x16.png">
+    <link rel="manifest" href="../../general/icon/site.webmanifest">
+    
+</head>
+<body>
+    <canvas id="starCanvas"></canvas> <!-- Colocar el canvas aquí para que esté al fondo -->
+
+    <!-- Logo en la esquina superior derecha -->
+    <div class="logo-container">
+        <img src="/general/fotos/logo.png" alt="Logo con Nombre">
+    </div>
+
+    <canvas id="starCanvas"></canvas>
+    <script src="/general/js/fondo.js"></script>
+    <div class="login-container">
+        <form class="login-form" id="login-form">
+            <h1>LOG IN</h1>
+            <p>Welcome Back!</p>
+
+            <!-- Campo del correo electrónico -->
+            <div class="input-box">
+                <input type="email" placeholder="example@mail.com" id="mail" required>
+                <div class="error"></div>
+            </div>
+
+            <!-- Campo de la contraseña -->
+            <div class="input-box">
+                <input type="password" placeholder="Contraseña..." id="contraseña" required>
+                <div class="error"></div>
+            </div>
+
+            <!-- Botón de inicio de sesión -->
+            <button type="submit">LOG-IN</button>
+
+            <!-- Opción para registrarse -->
+            <p>¿Aún no tienes cuenta? <a href="/general/html/elegiRol.html">Haz Click Aquí</a></p>
+        </form>
+    </div>
+    <script src="/usuario/js/LoginCliente.js"></script>
+</body> 
+</html>

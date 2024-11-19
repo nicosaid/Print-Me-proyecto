@@ -3,8 +3,56 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarPedidos();
 });
 
-function crearPedido(pedido) {
-    console.log("pedido:",pedido);
+let pedidosCargados = [];
+
+function cargarPedidos() {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+        console.error("Token no encontrado en localStorage.");
+        return; // Sal de la función si no hay token
+    }
+
+    fetch("https://print-me-ten.vercel.app/pedidos/pedidos", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}` // Token en formato Bearer
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (Array.isArray(data) && data.length > 0) {
+                data.forEach(pedido => {
+                    let idComprador = pedido.id_comprador;
+                    if (idComprador) {
+                        fetch(`https://print-me-ten.vercel.app/compradores/compradorByID/${idComprador}`, {
+                            method: "GET",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Authorization": `Bearer ${token}` // Asegúrate de que el token también se pasa aquí si es necesario
+                            }
+                        })
+                            .then(response => response.json())
+                            .then(compradorData => {
+                                const nombreComprador = compradorData.comprador ? compradorData.comprador.nombre_apellido : "Sin nombre";
+                                crearPedido(pedido, nombreComprador);
+                                console.log("ID del comprador:", idComprador);
+                            })
+                            .catch(error => console.error("Error al obtener comprador:", error));
+                    } else {
+                        console.error("Pedido sin ID de comprador:", pedido);
+                    }
+                });
+            } else {
+                document.getElementById("TodosPedidos").innerHTML = "<p>No se encontraron pedidos.</p>";
+            }
+        })
+        .catch(error => console.error("Error al cargar pedidos:", error));
+}
+
+function crearPedido(pedido, nombreComprador) {
+    console.log("pedido:",pedido, "Nombre del comprador:", nombreComprador);
 
     // Crear un div contenedor para cada perfil
     const pedidoDiv = document.createElement("div");
@@ -12,8 +60,8 @@ function crearPedido(pedido) {
 
     pedidoDiv.innerHTML = `
         <img src="../fotos/impresora 3d.png" alt="Impresora" class="printer-image">
-        <h2>${pedido.id}</h2>
-        <button class="aceptar"  onclick="redirectWithDelay()">
+        <h2>${nombreComprador}</h2>
+        <button class="aceptar"  onclick="aceptarPedido(${pedido.id})">
                        Aceptar
                             <path
                                 fill-rule="evenodd"
@@ -22,7 +70,7 @@ function crearPedido(pedido) {
                             ></path>
                         </svg>
         </button>
-        <button class="rechazar"  onclick="redirectWithDelay()">
+        <button class="rechazar"  onclick="rechazarPedido(${pedido.id})">
                        Rechazar
                             <path
                                 fill-rule="evenodd"
@@ -37,42 +85,67 @@ function crearPedido(pedido) {
     pedidoDiv.classList.add("info");
 }
 
+//boton aceptar y rechazar
+
+function aceptarPedido(idPedido) {
+    console.log(`Aceptando pedido con ID: ${idPedido}`);
+
+    fetch(`https://print-me-ten.vercel.app/pedidos/${idPedido}/aceptar`, {
+        method: "PUT", // Método PUT para actualizar
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `${localStorage.getItem("token")}`
+        },
+        "estado": "aceptado"
+    })
+        .then(response => {
+            if (response.ok) {
+                console.log(`Pedido ${idPedido} aceptado exitosamente`);
+                alert(`El pedido ${idPedido} fue aceptado.`);
+            } else {
+                console.error(`Error al aceptar el pedido ${idPedido}:`, response.statusText);
+                response.json().then(data => {
+                    console.error("Detalles del error:", data); // Mostrar detalles del error
+                });
+                alert(`Hubo un problema al aceptar el pedido ${idPedido}.`);
+            }
+        })
+        .catch(error => {
+            console.error(`Error en la solicitud para aceptar pedido ${idPedido}:`, error);
+            alert(`Hubo un error al intentar aceptar el pedido ${idPedido}.`);
+        });
+}
+function rechazarPedido(idPedido) {
+    console.log(`Rechazando pedido con ID: ${idPedido}`);
+    
+    fetch(`https://print-me-ten.vercel.app/pedidos/delete/${idPedido}`, {
+        method: "DELETE", // Método DELETE para eliminar el pedido
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ id: idPedido }) 
+    })
+        .then(response => {
+            if (response.ok) {
+                console.log(`Pedido ${idPedido} rechazado exitosamente`);
+                alert(`El pedido ${idPedido} fue rechazado.`);
+                // Opcional: eliminar el pedido del DOM si fue rechazado con éxito
+                const pedidoElement = document.querySelector(`.card[data-id="${idPedido}"]`);
+                if (pedidoElement) {
+                    pedidoElement.remove();
+                }
+            } else {
+                console.error(`Error al rechazar el pedido ${idPedido}:`, response.statusText);
+                alert(`Hubo un problema al rechazar el pedido ${idPedido}.`);
+            }
+        })
+        .catch(error => console.error(`Error en la solicitud para rechazar pedido ${idPedido}:`, error));
+}
+
+//funcion para redirigir pagina segun id pedido
 function MoverID(idPedidoSeleccionado){
     console.log("idPedidoSeleccionado:", idPedidoSeleccionado);
     window.location.href = `/usuario/html/perfilduenio.html?id=${idPedidoSeleccionado}`; //cambio de pantalla y le paso el id
-}
-
-let pedidosCargados = [];
-
-function cargarPedidos() {
-    fetch("https://print-me-ten.vercel.app/pedidos/pedidos")
-        .then(response => response.json())
-        .then(data => {
-            console.log("Data recibida:", data);
-            if (Array.isArray(data)) {
-                pedidosCargados = data; 
-                data.forEach(crearPedido); 
-            } else {
-                console.error("El dato recibido no es un array:", data);
-            }
-        })
-        .catch(error => console.error("Error al cargar pedidos:", error));
-}
-
-//hacer que el pedido lleve el nombre del cliente que lo pidio, tengo que hacer que segun el id que recibo, busoc el nombre del cliente y guardo eso en una avriable para usar en otras funciones
-const id_comprador = ""
-if (id_comprador) {
-    fetch(`http://print-me-ten.vercel.app/compradores/compradorByID/${id_comprador}`)
-        .then(response => response.json())
-        .then(data => {
-          const comprador = data.pedido.id_comprador; // Extrae el objeto 'id_comprador'
-          console.log(comprador);
-          if (comprador) {
-            numeroTelefono = vendedor.numero_telefonico;
-        } else{
-            console.warn("No se encontró n en la respuesta de vendedor");
-        }
-    });
 }
 
 /*

@@ -35,8 +35,7 @@ function enviarDatosLogin(e) {
    
     const data = {
         mail: mail.value,
-        contraseña: contraseña.value,
-
+        contraseña: contraseña.value,  
     };
     console.log(data);
 
@@ -61,18 +60,7 @@ function enviarDatosLogin(e) {
             console.log("Datos enviados exitosamente:", data);
             localStorage.setItem("token", data.token);
             localStorage.setItem('LoginId', data.id);
-            alert("Login exitoso.");
-            // Extraer el tipo de usuario del mensaje
-            const mensaje = data.message || "";
-            if (mensaje.includes("usuario: vendedor")) {
-                // Redirigir a la pantalla de vendedor
-                window.location.href = "/pantalla-vendedor.html";
-            } else if (mensaje.includes("usuario: cliente")) {
-                // Redirigir a la pantalla de cliente
-                window.location.href = "/pantalla-cliente.html";
-            } else {
-                console.log("Tipo de usuario no reconocido");
-            }
+            window.location.href = "/usuario/html/servicioimpresion3d.html";
         }
         })
     .catch((error) => {

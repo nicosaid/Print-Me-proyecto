@@ -1,35 +1,36 @@
-let token = localStorage.getItem('token');
-let numeroTelefono;
+// Obtén el token e ID del localStorage
+const token = localStorage.getItem('token');
+const id = localStorage.getItem('LoginId');
+console.log("Token actual:", token);
+console.log("ID actual:", LoginId);
 
-document.addEventListener("DOMContentLoaded", function() {
-  //funcion para buscar el nombre segun el id que lleve el producto (que es el mismo que el del cliente)
-  const urlParams = new URLSearchParams(window.location.search);
-  const idPerfilSeleccionado = urlParams.get('id'); 
+if (id) {
+    // Hacer una petición al backend para obtener los datos
+    fetch(`https://print-me-ten.vercel.app/vendedores/vendedorByID/${LoginId}`) // Reemplaza con tu URL
+      .then(response => response.json())
+      .then(data => {
+        // Rellenar los campos con los datos obtenidos
+        document.getElementById('nombre-apellido').value = data.nombre_apellido || '';
+        document.getElementById('description-input').value = data.descripcion || '';
+        document.getElementById('email-input').value = data.mail || '';
+        document.getElementById('zona').value = data.zona || '';
+        document.getElementById('impresora-input').value = data.impresora_modelo || '';
+        document.getElementById('filamento-input').value = data.impresora_materiales || '';
+  
+        // Configurar el radio button según el valor de post_procesado
+        if (data.post_procesado) {
+          document.getElementById('postSi').checked = true; // Selecciona "Sí"
+        } else {
+          document.getElementById('postNo').checked = true; // Selecciona "No"
+        }
+      })
+      .catch(error => {
+        console.error('Error al obtener los datos:', error);
+      });
+  } else {
+    console.error('No se encontró id en localStorage.');
+  }
 
-  if (idPerfilSeleccionado) {
-        fetch(`https://print-me-ten.vercel.app/vendedores/vendedorByID/${idPerfilSeleccionado}`)
-            .then(response => response.json())
-            .then(data => {
-              const vendedor = data.vendedor; // Extrae el objeto 'vendedor'
-              console.log(vendedor);
-              if (vendedor && vendedor.numero_telefonico) {
-                numeroTelefono = vendedor.numero_telefonico;
-            } else {
-                console.warn("No se encontró 'numero_telefonico' en la respuesta de vendedor");
-            }
-                document.getElementById('nombre').textContent  = vendedor.nombre_apellido;
-                document.getElementById('imagen').src = "../fotos/impresoraperfil.png";
-                document.getElementById('desc').value  = vendedor.descripcion || "Sin descripción";
-                document.getElementById('impresora-info').textContent  = vendedor.impresora_modelo || "Impresora no especificado";
-                document.getElementById('filamento-info').textContent  = vendedor.impresora_materiales || "Filamento no especificado";
-                
-            })
-            .catch(error => console.error('Error al obtener los datos:', error));
-    } else {
-                    console.error('No se encontró un ID en la URL');
-    }
-    
-    });
     function abrirWhatsApp()
     { 
         

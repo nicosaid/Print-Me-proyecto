@@ -43,7 +43,7 @@ function enviarDatosRegistro(e) {
     })
     .then((data) => {
         console.log("Registro exitoso", data);
-        window.location.href = '/general/html/sesion.html';
+        window.location.href = '../html/LoginCliente.html';
     })
     .catch((error) => {
         console.error("Error con el envío de datos", error);
