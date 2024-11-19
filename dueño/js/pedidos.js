@@ -208,29 +208,81 @@ function mostrarTodos() {
     });
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    /*const filterBtn = document.getElementById("filter-btn");
+    const filterPopup = document.getElementById("filter-popup");*/
+    const applyFilterBtn = document.getElementById("aplicar-filtro");
+    const estadoSelect = document.getElementById("estado");
+    const pedidoContainer = document.getElementById("pedidoElement");
 
-function filtrarPerfiles() {
-    const zonaSeleccionada = document.getElementById('zona').value;
-    const impresoraSeleccionada = document.getElementById('impresora').value;
-    const materialesSeleccionados = document.getElementById('materiales').value;
-    const perfiles = document.querySelectorAll('.card');
-    perfiles.forEach(perfil => {
-        const zona = perfil.getAttribute('data-zona');
-        const impresora = perfil.getAttribute('data-impresora');
-        const materiales = perfil.getAttribute('data-materiales');
-
-        const cumpleFiltroZona = zonaSeleccionada === "" || zona === zonaSeleccionada;
-        const cumpleFiltroImpresora = impresoraSeleccionada === "" || impresora === impresoraSeleccionada;
-        const cumpleFiltroMateriales = materialesSeleccionados === "" || materiales === materialesSeleccionados;
-
-        // Muestra u oculta el perfil según los filtros
-        if (cumpleFiltroZona && cumpleFiltroImpresora && cumpleFiltroMateriales) {
-            perfil.style.display = "block";  // Muestra el perfil
-        } else {
-            perfil.style.display = "none";   // Oculta el perfil
-        }
+    filterBtn.addEventListener("click", () => {
+        filterPopup.style.display = "block"; // Mostrar el filtro
     });
 
-    // Cierra el popup de filtro después de aplicar los filtros
-    closePopup();
+    closePopupBtn.addEventListener("click", () => {
+        filterPopup.style.display = "none"; // Cerrar el filtro
+    });
+
+    applyFilterBtn.addEventListener("click", () => {
+        const selectedEstado = estadoSelect.value;
+        filterPedidos(selectedEstado);
+        filterPopup.style.display = "none"; // Cerrar el filtro al aplicar
+    });
+
+    // Función para obtener todos los pedidos según el estado
+    function filterPedidos(estado) {
+        let url = "https://print-me-ten.vercel.app/pedidos/pedidos "; // Ruta para obtener todos los pedidos
+
+        if (estado !== "todos") {
+            url = `https://tuservidor.com/pedidos/${estado}`; // Ruta para filtrar por estado
+        }
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                mostrarPedidos(data);
+            })
+            .catch(error => {
+                console.error("Error al obtener los pedidos:", error);
+            });
+    }
+
+    // Función para mostrar los pedidos en la pantalla
+    function mostrarPedidos(pedidos) {
+        pedidoContainer.innerHTML = ""; // Limpiar los pedidos existentes
+
+        if (pedidos.length === 0) {
+            pedidoContainer.innerHTML = "<p>No hay pedidos para mostrar.</p>";
+        } else {
+            pedidos.forEach(pedido => {
+                const pedidoElement = document.createElement("div");
+                pedidoElement.classList.add("pedido");
+                pedidoElement.innerHTML = `
+                    <p>ID: ${pedido.id}</p>
+                    <p>Estado: ${pedido.estado}</p>
+                    <p>Descripción: ${pedido.descripcion}</p>
+                `;
+                pedidoContainer.appendChild(pedidoElement);
+            });
+        }
+    }
+
+    // Llamada inicial para cargar todos los pedidos
+    filterPedidos("todos");
+});
+
+const estadoSeleccionado = document.getElementById("estado").value;
+
+    // Filtrar pedidos por estado
+    const pedidosFiltrados = pedidos.filter(
+        (pedido) => pedido.estado === estadoSeleccionado
+    );
+
+    // Mostrar pedidos filtrados
+    mostrarPedidos(pedidosFiltrados);
 }
+
+// Función para mostrar todos los pedidos al hacer clic en "Todos"
+document.querySelector("span.active").addEventListener("click", () => {
+    mostrarPedidos(pedidos); // Mostrar todos los pedidos
+});

@@ -3,11 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarPerfiles();
 });
 
-
-
-
-
-
 function crearPerfil(vendedor) {
     console.log("vendedor:", vendedor);
 

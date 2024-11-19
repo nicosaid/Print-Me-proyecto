@@ -37,7 +37,6 @@ function enviarDatosLogin(e) {
         mail: mail.value,
         contraseña: contraseña.value,  
     };
-    console.log(data);
 
     fetch("https://print-me-ten.vercel.app/login/login", {  
         method: "POST",
@@ -57,11 +56,12 @@ function enviarDatosLogin(e) {
         }
     })
     .then((data) => {
-        if (data && data.token) {
-            console.log("Datos enviados exitosamente:", data);
-            localStorage.setItem("token", data.token);
-            localStorage.setItem('LoginId', data.id);
+        console.log("Datos procesados del servidor:", data); // Depuración completa
+        if (data && data.token && data.data && data.data.id) {
+            guardarLoginId(data.data.id);
             window.location.href = "/dueño/html/inicio.html";
+        } else {
+            console.error('Datos incompletos en la respuesta del servidor:', data);
         }
         })
     .catch((error) => {
@@ -71,3 +71,11 @@ function enviarDatosLogin(e) {
     });
 }
 
+function guardarLoginId(id) {
+    if (id && typeof id !== "undefined" && id !== "undefined") {
+        localStorage.setItem('LoginId', id);
+        console.log('LoginId guardado:', localStorage.getItem('LoginId'));
+    } else {
+        console.error('No se pudo guardar el LoginId: ID inválido');
+    }
+};

@@ -1,11 +1,20 @@
 // Obtén el token e ID del localStorage
-const token = localStorage.getItem('token');
-const LoginId = 18;
-console.log("Token actual:", token);
-console.log("ID actual:", LoginId);
+function obtenerDatosVendedor() {
 
-if (LoginId) {
-    fetch(`https://print-me-ten.vercel.app/vendedores/vendedorByID/${LoginId}`, {
+    const token = localStorage.getItem('token');
+    const loginID = localStorage.getItem('LoginId');
+    
+    if (!loginID) {
+        console.error('ID no definido');
+        return;
+    }
+
+    const loginIDNumber = Number(loginID);
+
+    console.log("Token actual:", token);
+    console.log("ID actual:", loginIDNumber);
+
+    fetch(`https://print-me-ten.vercel.app/vendedores/vendedorByID/${loginIDNumber}`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
 })
@@ -26,16 +35,16 @@ if (LoginId) {
             document.getElementById('nombre').textContent  = vendedor.nombre_apellido;
             document.getElementById('imagen').src = "../fotos/impresoraperfil.png";
             document.getElementById('desc').value  = vendedor.descripcion || "Sin descripción";
-            document.getElementById('impresora-info').textContent  = vendedor.impresora_modelo || "Impresora no especificado";
-            document.getElementById('filamento-info').textContent  = vendedor.impresora_materiales || "Filamento no especificado";
+            document.getElementById('impresora-info').textContent  = vendedor.impresora_modelo;
+            document.getElementById('filamento-info').textContent  = vendedor.impresora_materiales;
             
         })
         .catch(error => console.error('Error al obtener los datos:', error));
-} else {
-                console.error('No se encontró un ID en la URL');
 }
+
+obtenerDatosVendedor();
 /*
-function guardarDatosPerfil() {
+function guardarCambiosPerfil() {
     const perfilData = {
         nombre: document.getElementById("editable-input").value,
         descripcion: document.getElementById("description-input").value,
