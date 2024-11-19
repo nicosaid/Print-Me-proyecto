@@ -59,7 +59,9 @@ function crearPedido(pedido, nombreComprador) {
     pedidoDiv.classList.add("card");//clase del css
 
     pedidoDiv.innerHTML = `
+
         <img src="../fotos/impresora 3d.png" alt="Impresora" class="printer-image">
+            <div class= "info">
         <h2>${nombreComprador}</h2>
         <button class="aceptar"  onclick="aceptarPedido(${pedido.id})">
                        Aceptar
@@ -79,6 +81,8 @@ function crearPedido(pedido, nombreComprador) {
                             ></path>
                         </svg>
         </button>
+                </div>
+
     `;
 
     document.getElementById("TodosPedidos").appendChild(pedidoDiv);
@@ -87,35 +91,32 @@ function crearPedido(pedido, nombreComprador) {
 
 //boton aceptar y rechazar
 
-function aceptarPedido(id) {
-    console.log(`Aceptando pedido con ID: ${id}`);
-    const token = localStorage.getItem("token");
+function aceptarPedido(idPedido) {
+    console.log(`Aceptando pedido con ID: ${idPedido}`);
 
-    fetch(`https://print-me-ten.vercel.app/pedidos/${id}/aceptar`, {
+    fetch(`https://print-me-ten.vercel.app/pedidos/${idPedido}/aceptar`, {
         method: "PUT", // Método PUT para actualizar
         headers: {
             "Content-Type": "application/json",
-             "Authorization": `Bearer ${token}`
+            "Authorization": `${localStorage.getItem("token")}`
         },
-        body: JSON.stringify({
-            estado: "aceptado"
-        })
+        "estado": "aceptado"
     })
         .then(response => {
             if (response.ok) {
-                console.log(`Pedido ${id} aceptado exitosamente`);
-                alert(`El pedido ${id} fue aceptado.`);
+                console.log(`Pedido ${idPedido} aceptado exitosamente`);
+                alert(`El pedido ${idPedido} fue aceptado.`);
             } else {
-                console.error(`Error al aceptar el pedido ${id}:`, response.statusText);
+                console.error(`Error al aceptar el pedido ${idPedido}:`, response.statusText);
                 response.json().then(data => {
                     console.error("Detalles del error:", data); // Mostrar detalles del error
                 });
-                alert(`Hubo un problema al aceptar el pedido ${id}.`);
+                alert(`Hubo un problema al aceptar el pedido ${idPedido}.`);
             }
         })
         .catch(error => {
-            console.error(`Error en la solicitud para aceptar pedido ${id}:`, error);
-            alert(`Hubo un error al intentar aceptar el pedido ${id}.`);
+            console.error(`Error en la solicitud para aceptar pedido ${idPedido}:`, error);
+            alert(`Hubo un error al intentar aceptar el pedido ${idPedido}.`);
         });
 }
 function rechazarPedido(idPedido) {
