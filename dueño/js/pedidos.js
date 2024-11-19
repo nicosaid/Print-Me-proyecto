@@ -87,32 +87,35 @@ function crearPedido(pedido, nombreComprador) {
 
 //boton aceptar y rechazar
 
-function aceptarPedido(idPedido) {
-    console.log(`Aceptando pedido con ID: ${idPedido}`);
+function aceptarPedido(id) {
+    console.log(`Aceptando pedido con ID: ${id}`);
+    const token = localStorage.getItem("token");
 
-    fetch(`https://print-me-ten.vercel.app/pedidos/${idPedido}/aceptar`, {
+    fetch(`https://print-me-ten.vercel.app/pedidos/${id}/aceptar`, {
         method: "PUT", // Método PUT para actualizar
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `${localStorage.getItem("token")}`
+             "Authorization": `Bearer ${token}`
         },
-        "estado": "aceptado"
+        body: JSON.stringify({
+            estado: "aceptado"
+        })
     })
         .then(response => {
             if (response.ok) {
-                console.log(`Pedido ${idPedido} aceptado exitosamente`);
-                alert(`El pedido ${idPedido} fue aceptado.`);
+                console.log(`Pedido ${id} aceptado exitosamente`);
+                alert(`El pedido ${id} fue aceptado.`);
             } else {
-                console.error(`Error al aceptar el pedido ${idPedido}:`, response.statusText);
+                console.error(`Error al aceptar el pedido ${id}:`, response.statusText);
                 response.json().then(data => {
                     console.error("Detalles del error:", data); // Mostrar detalles del error
                 });
-                alert(`Hubo un problema al aceptar el pedido ${idPedido}.`);
+                alert(`Hubo un problema al aceptar el pedido ${id}.`);
             }
         })
         .catch(error => {
-            console.error(`Error en la solicitud para aceptar pedido ${idPedido}:`, error);
-            alert(`Hubo un error al intentar aceptar el pedido ${idPedido}.`);
+            console.error(`Error en la solicitud para aceptar pedido ${id}:`, error);
+            alert(`Hubo un error al intentar aceptar el pedido ${id}.`);
         });
 }
 function rechazarPedido(idPedido) {
