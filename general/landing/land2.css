@@ -130,7 +130,7 @@ header nav ul li a:hover {
     align-items: flex-start; /* Mantiene el contenido más arriba */
     position: relative;
     padding-left: 80px; /* Mantener el contenido un poco a la derecha */
-    padding-top: 35px; /* Ajustado para mover el contenido más abajo */
+    padding-top: 5px; /* Ajustado para mover el contenido más abajo */
     overflow: hidden;
 }
 
