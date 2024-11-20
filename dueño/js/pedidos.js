@@ -280,7 +280,6 @@ const estadoSeleccionado = document.getElementById("estado").value;
 
     // Mostrar pedidos filtrados
     mostrarPedidos(pedidosFiltrados);
-}
 
 // Función para mostrar todos los pedidos al hacer clic en "Todos"
 document.querySelector("span.active").addEventListener("click", () => {
