@@ -35,6 +35,7 @@ function cargarPedidos() {
                         })
                             .then(response => response.json())
                             .then(compradorData => {
+                                console.log("Respuesta del endpoint compradorByID:", compradorData);
                                 const nombreComprador = compradorData.comprador ? compradorData.comprador.nombre_apellido : "Sin nombre";
                                 crearPedido(pedido, nombreComprador);
                                 console.log("ID del comprador:", idComprador);

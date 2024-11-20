@@ -36,25 +36,24 @@
 
     <div class="card-completa">
     <div class="card">
-        <h1 class="title" id="nombre"></h1>
+        <h1 class="title" id="nombre">martin segalis</h1>
         <img src="../fotos/impresoraperfil.png" id="imagen" alt="Impresora 3D" class="printer-image">
     
 
         <div class="description">
             <label for="desc">DESCRIPCIÓN</label>
-            <textarea id="desc" placeholder="Describa su pedido..." readonly>
-            </textarea>
+            <textarea id="desc" readonly>Especialista en impresiones 3d</textarea>
         </div>
         
 
         <div class="info">
             <div class="field" id="impresora-field">
               <label for="impresora">Impresora:</label>
-              <div class="data-field" id="impresora-info"> </div> 
+              <div class="data-field" id="impresora-info">Impresora 2</div> 
             </div>
             <div class="field" id="filamento-field">
               <label for="filamento">Filamento:</label>
-              <div class="data-field" id="filamento-info"> </div> 
+              <div class="data-field" id="filamento-info">ABS</div> 
             </div>
           </div>
         
@@ -68,7 +67,18 @@
             <div class="popup-header"> Pedido Realizado</div>
             <br><br>
  
-        <input type="button" value="Coordinar por Whatsapp" class="btn" onclick="abrirWhatsApp()" />
+        <input type="button" value="Coordinar por Whatsapp" class="btn" id ="truchowap" onclick="abrirWhatsApp()" />
+
+<!--agregado ahora, sacarlo-->
+          <script>
+            document.getElementById("truchowap").addEventListener("click", function() {
+              const telefono = "11234567890";  // Número de teléfono con código de país
+              const mensaje = encodeURIComponent("Hola, quiero coordinar el servicio de impresión 3D. Mi pedido ya ha sido realizado por la web, miralo y aceptalo en la pagina de PrintMe");
+              const url = `https://wa.me/1234567890?text=${mensaje}`;
+              
+              window.open(url, "_blank");
+            });
+          </script>
 
 
 
@@ -114,7 +124,7 @@
             });
         });
         </script>
-        <script src="/usuario/js/perfildueño.js"></script>
+       <!-- <script src="/usuario/js/perfildueño.js"></script>-->
             </body>
             </html>
         

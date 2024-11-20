@@ -30,7 +30,8 @@ if (id) {
   } else {
     console.error('No se encontró id en localStorage.');
   }
-
+  
+/*
     function abrirWhatsApp()
     { 
         
@@ -42,18 +43,18 @@ if (id) {
     const url = `https://wa.me/${numeroTelefono}?text=${encodeURIComponent(mensaje)}`; 
     window.open(url, '_blank'); 
     } 
-
+*/
 
     
   function crearProducto() {
-    
+    /*
     if (!token) {
         alert("Porfavor, inicia sesion. Redirigiendo al inicio de sesión...");
         // Redirige o maneja la falta del token
         window.location.href = '/general/html/sesion.html';
     } else {
         console.log("Token encontrado:", token);
-    }
+    }*/
 
     const nuevoProducto = {
       producto: "producto",
