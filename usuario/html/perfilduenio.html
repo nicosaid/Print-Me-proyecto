@@ -69,19 +69,6 @@
  
         <input type="button" value="Coordinar por Whatsapp" class="btn" id ="truchowap" onclick="abrirWhatsApp()" />
 
-<!--agregado ahora, sacarlo-->
-          <script>
-            document.getElementById("truchowap").addEventListener("click", function() {
-              const telefono = "11234567890";  // Número de teléfono con código de país
-              const mensaje = encodeURIComponent("Hola, quiero coordinar el servicio de impresión 3D. Mi pedido ya ha sido realizado por la web, miralo y aceptalo en la pagina de PrintMe");
-              const url = `https://wa.me/1234567890?text=${mensaje}`;
-              
-              window.open(url, "_blank");
-            });
-          </script>
-
-
-
   <!-- Botón de redirección a la página de inicio -->
   <input type="button" value="Volver a la home" class="btnchico" onclick="window.location.href='../html/servicioimpresion3d.html'">
 
@@ -124,7 +111,7 @@
             });
         });
         </script>
-       <!-- <script src="/usuario/js/perfildueño.js"></script>-->
+        <script src="/usuario/js/perfildueño.js"></script>
             </body>
             </html>
         

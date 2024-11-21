@@ -1,23 +1,17 @@
-// Obtén el token e ID del localStorage
-const token = localStorage.getItem('token');
-const id = localStorage.getItem('LoginId');
-console.log("Token actual:", token);
-console.log("ID actual:", id);
+const idPerfil = localStorage.getItem('perfilSeleccionado');
+console.log(idPerfil); 
 
-if (id) {
-    // Hacer una petición al backend para obtener los datos
-    fetch(`https://print-me-ten.vercel.app/vendedores/vendedorByID/${id}`) // Reemplaza con tu URL
+  if (idPerfil) {
+
+    fetch(`https://print-me-ten.vercel.app/vendedores/vendedorByID/${idPerfil}`)
       .then(response => response.json())
       .then(data => {
-        // Rellenar los campos con los datos obtenidos
-        document.getElementById('nombre-apellido').value = data.nombre_apellido || '';
-        document.getElementById('description-input').value = data.descripcion || '';
-        document.getElementById('email-input').value = data.mail || '';
-        document.getElementById('zona').value = data.zona || '';
-        document.getElementById('impresora-input').value = data.impresora_modelo || '';
-        document.getElementById('filamento-input').value = data.impresora_materiales || '';
-  
-        // Configurar el radio button según el valor de post_procesado
+        document.getElementById('nombre').textContent = data.Nombre_apellido;
+        document.getElementById('desc').textContent = data.descripcion;
+        document.getElementById('impresora-info').textContent = data.impresora;
+        document.getElementById('filamento-info').textContent = data.filamento; 
+        document.getElementById('start-order').value = data.numero_telefonico; 
+
         if (data.post_procesado) {
           document.getElementById('postSi').checked = true; // Selecciona "Sí"
         } else {
@@ -31,7 +25,7 @@ if (id) {
     console.error('No se encontró id en localStorage.');
   }
   
-/*
+
     function abrirWhatsApp()
     { 
         
@@ -43,19 +37,10 @@ if (id) {
     const url = `https://wa.me/${numeroTelefono}?text=${encodeURIComponent(mensaje)}`; 
     window.open(url, '_blank'); 
     } 
-*/
+
 
     
   function crearProducto() {
-    /*
-    if (!token) {
-        alert("Porfavor, inicia sesion. Redirigiendo al inicio de sesión...");
-        // Redirige o maneja la falta del token
-        window.location.href = '/general/html/sesion.html';
-    } else {
-        console.log("Token encontrado:", token);
-    }*/
-
     const nuevoProducto = {
       producto: "producto",
     };
@@ -79,7 +64,3 @@ if (id) {
         alert("Hubo un error al crear el producto");
     });
 }
-
-// RUTA TODOS PEDIDOS https://print-me-ten.vercel.app/pedidos/pedidos
-
-//a mi frid en el pedido me pasa un id (tiene que estar en la ruta de todos los pedidos), yo con ese id entro a la tabla de compradores, y busco el nombre, despues muestro el nombre en el div junto al boton aceptar/rechazar.
