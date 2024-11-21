@@ -37,11 +37,8 @@ function crearPerfil(vendedor) {
 }
 
 function MoverID(idPerfilSeleccionado) {
-    localStorage.setItem('perfilSeleccionado', idPerfilSeleccionado);
-    setTimeout(() => {
-        window.location.href = `/usuario/html/perfilduenio.html?id=${idPerfilSeleccionado}`;
-    }, 100); // 100 ms de espera
-console.log("idPerfilSeleccionado:", idPerfilSeleccionado);
+    console.log("idPerfilSeleccionado:", idPerfilSeleccionado);
+    window.location.href = `/usuario/html/probandoperfildueño.html?id=${idPerfilSeleccionado}`;
 }
 
 let perfilesCargados = [];
