@@ -1,7 +1,33 @@
-const idPerfil = localStorage.getItem('perfilSeleccionado');
-console.log(idPerfil); 
+document.addEventListener("DOMContentLoaded", () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const idPerfil = urlParams.get("id");
 
-  if (idPerfil) {
+  if (!idPerfil) {
+      console.error("No se encontró ID en la URL.");
+      return;
+  }
+
+  console.log("ID de perfil obtenido de la URL:", idPerfil);
+
+  // Ahora usa idPerfil para tus operaciones
+  fetch(`https://print-me-ten.vercel.app/vendedores/vendedorByID/${idPerfil}`)
+      .then(response => response.json())
+      .then(data => {document.getElementById('nombre').textContent = data.Nombre_apellido;
+      document.getElementById('desc').textContent = data.descripcion;
+      document.getElementById('impresora-info').textContent = data.impresora;
+      document.getElementById('filamento-info').textContent = data.filamento; 
+      document.getElementById('start-order').value = data.numero_telefonico; 
+      if (data.post_procesado) {
+        document.getElementById('postSi').checked = true; // Selecciona "Sí"
+      } else {
+        document.getElementById('postNo').checked = true; // Selecciona "No"
+      }
+    })
+    .catch(error => {
+      console.error('Error al obtener los datos:', error);
+    });
+
+if (idPerfil) {
 
     fetch(`https://print-me-ten.vercel.app/vendedores/vendedorByID/${idPerfil}`)
       .then(response => response.json())
@@ -44,8 +70,6 @@ console.log(idPerfil);
     const nuevoProducto = {
       producto: "producto",
     };
-
-    
     fetch('https://print-me-ten.vercel.app/pedido/createpedido', {
         method: 'POST',
         headers: {
@@ -63,4 +87,3 @@ console.log(idPerfil);
         console.error('Error al crear el producto:', error);
         alert("Hubo un error al crear el producto");
     });
-}
