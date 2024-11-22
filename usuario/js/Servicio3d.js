@@ -32,13 +32,12 @@ function crearPerfil(vendedor) {
         </label>
     `;
 
-    // Añadir el perfil al contenedor de perfiles
     document.querySelector(".perfilesDueños").appendChild(perfilDiv);
 }
 
 function MoverID(idPerfilSeleccionado) {
     console.log("idPerfilSeleccionado:", idPerfilSeleccionado);
-    window.location.href = `/usuario/html/probandoperfildueño.html?id=${idPerfilSeleccionado}`;
+    window.location.href = `/usuario/html/perfilduenio.html?id=${idPerfilSeleccionado}`;
 }
 
 let perfilesCargados = [];
@@ -58,6 +57,8 @@ function cargarPerfiles() {
         .catch(error => console.error("Error al cargar perfiles:", error));
 }
 
+//FILTROS
+
 function buscarPerfiles() {
     document.querySelector(".perfilesDueños").innerHTML = "";
     const searchInput = document.getElementById('buscador').value.toLowerCase();
@@ -73,13 +74,6 @@ function buscarPerfiles() {
         })
         .catch(error => console.error("Error al buscar perfiles:", error));
 }
-
-
-
-
-
-
-
 
 function mostrarFavoritos() {
     const perfiles = document.querySelectorAll('.card');
@@ -103,11 +97,6 @@ function mostrarFavoritos() {
         }
     });
 }
-
-
-
-
-
 
 function mostrarTodos() {
     document.querySelector(".perfilesDueños").innerHTML = "";
@@ -138,7 +127,7 @@ document.getElementById("aceptar-button").addEventListener("click", () => {
         })
         .catch(error => console.error("Error al cargar perfiles:", error));
 });*/
-
+/*
 //Filtro x necesidad desde el front
 document.getElementById("aceptar-button").addEventListener("click", () => {
     const zona = document.getElementById("zona").value.toLowerCase();
@@ -173,4 +162,4 @@ document.getElementById("aceptar-button").addEventListener("click", () => {
         console.log("No profiles match the selected filters.");
     }
 });
-
+*/

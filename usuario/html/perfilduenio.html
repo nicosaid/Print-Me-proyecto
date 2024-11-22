@@ -63,7 +63,7 @@
             <div id="overlay" class="overlay"></div>
             
             <!-- Pantalla emergente -->
-            <div id="popup" class="wrapper">
+    <div id="popup" class="wrapper">
             <div class="popup-header"> Pedido Realizado</div>
             <br><br>
  
@@ -71,7 +71,7 @@
 
   <!-- Botón de redirección a la página de inicio -->
   <input type="button" value="Volver a la home" class="btnchico" onclick="window.location.href='../html/servicioimpresion3d.html'">
-
+    </div>
   
             <script>
             // Función para abrir la pantalla emergente contactar
@@ -85,46 +85,18 @@
                         console.error("No se encontró el elemento 'span.active'");
                     }
                 }
-                
-
             </script>
-        
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Primer bloque
-            const progressBars = document.querySelectorAll('.progress-bar .bar');
-            progressBars.forEach((bar, index) => {
-                bar.addEventListener('click', () => {
-                    progressBars.forEach((b, i) => {
-                        b.classList.toggle('green', i <= index);
-                        b.classList.toggle('gray', i > index);
-                    });
-                });
-            });
 
-            // Segundo bloque
-            const expandables = document.querySelectorAll(".expandable");
-            expandables.forEach(function(expandable) {
-                expandable.addEventListener("click", function() {
-                    this.classList.toggle("active"); // Alterna la clase 'active'
-                });
-            });
-        });
-        </script>
-        <script src="/usuario/js/perfildueño.js"></script>
-            </body>
-            </html>
-        
+        <script src="/usuario/js/perfildueño.js"></script>  
     </div>
 </div>
+<style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    </style>
 </body>
 </html>
 
-<style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-</style>
