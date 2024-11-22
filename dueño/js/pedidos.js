@@ -41,9 +41,10 @@ function cargarPedidos() {
                                 console.log("ID del comprador:", idComprador);
                             })
                             .catch(error => console.error("Error al obtener comprador:", error));
-                    } else {
-                        console.error("Pedido sin ID de comprador:", pedido);
-                    }
+                        } else {
+                            console.error("Pedido sin ID de comprador:", pedido);
+                        }
+                    
                 });
             } else {
                 document.getElementById("TodosPedidos").innerHTML = "<p>No se encontraron pedidos.</p>";

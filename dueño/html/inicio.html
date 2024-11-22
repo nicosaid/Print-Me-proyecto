@@ -46,13 +46,6 @@
           <a href="../html/miperfilduenio.html" class="optionmiperf" ><p>Mi perfil</p></a>
           <a href="../html/inicio.html" class="optionpedid" ><p>Pedidos</p></a>
 
-
-
-             
-
-
-
-
           <button class="logout-button" onclick="togglePopupLogout()" >   <p>Cerrar Sesion</p>  </button>
 
 
@@ -93,12 +86,6 @@ function togglePopupLogout() {
            </nav>
     </header>
 
-
-
-    
-
-
-   
     <main class="main-content">
             
 
@@ -111,19 +98,11 @@ function togglePopupLogout() {
         <input class="input" placeholder="Buscar..." id="buscador">
         <button class="buscarenter" onclick="buscar()">Buscar</button>
 
-
-          
-
                <div class="container-options">
                 <span class="active">Pendientes</span>
     
                 <span class="active"> Aceptados </span>
-    
-    
         
-                
-
-                
     <span onclick="openPopup()">Filtrar por Estado</span> 
     </div>
     
@@ -153,17 +132,8 @@ function togglePopupLogout() {
 
     <input id="aplicar-filtro" type="button" value="Aceptar" class="btn" onclick="closePopup()">
 </div>
-
-
-
-
-
-
 <script>
- 
-
-
- function openPopup() {
+    function openPopup() {
     document.getElementById("popup").style.display = "block";
     document.getElementById("overlay").style.display = "block";
     
@@ -179,45 +149,9 @@ function closePopup() {
 
     document.querySelector("span.active").classList.remove("popup-open");
 }
-
-
-
 </script>
 
-<div class="perfilesDueños">
-
-    <div id="TodosPedidos"></div>
-
-
-            <div class="card">
-                <img src="../fotos/impresora 3d.png" alt="3D Printer" class="printer-image">
-                <div class="info">
-                    <h2>Ignacio Vigilante </h2>
-                    <button class="aceptar"  onclick="redirectWithDelay()">
-                       Aceptar
-                            <path
-                                fill-rule="evenodd"
-                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                                clip-rule="evenodd"
-                            ></path>
-                        </svg>
-                    </button>
-                    
-                    <script>
-                        function redirectWithDelay() {
-
-                            window.location.href = '../../dueño/html/loading.html';
-                        }
-                    </script>  
-
-                    <button class="rechazar">Rechazar</button>
-                </div>
-            </div>
-
-
-
-
-            <div class="card">
+      <!--   <div class="card">
                 <img src="../fotos/impresora 3d.png" alt="3D Printer" class="printer-image">
                 <div class="info">
                     <h2> Ranzo </h2>
@@ -240,118 +174,9 @@ function closePopup() {
 
                     <button class="rechazar">Rechazar</button>
                 </div>
-            </div>
-
-
-
-
-            <div class="card">
-                <img src="../fotos/impresora 3d.png" alt="3D Printer" class="printer-image">
-                <div class="info">
-                    <h2>Chona Pardo </h2>
-                    <button class="aceptar"  onclick="redirectWithDelay()">
-                       Aceptar
-                            <path
-                                fill-rule="evenodd"
-                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                                clip-rule="evenodd"
-                            ></path>
-                        </svg>
-                    </button>
-                    
-                    <script>
-                        function redirectWithDelay() {
-
-                            window.location.href = '../../dueño/html/loading.html';
-                        }
-                    </script>  
-
-                    <button class="rechazar">Rechazar</button>
-                </div>
-                
-      </div>
-                <div id="TodosPedidos"></div>
-
-      
-
-
-
-
-
-    <div class="card">
-        <img src="../fotos/impresora 3d.png" alt="3D Printer" class="printer-image">
-        <div class="info">
-            <h2>Juan Hernandez </h2>
-
-
-            <button class="aceptar"  onclick="redirectWithDelay()">
-               Aceptar
-                    <path
-                        fill-rule="evenodd"
-                        d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                        clip-rule="evenodd"
-                    ></path>
-                </svg>
-            </button>
-            
-            <script>
-                function redirectWithDelay() {
-
-                    window.location.href = '../../dueño/html/loading.html';
-                }
-            </script>  
-
-            <button class="rechazar">Rechazar</button>
-
-    </div>
+            </div> -->   
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="card">
-    <img src="../fotos/impresora 3d.png" alt="3D Printer" class="printer-image">
-    <div class="info">
-        <h2>Salvador Morillo </h2>
-
-
-        <button class="aceptar"  onclick="redirectWithDelay()">
-           Aceptar
-                <path
-                    fill-rule="evenodd"
-                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                    clip-rule="evenodd"
-                ></path>
-            </svg>
-        </button>
-        
-        <script>
-            function redirectWithDelay() {
-
-                window.location.href = '../../dueño/html/loading.html';
-            }
-        </script>  
-
-        <button class="rechazar">Rechazar</button>
-
-</div>
-
-</div>
-
-
-
-
-
-
 
 <!--
 <script>
