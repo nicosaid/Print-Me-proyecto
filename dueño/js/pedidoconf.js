@@ -1,3 +1,7 @@
+function getPedidoIdFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("id");  // Obtiene el valor de 'id' de la URL
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     const progressBars = document.querySelectorAll('.progress-bar .bar');

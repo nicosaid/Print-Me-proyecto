@@ -33,7 +33,7 @@ function enviarDatosLogin(e) {
     const mail = document.getElementById("mail");
     const contraseña = document.getElementById("contraseña");
    
-    const data = {
+    const send_data = {
         mail: mail.value,
         contraseña: contraseña.value,  
     };
@@ -43,22 +43,30 @@ function enviarDatosLogin(e) {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(send_data),
     })
-    .then((response) => {
+    .then((data) => {
+        console.log("Respuesta del servidor",send_data);
         console.log("Respuesta del servidor:", data);
-        if (response.status === 200) {
+        if (data.status === 200) {
             console.log("200");
-            return response.json();
-        } else if (response.status === 400) {
+            return data.json();
+        } else if (data.status === 400) {
             console.log("Error: No se pudo completar la solicitud.");
             alert("Alguno de los datos introducidos es incorrecto");
         }
     })
     .then((data) => {
-        console.log("Datos procesados del servidor:", data); // Depuración completa
-        if (data && data.token && data.data && data.data.id) {
-            guardarLoginId(data.data.id);
+        console.log("data");
+        if (data && data.token) {
+            if (!data.data.id || isNaN(data.data.id)) {
+                console.error("El ID recibido no es válido:", data.data.id);
+                alert("Ocurrió un error con el ID del usuario. Inténtalo de nuevo.");
+                return; // Salir si el ID no es válido
+            }
+            console.log("Datos enviados exitosamente:", data);
+            localStorage.setItem("token", data.token);
+            localStorage.setItem('LoginId', data.data.id);
             window.location.href = "/dueño/html/inicio.html";
         } else {
             console.error('Datos incompletos en la respuesta del servidor:', data);
@@ -70,12 +78,3 @@ function enviarDatosLogin(e) {
         alert("Hubo un problema con el envío de los datos.");
     });
 }
-
-function guardarLoginId(id) {
-    if (id && typeof id !== "undefined" && id !== "undefined") {
-        localStorage.setItem('LoginId', id);
-        console.log('LoginId guardado:', localStorage.getItem('LoginId'));
-    } else {
-        console.error('No se pudo guardar el LoginId: ID inválido');
-    }
-};
