@@ -3,48 +3,57 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarPedidos();
 });
 
-let pedidosCargados = [];
+let procesados = new Set(); // Set para controlar IDs únicos
 
 function cargarPedidos() {
     const token = localStorage.getItem("token");
 
     if (!token) {
         console.error("Token no encontrado en localStorage.");
-        return; // Sal de la función si no hay token
+        return;
     }
 
     fetch("https://print-me-ten.vercel.app/pedidos/pedidos", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}` // Token en formato Bearer
+            "Authorization": `Bearer ${token}`
         }
     })
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data) && data.length > 0) {
-                data.forEach(pedido => {
-                    let idComprador = pedido.id_comprador;
-                    if (idComprador) {
-                        fetch(`https://print-me-ten.vercel.app/compradores/compradorByID/${idComprador}`, {
-                            method: "GET",
-                            headers: {
-                                "Content-Type": "application/json",
-                                "Authorization": `Bearer ${token}` // Asegúrate de que el token también se pasa aquí si es necesario
-                            }
-                        })
-                            .then(response => response.json())
-                            .then(compradorData => {
-                                console.log("Respuesta del endpoint compradorByID:", compradorData);
-                                const nombreComprador = compradorData.comprador ? compradorData.comprador.nombre_apellido : "Sin nombre";
-                                crearPedido(pedido, nombreComprador);
-                                console.log("ID del comprador:", idComprador);
-                            })
-                            .catch(error => console.error("Error al obtener comprador:", error));
-                        } else {
-                            console.error("Pedido sin ID de comprador:", pedido);
+                // Filtrar datos por ID de comprador único antes de hacer cualquier solicitud
+                const pedidosUnicos = data.filter(pedido => {
+                    const idComprador = pedido.id_comprador;
+                    if (idComprador && !procesados.has(idComprador)) {
+                        procesados.add(idComprador); // Registrar ID único
+                        return true; // Mantener en el array
+                    }
+                    return false; // Excluir del array
+                });
+
+                // Realizar solicitudes para compradores únicos
+                pedidosUnicos.forEach(pedido => {
+                    const idComprador = pedido.id_comprador;
+                    fetch(`https://print-me-ten.vercel.app/compradores/compradorByID/${idComprador}`, {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${token}`
                         }
-                    
+                    })
+                        .then(response => response.json())
+                        .then(compradorData => {
+                            console.log("Respuesta del endpoint compradorByID:", compradorData);
+
+                            const nombreComprador = compradorData.comprador
+                                ? compradorData.comprador.nombre_apellido
+                                : "Sin nombre";
+
+                            crearPedido(pedido, nombreComprador);
+                        })
+                        .catch(error => console.error("Error al obtener comprador:", error));
                 });
             } else {
                 document.getElementById("TodosPedidos").innerHTML = "<p>No se encontraron pedidos.</p>";
@@ -54,41 +63,22 @@ function cargarPedidos() {
 }
 
 function crearPedido(pedido, nombreComprador) {
-    console.log("pedido:",pedido, "Nombre del comprador:", nombreComprador);
+    console.log("Creando pedido:", pedido, "Nombre del comprador:", nombreComprador);
 
-    // Crear un div contenedor para cada perfil
     const pedidoDiv = document.createElement("div");
-    pedidoDiv.classList.add("card");//clase del css
+    pedidoDiv.classList.add("card");
+    pedidoDiv.setAttribute("data-id", pedido.id);
 
     pedidoDiv.innerHTML = `
-
         <img src="../fotos/impresora 3d.png" alt="Impresora" class="printer-image">
-            <div class= "info">
-        <h2>${nombreComprador}</h2>
-        <button class="aceptar"  onclick="aceptarPedido(${pedido.id})">
-                       Aceptar
-                            <path
-                                fill-rule="evenodd"
-                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                                clip-rule="evenodd"
-                            ></path>
-                        </svg>
-        </button>
-        <button class="rechazar"  onclick="rechazarPedido(${pedido.id})">
-                       Rechazar
-                            <path
-                                fill-rule="evenodd"
-                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                                clip-rule="evenodd"
-                            ></path>
-                        </svg>
-        </button>
-                </div>
-
+        <div class="info">
+            <h2>${nombreComprador}</h2>
+            <button class="aceptar" onclick="aceptarPedido(${pedido.id})">Aceptar</button>
+            <button class="rechazar" onclick="rechazarPedido(${pedido.id})">Rechazar</button>
+        </div>
     `;
 
     document.getElementById("TodosPedidos").appendChild(pedidoDiv);
-    pedidoDiv.classList.add("info");
 }
 
 //boton aceptar y rechazar
