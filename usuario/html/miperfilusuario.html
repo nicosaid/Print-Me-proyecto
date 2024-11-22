@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../general/css/miperfil.css">
     <link rel="stylesheet" href="../../general/css/topbar.css">
-    <script src="/usuario/js/MiPerfilCliente.js"></script>
 </head>
 
 <link rel="apple-touch-icon" sizes="180x180" href="../../general/icon/apple-touch-icon.png">
@@ -77,13 +76,6 @@
                     <label for="editable-input" class="editable-label">Nombre y Apellido</label>
                     <div class="input-wrapper"> 
                         <input type="text" id="nombre-apellido" readonly>
-
-
-            <!--  <input type="text" id="nombre-apellido" value="Lucila Dayan" readonly>
-
- -->
-
-                        
                         <button class="edit-button" onclick="toggleEdit('editable-input', 'edit-button', 'Actualizar', 'Editar')" >Editar</button>
                     </div>
                 </div>
@@ -94,13 +86,6 @@
                     <label for="email-input" class="editable-label">Email</label>
                     <div class="input-wrapper"> 
                         <input type="email" id="mail" readonly>
-
-
-
-                           <!--  <input type="text" id="nombre-apellido" value="Luciladayan@gmail.com" readonly>
-
- -->
-
                         <button class="edit-button" onclick="toggleEdit('description-input', 'description-edit-button', 'Actualizar', 'Editar')" >Editar</button>
                     </div>
                 </div>
@@ -166,7 +151,8 @@
             } else {
                 inputField.setAttribute("readonly", true);
                 editButton.textContent = editText;
-                console.log("Nuevo valor guardado:", inputField.value);
+                const nuevoValor = inputField.value;
+                actualizarCampoEnServidor(inputId, nuevoValor);
             }
         }
 
@@ -190,5 +176,6 @@
     </script>
 </main>
 <script src="/general/js/cerrarsesion.js"></script>
+<script src="/usuario/js/MiPerfilCliente.js"></script>
 </body>
 </html>

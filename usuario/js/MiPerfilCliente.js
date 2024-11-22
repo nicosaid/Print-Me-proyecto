@@ -1,85 +1,71 @@
-// Obtén el token e ID del localStorage
-const token = localStorage.getItem('token');
-const id = localStorage.getItem('id');
-console.log("Token actual:", token);
+const id = localStorage.getItem('LoginId');
 console.log("ID actual:", id);
 
 if (id) {
-    // Hacer una petición al backend para obtener los datos
-    fetch(`https://print-me-ten.vercel.app/vendedores/vendedorByID/${id}`) // Reemplaza con tu URL
-      .then(response => response.json())
-      .then(data => {
-        // Rellenar los campos con los datos obtenidos
-        document.getElementById('nombre-apellido').value = data.nombre_apellido || '';
-        document.getElementById('descripcion').value = data.descripcion || '';
-        document.getElementById('email').value = data.mail || '';
-        document.getElementById('zona').value = data.zona || '';
-        document.getElementById('impresora').value = data.impresora_modelo || '';
-        document.getElementById('filamento').value = data.impresora_materiales || '';
-  
-        // Configurar el radio button según el valor de post_procesado
-        if (data.post_procesado) {
-          document.getElementById('postSi').checked = true; // Selecciona "Sí"
-        } else {
-          document.getElementById('postNo').checked = true; // Selecciona "No"
-        }
-      })
-      .catch(error => {
-        console.error('Error al obtener los datos:', error);
-      });
-  } else {
+    fetch(`http://print-me-ten.vercel.app/compradores/compradorByID/${id}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error del servidor: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const comprador = data.comprador;
+
+            if (!comprador) {
+                throw new Error("No se encontró el comprador en la respuesta");
+            }
+
+            console.log("Datos del comprador:", comprador);
+
+            const nombreElemento = document.getElementById("nombre-apellido");
+            const mailElemento = document.getElementById('mail');
+
+            if (nombreElemento) nombreElemento.value = comprador.nombre_apellido || "Sin nombre";
+            if (mailElemento) mailElemento.value = comprador.mail || "Sin mail";
+        })
+        .catch(error => {
+            console.error('Error al obtener los datos:', error.message);
+            alert("No se pudieron cargar los datos del perfil. Inténtalo más tarde.");
+        });
+} else {
     console.error('No se encontró id en localStorage.');
-  }
+    alert("Por favor, inicia sesión para acceder a tu perfil.");
+}
 
 //EDITAR DATOS
 
-function editField(id) {
-    var field = document.getElementById(id);
-    field.disabled = false; // Habilita el campo para edición
-    field.classList.remove('disabled'); // Elimina la clase de estilo deshabilitado
+function actualizarCampoEnServidor(campo, valor) {
 
-    // Cambiar el botón a un botón de guardar
-    var button = field.nextElementSibling;
-    button.innerHTML = '<i class="fas fa-save"></i>';
-    button.setAttribute('onclick', 'saveField("' + id + '")');
-}
+  if (!id) {
+      alert("ID de usuario no encontrado. Por favor, inicia sesión.");
+      return;
+  }
 
-function saveField(id) {
-    var field = document.getElementById(id);
-    field.disabled = true; // Deshabilita el campo nuevamente
-    field.classList.add('disabled'); // Agrega la clase de estilo deshabilitado
+  const datosActualizados = { [campo]: valor };
 
-    var button = field.nextElementSibling;
-    button.innerHTML = '<i class="fas fa-pencil-alt"></i>';
-    button.setAttribute('onclick', 'editField("' + id + '")');
-
-    alert('Cambios guardados para el campo: ' + id);
-}
-
-// Guardar datos del perfil
-function guardarDatosPerfil() {
-    const perfilData = {
-        nombre: document.getElementById("nombre-apellido").value,
-        descripcion: document.getElementById("descripcion").value,
-        email: document.getElementById("mail").value,
-    };
-
-    fetch(`https://print-me-ten.vercel.app/compradores/comprador/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Authorization': `Bearer ${id}`,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(perfilData)
-    })
-    .then(response => {
-        if (response.ok) {
-            alert("Datos actualizados correctamente.");
-        } else {
-            alert("Error al actualizar los datos.");
-        }
-    })
-    .catch(error => console.error("Error al actualizar datos:", error));
+  fetch(`http://print-me-ten.vercel.app/compradores/updatecomprador/${id}`, {
+      method: "PUT",
+      headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${localStorage.getItem('token')}`
+      },
+      body: JSON.stringify(datosActualizados)
+  })
+  .then(response => {
+      if (!response.ok) {
+          throw new Error(`Error al actualizar: ${response.status}`);
+      }
+      return response.json();
+  })
+  .then(data => {
+      console.log("Actualización exitosa:", data);
+      alert("Cambios guardados correctamente.");
+  })
+  .catch(error => {
+      console.error("Error al actualizar el campo:", error.message);
+      alert("Error al guardar los cambios. Inténtalo más tarde.");
+  });
 }
 
 //HACER EL CAMBIAR CONTRASEÑA

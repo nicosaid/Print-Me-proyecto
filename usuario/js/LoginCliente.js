@@ -57,6 +57,11 @@ function enviarDatosLogin(e) {
     })
     .then((data) => {
         if (data && data.token) {
+            if (!data.id || isNaN(data.id)) {
+                console.error("El ID recibido no es válido:", data.id);
+                alert("Ocurrió un error con el ID del usuario. Inténtalo de nuevo.");
+                return; // Salir si el ID no es válido
+            }
             console.log("Datos enviados exitosamente:", data);
             localStorage.setItem("token", data.token);
             localStorage.setItem('LoginId', data.id);
