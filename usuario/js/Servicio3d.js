@@ -47,6 +47,7 @@ function cargarPerfiles() {
         .then(response => response.json())
         .then(data => {
             console.log("Data recibida:", data);
+            console.log("Número de perfiles recibidos:", data.vendedor.length);
             if (Array.isArray(data.vendedor)) {
                 perfilesCargados = data.vendedor;
                 data.vendedor.forEach(crearPerfil);

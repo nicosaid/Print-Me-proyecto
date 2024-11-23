@@ -3,8 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarPedidos();
 });
 
-let procesados = new Set(); // Set para controlar IDs únicos
-
 function cargarPedidos() {
     const token = localStorage.getItem("token");
 
@@ -23,19 +21,10 @@ function cargarPedidos() {
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data) && data.length > 0) {
-                // Filtrar datos por ID de comprador único antes de hacer cualquier solicitud
-                const pedidosUnicos = data.filter(pedido => {
+                // Procesar cada pedido individualmente
+                data.forEach(pedido => {
                     const idComprador = pedido.id_comprador;
-                    if (idComprador && !procesados.has(idComprador)) {
-                        procesados.add(idComprador); // Registrar ID único
-                        return true; // Mantener en el array
-                    }
-                    return false; // Excluir del array
-                });
 
-                // Realizar solicitudes para compradores únicos
-                pedidosUnicos.forEach(pedido => {
-                    const idComprador = pedido.id_comprador;
                     fetch(`https://print-me-ten.vercel.app/compradores/compradorByID/${idComprador}`, {
                         method: "GET",
                         headers: {
