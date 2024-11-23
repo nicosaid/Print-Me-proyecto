@@ -84,33 +84,49 @@ function crearPedido(pedido, nombreComprador) {
 //boton aceptar y rechazar
 
 function aceptarPedido(idPedido) {
-    console.log(`Aceptando pedido con ID: ${idPedido}`);
+    console.log(`Intentando aceptar el pedido con ID: ${idPedido}`);
+
+    const token = localStorage.getItem("token");
+    if (!token) {
+        console.error("Token no encontrado en localStorage.");
+        alert("Por favor, inicia sesión nuevamente.");
+        return;
+    }
 
     fetch(`https://print-me-ten.vercel.app/pedidos/${idPedido}/aceptar`, {
-        method: "PUT", // Método PUT para actualizar
+        method: "PUT",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `${localStorage.getItem("token")}`
+            "Authorization": `Bearer ${token}`
         },
-        "estado": "aceptado"
+        body: JSON.stringify({ estado: "aceptado" })
     })
-        .then(response => {
-            if (response.ok) {
-                console.log(`Pedido ${idPedido} aceptado exitosamente`);
-                alert(`El pedido ${idPedido} fue aceptado.`);
-            } else {
-                console.error(`Error al aceptar el pedido ${idPedido}:`, response.statusText);
-                response.json().then(data => {
-                    console.error("Detalles del error:", data); // Mostrar detalles del error
-                });
-                alert(`Hubo un problema al aceptar el pedido ${idPedido}.`);
-            }
-        })
-        .catch(error => {
-            console.error(`Error en la solicitud para aceptar pedido ${idPedido}:`, error);
-            alert(`Hubo un error al intentar aceptar el pedido ${idPedido}.`);
-        });
+    .then(response => {
+        console.log("Respuesta del servidor:", response.status, response.statusText);
+        if (response.ok) {
+            return response.json();
+        } else {
+            return response.json().then(errorData => {
+                console.error("Detalles del error:", errorData);
+                alert(`Error: ${errorData.message || "No se pudo aceptar el pedido."}`);
+            });
+        }
+    })
+    .then(data => {
+        if (data) {
+            console.log("Pedido aceptado exitosamente:", data);
+            alert("Pedido aceptado.");
+            // cultar el pedido de la UI
+            const pedidoElement = document.querySelector(`.card[data-id="${idPedido}"]`);
+            if (pedidoElement) pedidoElement.style.display = "none";
+        }
+    })
+    .catch(error => {
+        console.error("Error inesperado:", error);
+        alert("Hubo un error inesperado al aceptar el pedido.");
+    });
 }
+
 function rechazarPedido(idPedido) {
     console.log(`Rechazando pedido con ID: ${idPedido}`);
     
@@ -138,142 +154,5 @@ function rechazarPedido(idPedido) {
         .catch(error => console.error(`Error en la solicitud para rechazar pedido ${idPedido}:`, error));
 }
 
-//funcion para redirigir pagina segun id pedido
-function MoverID(idPedidoSeleccionado){
-    console.log("idPedidoSeleccionado:", idPedidoSeleccionado);
-    window.location.href = `/usuario/html/perfilduenio.html?id=${idPedidoSeleccionado}`; //cambio de pantalla y le paso el id
-}
-
-/*
-function buscarPerfiles() {
-    document.getElementById("TodosPerfiles").innerHTML = "";
-    const searchInput = document.getElementById('buscador').value.toLowerCase(); // Obtener el valor del buscador en minúsculas
-    fetch("https://print-me-ten.vercel.app/vendedores/buscar?q=" + searchInput) 
-        .then(response => response.json())
-        .then(data => {
-            console.log("Data recibida:", data);
-            if (Array.isArray(data.message)) {
-                data.message.forEach(crearPerfil);
-            } else {
-                console.log(data.message);
-                console.error("La propiedad 'message' no es un array:", data);
-            }
-        })
-        .catch(error => console.error("Error al cargar perfiles:", error));
-}
-*/
-
-//ruta pediddoById  https://print-me-ten.vercel.app/pedidos/pedidosID/14 
-
 //FILTROS
-//marcar o desmarcar favorito
-function FiltroFavoritos(checkbox) {
-    const favoritos = document.querySelectorAll('.containerlike input:checked');
-    console.log(favoritos.length);
-    const perfilDiv = checkbox.closest(".card");
-    if (checkbox.checked) {
-        perfilDiv.classList.add("containerlike");
-    } else {
-        perfilDiv.classList.remove("containerlike");
-    }
-}
 
-// Mostrar solo los perfiles favoritos
-function mostrarFavoritos() {
-    const perfiles = document.querySelectorAll('.card');
-    perfiles.forEach(perfil => {
-        // Verifica si el perfil tiene un checkbox marcado dentro del contenedor
-        const checkbox = perfil.querySelector('.containerlike input');
-        if (checkbox && checkbox.checked) {
-            perfil.style.display = "block";
-        } else {
-            perfil.style.display = "none";
-        }
-    });
-}
-
-// Restablecer para mostrar todos los perfiles
-function mostrarTodos() {
-    const perfiles = document.querySelectorAll('.card');
-    perfiles.forEach(perfil => {
-        perfil.style.display = "block";
-    });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    /*const filterBtn = document.getElementById("filter-btn");
-    const filterPopup = document.getElementById("filter-popup");*/
-    const applyFilterBtn = document.getElementById("aplicar-filtro");
-    const estadoSelect = document.getElementById("estado");
-    const pedidoContainer = document.getElementById("pedidoElement");
-
-    filterBtn.addEventListener("click", () => {
-        filterPopup.style.display = "block"; // Mostrar el filtro
-    });
-
-    closePopupBtn.addEventListener("click", () => {
-        filterPopup.style.display = "none"; // Cerrar el filtro
-    });
-
-    applyFilterBtn.addEventListener("click", () => {
-        const selectedEstado = estadoSelect.value;
-        filterPedidos(selectedEstado);
-        filterPopup.style.display = "none"; // Cerrar el filtro al aplicar
-    });
-
-    // Función para obtener todos los pedidos según el estado
-    function filterPedidos(estado) {
-        let url = "https://print-me-ten.vercel.app/pedidos/pedidos "; // Ruta para obtener todos los pedidos
-
-        if (estado !== "todos") {
-            url = `https://tuservidor.com/pedidos/${estado}`; // Ruta para filtrar por estado
-        }
-
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                mostrarPedidos(data);
-            })
-            .catch(error => {
-                console.error("Error al obtener los pedidos:", error);
-            });
-    }
-
-    // Función para mostrar los pedidos en la pantalla
-    function mostrarPedidos(pedidos) {
-        pedidoContainer.innerHTML = ""; // Limpiar los pedidos existentes
-
-        if (pedidos.length === 0) {
-            pedidoContainer.innerHTML = "<p>No hay pedidos para mostrar.</p>";
-        } else {
-            pedidos.forEach(pedido => {
-                const pedidoElement = document.createElement("div");
-                pedidoElement.classList.add("pedido");
-                pedidoElement.innerHTML = `
-                    <p>ID: ${pedido.id}</p>
-                    <p>Estado: ${pedido.estado}</p>
-                    <p>Descripción: ${pedido.descripcion}</p>
-                `;
-                pedidoContainer.appendChild(pedidoElement);
-            });
-        }
-    }
-
-    // Llamada inicial para cargar todos los pedidos
-    filterPedidos("todos");
-});
-
-const estadoSeleccionado = document.getElementById("estado").value;
-
-    // Filtrar pedidos por estado
-    const pedidosFiltrados = pedidos.filter(
-        (pedido) => pedido.estado === estadoSeleccionado
-    );
-
-    // Mostrar pedidos filtrados
-    mostrarPedidos(pedidosFiltrados);
-
-// Función para mostrar todos los pedidos al hacer clic en "Todos"
-document.querySelector("span.active").addEventListener("click", () => {
-    mostrarPedidos(pedidos); // Mostrar todos los pedidos
-});
