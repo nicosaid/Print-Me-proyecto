@@ -17,11 +17,12 @@ const validateInputs = () => {
     }
     
     if (contraseña === "") {
-        alert("Porfavor, ingrese su contraseña")
+        alert("Por favor, ingresa tu contraseña.");
         return false;
     }
+
     return true;
-}
+};
 
 function enviarDatosLogin(e) {
     e.preventDefault();
@@ -30,48 +31,61 @@ function enviarDatosLogin(e) {
         return; // Si la validación falla, salir de la función
     }
 
-    const mail = document.getElementById("mail");
-    const contraseña = document.getElementById("contraseña");
-   
-    const data = {
-        mail: mail.value,
-        contraseña: contraseña.value,  
-    };
-    console.log(data);
+    const mail = document.getElementById("mail").value;
+    const contraseña = document.getElementById("contraseña").value;
 
-    fetch("https://print-me-ten.vercel.app/login/login", {  
+    const requestData = {
+        mail: mail,
+        contraseña: contraseña,
+    };
+
+    console.log("Datos enviados al servidor:", JSON.stringify(requestData));
+
+    fetch("https://print-me-ten.vercel.app/login/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(requestData),
     })
     .then((response) => {
+        console.log("Estado de la respuesta:", response.status);
         if (response.status === 200) {
-            console.log("200");
             return response.json();
         } else if (response.status === 400) {
-            console.log("Error: No se pudo completar la solicitud.");
-            alert("Alguno de los datos introducidos es incorrecto");
+            console.error("Error 400: Solicitud incorrecta.");
+            alert("Alguno de los datos introducidos es incorrecto.");
+            throw new Error("Bad Request");
+        } else {
+            console.error("Error no manejado, código de estado:", response.status);
+            throw new Error("Unexpected Error");
         }
     })
-    .then((data) => {
-        if (data && data.token) {
-            if (!data.id || isNaN(data.id)) {
-                console.error("El ID recibido no es válido:", data.id);
+    .then((responseData) => {
+        console.log("Respuesta completa del servidor:", responseData);
+
+        // Validar la estructura de la respuesta
+        if (responseData && responseData.token) {
+            const userId = responseData.data?.id;
+            if (!userId || isNaN(userId)) {
+                console.error("El ID recibido no es válido:", userId);
                 alert("Ocurrió un error con el ID del usuario. Inténtalo de nuevo.");
-                return; // Salir si el ID no es válido
+                return;
             }
-            console.log("Datos enviados exitosamente:", data);
-            localStorage.setItem("token", data.token);
-            localStorage.setItem('LoginId', data.id);
+
+            // Guardar token e ID en localStorage
+            localStorage.setItem("token", responseData.token);
+            localStorage.setItem("LoginId", userId);
+
+            // Redireccionar al usuario
             window.location.href = "/usuario/html/servicioimpresion3d.html";
+        } else {
+            console.error("El token no fue recibido o la estructura de la respuesta es incorrecta.");
+            alert("Hubo un problema con la autenticación. Inténtalo de nuevo.");
         }
-        })
+    })
     .catch((error) => {
-        console.log("error");
-        console.error(error);
-        alert("Hubo un problema con el envío de los datos.");
+        console.error("Error al procesar la solicitud:", error);
+        alert("Hubo un problema con el envío de los datos. Inténtalo de nuevo.");
     });
 }
-
