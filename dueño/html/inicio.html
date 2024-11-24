@@ -98,15 +98,19 @@ function togglePopupLogout() {
         <input class="input" placeholder="Buscar..." id="buscador">
         <button class="buscarenter" onclick="buscar()">Buscar</button>
 
-               <div class="container-options">
-                <span class="active">Pendientes</span>
-    
-                <span class="active"> Aceptados </span>
-        
-    <span onclick="openPopup()">Filtrar por Estado</span> 
+    <div class="container-options">
+            <span id="MostrarPendientes" onclick="mostrarPendientes()" class="active">Pendientes</span>
+            <span onclick="mostrarAceptados()" class="active">Aceptados</span>
+            <span onclick="openPopup()">Filtrar por Estado</span> 
     </div>
     
-
+    <div id="Pendientes" class="pedidos-seccion">
+        <!-- Aquí se cargarán los pedidos pendientes -->
+    </div>
+    
+    <div id="Aceptados" class="pedidos-seccion" style="display:none;">
+        <!-- Aquí se cargarán los pedidos aceptados -->
+    </div>
 
     <div id="overlay" class="overlay"></div>
 

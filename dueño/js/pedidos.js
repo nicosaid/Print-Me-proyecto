@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarPedidos();
 });
 
+let pedidosPendientes = [];
+let pedidosAceptados = [];
+
 function cargarPedidos() {
     const token = localStorage.getItem("token");
 
@@ -18,45 +21,44 @@ function cargarPedidos() {
             "Authorization": `Bearer ${token}`
         }
     })
-        .then(response => response.json())
-        .then(data => {
-            if (Array.isArray(data) && data.length > 0) {
-                // Procesar cada pedido individualmente
-                data.forEach(pedido => {
-                    const idComprador = pedido.id_comprador;
+    .then(response => response.json())
+    .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+            // Procesar cada pedido individualmente
+            data.forEach(pedido => {
+                const idComprador = pedido.id_comprador;
 
-                    fetch(`https://print-me-ten.vercel.app/compradores/compradorByID/${idComprador}`, {
-                        method: "GET",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "Authorization": `Bearer ${token}`
-                        }
-                    })
-                        .then(response => response.json())
-                        .then(compradorData => {
-                            console.log("Respuesta del endpoint compradorByID:", compradorData);
+                fetch(`https://print-me-ten.vercel.app/compradores/compradorByID/${idComprador}`, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`
+                    }
+                })
+                .then(response => response.json())
+                .then(compradorData => {
+                    const nombreComprador = compradorData.comprador
+                        ? compradorData.comprador.nombre_apellido
+                        : "Sin nombre";
 
-                            const nombreComprador = compradorData.comprador
-                                ? compradorData.comprador.nombre_apellido
-                                : "Sin nombre";
-
-                            crearPedido(pedido, nombreComprador);
-                        })
-                        .catch(error => console.error("Error al obtener comprador:", error));
-                });
-            } else {
-                document.getElementById("TodosPedidos").innerHTML = "<p>No se encontraron pedidos.</p>";
-            }
-        })
-        .catch(error => console.error("Error al cargar pedidos:", error));
+                    // Guardar los pedidos en el arreglo de pendientes
+                    pedidosPendientes.push({ pedido, nombreComprador });
+                    crearPedido(pedido, nombreComprador, "Pendiente");
+                })
+                .catch(error => console.error("Error al obtener comprador:", error));
+            });
+        } else {
+            document.getElementById("Pendientes").innerHTML = "<p>No se encontraron pedidos.</p>";
+        }
+    })
+    .catch(error => console.error("Error al cargar pedidos:", error));
 }
 
-function crearPedido(pedido, nombreComprador) {
-    console.log("Creando pedido:", pedido, "Nombre del comprador:", nombreComprador);
-
+function crearPedido(pedido, nombreComprador, estado) {
     const pedidoDiv = document.createElement("div");
     pedidoDiv.classList.add("card");
     pedidoDiv.setAttribute("data-id", pedido.id);
+    pedidoDiv.setAttribute("data-estado", estado);
 
     pedidoDiv.innerHTML = `
         <img src="../fotos/impresora 3d.png" alt="Impresora" class="printer-image">
@@ -67,11 +69,78 @@ function crearPedido(pedido, nombreComprador) {
         </div>
     `;
 
-    document.getElementById("TodosPedidos").appendChild(pedidoDiv);
+    // Agregar el pedido a la sección correspondiente
+    if (estado === "Pendiente") {
+        document.getElementById("Pendientes").appendChild(pedidoDiv);
+    } else if (estado === "Aceptado") {
+        document.getElementById("Aceptados").appendChild(pedidoDiv);
+    }
 }
 
-//boton aceptar y rechazar
+function aceptarPedido(id) {
+    const pedidoDiv = document.querySelector(`.card[data-id="${id}"]`);
+    if (!pedidoDiv) return;
 
+    // Cambiar el estado del pedido a Aceptado
+    pedidoDiv.setAttribute("data-estado", "Aceptado");
+
+    // Mover el pedido de pendientes a aceptados
+    document.getElementById("Pendientes").removeChild(pedidoDiv);
+    document.getElementById("Aceptados").appendChild(pedidoDiv);
+
+    // Actualizar el arreglo de pedidos
+    const pedidoIndex = pedidosPendientes.findIndex(pedido => pedido.pedido.id === id);
+    if (pedidoIndex !== -1) {
+        pedidosAceptados.push(pedidosPendientes[pedidoIndex]);
+        pedidosPendientes.splice(pedidoIndex, 1);
+    }
+}
+
+function rechazarPedido(id) {
+    const pedidoDiv = document.querySelector(`.card[data-id="${id}"]`);
+    if (!pedidoDiv) return;
+
+    // Eliminar el pedido del DOM
+    pedidoDiv.remove();
+
+    // Eliminar el pedido de los pendientes
+    const pedidoIndex = pedidosPendientes.findIndex(pedido => pedido.pedido.id === id);
+    if (pedidoIndex !== -1) {
+        pedidosPendientes.splice(pedidoIndex, 1);
+    }
+}
+
+function mostrarPendientes() {
+    const pendientes = document.getElementById("Pendientes");
+    const aceptados = document.getElementById("Aceptados");
+
+    pendientes.style.display = "block";
+    aceptados.style.display = "none";
+
+    // Cambiar la clase activa
+    document.getElementById("MostrarPendientes").classList.add("active");
+    document.querySelector("[onclick='mostrarAceptados()']").classList.remove("active");
+}
+
+function mostrarAceptados() {
+    const pendientes = document.getElementById("Pendientes");
+    const aceptados = document.getElementById("Aceptados");
+
+    pendientes.style.display = "none";
+    aceptados.style.display = "block";
+
+    // Cambiar la clase activa
+    document.getElementById("MostrarPendientes").classList.remove("active");
+    document.querySelector("[onclick='mostrarAceptados()']").classList.add("active");
+}
+
+// Función para mostrar el popup de filtrado (opcional)
+function openPopup() {
+    console.log("Abrir popup para filtrar pedidos...");
+}
+
+//boton aceptar y rechazar DESDE EL BACK
+/*
 function aceptarPedido(idPedido) {
     console.log(`Intentando aceptar el pedido con ID: ${idPedido}`);
 
@@ -142,6 +211,6 @@ function rechazarPedido(idPedido) {
         })
         .catch(error => console.error(`Error en la solicitud para rechazar pedido ${idPedido}:`, error));
 }
-
+*/
 //FILTROS
 
