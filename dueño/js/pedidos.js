@@ -6,11 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
 let pedidosPendientes = [];
 let pedidosAceptados = [];
 
-function MoverID(idPedidoSeleccionado){
-    console.log("idPedidoSeleccionado:", idPedidoSeleccionado);
-    window.location.href = `/dueño/html/pedidoconf.html?id=${idPedidoSeleccionado}`; //cambio de pantalla y le paso el id
-}
-
 function cargarPedidos() {
     const token = localStorage.getItem("token");
 
@@ -112,6 +107,11 @@ function rechazarPedido(id) {
     if (pedidoIndex !== -1) {
         pedidosPendientes.splice(pedidoIndex, 1);
     }
+}
+
+function irAlPedido(idPedidoSeleccionado) {
+    console.log("idPedidoSeleccionado:", idPedidoSeleccionado);
+    window.location.href = `/dueño/html/pedidoconf.html?id=${idPedidoSeleccionado}`;
 }
 
 function mostrarPendientes() {
