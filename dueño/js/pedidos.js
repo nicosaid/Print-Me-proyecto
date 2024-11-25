@@ -6,6 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
 let pedidosPendientes = [];
 let pedidosAceptados = [];
 
+function MoverID(idPedidoSeleccionado){
+    console.log("idPedidoSeleccionado:", idPedidoSeleccionado);
+    window.location.href = `/dueño/html/pedidoconf.html?id=${idPedidoSeleccionado}`; //cambio de pantalla y le paso el id
+}
+
 function cargarPedidos() {
     const token = localStorage.getItem("token");
 
@@ -24,7 +29,6 @@ function cargarPedidos() {
     .then(response => response.json())
     .then(data => {
         if (Array.isArray(data) && data.length > 0) {
-            // Procesar cada pedido individualmente
             data.forEach(pedido => {
                 const idComprador = pedido.id_comprador;
 
@@ -120,16 +124,44 @@ function mostrarPendientes() {
     // Cambiar la clase activa
     document.getElementById("MostrarPendientes").classList.add("active");
     document.querySelector("[onclick='mostrarAceptados()']").classList.remove("active");
+
 }
 
 function mostrarAceptados() {
     const pendientes = document.getElementById("Pendientes");
     const aceptados = document.getElementById("Aceptados");
 
+    // Limpiar el contenedor de aceptados antes de mostrar
+    aceptados.innerHTML = "";
+
+    // Recorrer los pedidos aceptados y actualizar el innerHTML de los divs
+    pedidosAceptados.forEach(({ pedido, nombreComprador }) => {
+        const pedidoDiv = document.createElement("div");
+        pedidoDiv.classList.add("card");
+        pedidoDiv.setAttribute("data-id", pedido.id);
+        pedidoDiv.setAttribute("data-estado", "Aceptado");
+
+        pedidoDiv.innerHTML = `
+            <img src="../fotos/impresora 3d.png" alt="Impresora" class="printer-image">
+            <div class="info">
+                <h2>${nombreComprador}</h2>
+                <button class="button" onclick="irAlPedido(${pedido.id})">
+                Ir al pedido
+                 <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" clip-rule="evenodd"></path>
+                </svg>
+                </button>
+            </div>
+        `;
+
+        aceptados.appendChild(pedidoDiv);
+    });
+
+    // Mostrar la sección de aceptados y ocultar la de pendientes
     pendientes.style.display = "none";
     aceptados.style.display = "block";
 
-    // Cambiar la clase activa
+    // Cambiar la clase activa en los botones de navegación
     document.getElementById("MostrarPendientes").classList.remove("active");
     document.querySelector("[onclick='mostrarAceptados()']").classList.add("active");
 }
