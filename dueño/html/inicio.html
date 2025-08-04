@@ -60,159 +60,140 @@
 </div>
 
 
-<div class="overlay-logout" onclick="togglePopupLogout()"></div>
-</div>
+      <div class="overlay-logout" onclick="togglePopupLogout()"></div>
+    </div>
+  </header>
 
+  <main class="main-content">
+    <section class="container top-products">
+      <h1 class="heading-1">Selecciona pedidos a rechazar o aceptar</h1>
 
-
-
-<script>
-
-function togglePopupLogout() {
-        const popup = document.getElementById("popup-container-logout");
-        const overlay = document.querySelector(".overlay-logout");
-
-        if (popup.style.display === "none" || !popup.style.display) {
-            popup.style.display = "block";
-            overlay.style.display = "block";
-        } else {
-            popup.style.display = "none";
-            overlay.style.display = "none";
-        }
-    }
-</script>
-
-
-            </ul>
-           </nav>
-    </header>
-
-    <main class="main-content">
-            
-
-        <section class="container top-products">
-        <h1 class="heading-1"> Selecciona pedios a rechazar o aceptar</h1>
-
-        <div class="principaldiv">
-
-
-        <input class="input" placeholder="Buscar..." id="buscador">
+      <div class="principaldiv">
+        <input class="input" placeholder="Buscar..." id="buscador" />
         <button class="buscarenter" onclick="buscar()">Buscar</button>
 
-    <div class="container-options">
-            <span id="MostrarPendientes" onclick="mostrarPendientes()" class="active">Pendientes</span>
-            <span onclick="mostrarAceptados()" class="active">Aceptados</span>
-            <span onclick="openPopup()">Filtrar por Estado</span> 
-    </div>
-    
-    <div id="Pendientes" class="pedidos-seccion">
-        <!-- Aquí se cargarán los pedidos pendientes -->
-    </div>
-    
-    <div id="Aceptados" class="pedidos-seccion" style="display:none;">
-        <!-- Aquí se cargarán los pedidos aceptados -->
-    </div>
+        <div class="container-options">
+          <span id="MostrarPendientes" onclick="mostrarPendientes()" class="active">Pendientes</span>
+          <span onclick="mostrarAceptados()">Aceptados</span>
+          <span onclick="mostrarRechazados()">Rechazados</span>
+        </div>
 
-    <div id="overlay" class="overlay"></div>
+        <!-- === Pendientes === -->
+        <div id="Pendientes" class="pedidos-seccion">
+          <div class="card">
+            <img src="../fotos/impresora 3d.png" alt="3D Printer" class="printer-image" />
+            <div class="info">
+              <h2>Juan Pérez</h2>
+              <p>Modelo: Porta Celular</p>
+              <p>Color: Rojo - Material: PLA</p>
+              <p>Estado: Pendiente</p>
+              <button class="aceptar">Aceptar</button>
+              <button class="rechazar">Rechazar</button>
+            </div>
+          </div>
 
+          <div class="card">
+            <img src="../fotos/impresora 3d.png" alt="3D Printer" class="printer-image" />
+            <div class="info">
+              <h2>María Gómez</h2>
+              <p>Modelo: Soporte de Notebook</p>
+              <p>Color: Negro - Material: ABS</p>
+              <p>Estado: Pendiente</p>
+              <button class="aceptar">Aceptar</button>
+              <button class="rechazar">Rechazar</button>
+            </div>
+          </div>
 
-<div id="popup" class="wrapper">
-    <div class="popup-header">Estado Del Pedido</div>
-    <br><br>
+          <div class="card">
+            <img src="../fotos/impresora 3d.png" alt="3D Printer" class="printer-image" />
+            <div class="info">
+              <h2>Luis Fernández</h2>
+              <p>Modelo: Llaveros Personalizados</p>
+              <p>Color: Azul - Material: PETG</p>
+              <p>Estado: Pendiente</p>
+              <button class="aceptar">Aceptar</button>
+              <button class="rechazar">Rechazar</button>
+            </div>
+          </div>
+        </div>
 
+        <!-- === Aceptados === -->
+        <div id="Aceptados" class="pedidos-seccion" style="display:none;"></div>
 
-    <div class="input-box">
-        <label for="estado">Seleccionar estado:</label>
-        <select id="estado">
-            <option value="Aceptado">Aceptado</option>
-            <option value="EnProceso">En Proceso</option>
-            <option value="Terminado">Terminado</option>
-            <option value="Entregado">Entregado</option>
+        <!-- === Rechazados === -->
+        <div id="Rechazados" class="pedidos-seccion" style="display:none;"></div>
+      </div>
+    </section>
+  </main>
 
-        </select><br>
-    </div>
+  <!-- JS FUNCIONALIDAD -->
+  <script>
+    function mostrarPendientes() {
+      document.getElementById("Pendientes").style.display = "block";
+      document.getElementById("Aceptados").style.display = "none";
+      document.getElementById("Rechazados").style.display = "none";
+    }
 
-    <input id="aplicar-filtro" type="button" value="Aceptar" class="btn" onclick="closePopup()">
-</div>
-<script>
-    function openPopup() {
-    document.getElementById("popup").style.display = "block";
-    document.getElementById("overlay").style.display = "block";
-    
-    // Añadir la clase popup-open al span
-    document.querySelector("span.active").classList.add("popup-open");
-}
+    function mostrarAceptados() {
+      document.getElementById("Pendientes").style.display = "none";
+      document.getElementById("Aceptados").style.display = "block";
+      document.getElementById("Rechazados").style.display = "none";
+    }
 
+    function mostrarRechazados() {
+      document.getElementById("Pendientes").style.display = "none";
+      document.getElementById("Aceptados").style.display = "none";
+      document.getElementById("Rechazados").style.display = "block";
+    }
 
-function closePopup() {
-    document.getElementById("popup").style.display = "none";
-    document.getElementById("overlay").style.display = "none";
-    
-
-    document.querySelector("span.active").classList.remove("popup-open");
-}
-</script>
-
-<div id="TodosPedidos">
-
-      <!--   <div class="card">
-                <img src="../fotos/impresora 3d.png" alt="3D Printer" class="printer-image">
-                <div class="info">
-                    <h2> Ranzo </h2>
-                    <button class="aceptar"  onclick="redirectWithDelay()">
-                       Aceptar
-                            <path
-                                fill-rule="evenodd"
-                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                                clip-rule="evenodd"
-                            ></path>
-                        </svg>
-                    </button>
-                    
-                    <script>
-                        function redirectWithDelay() {
-
-                            window.location.href = '../../dueño/html/loading.html';
-                        }
-                    </script>  
-
-                    <button class="rechazar">Rechazar</button>
-                </div>
-            </div> -->   
-
-</div>
-
-<!--
-<script>
-      const menuIcon = document.getElementById('menu-icon');
-  const buttonContainer = document.querySelector('.button-container');
-
-  // Alternar el menú al hacer clic en el ícono
-  menuIcon.addEventListener('click', function () {
-      buttonContainer.classList.toggle('show-menu');
-  });
-
-  // Cierra el menú si se hace clic fuera de él
-  document.addEventListener('click', function (event) {
-      if (!buttonContainer.contains(event.target) && !menuIcon.contains(event.target)) {
-          buttonContainer.classList.remove('show-menu');
+    document.addEventListener("click", function (e) {
+      if (e.target.classList.contains("aceptar")) {
+        const card = e.target.closest(".card");
+        moverACategoria(card, "Aceptados");
       }
-  });
-</script>
--->
+      if (e.target.classList.contains("rechazar")) {
+        const card = e.target.closest(".card");
+        moverACategoria(card, "Rechazados");
+      }
+    });
 
+    function moverACategoria(card, destinoId) {
+      const nuevoCard = card.cloneNode(true);
+      const info = nuevoCard.querySelector(".info");
 
-</main>
+      const aceptar = info.querySelector(".aceptar");
+      const rechazar = info.querySelector(".rechazar");
+      if (aceptar) aceptar.remove();
+      if (rechazar) rechazar.remove();
 
+      const estado = info.querySelector("p:last-of-type");
+      estado.innerText = destinoId === "Aceptados" ? "Estado: Aceptado" : "Estado: Rechazado";
 
-		<script
-			src="https://kit.fontawesome.com/81581fb069.js"
-			crossorigin="anonymous"
-			src=".."
-		></script>
+      document.getElementById(destinoId).appendChild(nuevoCard);
+      card.remove();
+    }
 
-         <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <script src="/general/js/cerrarsesion.js"></script>
-    <script src="/dueño/js/pedidos.js"></script>
-	</body>
+    function togglePopupLogout() {
+      const popup = document.getElementById("popup-container-logout");
+      const overlay = document.querySelector(".overlay-logout");
+      if (popup.style.display === "none" || !popup.style.display) {
+        popup.style.display = "block";
+        overlay.style.display = "block";
+      } else {
+        popup.style.display = "none";
+        overlay.style.display = "none";
+      }
+    }
+
+    function cerrarSesion() {
+      // Aquí podés agregar lógica real de cierre de sesión
+      alert("Sesión cerrada.");
+    }
+  </script>
+
+  <script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <script src="/general/js/cerrarsesion.js"></script>
+  <script src="/dueño/js/pedidos.js"></script>
+</body>
 </html>
