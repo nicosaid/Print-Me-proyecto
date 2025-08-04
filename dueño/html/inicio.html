@@ -60,8 +60,8 @@
 </div>
 
 
-      <div class="overlay-logout" onclick="togglePopupLogout()"></div>
-    </div>
+<div class="overlay-logout" onclick="togglePopupLogout()"></div>
+</div>
   </header>
 
   <main class="main-content">
@@ -69,8 +69,7 @@
       <h1 class="heading-1">Selecciona pedidos a rechazar o aceptar</h1>
 
       <div class="principaldiv">
-        <input class="input" placeholder="Buscar..." id="buscador" />
-        <button class="buscarenter" onclick="buscar()">Buscar</button>
+        <input class="input" placeholder="Buscar..." id="buscador" oninput="buscarPedidos()" />
 
         <div class="container-options">
           <span id="MostrarPendientes" onclick="mostrarPendientes()" class="active">Pendientes</span>
@@ -126,7 +125,7 @@
     </section>
   </main>
 
-  <!-- JS FUNCIONALIDAD -->
+  <!-- SCRIPTS -->
   <script>
     function mostrarPendientes() {
       document.getElementById("Pendientes").style.display = "block";
@@ -161,16 +160,41 @@
       const nuevoCard = card.cloneNode(true);
       const info = nuevoCard.querySelector(".info");
 
+      // Eliminar botones
       const aceptar = info.querySelector(".aceptar");
       const rechazar = info.querySelector(".rechazar");
       if (aceptar) aceptar.remove();
       if (rechazar) rechazar.remove();
 
+      // Cambiar estado
       const estado = info.querySelector("p:last-of-type");
       estado.innerText = destinoId === "Aceptados" ? "Estado: Aceptado" : "Estado: Rechazado";
 
       document.getElementById(destinoId).appendChild(nuevoCard);
       card.remove();
+    }
+
+    function buscarPedidos() {
+      const input = document.getElementById("buscador").value.toLowerCase();
+      const secciones = ["Pendientes", "Aceptados", "Rechazados"];
+      let seccionVisible = null;
+
+      for (const id of secciones) {
+        const seccion = document.getElementById(id);
+        if (seccion && seccion.style.display !== "none") {
+          seccionVisible = seccion;
+          break;
+        }
+      }
+
+      if (!seccionVisible) return;
+
+      const cards = seccionVisible.querySelectorAll(".card");
+
+      cards.forEach(card => {
+        const texto = card.innerText.toLowerCase();
+        card.style.display = texto.includes(input) ? "block" : "none";
+      });
     }
 
     function togglePopupLogout() {
@@ -186,7 +210,6 @@
     }
 
     function cerrarSesion() {
-      // Aquí podés agregar lógica real de cierre de sesión
       alert("Sesión cerrada.");
     }
   </script>
