@@ -1,219 +1,210 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrintMe</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../css/cotizador.css">
-    <link rel="stylesheet" href="../../general/css/topbar.css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrintMe</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../css/cotizador.css" />
+  <link rel="stylesheet" href="../../general/css/topbar.css" />
 
-
+  <!-- FAVICONS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../general/icon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../general/icon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../general/icon/favicon-16x16.png" />
+  <link rel="manifest" href="../../general/icon/site.webmanifest" />
 </head>
 
-
-<link rel="apple-touch-icon" sizes="180x180" href="../../general/icon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../general/icon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../general/icon/favicon-16x16.png">
-    <link rel="manifest" href="../../general/icon/site.webmanifest">
-
-
-
-
 <body>
-
-    <header>
-        <div clas s="card">
-            <div class="loader">
-              <p>PrintMe</p>
-              <div class="words">
-                <span class="word">1 Elegis</span>
-                <span class="word">2 Mandas</span>
-                <span class="word">3 Te imprimen</span>
-                <span class="word">4 Recibis</span>
-                <span class="word">1 Elegis</span>
-              </div>
-            </div>
-          </div>     
-          
-       
-
-        <div class="option-container">
-
-        
-        <a href="../html/cotizador.html" class="optioncoti" ><p>Cotizador</p></a>
-          <a href="../html/miperfilduenio.html" class="optionmiperf" ><p>Mi perfil</p></a>
-          <a href="../html/inicio.html" class="optionpedid" ><p>Pedidos</p></a>
-
-
-
-             
-
-
-
-<!-- Botón que abre el popup de cerrar sesión -->
-<button class="logout-button" onclick="togglePopupLogout()" >   <p>Cerrar Sesion</p>  </button>
-
-<!-- Contenedor del Popup de Cerrar Sesión -->
-<div class="popup-container-logout" id="popup-container-logout">
-    <h2>¿Estás seguro?</h2>
-    <!-- Contenedor de botones para alinearlos en una fila -->
-    <div class="button-container-logout">
-        <button id="cerrar-sesion-btn" class="popup-button-logout confirm-button-logout" onclick="cerrarSesion()">Sí, cerrar sesión</button>
-        <button class="popup-button-logout cancel-button-logout" onclick="togglePopupLogout()">Cancelar</button>
+  <header>
+    <div class="card">
+      <div class="loader">
+        <p>PrintMe</p>
+        <div class="words">
+          <span class="word">1 Elegís</span>
+          <span class="word">2 Mandás</span>
+          <span class="word">3 Te imprimen</span>
+          <span class="word">4 Recibís</span>
+          <span class="word">1 Elegís</span>
+        </div>
+      </div>
     </div>
-</div>
 
-<!-- Fondo Oscurecido para el popup de Cerrar Sesión -->
-<div class="overlay-logout" onclick="togglePopupLogout()"></div>
-</div>
+    <div class="option-container">
+      <a href="../html/cotizador.html" class="optioncoti"><p>Cotizador</p></a>
+      <a href="../html/miperfilduenio.html" class="optionmiperf"><p>Mi perfil</p></a>
+      <a href="../html/inicio.html" class="optionpedid"><p>Pedidos</p></a>
 
+      <!-- Botón que abre el popup de cerrar sesión -->
+      <button class="logout-button" onclick="togglePopupLogout()"><p>Cerrar sesión</p></button>
 
+      <!-- Popup Cerrar sesión -->
+      <div class="popup-container-logout" id="popup-container-logout">
+        <h2>¿Estás seguro?</h2>
+        <div class="button-container-logout">
+          <button id="cerrar-sesion-btn" class="popup-button-logout confirm-button-logout" onclick="cerrarSesion()">Sí, cerrar sesión</button>
+          <button class="popup-button-logout cancel-button-logout" onclick="togglePopupLogout()">Cancelar</button>
+        </div>
+      </div>
+      <div class="overlay-logout" onclick="togglePopupLogout()"></div>
+    </div>
+  </header>
 
+  <main>
+    <div class="profile-container">
+      <h1>Cotizador de Impresión 3D</h1>
+      <!--
+        Valores por defecto cargados con referencias reales en ARG (ago‑2025):
+        - Electricidad: ~$100–$350 ARS/kWh según segmento. Usamos 200 ARS/kWh como valor medio editable.
+        - Filamento PLA 1 kg: $12.000–$30.000 ARS. Usamos 25.000 ARS por defecto.
+        - Consumo impresora: 120 W promedio (Ender/Prusa chico). Editable.
+        - Horas de impresión: 4 h por defecto para ejemplo.
+        - Mantenimiento: 1000 ARS/h (boquillas, correas, limpieza). Editable.
+        - Margen de ganancia: 25%.
+      -->
+      <form onsubmit="return false;">
+        <!-- Costo de electricidad -->
+        <div class="field-container">
+          <div class="input-group">
+            <label for="costoElectricidad" class="label">Costo de electricidad (por kWh)</label>
+            <div class="input-wrapper">
+              <input type="number" id="costoElectricidad" step="0.01" value="200" placeholder="Ej.: 200" required />
+            </div>
+          </div>
+        </div>
 
-<script>
-    // Función para mostrar y ocultar el popup específico de cerrar sesión
+        <!-- Costo de filamento -->
+        <div class="field-container">
+          <div class="input-group">
+            <label for="costoFilamento" class="label">Costo de filamento (por kg)</label>
+            <div class="input-wrapper">
+              <input type="number" id="costoFilamento" step="0.01" value="25000" placeholder="Ej.: 25000" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- Gramos de filamento usados -->
+        <div class="field-container">
+          <div class="input-group">
+            <label for="gramos" class="label">Gramos de filamento usados</label>
+            <div class="input-wrapper">
+              <input type="number" id="gramos" step="0.01" placeholder="Ej.: 80" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- Consumo promedio impresora (W) -->
+        <div class="field-container">
+          <div class="input-group">
+            <label for="consumoW" class="label">Consumo promedio de la impresora (W)</label>
+            <div class="input-wrapper">
+              <input type="number" id="consumoW" step="1" value="120" placeholder="Ej.: 120" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- Horas de impresión -->
+        <div class="field-container">
+          <div class="input-group">
+            <label for="horas" class="label">Horas de impresión</label>
+            <div class="input-wrapper">
+              <input type="number" id="horas" step="0.1" value="4" placeholder="Ej.: 4" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- Mantenimiento por hora -->
+        <div class="field-container">
+          <div class="input-group">
+            <label for="mantenimientoHora" class="label">Costo de mantenimiento (por hora)</label>
+            <div class="input-wrapper">
+              <input type="number" id="mantenimientoHora" step="0.01" value="1000" placeholder="Ej.: 1000" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- Margen de ganancia (%) -->
+        <div class="field-container">
+          <div class="input-group">
+            <label for="margen" class="label">Margen de ganancia (%)</label>
+            <div class="input-wrapper">
+              <input type="number" id="margen" step="1" value="25" placeholder="Ej.: 25" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- Botón de cotización -->
+        <button type="button" class="btnazul" onclick="calcularCotizacion()">Cotizar impresión</button>
+      </form>
+    </div>
+
+    <!-- Popup de Cotización -->
+    <div class="cotizacion-popup" id="cotizacion-popup">
+      <h2 class="titpopup">Cotización realizada</h2>
+      <p id="cotizacionResultado">Precio total: $</p>
+      <div id="detalleResultado" class="detalle"></div>
+<br> 
+      <button class="btnazul" onclick="togglePopup()">Cerrar</button>
+    </div>
+    <div class="overlay" onclick="togglePopup()"></div>
+  </main>
+
+  <script>
+    // Mostrar/ocultar popup Cerrar sesión
     function togglePopupLogout() {
-        const popup = document.getElementById("popup-container-logout");
-        const overlay = document.querySelector(".overlay-logout");
-
-        if (popup.style.display === "none" || !popup.style.display) {
-            popup.style.display = "block";
-            overlay.style.display = "block";
-        } else {
-            popup.style.display = "none";
-            overlay.style.display = "none";
-        }
+      const popup = document.getElementById("popup-container-logout");
+      const overlay = document.querySelector(".overlay-logout");
+      const isHidden = popup.style.display === "none" || !popup.style.display;
+      popup.style.display = isHidden ? "block" : "none";
+      overlay.style.display = isHidden ? "block" : "none";
     }
-</script>
 
+    // Función principal de cotización (con precios reales por defecto)
+    function calcularCotizacion() {
+      // Entradas
+      const costoElectricidad = parseFloat(document.getElementById("costoElectricidad").value) || 0; // $/kWh
+      const costoFilamento = parseFloat(document.getElementById("costoFilamento").value) || 0; // $/kg
+      const gramos = parseFloat(document.getElementById("gramos").value) || 0; // g
+      const consumoW = parseFloat(document.getElementById("consumoW").value) || 0; // W
+      const horas = parseFloat(document.getElementById("horas").value) || 0; // h
+      const mantenimientoHora = parseFloat(document.getElementById("mantenimientoHora").value) || 0; // $/h
+      const margen = parseFloat(document.getElementById("margen").value) || 0; // %
 
-            </ul>
-           </nav>
-    </header>
+      // Cálculos
+      const costoFilamentoUtilizado = (costoFilamento / 1000) * gramos; // $
+      const consumoKWh = (consumoW / 1000) * horas; // kWh
+      const costoElectricidadUtilizada = consumoKWh * costoElectricidad; // $
+      const costoMantenimiento = mantenimientoHora * horas; // $
 
-    <main>
-        <div class="profile-container">
-            <h1>Cotizador de Impresión 3D</h1>
-            <form>
-                <!-- Costo de electricidad -->
-                <div class="field-container">
-                    <div class="input-group">
-                        <label for="costoElectricidad" class="label">Costo de electricidad (por hora)</label>
-                        <div class="input-wrapper">
-                            <input type="number" id="costoElectricidad" placeholder="Ingrese costo de electricidad" required>
-                        </div>
-                    </div>
-                </div>
+      const costoBase = costoFilamentoUtilizado + costoElectricidadUtilizada + costoMantenimiento; // $
+      const precioFinal = costoBase * (1 + margen / 100); // $
 
-                <!-- Costo de filamento -->
-                <div class="field-container">
-                    <div class="input-group">
-                        <label for="costoFilamento" class="label">Costo de filamento (por kg)</label>
-                        <div class="input-wrapper">
-                            <input type="number" id="costoFilamento" placeholder="Ingrese costo de filamento" required>
-                        </div>
-                    </div>
-                </div>  
+      // Salida
+      const detalle = `
+        <ul>
+          <li><strong>Material:</strong> $${costoFilamentoUtilizado.toFixed(2)}</li>
+          <li><strong>Electricidad (${consumoKWh.toFixed(2)} kWh):</strong> $${costoElectricidadUtilizada.toFixed(2)}</li>
+          <li><strong>Mantenimiento (${horas.toFixed(1)} h):</strong> $${costoMantenimiento.toFixed(2)}</li>
+          <li><strong>Costo base:</strong> $${costoBase.toFixed(2)}</li>
+          <li><strong>Margen (${margen}%):</strong> $${(precioFinal - costoBase).toFixed(2)}</li>
+        </ul>`;
 
-                <!-- Gramos de filamento usados -->
-                <div class="field-container">
-                    <div class="input-group">
-                        <label for="gramos" class="label">Gramos de filamento usados</label>
-                        <div class="input-wrapper">
-                            <input type="number" id="gramos" placeholder="Ingrese gramos de filamento" required>
-                        </div>
-                    </div>
-                </div> 
+      document.getElementById("cotizacionResultado").innerText = `Precio total: $${precioFinal.toFixed(2)}`;
+      document.getElementById("detalleResultado").innerHTML = detalle;
+      togglePopup();
+    }
 
-                <!-- Botón de cotización -->
-                <button type="button" class="btnazul" onclick="calcularCotizacion()">Cotizar Impresión</button>
-            </form>
-        </div>
+    // Mostrar/ocultar popup de resultado
+    function togglePopup() {
+      const popup = document.getElementById("cotizacion-popup");
+      const overlay = document.querySelector(".overlay");
+      const isHidden = popup.style.display === "none" || !popup.style.display;
+      popup.style.display = isHidden ? "block" : "none";
+      overlay.style.display = isHidden ? "block" : "none";
+    }
+  </script>
 
-        <!-- Popup de Cotización -->
-        <div class="cotizacion-popup" id="cotizacion-popup">
-            <h2 class="titpopup">Cotización Realizada</h2>
-            <p id="cotizacionResultado">Precio total: $</p>
-            <button class="btnazul" onclick="togglePopup()">Cerrar</button>
-        </div>
-        <div class="overlay" onclick="togglePopup()"></div>
-    </main>
-
-    <script>
-     
-
-
-
-
-// Función para calcular la cotización
-function calcularCotizacion() {
-    // Obtener valores de entrada
-    const costoElectricidad = parseFloat(document.getElementById("costoElectricidad").value) || 0; // Costo eléctrico por hora
-    const costoFilamento = parseFloat(document.getElementById("costoFilamento").value) || 0; // Costo del filamento por kg
-    const gramos = parseFloat(document.getElementById("gramos").value) || 0; // Cantidad de filamento en gramos
-
-    // Parámetros internos (estimaciones realistas)
-    const consumoEnergiaPorHora = 0.1; // kWh (consumo promedio de una impresora 3D)
-    const costoMantenimientoPorHora = 5; // Costo estimado de mantenimiento por hora
-    const margenGanancia = 20; // Margen de ganancia en porcentaje
-    const densidadFilamento = 1.24; // g/cm³ (densidad promedio para PLA o ABS)
-
-    // Calcular el costo de filamento utilizado
-    const costoFilamentoUtilizado = (costoFilamento / 1000) * gramos; // Costo del filamento en gramos
-
-    // Estimación del volumen de filamento utilizado en cm³
-    const volumenFilamento = gramos / densidadFilamento; // Volumen en cm³ basado en gramos
-
-    // Estimar el costo eléctrico según el consumo promedio por hora
-    const costoElectricidadUtilizada = costoElectricidad * consumoEnergiaPorHora * volumenFilamento; // Costo eléctrico
-
-    // Cálculo del costo de mantenimiento
-    const costoMantenimiento = volumenFilamento * costoMantenimientoPorHora; // Costo de mantenimiento
-
-    // Costo base (sin margen de ganancia)
-    const costoBase = costoFilamentoUtilizado + costoElectricidadUtilizada + costoMantenimiento;
-
-    // Precio final con margen de ganancia
-    const precioFinal = costoBase * (1 + margenGanancia / 100);
-
-    // Mostrar el resultado en el popup
-    document.getElementById("cotizacionResultado").innerText = `Precio total: $${precioFinal.toFixed(2)}`;
-    togglePopup();
-}
-
-
-
-
-
-        // Función para mostrar y ocultar el popup
-        function togglePopup() {
-            const popup = document.getElementById("cotizacion-popup");
-            const overlay = document.querySelector(".overlay");
-
-            if (popup.style.display === "none" || !popup.style.display) {
-                popup.style.display = "block";
-                overlay.style.display = "block";
-            } else {
-                popup.style.display = "none";
-                overlay.style.display = "none";
-            }
-        }
-    </script>
   <script src="/general/js/cerrarsesion.js"></script>
-  
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

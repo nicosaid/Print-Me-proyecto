@@ -107,6 +107,14 @@
               </div>
             </div>
 
+            <script>
+    // Login "falso": al enviar el form redirige a inicio.html
+    document.getElementById('login-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      window.location.href = 'inicio.html'; // Cambiá la ruta si está en otra carpeta (ej: '../inicio.html' o '../../inicio.html')
+    });
+  </script>
+
           <button type="submit">Registrarme</button>
         </div>
 

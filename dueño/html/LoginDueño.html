@@ -1,52 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrintMe</title>
-    <link rel="stylesheet" href="../../general/css/sesion.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="../../general/icon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../general/icon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../general/icon/favicon-16x16.png">
-    <link rel="manifest" href="../../general/icon/site.webmanifest">
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PrintMe — Iniciar sesión</title>
+
+  <link rel="stylesheet" href="../css/pantallaregistro.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../../general/icon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../general/icon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../general/icon/favicon-16x16.png" />
+  <link rel="manifest" href="../../general/icon/site.webmanifest" />
 </head>
+
 <body>
-    <canvas id="starCanvas"></canvas> <!-- Colocar el canvas aquí para que esté al fondo -->
+  <canvas id="starCanvas"></canvas>
 
-    <!-- Logo en la esquina superior derecha -->
+  <main>
     <div class="logo-container">
-        <img src="/general/fotos/logo.png" alt="Logo con Nombre">
+      <img class="logo" src="../../general/fotos/logo.png" alt="logo" />
     </div>
 
-    <canvas id="starCanvas"></canvas>
-    <script src="/general/js/fondo.js"></script>
-    <div class="login-container">
-        <form class="login-form" id="login-form">
-            <h1>LOG IN</h1>
-            <p>Welcome Back!</p>
+    <div class="registro-form">
+      <form id="login-form" class="registro-form" novalidate>
+        <h1>Iniciar sesión</h1>
+        <p>¡Bienvenido!</p>
 
-            <!-- Campo del correo electrónico -->
-            <div class="input-box">
-                <input type="email" placeholder="example@mail.com" id="mail" required>
-                <div class="error"></div>
-            </div>
+        <div class="scrollable-container">
+          <div class="input-box">
+            <input type="text" id="usuario_o_mail" placeholder="Email o usuario..." autofocus />
+            <div class="error"></div>
+          </div>
 
-            <!-- Campo de la contraseña -->
-            <div class="input-box">
-                <input type="password" placeholder="Contraseña..." id="contraseña" required>
-                <div class="error"></div>
-            </div>
+          <div class="input-box">
+            <input type="password" id="contraseña" placeholder="Contraseña..." />
+            <div class="error"></div>
+          </div>
 
-            <!-- Botón de inicio de sesión -->
-            <button type="submit">LOG-IN</button>
-
-            <!-- Opción para registrarse -->
-            <p>¿Aún no tienes cuenta? <a href="/general/html/elegiRol.html">Haz Click Aquí</a></p>
-        </form>
+          <button type="submit">Iniciar sesión</button>
+        </div>
+      </form>
     </div>
-    <script src="/dueño/js/LoginDueño.js"></script>
-</body> 
+  </main>
+
+  <script>
+    // Login "falso": al enviar el form redirige a inicio.html
+    document.getElementById('login-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      window.location.href = 'inicio.html'; // Cambiá la ruta si está en otra carpeta (ej: '../inicio.html' o '../../inicio.html')
+    });
+  </script>
+
+  <script src="../../general/js/fondo.js"></script>
+</body>
 </html>
